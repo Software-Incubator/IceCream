@@ -2,4 +2,39 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-# Create your models here.
+
+class Designation(models.Model):
+    name = models.CharField(max_length=225, unique=True, null=False,
+                            blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Designations"
+
+
+class Technology(models.Model):
+    name = models.CharField(max_length=225, unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Technologies"
+
+
+class Member(models.Model):
+    name = models.CharField(max_length=225, null=False, blank=False)
+    designation = models.ForeignKey(to=Designation, null=True)
+    technology = models.ManyToManyField(to=Technology, null=True)
+    presently_at = models.CharField(max_length=225, null=False, blank=True)
+    is_alumni = models.BooleanField(default=False)
+    batch = models.IntegerField(null=False)
+
+    def __str__(self):
+        return self.name + " | " + str(
+            self.batch) + " | " + self.designation.name
+
+    class Meta:
+        verbose_name_plural = "Members"
