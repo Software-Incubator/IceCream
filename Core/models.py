@@ -38,3 +38,15 @@ class Member(models.Model):
 
     class Meta:
         verbose_name_plural = "Members"
+
+
+class Project(models.Model):
+    name = models.CharField(max_length=225, null=False, blank=False)
+    description = models.CharField(max_length=225, null=False, blank=False)
+    completion_year = models.IntegerField(null=True, default=None)
+
+    def __str__(self):
+        return self.name + str(self.completion_year)
+
+    class Meta:
+        verbose_name_plural = "Projects"
