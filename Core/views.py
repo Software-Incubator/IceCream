@@ -47,6 +47,6 @@ class IndexView(TemplateView):
 
         context['projects'] = project_lists
         context['members'] = members_lists
-        context['alumni'] = nested_alumni_lists
+        context['alumni'] = alumni
 
         return context

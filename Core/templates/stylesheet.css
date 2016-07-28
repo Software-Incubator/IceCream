@@ -887,10 +887,8 @@ font-family: 'Roboto', sans-serif;*/
     border:none;
     margin: 3px 1px;
   }
-  .btn-primary:hover {
-    color: #fff;
-    background-color: #1eb1f2;
-    border-color: #1eb2f3;
+  .u-btn a{
+      color: #fff;
   }
   /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
