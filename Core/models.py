@@ -31,6 +31,7 @@ class Member(models.Model):
     presently_at = models.CharField(max_length=225, null=False, blank=True)
     is_alumni = models.BooleanField(default=False)
     batch = models.IntegerField(null=False)
+    pic_path = models.CharField(max_length=225, null=True, default=None)
 
     def __str__(self):
         return self.name + " | " + str(
