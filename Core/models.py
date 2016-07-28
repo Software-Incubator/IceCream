@@ -1,7 +1,16 @@
 from __future__ import unicode_literals
-
 from django.db import models
 
+
+class ContactForm(models.Model):
+    name = models.CharField(max_length=255,)
+    contact = models.IntegerField(max_length=15,)
+    email = models.EmailField(max_length=50, )
+    subject = models.CharField(max_length=255)
+    message = models.CharField(max_length=500)
+
+    def __str__(self):
+        return "{}".format(self.name)
 
 class Designation(models.Model):
     name = models.CharField(max_length=225, unique=True, null=False,

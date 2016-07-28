@@ -565,24 +565,25 @@
                             Us</h4>
                     </div>
                     <div class="modal-body contact-modal">
-                        <form>
+                        <form method="POST" action="/form/">
+                            {% csrf_token %}
                             <fieldset class="form-group">
                                 <label for="exampleInputname1">Name</label>
-                                <input type="text" class="form-control"
+                                <input type="text" name="name" class="form-control"
                                        id="exampleInputName1"
                                        placeholder="Enter Name">
                             </fieldset>
                             <fieldset class="form-group">
                                 <label for="exampleInputcontact1">Contact
                                     Number</label>
-                                <input type="number" class="form-control"
+                                <input type="number" name="number" class="form-control"
                                        id="exampleInputcontact1"
                                        placeholder="Enter Contact">
                             </fieldset>
                             <fieldset class="form-group">
                                 <label for="exampleInputEmail1">Email
                                     address</label>
-                                <input type="email" class="form-control"
+                                <input type="email" name="email" class="form-control"
                                        id="exampleInputEmail1"
                                        placeholder="Enter Email">
                                 <small class="text-muted">We'll never share your
@@ -591,26 +592,26 @@
                             </fieldset>
                             <fieldset class="form-group">
                                 <label for="exampleInputsub1">Subject</label>
-                                <input type="text" class="form-control"
+                                <input type="text" name="email" class="form-control"
                                        id="exampleInputsub1"
                                        placeholder="Enter Subject">
                             </fieldset>
                             <fieldset class="form-group">
                                 <label for="examplemessage">Message</label>
-                                <textarea class="form-control" id="message"
+                                <textarea class="form-control" name="message" id="message"
                                           rows="5"></textarea>
                             </fieldset>
 
-                            <fieldset class="form-group">
-                                <label for="exampleInputFile">Any
-                                    Attachment</label>
-                                <input type="file" class="form-control-file"
-                                       id="exampleInputFile">
-                                <small class="text-muted">Make sure that the
-                                    attachment you are attaching should be
-                                    smaller than 25MB.
-                                </small>
-                            </fieldset>
+{#                            <fieldset class="form-group">#}
+{#                                <label for="exampleInputFile">Any#}
+{#                                    Attachment</label>#}
+{#                                <input type="file" class="form-control-file"#}
+{#                                       id="exampleInputFile">#}
+{#                                <small class="text-muted">Make sure that the#}
+{#                                    attachment you are attaching should be#}
+{#                                    smaller than 25MB.#}
+{#                                </small>#}
+{#                            </fieldset>#}
                             <button type="submit" class="btn button fill">
                                 Submit
                             </button>
