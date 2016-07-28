@@ -1,0 +1,176 @@
+/*Service Icon Layout*/
+.col-user-1by8{
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+@media (max-width: 768px){/*Mobile View*/
+	.col-user-1by8{
+		float: left;
+		width: 20%
+	}
+}
+@media (min-width: 768px){/*Desktop View*/
+	.col-user-1by8{
+		float: left;
+		width: 12.5%
+	}
+}
+/*About Us Ingographics*/
+.col-user-1by7{
+	min-height: 1px;
+}
+@media (max-width: 768px){
+	.col-user-1by7{
+		float: left;
+		width: 14.2856%
+	}
+}
+@media (min-width: 768px){
+	.col-user-1by7{
+		float: left;
+		width: 14.2856%
+	}
+}
+.col-user-1by1{
+	position: relative;
+	min-height: 1px;
+}
+@media (max-width: 768px){
+	.col-user-1by1{
+		float: left;
+		width: 100%
+	}
+}
+@media (min-width: 768px){
+	.col-user-1by1{
+		float: left;
+		width: 100%
+	}
+}
+.col-user-1by12{
+	position: relative;
+	min-height: 1px;
+	padding: 0px;/*For Alumini Section*/
+}
+.col-user-1by12{
+	z-index: 999;
+}
+@media (max-width: 768px){
+	.col-user-1by12{
+		float: left;
+		width: 8.33%;
+	}
+}
+@media (min-width: 768px){
+	.col-user-1by12{
+		float: left;
+		width: 8.33%
+	}
+}
+.container-user{
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:0px; 
+  padding-right:0px;
+}
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx			
+.paddding-zero{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.margin-zero{
+	margin: 0px;
+}
+.user-container {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .user-container {
+    width: 76%;
+  }
+}
+.user-col-sm-2{
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+@media (max-width: 768px){
+	.user-col-sm-2{
+		float: left;
+		width: 16.666666666%
+	}
+}
+@media (min-width: 768px){
+	.user-col-sm-2{
+		float: left;
+		width: 16.666666666%
+	}
+}
+.user-col-sm-80per{
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+@media (max-width: 768px){
+	.user-col-sm-80per{
+		float: left;
+		width: 12.444%
+	}
+}
+@media (min-width: 768px){
+	.user-col-sm-80per{
+		float: left;
+		width: 12.444%
+	}
+}
+.col-team-7{
+	position: relative;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 14.285714%;
+	float: left;
+}
+@media (max-width: 1200px){
+	.col-team-7{
+		float: left;
+		width: 16.666665%;/*Breakoint at 1200*/
+	}
+}
+@media (max-width: 991px){
+	.col-team-7{
+		float: left;
+		width: 25%;/*Breakpoint at 991*/
+	}
+}
+@media (max-width: 768px){
+	.col-team-7{
+		float: left;
+		width: 33.33333332%;/*Breakpoint at 768*/
+	}
+}
+@media (max-width: 441px){
+	.col-team-7{
+		float: left;
+		width: 50%;/*Breakpoint at 441*/
+	}
+}
+@media (max-width: 299px){
+	.col-team-7{
+		float: left;
+		width: 70%;/*Breakpoint at 299*/
+	}
+}
+.col-sm-3-all {
+	position: relative;
+ 	min-height: 1px;
+ 	padding:2px;
+ 	float: left;
+ 	width: 33.33%;	
+}
