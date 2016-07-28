@@ -452,7 +452,7 @@ font-family: 'Roboto', sans-serif;*/
   }
   .swiper2{
     font-size: 20px; 
-    margin: -10px 0px -100px 0px;
+    margin: 0px 0px;
   }
   .swiper2 p{
     font-size: 30px;
@@ -576,12 +576,17 @@ font-family: 'Roboto', sans-serif;*/
 }
 
 /*---------------------------------------------------------------*/
+@media (min-width: 768px){
+.modal-dialog {
+    width: 600px;
+    margin: 0px auto;
+}
+}
 .modal-content {
   padding: 10px 0;
   color: #000;
   min-height: 100%;
   border: 0;
-  margin: 30px auto;
   border-radius: 0;
   text-align: center;
 }
@@ -1222,7 +1227,7 @@ font-family: 'Roboto', sans-serif;*/
 /*Swiper*/
 
 .swiper-container {
-  width: 90%;
+  width: 100%;
   height: auto;
   margin: 20px auto;
 }
