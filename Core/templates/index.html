@@ -23,7 +23,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
 
     <!--Google Map-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTPWN__X_moAy4Nty0TgEJKMkynbw-n6U&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTPWN__X_moAy4Nty0TgEJKMkynbw-n6U&callback=initMap"
+            async defer></script>
 
     <!-- Google FOnt -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,400,900" rel="stylesheet">
@@ -44,20 +45,72 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
     <link href="{% static 'smart.scss'%}" rel="stylesheet/scss" type="text/css">
 
-
-
-
-
     <style>
 
-	</style>
+        	/* code for animated blinking cursor */
+		.coming-soon{
+			font-size: 80px;
+			margin-top: 200px;
+		}
+		.modal-content{
+			margin: 0px;
+		}
+		@media (min-width: 768px){
+		.modal-dialog {
+		    width: 600px;
+		    margin: 0px auto;
+		}
+		.typed-cursor{
+			opacity: 1;
+			font-weight: 100;
+			-webkit-animation: blink 0.7s infinite;
+			-moz-animation: blink 0.7s infinite;
+			-ms-animation: blink 0.7s infinite;
+			-o-animation: blink 0.7s infinite;
+			animation: blink 0.7s infinite;
+		}
+		@-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-webkit-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-moz-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-ms-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-o-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+
+
+
+
+
+
+
+
+
+    </style>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 
 <!-- ================================================================================================== Loader -->
 
- <div class="se-pre-con"></div>
+<div class="se-pre-con"></div>
 
 <!-- ================================================================================================== Wrapper -->
 
@@ -118,8 +171,8 @@
         <div class="fluid-container">
             <div class="container1">
                 <div class="registration_trigger hvr-buzz">
-    register here!
-</div>
+                    register here!
+                </div>
                 <!-- <div class="circular size1"></div> -->
                 <div class="col-xs-12 hvr-bounce-in circular size7" id="circle7">
                     <div class="hvr-bounce-in circular size6" id="circle6">
@@ -145,7 +198,7 @@
     <!-- ============================================================================================== Services  -->
     <div class="container">
         <div class="typedjs">
-        <div class="believe">We believe in&nbsp;&nbsp;</div>
+            <div class="believe">We believe in&nbsp;&nbsp;</div>
 
             <div class="type-wrap">
                 <div id="typed-strings">
@@ -158,77 +211,39 @@
                 <span id="typed" style="white-space:pre;"></span>
             </div>
         </div>
-        </div>
     </div>
-    <!-- ============================================================================================== Services  -->
-    <section class="services" id="nav2">
-        <!-- Desktop Development -->
-        <div class="fluid-container">
-            <div class="container" id="desktop-padding">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <!-- Desktop Image -->
-                        <img src="{% static 'images/Service_desk.png' %}"
-                             class="img-responsive pull-right"
-                             style="padding-top: 10px; width: 375px; height: auto;">
-                    </div>
-                    <div class="col-sm-6">
-                        <div style="padding: 20px;">
-                            <!-- Desktop Content -->
-                            <h3 class="service-head">Desktop Application
-                                Development</h3>
-                            <p class="service-text hidden-xs">We have developers
-                                who are solely developing desktop applications
-                                and high end software products. We develop
-                                highly user interactive applications for
-                                industry as well as for personal use. We work on
-                                technologies that include high performance and
-                                minimize the system requirements.</p>
-                            <p class="service-tag"></p>
-                            <div class="col-sm-12" style="padding: 0px;">
-                                <!-- DesktopTechnology Icon -->
-                                <div class="col-user-1by8 service-icon-pad">
-                                    <img src="{% static 'images/placeholder_image.jpg' %}"
-                                         class="img-responsive" alt="tech_name">
-                                </div>
-                                <div class="col-user-1by8 service-icon-pad">
-                                    <img src="{% static 'images/placeholder_image.jpg' %}"
-                                         class="img-responsive" alt="tech_name">
-                                </div>
-                                <div class="col-user-1by8 service-icon-pad">
-                                    <img src="{% static 'images/placeholder_image.jpg' %}"
-                                         class="img-responsive" alt="tech_name">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+</div>
+<!-- ============================================================================================== Services  -->
+<!-- Error -->
+<div class="error" id="nav2"></div>
+
+
+<section class="services">
+    <!-- Desktop Development -->
+    <div class="fluid-container">
+        <div class="container" id="desktop-padding">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- Desktop Image -->
+                    <img src="{% static 'images/Service_desk.png' %}"
+                         class="img-responsive pull-right"
+                         style="padding-top: 10px; width: 375px; height: auto;">
                 </div>
-            </div>
-        </div>
-        <!-- Mobile Application Development -->
-        <div class="fluid-container">
-            <div class="container" id="mobile-padding">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-push-6">
-                        <!-- Mobile Image -->
-                        <img src="{% static 'images/Service_mob.png' %}"
-                             class="img-responsive pull-left"
-                             style="width: 375px; height: auto;">
-                    </div>
-                    <div class="col-sm-6 col-sm-pull-6">
-                        <!-- Mobile Content -->
-                        <h4 class="service-head">Mobile Application
-                            Development</h4>
-                        <p class="service-text hidden-xs">We realize that the
-                            world is changing it's trends from typewriter to
-                            keyboard and now from click to touch. Hence, we here
-                            at Software Incubator develop mobile as well as
-                            tablet apps. The apps we make are for Android, iOS
-                            and Windows Devices. Today in the market and even
-                            tomorrow, our apps never die.</p>
+                <div class="col-sm-6">
+                    <div style="padding: 20px;">
+                        <!-- Desktop Content -->
+                        <h3 class="service-head">Desktop Application
+                            Development</h3>
+                        <p class="service-text hidden-xs">We have developers
+                            who are solely developing desktop applications
+                            and high end software products. We develop
+                            highly user interactive applications for
+                            industry as well as for personal use. We work on
+                            technologies that include high performance and
+                            minimize the system requirements.</p>
                         <p class="service-tag"></p>
                         <div class="col-sm-12" style="padding: 0px;">
-                            <!-- Mobile Technology Icon -->
+                            <!-- DesktopTechnology Icon -->
                             <div class="col-user-1by8 service-icon-pad">
                                 <img src="{% static 'images/placeholder_image.jpg' %}"
                                      class="img-responsive" alt="tech_name">
@@ -246,367 +261,459 @@
                 </div>
             </div>
         </div>
-        <!-- Website Development -->
-        <div class="fluid-container">
-            <div class="container" id="web-padding">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <!-- Website Image -->
-                        <img src="{% static 'images/Service_lap.png' %}"
-                             class="img-responsive pull-right">
-                    </div>
-                    <div class=" col-sm-6">
-                        <!-- Website Content -->
-                        <h3 class="service-head">Website Development</h3>
-                        <p class="service-text hidden-xs">We offer great
-                            Websites and Web applications, understanding the
-                            clients' needs and requirements. We deliver the
-                            projects built on the latest technologies in the
-                            market-place at most diminishing costs. We give a
-                            larger hand to the latest trends of website
-                            development, especially SEO. The websites we provide
-                            are fully secure and give support to data security
-                            and integrity.</p>
-                        <p class="service-tag"></p>
-                        <div class="col-xs-12 " style="padding: 0px;">
-                            <!-- Website Technology Icon -->
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/placeholder_image.jpg' %}"
-                                     class="img-responsive" alt="tech_name">
-                            </div>
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/placeholder_image.jpg' %}"
-                                     class="img-responsive" alt="tech_name">
-                            </div>
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/placeholder_image.jpg' %}"
-                                     class="img-responsive" alt="tech_name">
-                            </div>
+    </div>
+    <!-- Mobile Application Development -->
+    <div class="fluid-container">
+        <div class="container" id="mobile-padding">
+            <div class="row">
+                <div class="col-sm-6 col-sm-push-6">
+                    <!-- Mobile Image -->
+                    <img src="{% static 'images/Service_mob.png' %}"
+                         class="img-responsive pull-left"
+                         style="width: 375px; height: auto;">
+                </div>
+                <div class="col-sm-6 col-sm-pull-6">
+                    <!-- Mobile Content -->
+                    <h4 class="service-head">Mobile Application
+                        Development</h4>
+                    <p class="service-text hidden-xs">We realize that the
+                        world is changing it's trends from typewriter to
+                        keyboard and now from click to touch. Hence, we here
+                        at Software Incubator develop mobile as well as
+                        tablet apps. The apps we make are for Android, iOS
+                        and Windows Devices. Today in the market and even
+                        tomorrow, our apps never die.</p>
+                    <p class="service-tag"></p>
+                    <div class="col-sm-12" style="padding: 0px;">
+                        <!-- Mobile Technology Icon -->
+                        <div class="col-user-1by8 service-icon-pad">
+                            <img src="{% static 'images/placeholder_image.jpg' %}"
+                                 class="img-responsive" alt="tech_name">
+                        </div>
+                        <div class="col-user-1by8 service-icon-pad">
+                            <img src="{% static 'images/placeholder_image.jpg' %}"
+                                 class="img-responsive" alt="tech_name">
+                        </div>
+                        <div class="col-user-1by8 service-icon-pad">
+                            <img src="{% static 'images/placeholder_image.jpg' %}"
+                                 class="img-responsive" alt="tech_name">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Error -->
-    <div class="error" id="nav3"></div>
-
-    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Portfolio  -->
-
-    <section class="portfolio">
-        <!-- Section Head -->
-        <div class="container-fluid section-head">
-            <h1 style="">PORTFOLIO</h1>
-            <h6 style="">OUR CREATIONS</h6>
-        </div>
-
-        <!-- >>>>>>> Experiment Lab START <<<<<<<<< -->
-        <div class="container-fluid exp-lab">
-
-            <div class="row spacerx1">
-                <div class="col-xs-12 col-sm-4 port_buttons">
-                    <button type="button" data-toggle="modal"
-                            data-target="#expModel" class="btn button fill"> SI
-                        Experiments
-                    </button>
-                    </a>
+    </div>
+    <!-- Website Development -->
+    <div class="fluid-container">
+        <div class="container" id="web-padding">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- Website Image -->
+                    <img src="{% static 'images/Service_lap.png' %}"
+                         class="img-responsive pull-right">
                 </div>
-
-                <div class="col-xs-12 col-sm-4 port_buttons">
-                    <button type="button" data-toggle="modal"
-                            data-target="#myModal" class="btn button fill">
-                        Portfolio
-                    </button>
-                    </a>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 port_buttons">
-                    <button type="button" class="btn button fill"> Our Blogs
-                    </button>
-                    </a>
+                <div class=" col-sm-6">
+                    <!-- Website Content -->
+                    <h3 class="service-head">Website Development</h3>
+                    <p class="service-text hidden-xs">We offer great
+                        Websites and Web applications, understanding the
+                        clients' needs and requirements. We deliver the
+                        projects built on the latest technologies in the
+                        market-place at most diminishing costs. We give a
+                        larger hand to the latest trends of website
+                        development, especially SEO. The websites we provide
+                        are fully secure and give support to data security
+                        and integrity.</p>
+                    <p class="service-tag"></p>
+                    <div class="col-xs-12 " style="padding: 0px;">
+                        <!-- Website Technology Icon -->
+                        <div class="col-user-1by8 service-icon-pad">
+                            <img src="{% static 'images/placeholder_image.jpg' %}"
+                                 class="img-responsive" alt="tech_name">
+                        </div>
+                        <div class="col-user-1by8 service-icon-pad">
+                            <img src="{% static 'images/placeholder_image.jpg' %}"
+                                 class="img-responsive" alt="tech_name">
+                        </div>
+                        <div class="col-user-1by8 service-icon-pad">
+                            <img src="{% static 'images/placeholder_image.jpg' %}"
+                                 class="img-responsive" alt="tech_name">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- modal for portfolio -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog portfolio_modal" role="document"
-                 style="width: 1155px;">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">Portfolio</h4>
-                    </div>
-                    <div class="modal-body">
-                        {% for pro_row in projects %}
-                        <div class="row spacerx">
-                            {% for pro in pro_row %}
-                            <div class="col-sm-4">
-                                <div class="wrap">
-                                    <ul class="demo-2 effect">
-                                        <li style="list-style: none;">
-                                            <h2 class="zero">{{ pro.name }}</h2>
-                                            <p class="zero">{{ pro.description }}</p>
-                                        </li>
-                                        <li><img class="top"
-                                                 src="{{ pro.image_path.url }}"
-                                                 alt=""/></li>
-                                    </ul>
-                                </div>
+<!-- Error -->
+<div class="error" id="nav3"></div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Portfolio  -->
+
+<section class="portfolio">
+    <!-- Section Head -->
+    <div class="container-fluid section-head">
+        <h1 style="">PORTFOLIO</h1>
+        <h6 style="">OUR CREATIONS</h6>
+    </div>
+
+    <!-- >>>>>>> Experiment Lab START <<<<<<<<< -->
+    <div class="container-fluid exp-lab">
+
+        <div class="row spacerx1">
+            <div class="col-xs-12 col-sm-4 port_buttons">
+                <button class="btn button fill" type="button" data-target="#comingsoon" data-toggle="modal">SI
+                    Experiments
+                </button>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 port_buttons">
+                <button type="button" data-toggle="modal"
+                        data-target="#myModal" class="btn button fill">
+                    Portfolio
+                </button>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 port_buttons">
+                <button type="button" class="btn button fill"> Our Blogs
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal for portfolio -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="comingsoon" role="dialog"
+         tabindex="-1">
+        <div class="modal-dialog portfolio_modal" role="document" style="width: 1155px;">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <p class="coming-soon"><span style="font-color:#1eb1f2;">Coming</span> Soon...</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+									$('#myModal').on('shown.bs.modal', function() {
+										$('#myInput').focus()
+									})
+
+
+
+
+
+
+    </script>
+
+    <!-- modal for portfolio -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog portfolio_modal" role="document"
+             style="width: 1155px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Portfolio</h4>
+                </div>
+                <div class="modal-body">
+                    {% for pro_row in projects %}
+                    <div class="row spacerx">
+                        {% for pro in pro_row %}
+                        <div class="col-sm-4">
+                            <div class="wrap">
+                                <ul class="demo-2 effect">
+                                    <li style="list-style: none;">
+                                        <h2 class="zero">{{ pro.name }}</h2>
+                                        <p class="zero">{{ pro.description }}</p>
+                                    </li>
+                                    <li><img class="top"
+                                             src="{{ pro.image_path.url }}"
+                                             alt=""/></li>
+                                </ul>
                             </div>
-                            {% endfor %}
                         </div>
-                        <!-- row ends here -->
                         {% endfor %}
-
                     </div>
+                    <!-- row ends here -->
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
+    </div>
+    <script type="text/javascript">
             $('#myModal').on('shown.bs.modal', function () {
                 $('#myInput').focus()
             })
-        </script>
-        <!-- modal for portfolio -->
 
 
-        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog contact_modal" role="document">
-                <div class="modal-content modal-contact-left">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+
+
+
+
+
+
+    </script>
+    <!-- modal for portfolio -->
+
+
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog contact_modal" role="document">
+            <div class="modal-content modal-contact-left">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Contact
+                        Us</h4>
+                </div>
+                <div class="modal-body contact-modal">
+                    <form method="POST" action="/core/contact_us/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <label for="exampleInputname1">Name</label>
+                            <input type="text" name="name" class="form-control"
+                                   id="exampleInputName1"
+                                   placeholder="Enter Name">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputcontact1">Contact
+                                Number</label>
+                            <input type="number" name="phone" class="form-control"
+                                   id="exampleInputcontact1"
+                                   placeholder="Enter Contact">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputEmail1">Email
+                                address</label>
+                            <input type="email" name="email" class="form-control"
+                                   id="exampleInputEmail1"
+                                   placeholder="Enter Email">
+                            <small class="text-muted">We'll never share your
+                                email with anyone else.
+                            </small>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputsub1">Subject</label>
+                            <input type="text" name="subject" class="form-control"
+                                   id="exampleInputsub1"
+                                   placeholder="Enter Subject">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="examplemessage">Message</label>
+                            <textarea class="form-control" name="message" id="message"
+                                      rows="5"></textarea>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="exampleInputFile">Any
+                                Attachment</label>
+                            <input type="file" name="file" class="form-control-file"
+                                   id="exampleInputFile">
+                            <small class="text-muted">Make sure that the
+                                attachment you are attaching should be
+                                smaller than 25MB.
+                            </small>
+                        </fieldset>
+                        <button type="submit" class="btn button fill">
+                            Submit
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Contact
-                            Us</h4>
-                    </div>
-                    <div class="modal-body contact-modal">
-                        <form method="POST" action="/core/contact_us/" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <fieldset class="form-group">
-                                <label for="exampleInputname1">Name</label>
-                                <input type="text" name="name" class="form-control"
-                                       id="exampleInputName1"
-                                       placeholder="Enter Name">
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <label for="exampleInputcontact1">Contact
-                                    Number</label>
-                                <input type="number" name="phone" class="form-control"
-                                       id="exampleInputcontact1"
-                                       placeholder="Enter Contact">
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <label for="exampleInputEmail1">Email
-                                    address</label>
-                                <input type="email" name="email" class="form-control"
-                                       id="exampleInputEmail1"
-                                       placeholder="Enter Email">
-                                <small class="text-muted">We'll never share your
-                                    email with anyone else.
-                                </small>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <label for="exampleInputsub1">Subject</label>
-                                <input type="text" name="subject" class="form-control"
-                                       id="exampleInputsub1"
-                                       placeholder="Enter Subject">
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <label for="examplemessage">Message</label>
-                                <textarea class="form-control" name="message" id="message"
-                                          rows="5"></textarea>
-                            </fieldset>
-
-                            <fieldset class="form-group">
-                                <label for="exampleInputFile">Any
-                                   Attachment</label>
-                                <input type="file" name="file" class="form-control-file"
-                                       id="exampleInputFile">
-                                <small class="text-muted">Make sure that the
-                                   attachment you are attaching should be
-                                   smaller than 25MB.
-                                </small>
-                            </fieldset>
-                            <button type="submit" class="btn button fill">
-                                Submit
-                            </button>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
+    </div>
+    <script type="text/javascript">
             $('#contactModal').on('shown.bs.modal', function () {
                 $('#myInput').focus()
             })
-        </script>
 
 
-        <!-- Modal Useage DATA -->
-        <div class="portfolio-modal modal fade" id="portfolioModal1"
-             tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
+
+
+
+
+
+
+    </script>
+
+
+    <!-- Modal Useage DATA -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1"
+         tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-lg-offset-3">
-                            <div class="modal-body">
-                                <h2>Project Name</h2>
-                                <img src="{% static 'placeholder_image_wide.jpg' %}"
-                                     class="img-responsive img-centered" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Curabitur tristique massa
-                                    eget risus vestibulum, id commodo sapien
-                                    commodo. Morbi mattis imperdiet mtae neque
-                                    vel hendrerit. Quisque tempus nisi eu quam
-                                    consequat semper. Aenean quis fermentum
-                                    tortor, id mollis tellus. Cum sociis natoque
-                                    penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus. Interdum et
-                                    malesuada fames ac ante ipsum primis in
-                                    faucibus. Duis in nisi blandit, bibendum
-                                    dolor quis, bibendum velit.</p>
-                                <ul class="list-inline item-details">
-                                    <li>
-                                        <span class="bolder">Link:</span>
-                                        <span>www.silive.in</span>
-                                    </li>
-                                </ul>
-                                <ul class="list-inline item-details">
-                                    <li>
-                                        <span class="bolder">Deployed Date:</span>
-                                        <span>13/05/2016</span>
-                                    </li>
-                                    <li>
-                                        <span class="bolder">Technologies:</span>
-                                        <span>HTML, Css, JavaScript, Bootstrap etc.</span>
-                                    </li>
-                                    #
-                                </ul>
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button> -->
-                            </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-offset-3">
+                        <div class="modal-body">
+                            <h2>Project Name</h2>
+                            <img src="{% static 'placeholder_image_wide.jpg' %}"
+                                 class="img-responsive img-centered" alt="">
+                            <p>Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Curabitur tristique massa
+                                eget risus vestibulum, id commodo sapien
+                                commodo. Morbi mattis imperdiet mtae neque
+                                vel hendrerit. Quisque tempus nisi eu quam
+                                consequat semper. Aenean quis fermentum
+                                tortor, id mollis tellus. Cum sociis natoque
+                                penatibus et magnis dis parturient montes,
+                                nascetur ridiculus mus. Interdum et
+                                malesuada fames ac ante ipsum primis in
+                                faucibus. Duis in nisi blandit, bibendum
+                                dolor quis, bibendum velit.</p>
+                            <ul class="list-inline item-details">
+                                <li>
+                                    <span class="bolder">Link:</span>
+                                    <span>www.silive.in</span>
+                                </li>
+                            </ul>
+                            <ul class="list-inline item-details">
+                                <li>
+                                    <span class="bolder">Deployed Date:</span>
+                                    <span>13/05/2016</span>
+                                </li>
+                                <li>
+                                    <span class="bolder">Technologies:</span>
+                                    <span>HTML, Css, JavaScript, Bootstrap etc.</span>
+                                </li>
+                                #
+                            </ul>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <script type="text/javascript">
+    <script type="text/javascript">
             var nsOptions = {
                 thumbWidth: "90%",
                 thumbHeight: "auto",
                 showMode: 5,
             }
-        </script>
 
 
-        <!-- Error -->
-        <div class="error" id="nav4"></div>
-    </section>
-        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Client  -->
 
-        <section class="client">
-            <!-- Section Heading  -->
-            <div class="container-fluid section-head">
-                <h1 style="">CLIENTELE</h1>
-                <h6 style="">OUR HAPPY CUSTOMERS</h6>
-            </div>
-            <!-- Container -->
-            <div class="fluid-container">
-                <div class="swiper-container swiper1">
-                    <div class="swiper-wrapper" style="padding: 50px 0px;">
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl1.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl2.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl3.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl4.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl5.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl6.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl7.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl8.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl9.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
-                        <!-- Single Slide Card Start -->
-                        <div class="swiper-slide">
-                            <div class="row client_property">
-                                <img src="{% static 'images/cl10.png' %}"
-                                     class="img-responsive center-block">
-                            </div>
-                        </div>
+
+
+
+
+
+    </script>
+
+
+    <!-- Error -->
+    <div class="error" id="nav4"></div>
+</section>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Client  -->
+
+<section class="client">
+    <!-- Section Heading  -->
+    <div class="container-fluid section-head">
+        <h1 style="">CLIENTELE</h1>
+        <h6 style="">OUR HAPPY CUSTOMERS</h6>
+    </div>
+    <!-- Container -->
+    <div class="fluid-container">
+        <div class="swiper-container swiper1">
+            <div class="swiper-wrapper" style="padding: 50px 0px;">
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl1.png' %}"
+                             class="img-responsive center-block">
                     </div>
-                    <!-- Add Pagination -->
-                    <!-- <div class="swiper-pagination swiper-pagination1 swiper-pagination-clickable swiper-pagination-bullets"></div> -->
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl2.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl3.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl4.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl5.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl6.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl7.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl8.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl9.png' %}"
+                             class="img-responsive center-block">
+                    </div>
+                </div>
+                <!-- Single Slide Card Start -->
+                <div class="swiper-slide">
+                    <div class="row client_property">
+                        <img src="{% static 'images/cl10.png' %}"
+                             class="img-responsive center-block">
+                    </div>
                 </div>
             </div>
-        </section>
-        <script>
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination swiper-pagination1 swiper-pagination-clickable swiper-pagination-bullets"></div> -->
+        </div>
+    </div>
+</section>
+<script>
 
 
             var swiper1 = new Swiper('.swiper1', {
@@ -676,167 +783,155 @@
             //             }
             //         }
             // });
-        </script>
 
-        <!-- Error -->
-        <div class="error" id="nav5"></div>
 
-        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx About Us -->
 
-        <section class="about">
-            <!-- Section Head -->
-            <div class="container-fluid section-head">
-                <h1 style="">WHO WE ARE</h1>
-                <h6 style="">ABOUT US</h6>
-            </div>
-            <!-- Container -->
-            <!-- About Us Introductioon -->
 
-            <div class="row">
-                <div class="col-sm-6 about-para-1">
 
-                    <p><span
-                            style="margin-top: 0px; font-size: 20px;text-transform: uppercase; font-weight: bold"><span
-                            style="color: #3b95ed;">Software</span> Incubator</span>
-                        is the research and develoment center established within
-                        the portal of Ajay Kumar Garg Engineering College. We
-                        have set a foothold in the areas of software
-                        development, web-based enterprise solutions, mobile
-                        development, web application and website development. We
-                        focus on high integrity and commitment, quality and
-                        rigor at every stage of work, passion for excellence,
-                        focus on customer satisfaction. We are an equal
-                        opportunity organization that motivates every member to
-                        work with passion and commitment.</p>
+
+
+
+</script>
+
+<!-- Error -->
+<div class="error" id="nav5"></div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx About Us -->
+
+<section class="about">
+    <!-- Section Head -->
+    <div class="container-fluid section-head">
+        <h1 style="">WHO WE ARE</h1>
+        <h6 style="">ABOUT US</h6>
+    </div>
+    <!-- Container -->
+    <!-- About Us Introductioon -->
+
+    <div class="row">
+        <div class="col-sm-6 about-para-1">
+
+            <p><span
+                    style="margin-top: 0px; font-size: 20px;text-transform: uppercase; font-weight: bold"><span
+                    style="color: #3b95ed;">Software</span> Incubator</span>
+                is the research and develoment center established within
+                the portal of Ajay Kumar Garg Engineering College. We
+                have set a foothold in the areas of software
+                development, web-based enterprise solutions, mobile
+                development, web application and website development. We
+                focus on high integrity and commitment, quality and
+                rigor at every stage of work, passion for excellence,
+                focus on customer satisfaction. We are an equal
+                opportunity organization that motivates every member to
+                work with passion and commitment.</p>
+            <div class="col-sm-12">
+                <div class="row">
                     <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-user-1by7 about-svg">
-                                    <img src="{% static 'images/people1.png' %}"
-                                         class="img-responsive">
-                                    <p style="text-align: center">People</p>
-                                </div>
-                                <div class="col-user-1by7 about-svg">
-                                    <span class="glyphicon glyphicon-plus media-middle"></span>
-                                </div>
-                                <div class="col-user-1by7 about-svg">
-                                    <img src="{% static 'images/passion.png' %}"
-                                         class="img-responsive">
-                                    <p style="text-align: center">Passion</p>
-                                </div>
-                                <div class="col-user-1by7 about-svg">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                </div>
-                                <div class="col-user-1by7 about-svg">
-                                    <img src="{% static 'images/participation.png' %}"
-                                         class="img-responsive">
-                                    <p style="text-align: center">
-                                        Participation</p>
-                                </div>
-                                <div class="col-user-1by7 about-svg">
+                        <div class="col-user-1by7 about-svg">
+                            <img src="{% static 'images/people1.png' %}"
+                                 class="img-responsive">
+                            <p style="text-align: center">People</p>
+                        </div>
+                        <div class="col-user-1by7 about-svg">
+                            <span class="glyphicon glyphicon-plus media-middle"></span>
+                        </div>
+                        <div class="col-user-1by7 about-svg">
+                            <img src="{% static 'images/passion.png' %}"
+                                 class="img-responsive">
+                            <p style="text-align: center">Passion</p>
+                        </div>
+                        <div class="col-user-1by7 about-svg">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </div>
+                        <div class="col-user-1by7 about-svg">
+                            <img src="{% static 'images/participation.png' %}"
+                                 class="img-responsive">
+                            <p style="text-align: center">
+                                Participation</p>
+                        </div>
+                        <div class="col-user-1by7 about-svg">
                                     <span class="fa fa-pause"
                                           style="transform: rotate(90deg); padding-left: 50px; padding-top: initial;"></span>
-                                </div>
-                                <div class="col-user-1by7 about-svg">
-                                    <img src="{% static 'images/progress.png' %}"
-                                         class="img-responsive">
-                                    <p style="text-align: center">
-                                        Productivity</p>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6" style="margin-bottom: -5px;">
-
-
-                    <iframe width="100%" height="375px" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <!-- >>>>>>> Testimonail START <<<<<<<<< -->
-            <div class="fluid-container testimonial">
-                <div class="row">
-                    <div class="swiper-container swiper2">
-                        <div class="swiper-wrapper">
-                            <!-- Single Slider -->
-                            <div class="swiper-slide center-block"
-                                 style="background-image:url('/static/images/slider1.jpg'); background-size: cover; ">
-                                <div class="single-testimonial">
-                                    <h1 style="font-size: 400px;">"</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mauris quis lectus
-                                        purus. Aliquam ornare tincidunt velit,
-                                        ut pharetra urna egestas in. </p>
-                                    <h6>- Dr. R.K Agarwal</h6>
-                                </div>
-                            </div>
-                            <!-- Single Slider -->
-                            <div class="swiper-slide center-block"
-                                 style="background-image:url('/static/images/slider2.jpg'); background-size: cover; ">
-                                <div class="single-testimonial">
-                                    <h1 style="font-size: 400px;">"</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mauris quis lectus
-                                        purus. Aliquam ornare tincidunt velit,
-                                        ut pharetra urna egestas in. </p>
-                                    <h6>- Dr. R.K Agarwal</h6>
-                                </div>
-                            </div>
-                            <!-- Single Slider -->
-                            <div class="swiper-slide center-block"
-                                 style="background-image:url('/static/images/slider3.jpg'); background-size: cover; ">
-                                <div class="single-testimonial">
-                                    <h1 style="font-size: 400px;">"</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mauris quis lectus
-                                        purus. Aliquam ornare tincidunt velit,
-                                        ut pharetra urna egestas in. </p>
-                                    <h6>- Dr. R.K Agarwal</h6>
-                                </div>
-                            </div>
-                            <!-- Single Slider -->
-                            <div class="swiper-slide center-block"
-                                 style="background-image:url('/static/images/slider4.jpg'); background-size: cover; ">
-                                <div class="single-testimonial">
-                                    <h1 style="font-size: 400px;">"</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mauris quis lectus
-                                        purus. Aliquam ornare tincidunt velit,
-                                        ut pharetra urna egestas in. </p>
-                                    <h6>- Dr. R.K Agarwal</h6>
-                                </div>
-                            </div>
-                            <!-- Single Slider -->
-                            <div class="swiper-slide center-block"
-                                 style="background-image:url('/static/images/slider5.jpg'); background-size: cover; ">
-                                <div class="single-testimonial">
-                                    <h1 style="font-size: 400px;">"</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mauris quis lectus
-                                        purus. Aliquam ornare tincidunt velit,
-                                        ut pharetra urna egestas in. </p>
-                                    <h6>- Dr. R.K Agarwal</h6>
-                                </div>
-                            </div>
-                            <!-- Single Slider -->
-                            <div class="swiper-slide center-block"
-                                 style="background-image:url('/static/images/slider6.jpg'); background-size: cover; ">
-                                <div class="single-testimonial">
-                                    <h1 style="font-size: 400px;">"</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mauris quis lectus
-                                        purus. Aliquam ornare tincidunt velit,
-                                        ut pharetra urna egestas in. </p>
-                                    <h6>- Dr. R.K Agarwal</h6>
-                                </div>
-                            </div>
+                        <div class="col-user-1by7 about-svg">
+                            <img src="{% static 'images/progress.png' %}"
+                                 class="img-responsive">
+                            <p style="text-align: center">
+                                Productivity</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-6" style="margin-bottom: -5px;">
 
-            <script>
+
+            <iframe width="100%" height="375px" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- >>>>>>> Testimonail START <<<<<<<<< -->
+    <div class="fluid-container testimonial">
+        <div class="row">
+            <div class="swiper-container swiper2">
+                <div class="swiper-wrapper">
+                    <!-- Single Slider -->
+                    <div class="swiper-slide center-block"
+                         style="background-image:url('/static/images/slider1.jpg'); background-size: cover; ">
+                        <div class="single-testimonial">
+                            <h1 style="font-size: 400px;">"</h1>
+                            <p>The important thing is not to stop questioning. Curiosity has its own reason
+                                for existing. </p>
+                            <h6>- Albert Einstien</h6>
+                        </div>
+                    </div>
+                    <!-- Single Slider -->
+                    <div class="swiper-slide center-block"
+                         style="background-image:url('/static/images/slider2.jpg'); background-size: cover; ">
+                        <div class="single-testimonial">
+                            <h1 style="font-size: 400px;">"</h1>
+                            <p>What is important (More than going to west) is that you need to follow your
+                                dreams and follow your heart.</p>
+                            <h6>- Sundar Pichai</h6>
+                        </div>
+                    </div>
+                    <!-- Single Slider -->
+                    <div class="swiper-slide center-block"
+                         style="background-image:url('/static/images/slider3.jpg'); background-size: cover; ">
+                        <div class="single-testimonial">
+                            <h1 style="font-size: 400px;">"</h1>
+                            <p>Sometimes when you innovate, you make mistakes.
+                                It is best to admit them quickly, and get on with improving your other innovations.</p>
+                            <h6>- Steve Jobs </h6>
+                        </div>
+                    </div>
+                    <!-- Single Slider -->
+                    <div class="swiper-slide center-block"
+                         style="background-image:url('/static/images/slider4.jpg'); background-size: cover; ">
+                        <div class="single-testimonial">
+                            <h1 style="font-size: 400px;">"</h1>
+                            <p>Everything is going to be connected to cloud and data.
+                                All of this will be mediated by software.
+                            </p>
+                            <h6>- Satya Nadella</h6>
+                        </div>
+                    </div>
+                    <!-- Single Slider -->
+                    <div class="swiper-slide center-block"
+                         style="background-image:url('/static/images/slider5.jpg'); background-size: cover; ">
+                        <div class="single-testimonial">
+                            <h1 style="font-size: 400px;">"</h1>
+                            <p>God, our Creator, has stored within our minds and personalities,
+                                great potential strength and ability. Prayer helps us tap and develop these powers.</p>
+                            <h6>- Dr. APJ Abdul Kalam</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
                 var swiper2 = new Swiper('.swiper2', {
                     paginationClickable: false,
                     spaceBetween: 0,
@@ -848,85 +943,92 @@
                     mousewheelControl: false,
                     loop: true
                 });
-            </script>
-            <!-- >>>>>>> Testimonail ENDS <<<<<<<<< -->
 
 
-            <!-- >>>>>>> Team Members START <<<<<<<<< -->
-            <div class="container-fluid">
-                <div class="container team-member">
 
-                    <div class="row">
-                        <div class="col-sm-12 team-member-content">
-                            <h4><span>TEAM </span>MEMBERS</h4>
-                            <p>A perfect blend of creativity and technical
-                                wizardry. The best people formula for great
-                                websites and applications!</p>
-                        </div>
-                    </div>
-                    {% for member_list in members %}
-                    <div class="row">
-                        {% for member in member_list %}
-                        <div class="team-responsive col-sm-2">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="{{ member.pic_path.url }}"
-                                         class="img-responsive">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-role">{{ member.designation.name }}
-                                    </div>
-                                    <h5 class="card-name">{{ member.name }} </h5>
-                                    <div class="card-link">
-                                        <p>
-                                            {{member.technology.all.first.name}} </p>
-                                        <a href="{{ member.facebook }}"><span class="fa fa-facebook"></span></a>
-                                        <a href="{{ member.twitter }}"><span class="fa fa-twitter"></span></a>
-                                        <a href="{{ member.linkedin }}"><span class="fa fa-linkedin"></span></a>
-                                        <a href="{{ member.github }}"><span class="fa fa-github"></span></a>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    {% endfor %}
 
+
+
+
+    </script>
+    <!-- >>>>>>> Testimonail ENDS <<<<<<<<< -->
+
+
+    <!-- >>>>>>> Team Members START <<<<<<<<< -->
+    <div class="container-fluid">
+        <div class="container team-member">
+
+            <div class="row">
+                <div class="col-sm-12 team-member-content">
+                    <h4><span>TEAM </span>MEMBERS</h4>
+                    <p>A perfect blend of creativity and technical
+                        wizardry. The best people formula for great
+                        websites and applications!</p>
                 </div>
             </div>
-            <!-- >>>>>>> Team Members ENDS <<<<<<<<< -->
+            {% for member_list in members %}
+            <div class="row">
+                {% for member in member_list %}
+                <div class="team-responsive col-sm-2">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ member.pic_path.url }}"
+                                 class="img-responsive">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-role">{{ member.designation.name }}
+                            </div>
+                            <h5 class="card-name">{{ member.name }} </h5>
+                            <div class="card-link">
+                                <p>
+                                    {{member.technology.all.first.name}} </p>
+                                <a href="{{ member.facebook }}"><span class="fa fa-facebook"></span></a>
+                                <a href="{{ member.twitter }}"><span class="fa fa-twitter"></span></a>
+                                <a href="{{ member.linkedin }}"><span class="fa fa-linkedin"></span></a>
+                                <a href="{{ member.github }}"><span class="fa fa-github"></span></a>
 
-
-
-            <!-- >>>>>>> Alumini START <<<<<<<<< -->
-            <div class="container-fluid" style="padding-bottom: 40px;">
-                <div class="container alumini">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="row alumini-information">
-                                <h4><span>SI </span>ALUMNI</h4>
-                                <p>Treading this long road wouldn't have been
-                                    viable without these innovative minds. We
-                                    extend our gratitude to all our admirable
-                                    alumni for refining this divine place year
-                                    by year.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="row" style="padding: 0px;">
-                            <div class="col-sm-6" style="padding: 0px;">
-                                {% for alumni_list in alumni %}
-                                <div class="col-user-1by12" id="img-family-id">
-                                    <!--<a href="#alumnimodal" class="alumini-Modal"
-                                       data-toggle="modal"
-                                       data-target="#alumni-Modal" id="{{ alumni.id }}">-->
-                                    <img src="{{ alumni_list.pic_path.url }}"
-                                         class="img-responsive img-family">
-                                        <!--</a>-->
-                                </div>
-                                {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- >>>>>>> Team Members ENDS <<<<<<<<< -->
+
+
+    <!-- >>>>>>> Alumini START <<<<<<<<< -->
+    <div class="container-fluid" style="padding-bottom: 40px;">
+        <div class="container alumini">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row alumini-information">
+                        <h4><span>SI </span>ALUMNI</h4>
+                        <p>Treading this long road wouldn't have been
+                            viable without these innovative minds. We
+                            extend our gratitude to all our admirable
+                            alumni for refining this divine place year
+                            by year.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row" style="padding: 0px;">
+                    <div class="col-sm-6" style="padding: 0px;">
+                        {% for alumni_list in alumni %}
+                        <div class="col-user-1by12" id="img-family-id">
+                            <!--<a href="#alumnimodal" class="alumini-Modal"
+                               data-toggle="modal"
+                               data-target="#alumni-Modal" id="{{ alumni.id }}">-->
+                            <img src="{{ alumni_list.pic_path.url }}"
+                                 class="img-responsive img-family">
+                            <!--</a>-->
+                        </div>
+                        {% endfor %}
                         {% for alumni_list in alumni %}
                         <div class="row" style="padding:0px;"
                              id="img-family-id">
@@ -1139,6 +1241,14 @@
                     $('#contactModal').on('shown.bs.modal', function () }
                         $('#myInput').focus()
                     })
+
+
+
+
+
+
+
+
                 </script>
                 <!-- modal for portfolio -->
 
@@ -1146,110 +1256,110 @@
             </div>
             <!-- >>>>>>> Alumini ENDS <<<<<<<<< -->
 
-        </section>
+</section>
 
 
-        <!-- Error -->
-        <div class="error" id="nav6"></div>
+<!-- Error -->
+<div class="error" id="nav6"></div>
 
-        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Contact Us  -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Contact Us  -->
 
-        <section>
-            <!-- Section Head -->
-            <div class="container-fluid section-head">
-                <h1 style="">CONTACT US</h1>
-                <h6 style="">24 X 7 IN SERVICE</h6>
-            </div>
-            <!-- Main Division -->
-            <div class="container-fluid contact">
-                <div class="container" style="padding: 0px;">
-                    <div class="row" style="padding: 40px 15px;">
+<section>
+    <!-- Section Head -->
+    <div class="container-fluid section-head">
+        <h1 style="">CONTACT US</h1>
+        <h6 style="">24 X 7 IN SERVICE</h6>
+    </div>
+    <!-- Main Division -->
+    <div class="container-fluid contact">
+        <div class="container" style="padding: 0px;">
+            <div class="row" style="padding: 40px 15px;">
 
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <h2>Get in touch with Us</h2>
-                            </div>
-                            <div class="row">
-                                <p>
-                                    We like to work with good people who want to
-                                    create something new, something big even if
-                                    its outrageously insane.
-                                    The quality of products we deliver is
-                                    unmatchable. To help grow your company and
-                                    our team as well, connect with us.
-                                    <br/>
-                                   <!-- <br/>
-                                    Mail us at <em
-                                        style="color: #0094ff; font-size: 14px"><a href="mailto:si.akgec14@gmail.com">Click here to mail us</a> <span
-                                        style="color: #333;"> or </span>aditisinghsikarwar@gmail.com<span
-                                        style="color: #333;"> or </span>shobhitagarwal1612@gmail.com</em>
-                                </p>-->
-                                <p>
-                                    You can give us a call on <em
-                                        style="color: #0094ff; font-size: 14px">+91-7827133953</em><span
-                                        style="color: #333;"> or </span><em
-                                        style="color: #0094ff; font-size: 14px">+91-7053852697</em><span
-                                        style="color: #333;"> or </span><em
-                                        style="color: #0094ff; font-size: 14px">+91-9412721584</em>
-                                </p>
-                                <p> You can also meet us in person here
-                                    24*7:<br/>
-							<span style="color: #0094ff;">Software Incubator - SDC Lab<br/>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <h2>Get in touch with Us</h2>
+                    </div>
+                    <div class="row">
+                        <p>
+                            We like to work with good people who want to
+                            create something new, something big even if
+                            its outrageously insane.
+                            The quality of products we deliver is
+                            unmatchable. To help grow your company and
+                            our team as well, connect with us.
+                            <br/>
+                            <!-- <br/>
+                             Mail us at <em
+                                 style="color: #0094ff; font-size: 14px"><a href="mailto:si.akgec14@gmail.com">Click here to mail us</a> <span
+                                 style="color: #333;"> or </span>aditisinghsikarwar@gmail.com<span
+                                 style="color: #333;"> or </span>shobhitagarwal1612@gmail.com</em>
+                         </p>-->
+                        <p>
+                            You can give us a call on <em
+                                style="color: #0094ff; font-size: 14px">+91-7827133953</em><span
+                                style="color: #333;"> or </span><em
+                                style="color: #0094ff; font-size: 14px">+91-7053852697</em><span
+                                style="color: #333;"> or </span><em
+                                style="color: #0094ff; font-size: 14px">+91-9412721584</em>
+                        </p>
+                        <p> You can also meet us in person here
+                            24*7:<br/>
+                            <span style="color: #0094ff;">Software Incubator - SDC Lab<br/>
 								Ajay Kumar Garg Engineering College,<br/>
 								27th Km milestone NH-24 Delhi-Hapur Bypass,<br/>
 								Adhyatmik Nagar Ghaziabad, Uttar Pradesh - 201009.</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <!-- <form>
-                                <fieldset class="form-group">
-                                    <label for="exampleInputname1">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Enter Name">
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="exampleInputcontact1">Contact Number</label>
-                                    <input type="number" class="form-control" id="exampleInputcontact1" placeholder="Enter Contact">
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
-                                    <small class="text-muted">We'll never share your email with anyone else.</small>
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="exampleInputsub1">Subject</label>
-                                    <input type="text" class="form-control" id="exampleInputsub1" placeholder="Enter Subject">
-                                </fieldset>
-                                <fieldset class="form-group">
-                                    <label for="examplemessage">Message</label>
-                                    <textarea class="form-control" id="message" rows="5"></textarea>
-                                </fieldset>
-
-                                <fieldset class="form-group">
-                                    <label for="exampleInputFile">Any Attachment</label>
-                                    <input type="file" class="form-control-file" id="exampleInputFile">
-                                    <small class="text-muted">Make sure that the attachment you are attaching should be smaller than 25MB.</small>
-                                </fieldset>
-                                <button type="submit" class="btn button fill">Submit</button>
-                            </form> -->
-                            <div class="envelope" data-toggle="modal"
-                                 data-target="#contactModal">
-                                <img src="{% static 'images/mail.png' %}"
-                                     style="height: 300px;">
-                            </div>
-                        </div>
-
+                        </p>
                     </div>
                 </div>
-            </div>
+                <div class="col-sm-4">
+                    <!-- <form>
+                        <fieldset class="form-group">
+                            <label for="exampleInputname1">Name</label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Enter Name">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputcontact1">Contact Number</label>
+                            <input type="number" class="form-control" id="exampleInputcontact1" placeholder="Enter Contact">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
+                            <small class="text-muted">We'll never share your email with anyone else.</small>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="exampleInputsub1">Subject</label>
+                            <input type="text" class="form-control" id="exampleInputsub1" placeholder="Enter Subject">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="examplemessage">Message</label>
+                            <textarea class="form-control" id="message" rows="5"></textarea>
+                        </fieldset>
 
-            <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-            <!-- Map API Customised -->
-            <div class="container-fluid" style="padding: 0px;">
-                <div id="map"></div>
+                        <fieldset class="form-group">
+                            <label for="exampleInputFile">Any Attachment</label>
+                            <input type="file" class="form-control-file" id="exampleInputFile">
+                            <small class="text-muted">Make sure that the attachment you are attaching should be smaller than 25MB.</small>
+                        </fieldset>
+                        <button type="submit" class="btn button fill">Submit</button>
+                    </form> -->
+                    <div class="envelope" data-toggle="modal"
+                         data-target="#contactModal">
+                        <img src="{% static 'images/mail.png' %}"
+                             style="height: 300px;">
+                    </div>
+                </div>
+
             </div>
-            <!-- Map Script -->
-            <script type="text/javascript">
+        </div>
+    </div>
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    <!-- Map API Customised -->
+    <div class="container-fluid" style="padding: 0px;">
+        <div id="map"></div>
+    </div>
+    <!-- Map Script -->
+    <script type="text/javascript">
                 // When the window has finished loading create our google map below
                 google.maps.event.addDomListener(window, 'load', init);
 
@@ -1421,150 +1531,174 @@
                     });
 
                 }
-            </script>
 
 
-        </section>
 
-        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footor  -->
 
-        <section class="container-fluid " style="background-color: #252525;">
-            <div class="container footer">
+
+
+
+
+    </script>
+
+
+</section>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footor  -->
+
+<section class="container-fluid " style="background-color: #252525;">
+    <div class="container footer">
+        <div class="row">
+            <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h2>Featured Websites</h2>
-                                <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                                <button href="http://www.akgec.in" type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://akgec.in/">AKGEC</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://techtrishna.in/">TechTrishna</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://akgec-scrolls.com/">Scrolls</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://techtrishna.in/directme">DirectMe</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://silive.in/bytepad">Bytepad</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://silive.in/resumebuilder">Resume Builder</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://techtrishna.in/photoweb">Photoweb</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://akgec.in/bdc">Blood Donation Camp</a>
-                                </button>
-                            </div>
-                            <div class="col-sm-4">
-                                <h2>Services</h2>
-                                <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                                <button type="button" class="u-btn btn-primary">
-                                    Mobile Development
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    Website Development
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    Desktop Development
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    Web and Graphic Designing
-                                </button>
-                            </div>
-                            <div class="col-sm-4">
-                                <h2>Clients</h2>
-                                <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                                <button type="button" class="btn u-btn btn-primary" >
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://akgec.in/">AKGEC</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" >
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://4thpointer.com/">4th Pointer</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" >
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://india.ni.com/"> National Instrument</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://tifac-core-akgec.org/">TIFAC</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" >
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://www.kuka.com/">KUKA</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary">
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://www.akgec-bosch.org/">
-                                    Rexroth</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" >
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" >
-                                   <a target="_blank" style="color: #fff;text-decoration: none;" href="http://www.gmaindia.org/"> GMA</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" >
-                                    <a target="_blank" style="color: #fff;text-decoration: none;" href="http://www.digitalnet.com/">Brain Soft</a>
-                                </button>
-                            </div>
-                        </div>
+                    <div class="col-sm-4">
+                        <h2>Featured Websites</h2>
+                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                        <button href="http://www.akgec.in" type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://akgec.in/">AKGEC</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;" href="http://techtrishna.in/">TechTrishna</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://akgec-scrolls.com/">Scrolls</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://techtrishna.in/directme">DirectMe</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://silive.in/bytepad">Bytepad</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://silive.in/resumebuilder">Resume Builder</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://techtrishna.in/photoweb">Photoweb</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;" href="http://akgec.in/bdc">Blood
+                                Donation Camp</a>
+                        </button>
+                    </div>
+                    <div class="col-sm-4">
+                        <h2>Services</h2>
+                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                        <button type="button" class="u-btn btn-primary">
+                            Mobile Development
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            Website Development
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            Desktop Development
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            Web and Graphic Designing
+                        </button>
+                    </div>
+                    <div class="col-sm-4">
+                        <h2>Clients</h2>
+                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                        <button type="button" class="btn u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://akgec.in/">AKGEC</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;" href="http://4thpointer.com/">4th
+                                Pointer</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;" href="http://india.ni.com/">
+                                National Instrument</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://tifac-core-akgec.org/">TIFAC</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;" href="http://www.kuka.com/">KUKA</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://www.akgec-bosch.org/">
+                                Rexroth</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://www.gmaindia.org/"> GMA</a>
+                        </button>
+                        <button type="button" class="u-btn btn-primary">
+                            <a target="_blank" style="color: #fff;text-decoration: none;"
+                               href="http://www.digitalnet.com/">Brain Soft</a>
+                        </button>
                     </div>
                 </div>
             </div>
-
-        </section>
-        <div class="container-fluid"
-             style="background-color: #424242; padding: 0px;">
-            <div class="row social-icon">
-                <div style="font-size: 40px;text-align: center;">
-                    <h6 style="color: #fff; margin-top: 30px;">Connect Socially
-                        with Software Incubator</h6>
-                    <a href="https://www.facebook.com/RedefiningLimitations" target="_blank"><span class="fa fa-facebook-square"></span></a>
-                    <a href="https://twitter.com/si_akgec" target="_blank"><span
-                        class="fa fa-twitter-square"></span></a>
-                    <a href="https://github.com/Software-Incubator" target="_blank"><span
-                        class="fa fa-github-square"></span></a>
-                    <!--<a href=""><span
-                        class="fa fa-linkedin-square"></span></a>-->
-                    <a href="https://www.youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" target="_blank"><span
-                        class="fa fa-youtube-play"></span></a>
-
-                </div>
-            </div>
         </div>
-        <!-- =================================================================================== -->
+    </div>
 
-        <!-- ================================================================================== -->
+</section>
+<div class="container-fluid"
+     style="background-color: #424242; padding: 0px;">
+    <div class="row social-icon">
+        <div style="font-size: 40px;text-align: center;">
+            <h6 style="color: #fff; margin-top: 30px;">Connect Socially
+                with Software Incubator</h6>
+            <a href="https://www.facebook.com/RedefiningLimitations" target="_blank"><span
+                    class="fa fa-facebook-square"></span></a>
+            <a href="https://twitter.com/si_akgec" target="_blank"><span
+                    class="fa fa-twitter-square"></span></a>
+            <a href="https://github.com/Software-Incubator" target="_blank"><span
+                    class="fa fa-github-square"></span></a>
+            <!--<a href=""><span
+                class="fa fa-linkedin-square"></span></a>-->
+            <a href="https://www.youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" target="_blank"><span
+                    class="fa fa-youtube-play"></span></a>
+
+        </div>
+    </div>
+</div>
+<!-- =================================================================================== -->
+
+<!-- ================================================================================== -->
 
 
-        <div class="container-fluid" id="footor-bottom">
-            <div class="row">
-                <div class="col-sm-12" style="padding:25px 25px 25px 90px;">
-                    <p>
+<div class="container-fluid" id="footor-bottom">
+    <div class="row">
+        <div class="col-sm-12" style="padding:25px 25px 25px 90px;">
+            <p>
     				<span style="  color: #808080; font-size: 12px;">
     					Copyright <span
                             class="glyphicon glyphicon-copyright-mark"></span> 2016 Software Incubator
     				</span>
-                        <!-- Scroll Top Button -->
+                <!-- Scroll Top Button -->
 
-                        <script type="text/javascript"
-                                src="http://arrow.scrolltotop.com/arrow204.js"></script>
+                <script type="text/javascript"
+                        src="http://arrow.scrolltotop.com/arrow204.js"></script>
 
 
-                    </p>
-                </div>
-            </div>
+            </p>
         </div>
+    </div>
+</div>
 
 
 </div><!-- Wrapper End -->
 
 <!-- ====================================================================Initialiser -->
 
- <!-- TYPED JS SCRIPT -->
-        <script>
+<!-- TYPED JS SCRIPT -->
+<script>
         	$(function() {
 
         		$("#typed").typed({
@@ -1594,7 +1728,15 @@
         function foo() {
         	console.log("Callback");
         }
-    </script>
-    <!-- TYPED JS SCRIPT -->
+
+
+
+
+
+
+
+
+</script>
+<!-- TYPED JS SCRIPT -->
 </body>
 </html>
