@@ -15,6 +15,7 @@ class ContactForm(models.Model):
     def __str__(self):
         return "{}".format(self.name)
 
+
 class Designation(models.Model):
     name = models.CharField(max_length=225, unique=True, null=False,
                             blank=False)
@@ -43,7 +44,7 @@ class Member(models.Model):
     presently_at = models.CharField(max_length=225, null=False, blank=True)
     is_alumni = models.BooleanField(default=False)
     batch = models.IntegerField(null=False)
-    pic_path = models.CharField(max_length=225, null=True, default=None)
+    pic_path = models.FileField(upload_to=upload_location, null=True, default=None)
     facebook = models.CharField(max_length=225, null=True, default=None)
     github = models.CharField(max_length=225, null=True, default=None)
     linkedin = models.CharField(max_length=225, null=True, default=None)
@@ -61,6 +62,7 @@ class Project(models.Model):
     name = models.CharField(max_length=225, null=False, blank=False)
     description = models.CharField(max_length=225, null=False, blank=False)
     completion_year = models.IntegerField(null=True, default=None)
+    image_path = models.FileField(upload_to=upload_location, null=True, default=None)
 
     def __str__(self):
         return self.name + str(self.completion_year)
