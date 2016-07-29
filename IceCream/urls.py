@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^/', include('Core.urls')),
+    url(r'', include('Core.urls')),
     # url(r'^form/', Contact_Form, name="form" )
 ]
 
