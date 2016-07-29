@@ -1586,3 +1586,65 @@ h2.zero,p.zero {
   height: 80px;
   content: url(../images/si-logo.svg);
 }
+
+/*buzz hover*/
+/* Buzz */
+@-webkit-keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+.hvr-buzz :hover {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+.hvr-buzz, .hvr-buzz:focus, .hvr-buzz:active {
+  -webkit-animation-name: hvr-buzz;
+  animation-name: hvr-buzz;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.registration_trigger{
+    position: absolute;
+    z-index: 9991;
+    right:20px;
+    top:80px;
+    background-color: #e4e4e4;
+    padding:10px;
+    border-radius:200px;
+     -webkit-box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+
+}
