@@ -69,7 +69,7 @@
 			-o-animation: blink 0.7s infinite;
 			animation: blink 0.7s infinite;
 		}
-		@-keyframes blink{
+		@keyframes blink{
 			0% { opacity:1; }
 			50% { opacity:0; }
 			100% { opacity:1; }
@@ -94,6 +94,7 @@
 			50% { opacity:0; }
 			100% { opacity:1; }
 		}
+        }
 
 
 
@@ -476,7 +477,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Contact
+                    <h4 class="modal-title">Contact
                         Us</h4>
                 </div>
                 <div class="modal-body contact-modal">
@@ -1004,6 +1005,7 @@
     <!-- >>>>>>> Alumini START <<<<<<<<< -->
     <div class="container-fluid" style="padding-bottom: 40px;">
         <div class="container alumini">
+
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row alumini-information">
@@ -1066,7 +1068,7 @@
                                         data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="myModalLabel">SI
+                                <h4 class="modal-title">SI
                                     Alumini</h4>
                             </div>
 
@@ -1238,7 +1240,7 @@
                     </div>
                 </div>
                 <script type="text/javascript">
-                    $('#contactModal').on('shown.bs.modal', function () }
+                    $('#contactModal').on('shown.bs.modal', function () {
                         $('#myInput').focus()
                     })
 
@@ -1255,6 +1257,8 @@
 
             </div>
             <!-- >>>>>>> Alumini ENDS <<<<<<<<< -->
+        </div>
+    </div>
 
 </section>
 

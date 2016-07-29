@@ -17,13 +17,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
-from Core.views import Contact_Form
+# from Core.views import Contact_Form
 from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^core/', include('Core.urls')),
-    url(r'^form/', Contact_Form, name="form" )
+    url(r'^/', include('Core.urls')),
+    # url(r'^form/', Contact_Form, name="form" )
 ]
 
 if settings.DEBUG:

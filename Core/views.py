@@ -6,7 +6,8 @@ from .models import Project, Member
 from django.shortcuts import render
 from .forms import ContactUsForm
 
-def Contact_Form(request):
+
+def ContactFormView(request):
 
     if request.method == "POST":
         name = request.POST.get('name')

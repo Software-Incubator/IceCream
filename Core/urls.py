@@ -1,4 +1,4 @@
-from .views import IndexView , Contact_Form, contact_us
+from .views import IndexView , ContactFormView, contact_us
 from django.conf.urls import url
 
 urlpatterns = [
