@@ -1,6 +1,9 @@
 from __future__ import unicode_literals
 from django.db import models
 
+def upload_location(instance, filename):
+    return '%s/%s' %(instance.id, filename)
+
 
 class ContactForm(models.Model):
     name = models.CharField(max_length=255,)
@@ -64,3 +67,15 @@ class Project(models.Model):
 
     class Meta:
         verbose_name_plural = "Projects"
+
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.IntegerField()
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    file = models.FileField(upload_to=upload_location, null=True, blank=True)
+
+    def __str__(self):
+        return self.name

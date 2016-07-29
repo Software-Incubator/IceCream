@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Project, Member
 from django.shortcuts import render
-
+from .forms import ContactUsForm
 
 def Contact_Form(request):
 
@@ -64,3 +64,18 @@ class IndexView(TemplateView):
         context['alumni'] = alumni
 
         return context
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST, request.FILES)
+        print request.POST
+        if form.is_valid():
+            form.save()
+
+    return render(request, "index.html", {})
+
+
+
+
+

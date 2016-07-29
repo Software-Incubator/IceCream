@@ -7,46 +7,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <!-- User Stylesheet -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet"
-          href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap Embedded -->
-    <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
-    <script src="lib/bootstrap/bootstrap.min.js"></script> -->
-
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://use.fontawesome.com/16cc13ce3b.js"></script>
 
-    <!-- Google Map -->
-      <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'css/stylesheet.css' %}">
+    <!-- User Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTPWN__X_moAy4Nty0TgEJKMkynbw-n6U&callback=initMap"
-            async defer></script>
+    <!--Google Map-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTPWN__X_moAy4Nty0TgEJKMkynbw-n6U&callback=initMap" async defer></script>
 
     <!-- Google FOnt -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,400,900"
-    rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-    rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Karla:400,700,400italic'
-    rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Karla:400,700,400italic' rel='stylesheet' type='text/css'>
 
     <!-- User JavaScript -->
     <script src="{% static 'js/javascript.js' %}"></script>
+
+    <!-- Typed js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js" type="text/javascript"></script>
 
     <!-- Swiper CSS & JS -->
     <link rel="stylesheet" type="text/css" href="{% static 'lib/swiper.css' %}">
@@ -54,16 +42,15 @@
 
     <!-- Loader -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-    <link href="smart.scss" rel="stylesheet/scss" type="text/css">
+    <link href="{% static 'smart.scss'%}" rel="stylesheet/scss" type="text/css">
 
-    <!-- Thumbnail-Slider CSS & JS  -->
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'lib/thumbnail/thumbnail-slider.css' %}">
-    <script src="{% static 'lib/thumbnail/thumbnail-slider.js' %}"></script>
 
-    <!-- Parallex Javascript -->
-    <script src="{% static 'lib/parallax/js/parallax.js' %}"></script>
 
+
+
+    <style>
+
+	</style>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -127,85 +114,49 @@
 
     <!-- =========================================================================== Landing Page -->
 
-    <!-- <section class="landingpage animate-bg">
-        <div class="fluid-container" >
-            <div style="text-align: center;padding: 120px 0px 110px 0px;">
-                <img src="images/silogo.svg" width="280px" height="280px">
-                <h1 style="font-size: 40px; font-weight: 700; color: white; text-transform: uppercase;">We belive in <span style="color: #11aef5;"> Redefining Limitations</h1>
-                <span>
-                    <a class="page-scroll" href="#nav2"><button type="button" class="btn button fill"> Our Services</button></a>
-                    <a class="page-scroll" href="#nav5"><button type="button" class="btn button fill">Know About Us</button></a>
-                </span>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- This Divison is for a Background to be scrolled throughout this page and all unites at Landing -->
-    <!-- <div class="content" style="z-index: -999;">
-            <div class="wrapper">
-            <div class="box" data-scroll-speed="6"><img src="images/layer1.png"></div>
-            <div class="box" data-scroll-speed="1"><img src="images/layer2.png"></div>
-            <div class="box" data-scroll-speed="17"><img src="images/layer3.png"></div>
-            <div class="box" data-scroll-speed="3"><img src="images/layer4.png"></div>
-            <div class="box" data-scroll-speed="12"><img src="images/layer5.png"></div>
-            <div class="box" data-scroll-speed="9"><img src="images/layer6.png"></div>
-        </div>
-        </div>
-            -->
-
     <section>
-        <div class="fluid-container landing">
-            <div id="container" class="container-logo">
-                <ul id="scene" class="scene">
-                    <li class="layer" data-depth="0.25"><img
-                            src="{% static 'images/silogo.svg' %}" width="300px"
-                            height="auto"></li>
-                    <li class="layer" data-depth="0.20"><img
-                            src="{% static 'images/silogo.svg' %}" width="320px"
-                            height="auto"></li>
-                    <li class="layer" data-depth="0.15"><img
-                            src="{% static 'images/silogo.svg' %}" width="340px"
-                            height="auto"></li>
-                    <li class="layer" data-depth="0.10"><img
-                            src="{% static 'images/silogo.svg' %}" width="360px"
-                            height="auto"></li>
-                    <li class="layer" data-depth="0.05"><img
-                            src="{% static 'images/silogo.svg' %}" width="380px"
-                            height="auto"></li>
-                    <li class="layer" data-depth="0.01"><img
-                            src="{% static 'images/silogo.svg' %}" width="400px"
-                            height="auto"></li>
-                </ul>
-            </div>
-            <div class="center-block "
-                 style="text-align: center;padding: 0px auto;">
-                <h1 style="font-size: 40px; font-weight: 700; color: white; text-transform: uppercase;">
-                    We belive in <span style="color: #11aef5;"> Redefining Limitations
-                </h1>
-			<span>
-				<a class="page-scroll" href="#nav2">
-                    <button type="button" class="btn button fill"> Our
-                        Services
-                    </button>
-                </a>
-				<a class="page-scroll" href="#nav5">
-                    <button type="button" class="btn button fill">Know About
-                        Us
-                    </button>
-                </a>
-			</span>
+        <div class="fluid-container">
+            <div class="container1">
+                <!-- <div class="circular size1"></div> -->
+                <div class="col-xs-12 hvr-bounce-in circular size7" id="circle7">
+                    <div class="hvr-bounce-in circular size6" id="circle6">
+                        <div class="hvr-bounce-in circular size5" id="circle5">
+                            <div class="hvr-bounce-in circular size4" id="circle4">
+                                <div class="hvr-bounce-in circular size3" id="circle3">
+                                    <div class="hvr-bounce-in circular size2" id="circle2">
+                                        <div class="hvr-bounce-in circular size1" id="circle1">
+                                            <div class="logo_container">
+                                                <div class="logo inner"></div>
+                                                <div class="text inner"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!-- ============================================================================================== Services  -->
+    <div class="container">
+        <div class="typedjs">
+        <div class="believe">We believe in&nbsp;&nbsp;</div>
 
-    <!-- Parallex Script -->
-    <script>
-        var scene = document.getElementById('scene');
-        var parallax = new Parallax(scene);
-
-    </script>
-
-
+            <div class="type-wrap">
+                <div id="typed-strings">
+                    <p>Redefining Limitations...</p>
+                    <p>Redefining Limitations...</p>
+                    <p>Innovating Insanely!</p>
+                    <p>Learning Technologies...</p>
+                    <p>Sharing Intelligence!</p>
+                </div>
+                <span id="typed" style="white-space:pre;"></span>
+            </div>
+        </div>
+        </div>
+    </div>
     <!-- ============================================================================================== Services  -->
     <section class="services" id="nav2">
         <!-- Desktop Development -->
@@ -565,7 +516,7 @@
                             Us</h4>
                     </div>
                     <div class="modal-body contact-modal">
-                        <form method="POST" action="/form/">
+                        <form method="POST" action="/core/contact_us/" enctype="multipart/form-data">
                             {% csrf_token %}
                             <fieldset class="form-group">
                                 <label for="exampleInputname1">Name</label>
@@ -576,7 +527,7 @@
                             <fieldset class="form-group">
                                 <label for="exampleInputcontact1">Contact
                                     Number</label>
-                                <input type="number" name="number" class="form-control"
+                                <input type="number" name="phone" class="form-control"
                                        id="exampleInputcontact1"
                                        placeholder="Enter Contact">
                             </fieldset>
@@ -592,7 +543,7 @@
                             </fieldset>
                             <fieldset class="form-group">
                                 <label for="exampleInputsub1">Subject</label>
-                                <input type="text" name="email" class="form-control"
+                                <input type="text" name="subject" class="form-control"
                                        id="exampleInputsub1"
                                        placeholder="Enter Subject">
                             </fieldset>
@@ -602,16 +553,16 @@
                                           rows="5"></textarea>
                             </fieldset>
 
-{#                            <fieldset class="form-group">#}
-{#                                <label for="exampleInputFile">Any#}
-{#                                    Attachment</label>#}
-{#                                <input type="file" class="form-control-file"#}
-{#                                       id="exampleInputFile">#}
-{#                                <small class="text-muted">Make sure that the#}
-{#                                    attachment you are attaching should be#}
-{#                                    smaller than 25MB.#}
-{#                                </small>#}
-{#                            </fieldset>#}
+                            <fieldset class="form-group">
+                                <label for="exampleInputFile">Any
+                                   Attachment</label>
+                                <input type="file" name="file" class="form-control-file"
+                                       id="exampleInputFile">
+                                <small class="text-muted">Make sure that the
+                                   attachment you are attaching should be
+                                   smaller than 25MB.
+                                </small>
+                            </fieldset>
                             <button type="submit" class="btn button fill">
                                 Submit
                             </button>
@@ -792,7 +743,7 @@
                 freeMode: true,
                 initialSlide: 1,
                 centeredSlides: false,
-                slidesPerView: 4,
+                slidesPerView: 5,
                 autoplayDisableOnInteraction: false,
                 keyboardControl: true,
                 simulateTouch: false,
@@ -873,7 +824,7 @@
 
                     <p><span
                             style="margin-top: 0px; font-size: 20px;text-transform: uppercase; font-weight: bold"><span
-                            style="color: #11aef5;">Software</span> Incubator</span>
+                            style="color: #3b95ed;">Software</span> Incubator</span>
                         is the research and develoment center established within
                         the portal of Ajay Kumar Garg Engineering College. We
                         have set a foothold in the areas of software
@@ -1280,7 +1231,7 @@
 {#                                    </div>#}
 {#                                    <div class="col-sm-8 col-sm-pull-4">#}
 {#                                        <h4 style="font-size: 24px;  font-weight: bold;text-transform: uppercase;">#}
-{#                                            <span style="color: #11aef5;">MEET </span>YOUR#}
+{#                                            <span style="color: #3b95ed;">MEET </span>YOUR#}
 {#                                            YEAR</h4>#}
 {#                                        <div class="col-sm-12"#}
 {#                                             style="padding: 0px;">#}
@@ -1755,33 +1706,33 @@
                             <div class="col-sm-4">
                                 <h2>Clients</h2>
                                 <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                                <button type="button" class="u-btn" >
-                                    <a href="http://akgec.in/">AKGEC</a>
-                                </button>
-                                <button type="button" class="u-btn" >
-                                    <a href="http://4thpointer.com/">4th Pointer</a>
-                                </button>
-                                <button type="button" class="u-btn" >
-                                    <a href="http://india.ni.com/"> National Instrument</a>
-                                </button>
-                                <button type="button" class="u-btn btn-primary" href="http://tifac-core-akgec.org/">
-                                    <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                                <button type="button" class="btn u-btn btn-primary" >
+                                    <a style="color: #fff;text-decoration: none;" href="http://akgec.in/">AKGEC</a>
                                 </button>
                                 <button type="button" class="u-btn btn-primary" >
-                                    <a href="http://www.kuka.com/">KUKA</a>
+                                    <a style="color: #fff;text-decoration: none;" href="http://4thpointer.com/">4th Pointer</a>
+                                </button>
+                                <button type="button" class="u-btn btn-primary" >
+                                    <a style="color: #fff;text-decoration: none;" href="http://india.ni.com/"> National Instrument</a>
+                                </button>
+                                <button type="button" class="u-btn btn-primary" href="http://tifac-core-akgec.org/">
+                                    <a style="color: #fff;text-decoration: none;" href="http://tifac-core-akgec.org/">TIFAC</a>
+                                </button>
+                                <button type="button" class="u-btn btn-primary" >
+                                    <a style="color: #fff;text-decoration: none;" href="http://www.kuka.com/">KUKA</a>
                                 </button>
                                 <button type="button" class="u-btn btn-primary" href="http://www.akgec-bosch.org/">
-                                    <a href="http://www.akgec-bosch.org/">
+                                    <a style="color: #fff;text-decoration: none;" href="http://www.akgec-bosch.org/">
                                     Rexroth</a>
                                 </button>
                                 <button type="button" class="u-btn btn-primary" >
-                                    <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                                    <a style="color: #fff;text-decoration: none;" href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
                                 </button>
                                 <button type="button" class="u-btn btn-primary" >
-                                   <a href="http://www.gmaindia.org/"> GMA</a>
+                                   <a style="color: #fff;text-decoration: none;" href="http://www.gmaindia.org/"> GMA</a>
                                 </button>
                                 <button type="button" class="u-btn btn-primary" >
-                                    <a href="http://www.digitalnet.com/">Brain Soft</a>
+                                    <a style="color: #fff;text-decoration: none;" href="http://www.digitalnet.com/">Brain Soft</a>
                                 </button>
                             </div>
                         </div>
@@ -1838,6 +1789,38 @@
 
 <!-- ====================================================================Initialiser -->
 
+ <!-- TYPED JS SCRIPT -->
+        <script>
+        	$(function() {
 
+        		$("#typed").typed({
+                // strings: ["Typed.js is a <strong>jQuery<\/strong> plugin.", "It <em>types<\/em> out sentences.", "And then deletes them.", "Try it out!"],
+                stringsElement: $('#typed-strings'),
+                typeSpeed: 30,
+                backDelay: 500,
+                loop: true,
+                contentType: 'html', // or text
+                // defaults to false for infinite loop
+                loopCount: false,
+                callback: function() {
+                	foo();
+                },
+                resetCallback: function() {
+                	newTyped();
+                }
+            });
+
+        		$(".reset").click(function() {
+        			$("#typed").typed('reset');
+        		});
+        	});
+
+        function newTyped() { /* A new typed object */ }
+
+        function foo() {
+        	console.log("Callback");
+        }
+    </script>
+    <!-- TYPED JS SCRIPT -->
 </body>
 </html>

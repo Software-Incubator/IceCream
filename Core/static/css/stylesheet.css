@@ -193,13 +193,13 @@ font-family: 'Roboto', sans-serif;*/
     }
     /*..................................................................................................................................*/
     .navbar-header button{
-    color: #11aef5;
+    color: #3b95ed;
     }
     .navbar-custom {
       margin-bottom: 0;
       border-bottom: none;
       text-transform: uppercase;
-      background-color: rgba(17, 174, 244, 1); /*MOBILEVIEW: On Scroll Background Color Change i.e BLUE */
+      background-color: rgba(59, 149, 237, 1); /*MOBILEVIEW: On Scroll Background Color Change i.e BLUE */
     }
     .navbar-custom .navbar-brand {
       font-weight: 400;
@@ -230,7 +230,7 @@ font-family: 'Roboto', sans-serif;*/
   }
   .navbar-custom .nav li a:hover {
     outline: 0;
-    color: #11aef5; /* On BLUE nav bar Text Onhover Color */
+    color: #3b95ed; /* On BLUE nav bar Text Onhover Color */
     background-color: transparent; /* On BLUE and On TRANSPARENT Onhover Background Color */
   }
   .navbar-custom .nav li a:focus,
@@ -243,10 +243,10 @@ font-family: 'Roboto', sans-serif;*/
   }
   .navbar-custom .nav li.active a {
     background-color: #fff; /* Active Nav Tab background Color */
-    color: #11aef5;
+    color: #3b95ed;
   }
   .navbar-custom .nav li.active a:hover {
-    color: #11aef5; /* Active Nav Tab OnHover Text Color */
+    color: #3b95ed; /* Active Nav Tab OnHover Text Color */
   }
   @media(min-width:768px) {
     .navbar-custom {
@@ -260,12 +260,12 @@ font-family: 'Roboto', sans-serif;*/
     }
     .navbar-custom.top-nav-collapse {
       padding: 0px; /* Padding of BLUE Nav bar Test */
-      background-color: rgba(17, 174, 244, 1); /*DESKTOPVIEW: On Scroll Background Color Change i.e BLUE */
+      background-color: rgba(59, 149, 237, 1); /*DESKTOPVIEW: On Scroll Background Color Change i.e BLUE */
       color: #000;
     }
     .navbar-custom.top-nav-collapse  .nav li a:hover {
       outline: 0;
-      color: #11aef5; /* On BLUE nav bar Text Onhover Color */
+      color: #3b95ed; /* On BLUE nav bar Text Onhover Color */
       background-color: rgba(255,255,255,1); /* On BLUE and On TRANSPARENT Onhover Background Color */
     }
   }
@@ -363,7 +363,7 @@ font-family: 'Roboto', sans-serif;*/
   text-transform: uppercase;
 }
 .landing-btn h1 span{
-  color: #11aef5;
+  color: #3b95ed;
 }
 .landingpage{
     background-image: url(../../../silive.in/images/bg.jpg);
@@ -413,7 +413,7 @@ font-family: 'Roboto', sans-serif;*/
   }
 
   .btn-primary {
-    background-color: #11aef5;
+    background-color: #3b95ed;
   }
   .button {
     position: relative;
@@ -430,7 +430,7 @@ font-family: 'Roboto', sans-serif;*/
     text-transform: uppercase;
     outline: 0;
     overflow:hidden;
-    background-color: #11aef5;
+    background-color: #3b95ed;
     z-index: 1;
     cursor: pointer;
     transition:         0.08s ease-out;
@@ -441,7 +441,7 @@ font-family: 'Roboto', sans-serif;*/
   }
 
 .button:hover{
-    background-color: #1687b9;
+    background-color: #3b95ed;
     color: #fff;
 }
 
@@ -511,7 +511,7 @@ font-family: 'Roboto', sans-serif;*/
   font-family: 'Karla', sans-serif;
   font-weight: 400;
   text-transform:uppercase;
-  color: #11aef5;
+  color: #3b95ed;
 }
 .service-tag{
   font-size: 10px; 
@@ -556,7 +556,7 @@ font-family: 'Roboto', sans-serif;*/
   font-family: 'Karla', sans-serif;
 }
 .year-information h3>span{
-  color: #11aef5;
+  color: #3b95ed;
 }
 .year-information h5{
   font-size: 15px; 
@@ -790,12 +790,12 @@ font-family: 'Roboto', sans-serif;*/
   margin: 0px;
 }
 .about-svg {
-  color: #11aef5;
+  color: #3b95ed;
   text-align: center;
 }
 .about-svg span{
   padding-top: 30px; 
-  color: #11aef5;
+  color: #3b95ed;
 }
 .team-member{
   padding-top: 60px; 
@@ -807,7 +807,7 @@ font-family: 'Roboto', sans-serif;*/
   text-transform: uppercase;
 }
 .team-member-content h4 > span{
-  color: #11aef5;
+  color: #3b95ed;
 }
 .card-link p {
   line-height: 10px; 
@@ -834,7 +834,7 @@ font-family: 'Roboto', sans-serif;*/
   text-transform: uppercase;
 }
 .alumini-information h4 > span{
-  color: #11aef5;
+  color: #3b95ed;
 }
 .alumini-information p {
   text-align: justify;
@@ -894,7 +894,7 @@ font-family: 'Roboto', sans-serif;*/
   }
   .btn-primary:hover {
     color: #fff;
-    background-color: #1eb1f2;
+    background-color: #3b95ed;
     border-color: #1eb2f3;
   }
   /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -972,7 +972,7 @@ font-family: 'Roboto', sans-serif;*/
     font-size: 11px;
     line-height: 25px;
     text-transform: uppercase;
-    background-color: #11aef5; 
+    background-color: #3b95ed; 
     text-align: center;
   }
   @media(max-width: 1200px){
@@ -1123,7 +1123,7 @@ font-family: 'Roboto', sans-serif;*/
   text-transform: uppercase;
   outline: 0;
   overflow:hidden;
-  background-color: #11aef5;
+  background-color: #3b95ed;
   z-index: 1;
   cursor: pointer;
   transition:         0.08s ease-out;
@@ -1134,7 +1134,7 @@ font-family: 'Roboto', sans-serif;*/
 }
 
 .fill-c:hover {
-  color: #11aef5;
+  color: #3b95ed;
 }
 .fill-c:after{
   color: white;
@@ -1163,11 +1163,11 @@ font-family: 'Roboto', sans-serif;*/
 }
 #contact-bar-icon{
   font-size:25px; 
-  color:#11aef5;
+  color:#3b95ed;
 }
 #contact-bar-text{
   font-size:12px; 
-  color:#11aef5;
+  color:#3b95ed;
 }
 .contact-modal{
   padding:15px 90px 15px 90px;
@@ -1201,7 +1201,7 @@ font-family: 'Roboto', sans-serif;*/
 
 
 .user-col-social_icon a:hover{
-  color: #11aef5;
+  color: #3b95ed;
 }
 @media (max-width: 786px){
   .user-col-social_icon{
@@ -1358,3 +1358,234 @@ h2.zero,p.zero {
   cursor:pointer;
 }
 
+.typed-cursor{
+			opacity: 1;
+			font-weight: 100;
+			-webkit-animation: blink 0.7s infinite;
+			-moz-animation: blink 0.7s infinite;
+			-ms-animation: blink 0.7s infinite;
+			-o-animation: blink 0.7s infinite;
+			animation: blink 0.7s infinite;
+		}
+		@keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-webkit-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-moz-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-ms-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+		@-o-keyframes blink{
+			0% { opacity:1; }
+			50% { opacity:0; }
+			100% { opacity:1; }
+		}
+        .type-wrap{
+  display: inline-block;
+  color: #3b95ed;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.believe{
+  display: inline-block;
+  text-align: center;
+  font-size:22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:#333333;
+
+}
+
+.typedwrap{
+  padding: 1px;
+}
+
+.typedjs{
+  padding: 3%;
+  /* text-align: center; */
+  margin: 0 auto;
+  position: relative;
+  left: 28%;
+}/*landing page*/
+/* Bounce In */
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+.hvr-bounce-in:hover
+.circular{
+  -webkit-box-shadow: 0px -3px 35px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px -3px 35px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px -3px 45px 0px rgba(0,0,0,0.5);
+}
+
+
+
+.circular{
+  background-color:#303030;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 1500px;
+  /*padding: 10px;*/
+  position: absolute;
+  /*left: 50%;*/
+  /*top: 50%;*/
+  -webkit-box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  /*-webkit-transform: translate(-50%, -50%);*/
+}
+
+.size1{
+  height: 80px;
+  border: 3px solid #3b95ed;
+  width: 80px;
+  z-index:999;
+  top: 29%;
+  left: 29%;
+  background-color:#ffffff;
+  /*background: url("images/si-logo.svg") center;*/
+  /*height: 50px;*/
+  background-size: 80px;
+  -webkit-mask:;
+}
+
+.size2{
+  height: 200px;
+  width: 200px;
+  z-index: 990;
+  top: 25%;
+  left: 24%;
+}
+
+
+.size3{
+  height: 400px;
+  width: 400px;
+  z-index: 980;
+  top: 24%;
+  left: 22%;
+}
+
+
+.size4{
+  height: 700px;
+  width: 700px;
+  z-index: 970;
+  top: 18%;
+  left: 18%;
+}
+
+
+.size5{
+  height: 1100px;
+  width: 1100px;
+  z-index: 960;
+  top: 16%;
+  left: 16%;
+}
+
+
+.size6{
+  height: 1600px;
+  width: 1600px;
+  z-index: 950;
+  top: 14%;
+  left: 14%;
+}
+
+
+.size7{
+  height: 2200px;
+  width: 2200px;
+  z-index: 940;
+  left: -33%;
+  top:-140%;
+}
+
+.container1{
+
+  height: 600px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  transition: ease-in;
+
+}
+
+@media(max-width:768px){
+  .container1{
+    height: 350px;
+
+  }
+   .size7{
+       left: -298%;
+       top:-269%;
+   }
+   .typedjs{
+       left: 0px;
+   }
+}
+
+
+.clip-circle {
+  clip-path: circle(245px, 140px, 50px);;
+  /* OLD VALUE example: circle(245px, 140px, 50px); */
+}
+/*svg logo*/
+.logo{
+  padding: 5px;
+  top: 13px;
+  left: 1;
+  content: url("images/si-text.svg");
+}
+
+.inner{
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  /* padding: 12px; */
+}
+
+.logo_container{
+  padding: 5px;
+  top: -4px;
+  left: 3px;
+  position: relative;
+}
+
+.text{
+  top: 4px;
+  padding: 5px;
+  height: 80px;
+  content: url("images/si-logo.svg");
+}
