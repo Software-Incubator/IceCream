@@ -1,24 +1,7 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.views.generic import TemplateView
 from .models import Project, Member
 from django.shortcuts import render
 from .forms import ContactUsForm
-
-
-def ContactFormView(request):
-
-    if request.method == "POST":
-        name = request.POST.get('name')
-        contact = request.POST.get('contact')
-        email = request.POST.get('email')
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
-
-        print name , contact, email, message, subject
-
-    return render(request, "index.html", {})
 
 
 class IndexView(TemplateView):
@@ -31,7 +14,8 @@ class IndexView(TemplateView):
         # make projects list for Portfolio section
         i = 0
         if len(projects) > 3:
-            project_lists = [projects[i: i + 3] for i in range(len(projects) / 3)]
+            project_lists = [projects[i: i + 3] for i in
+                             range(len(projects) / 3)]
             project_lists.append(projects[i + 3:])
         else:
             project_lists = [projects, ]
@@ -65,18 +49,3 @@ class IndexView(TemplateView):
         context['alumni'] = alumni
 
         return context
-
-
-def contact_us(request):
-    if request.method == 'POST':
-        form = ContactUsForm(request.POST, request.FILES)
-        print request.POST
-        if form.is_valid():
-            form.save()
-
-    return render(request, "index.html", {})
-
-
-
-
-
