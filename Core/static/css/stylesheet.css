@@ -1613,7 +1613,7 @@ h2.zero,p.zero {
   }
 }
 
-.hvr-buzz :hover {
+.hvr-buzz :hover, .hvr-buzz:focus, .hvr-buzz:active {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
@@ -1622,9 +1622,10 @@ h2.zero,p.zero {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
 
 }
-.hvr-buzz, .hvr-buzz:focus, .hvr-buzz:active {
+.hvr-buzz{
   -webkit-animation-name: hvr-buzz;
   animation-name: hvr-buzz;
   -webkit-animation-duration: 0.15s;
@@ -1648,3 +1649,4 @@ h2.zero,p.zero {
   box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
 
 }
+
