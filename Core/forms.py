@@ -1,5 +1,5 @@
 from django import forms
-from . models import ContactUs
+from . models import ContactUs, Registration
 
 
 class ContactUsForm(forms.ModelForm):
@@ -58,3 +58,99 @@ class ContactUsForm(forms.ModelForm):
                    }
         ),
     )
+
+
+class RegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Registration
+        fields = ['name', 'email', 'contact', 'student_number', 'branch',
+                  'year', 'gender', 'hosteler', 'designer']
+
+    name = forms.CharField(
+        max_length=225, required=True,
+        widget=forms.TextInput(
+            attrs={'type': 'text',
+                   'name': 'name',
+                   'class': 'form-control',
+                   'id': 'exampleInputName1',
+                   'placeholder': 'Enter Name'}
+        )
+    )
+    email = forms.EmailField(
+        max_length=50, required=True,
+        widget=forms.EmailInput(
+            attrs={'type': 'email',
+                   'name': 'email',
+                   'class': 'form-control',
+                   'id': 'exampleInputEmail1',
+                   'placeholder': 'Enter Email'}
+        )
+    )
+    contact = forms.IntegerField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={'type': 'number',
+                   'name': 'contact',
+                   'class': 'form-control',
+                   'id': 'exampleInputcontact1',
+                   'placeholder': 'Enter Contact No'
+                   }
+        )
+    )
+    student_number = forms.IntegerField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={'type': 'number',
+                   'class': 'form-control',
+                   'id': 'exampleInputstudent1',
+                   'placeholder': 'Enter Student Number'}
+        )
+    )
+    BRANCH_CHOICES = [('CE', 'CE'), ('CSE', 'CSE'), ('IT', 'IT'), ('EN', 'EN'),
+                      ('ECE', 'ECE'), ('EI', 'EI'), ('ME', 'ME'), ('MCA', 'MCA')]
+    branch = forms.CharField(
+        required=True,
+        widget=forms.Select(
+            choices=BRANCH_CHOICES,
+            attrs={'class': 'form-control',
+                   'data-val': 'true',
+                   'data-val-required': '*',
+                   'id': 'Branch',
+                   'name': 'Branch'})
+                             )
+    YEAR_CHOICES = [('1', '1'), ('2', '2')]
+    year = forms.CharField(
+        required=True,
+        widget=forms.Select(choices=YEAR_CHOICES,
+                            attrs={'class': 'form-control',
+                                   'data-val': 'true',
+                                   'data-val-required': '*',
+                                   'id': 'Year',
+                                   'name': 'Year'})
+    )
+    GENDER_CHOICES = [('F', 'Female'), ('M', 'Male')]
+    gender = forms.CharField(
+        required=True,
+        widget=forms.Select(choices=GENDER_CHOICES,
+                            attrs={'class': 'form-control',
+                                   'data-val': 'true',
+                                   'data-val-required': '*',
+                                   'id': 'Gender',
+                                   'name': 'Gender',
+                                   'type': 'radio'})
+    )
+    hosteler = forms.BooleanField(required=False,
+                                  widget=forms.CheckboxInput(attrs={'class': 'form-control',
+                                                             'data-val': 'true',
+                                                             'data-val-required': 'the hosteler field is required',
+                                                             'id': 'IsHosteler',
+                                                             'name': 'IsHosteler',
+                                                             'type': 'checkbox'}))
+    designer = forms.BooleanField(required=False,
+                                  widget=forms.CheckboxInput(attrs={'class': 'form-control',
+                                                             'data-val': 'true',
+                                                             'data-val-required': 'the designer is required',
+                                                             'id': 'IsDesigner',
+                                                             'name': 'IsDesigner',
+                                                             'type': 'checkbox'
+                                                             }))

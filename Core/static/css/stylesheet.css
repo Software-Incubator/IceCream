@@ -1666,92 +1666,6 @@ h2.zero, p.zero {
     box-shadow: 0px -3px 45px 0px rgba(0, 0, 0, 0.5);
 }
 
-.circular {
-    background-color: #303030;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: 1500px;
-    /*padding: 10px;*/
-    position: absolute;
-    /*left: 50%;*/
-    /*top: 50%;*/
-    -webkit-box-shadow: -2px -3px 25px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: -2px -3px 25px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: -2px -3px 25px 0px rgba(0, 0, 0, 0.5);
-    /*-webkit-transform: translate(-50%, -50%);*/
-}
-
-.size1 {
-    height: 80px;
-    border: 3px solid #3b95ed;
-    width: 80px;
-    z-index: 999;
-    top: 29%;
-    left: 29%;
-    background-color: #ffffff;
-    /*background: url("images/si-logo.svg") center;*/
-    /*height: 50px;*/
-    background-size: 80px;
-
-}
-
-.size2 {
-    height: 200px;
-    width: 200px;
-    z-index: 990;
-    top: 25%;
-    left: 24%;
-}
-
-.size3 {
-    height: 400px;
-    width: 400px;
-    z-index: 980;
-    top: 24%;
-    left: 22%;
-}
-
-.size4 {
-    height: 700px;
-    width: 700px;
-    z-index: 970;
-    top: 18%;
-    left: 18%;
-}
-
-.size5 {
-    height: 1100px;
-    width: 1100px;
-    z-index: 960;
-    top: 16%;
-    left: 16%;
-}
-
-.size6 {
-    height: 1600px;
-    width: 1600px;
-    z-index: 950;
-    top: 14%;
-    left: 14%;
-}
-
-.size7 {
-    height: 2200px;
-    width: 2200px;
-    z-index: 940;
-    left: -33%;
-    top: -140%;
-}
-
-.container1 {
-
-    height: 600px;
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    transition: ease-in;
-
-}
 
 @media (max-width: 768px) {
     .container1 {
@@ -1825,8 +1739,8 @@ h2.zero, p.zero {
 
 .logo_container {
     padding: 5px;
-    top: -4px;
-    left: 3px;
+    top: 0;
+    left: 7px;
     position: relative;
 }
 
@@ -1887,6 +1801,8 @@ h2.zero, p.zero {
     animation-iteration-count: infinite;
 }
 
+
+
 .registration_trigger {
     position: fixed;
     z-index: 9991;
@@ -1900,4 +1816,117 @@ h2.zero, p.zero {
     box-shadow: -2px -3px 25px 0px rgba(0, 0, 0, 0.5);
 
 }
+
+
+.circular{
+  background-color:#303030;
+  -webkit-box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+  box-shadow: -2px -3px 25px 0px rgba(0,0,0,0.5);
+}
+
+.size1{
+  height: 100px;
+  border: 3px solid #3b95ed;
+  width: 100px;
+  z-index:999;
+  top: 29%;
+  left: 29%;
+  background-color:#ffffff;
+  /*background: url("images/si-logo.svg") center;*/
+  /*height: 50px;*/
+  /*background-size: 80px;*/
+  -webkit-mask:;
+}
+
+.size2{
+  padding:60px !important;
+}
+
+.size3{
+  padding:80px;
+}
+
+.size4{
+  padding:110px;
+}
+
+.size5{
+  padding: 150px;
+}
+
+.size6{
+  padding: 200px;
+}
+
+.size7{
+  padding:260px;
+  position: relative;
+  /*top:-330px;*/
+}
+
+/*.size8{
+  padding:330px;
+  position: relative;
+  top:-330px;
+}
+*/
+
+.popup-item {
+    display: inline-block;
+    border-radius: 1000px;
+    padding:  100px;
+}
+
+.container1{
+  background: #303030;
+  height: 600px;
+  overflow: hidden;
+  text-align:center;
+  position: relative;
+  transition: ease-in;
+}
+
+
+.size1{
+  padding: 5px;
+  border: 3px solid #3b95ed;
+  border-radius: 500px;
+  z-index:999;/*
+  top: 29%;
+  left: 29%;*/
+  background-color:#ffffff;
+  /*background: url("images/si-logo.svg") center;*/
+  /*height: 50px;*/
+  background-size: 80px;
+  -webkit-mask:;
+}
+/*
+.size2{
+  padding:60px;
+}
+
+.size3{
+  padding:80px;
+}
+
+.size4{
+  padding:110px;
+}
+
+.size5{
+  padding: 150px;
+}
+
+.size6{
+  padding: 200px;
+}
+*/
+.size7{
+  /*padding:260px;*/
+  position: relative;
+  top:-408px;
+}
+
+
 

@@ -76,3 +76,25 @@ class Project(models.Model):
         verbose_name_plural = "Projects"
 
 
+# class Branch(models.Model):
+#     name = models.CharField(max_length=3, null=False)
+#
+#     def __str__(self):
+#         return self.name
+
+
+class Registration(models.Model):
+    name = models.CharField(max_length=225, null=False)
+    email = models.EmailField()
+    contact = models.BigIntegerField()
+    student_number = models.IntegerField()
+    branch = models.CharField(max_length=3)
+    year = models.IntegerField()
+    gender = models.CharField(max_length=1)
+    hosteler = models.BooleanField()
+    designer = models.BooleanField()
+
+    def __str__(self):
+        return "{} || {} || {}".format(self.name, self.branch, str(self.year))
+
+

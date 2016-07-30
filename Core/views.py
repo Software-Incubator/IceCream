@@ -1,9 +1,9 @@
-from django.views.generic import View
-from django.views.generic.edit import ModelFormMixin
+from django.views.generic import View, FormView
 from .models import Project, Member
 from django.shortcuts import render, redirect
-from .forms import ContactUsForm
+from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
 
 
 class IndexView(View):
@@ -73,3 +73,10 @@ class IndexView(View):
 
         return context
 
+class RegistrationView(FormView):
+
+    template_name = 'registration.html'
+
+    success_url = reverse_lazy('home')
+
+    form_class = RegistrationForm

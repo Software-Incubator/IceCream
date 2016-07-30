@@ -168,34 +168,28 @@
 
     <!-- =========================================================================== Landing Page -->
 
-    <section>
-        <div class="fluid-container">
-            <div class="container1">
-                <div class="registration_trigger hvr-buzz">
-                    Register here!
-                </div>
-                <!-- <div class="circular size1"></div> -->
-                <div class="col-xs-12 hvr-bounce-in circular size7" id="circle7">
-                    <div class="hvr-bounce-in circular size6" id="circle6">
-                        <div class="hvr-bounce-in circular size5" id="circle5">
-                            <div class="hvr-bounce-in circular size4" id="circle4">
-                                <div class="hvr-bounce-in circular size3" id="circle3">
-                                    <div class="hvr-bounce-in circular size2" id="circle2">
-                                        <div class="hvr-bounce-in circular size1" id="circle1">
-                                            <div class="logo_container">
-                                                <div class="logo inner"></div>
-                                                <div class="text inner"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section  class="container1">
+					<div class="hvr-bounce-in circular popup-item size7" id="circle7">
+						<div class="hvr-bounce-in circular popup-item size0" id="circle0">
+							<div class="hvr-bounce-in circular popup-item size6" id="circle6">
+								<div class="hvr-bounce-in circular popup-item size5" id="circle5">
+									<div class="hvr-bounce-in circular popup-item size4" id="circle4">
+										<div class="hvr-bounce-in circular popup-item size3" id="circle3">
+											<div class="hvr-bounce-in circular popup-item size2" id="circle2">
+												<div class="hvr-bounce-in circular popup-item size1" id="circle1">
+													<div class="logo_container">
+														<div class="logo inner"></div>
+														<div class="text inner"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
     <!-- ============================================================================================== Services  -->
     <div class="container">
         <div class="typedjs">
@@ -468,7 +462,7 @@
     </script>
     <!-- modal for portfolio -->
 
-    <!-- Contact Us form -->
+<!-- Contact Us form -->
     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog contact_modal" role="document">
@@ -482,12 +476,12 @@
                         Us</h4>
                 </div>
                 <div class="modal-body contact-modal">
-                    <form method="POST" action="/" enctype="multipart/form-data">
+                    <form name="contact_form" method="POST" action="/" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in contact_form %}
                             <fieldset class="form-group">
                                 {% for error in field.errors %}
-                                    {{ error }}
+                                    <p>{{ error }}</p>
                                 {% endfor %}
                                 <label for="{{ field.name }}">
                                         {{ field.label }}
@@ -1699,7 +1693,14 @@
         }
 
 
-
+function validate_form(){
+    var form = document.forms["contact_form"];
+    var name = form["name"];
+    var contact = form["cotact_form"];
+    var email = form["email"];
+    var subject = form["subject"];
+    var message = form["message"];
+}
 
 
 
@@ -1707,5 +1708,6 @@
 
 </script>
 <!-- TYPED JS SCRIPT -->
+
 </body>
 </html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SILIVE</title>
+	<link rel="icon" href="images/silogo.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>	
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  	<!-- User Stylesheet -->
+  	<!-- <link rel="stylesheet" type="text/css" href="layout.css"> -->
+  	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+  	<!-- User JavaScript -->
+  	<script src="javascript.js"></script>
+
+
+
+  	<style type="text/css">
+
+
+  	.form-group{margin-bottom: 0px;}
+  	.footer-line{margin-top: 0px; border-top: 1px solid #808080;}
+  	.reg-img{padding: 40px 15px;}
+  	.navbar-other{margin-bottom: 0; border-bottom: none; text-transform: uppercase; background-color: rgba(17, 174, 244, 1);}
+    .navbar-other .navbar-brand {font-weight: 400;letter-spacing: 1px;}
+  	.navbar-other .navbar-brand:focus {outline: 0;}
+  	.navbar-other .navbar-brand .navbar-toggle {padding: 4px 6px; font-size: 30px; color: #000; }
+  	.navbar-other .navbar-brand .navbar-toggle:focus,
+  	.navbar-other .navbar-brand .navbar-toggle:active {outline: 0; }
+  	.navbar-other a {color: #fff; }
+  	.navbar-other .nav li a {-webkit-transition: background .3s ease-in-out; -moz-transition: background .3s ease-in-out;transition: background .3s ease-in-out;}
+  	.navbar-other .nav li a:hover {outline: 0;color: #11aef5; background-color: #fff ;}
+  	.navbar-other .nav li a:focus,
+  	.navbar-other .nav li a:active {outline: 0; background-color: transparent; }
+  	.navbar-other .nav li.active {outline: 0;}
+  	.navbar-other .nav li.active a {background-color: #fff; color: #11aef5;}
+  	.navbar-other .nav li.active a:hover {color: #11aef5; }
+  	@media(min-width:768px) {
+    .navbar-other {border-bottom: 0;letter-spacing: 1px;background: rgba(17, 174, 244, 1);-webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;-moz-transition: background .5s ease-in-out,padding .5s ease-in-out;transition: background .5s ease-in-out,padding .5s ease-in-out;}
+    .navbar-other.top-nav-collapse {padding: 0px;background-color: rgba(17, 174, 244, 1);color: #000;}
+    .navbar-other.top-nav-collapse  .nav li a:hover {outline: 0;color: #11aef5; background-color: rgba(255,255,255,1);}
+  	}
+
+  	</style>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+
+<!-- ================================================================================================== Wrapper -->
+
+<div id="wrapper">
+
+<!-- ===================================================================================================== Navigation Bar -->
+<!-- Navigation Ends -->
+
+
+
+  		<div class="navigation">
+
+  			<nav class="navbar navbar-other " role="navigation">
+  				<div class="container-fluid">
+  					<div class="navbar-header">
+  						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+  							<div id="nav-icon1">
+  								<span></span>
+  								<span></span>
+  								<span></span>
+  							</div>
+  						</button>
+  						<a class="navbar-brand page-scroll" href="#page-top">
+  							<span>
+  								Software Incubator
+  							</span>                    
+  							<!-- <img src="images/software incubator font.png" height="100%"> -->
+  						</a>
+  					</div>
+  					<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+  						<ul class="nav navbar-nav roboto">
+  							<li class="hidden">
+  								<a href="#page-top"></a>
+  							</li>
+  							<li>
+  								<a class="page-scroll" href="#nav2">Services</a>
+  							</li>
+  							<li>
+  								<a class="page-scroll" href="#nav3">Portfolio</a>
+  							</li>
+  							<li>
+  								<a class="page-scroll" href="#nav4">Client</a>
+  							</li>
+  							<li>
+  								<a class="page-scroll" href="#nav5">About Us</a>
+  							</li>
+  							<li>
+  								<a class="page-scroll" href="#nav6">Contact Us</a>
+  							</li>
+  						</ul>
+  					</div>
+  				</div>
+  			</nav>
+  		</div><!-- Navigation Ends -->
+
+<!-- Registration Forms -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5">				
+			<h1>Registration</h1>
+			<form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <fieldset class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </fieldset>
+                {% endfor %}
+{#				<fieldset class="form-group">#}
+{#					<label for="exampleInputEmail1">Email address</label>#}
+{#					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">#}
+{#				</fieldset>#}
+{#				<fieldset class="form-group">#}
+{#					<label for="exampleInputcontact1">Contact Number</label>#}
+{#					<input type="number" class="form-control" id="exampleInputcontact1" placeholder="Enter Contact">#}
+{#				</fieldset>#}
+{#				<fieldset class="form-group">#}
+{#					<label for="exampleInputstudent1">Student Number</label>#}
+{#					<input type="number" class="form-control" id="exampleInputstudent1" placeholder="Enter Student Number">#}
+{#				</fieldset>#}
+{#				<fieldset class="form-group">#}
+{#					<label for="exampleInputBranch1">Branch</label>#}
+{#					<select class="form-control" data-val="true" data-val-required="*" id="Branch" name="Branch">#}
+{#					<option value="" disabled selected>Select Branch</option>#}
+{#					<option value="CSE">CSE</option>#}
+{#					<option value="IT">IT</option>#}
+{#					<option value="ME">ME</option>#}
+{#					<option value="ECE">ECE</option>#}
+{#					<option value="EN">EN</option>#}
+{#					<option value="CE">CE</option>#}
+{#					<option value="EI">EI</option>#}
+{#					<option value="MCA">MCA</option>#}
+{#					</select>#}
+{#				</fieldset>#}
+{#				<fieldset class="form-group">#}
+{#					<label for="exampleInputYear1">Year</label>#}
+{#					<select class="form-control" data-val="true" data-val-required="*" id="Year" name="Year">#}
+{#					<option value="" disabled selected>Select Year</option>#}
+{#					<option value="second">Second</option>#}
+{#					<option value="first">First</option>#}
+{#					</select>#}
+{#				</fieldset>#}
+{#				<fieldset class="form-group">#}
+{#					<div class="form-group">#}
+{#		                <label for="Gender" >Gender  </label>#}
+{#		                <input data-val="true" data-val-number="The field Gender must be a number." data-val-required="*" id="Gender" name="Gender" type="radio" value="0" /> Male #}
+{#		                <input id="Gender" name="Gender" type="radio" value="1" /> Female#}
+{#		            </div>#}
+{#				</fieldset>#}
+{#				<fieldset>#}
+{#					<div class="form-group" >#}
+{#		                <label for="IsHosteler">Hosteler </label>#}
+{#		                <input data-val="true" data-val-required="The IsHosteler field is required." id="IsHosteler" name="IsHosteler" type="checkbox" value="true" /><input name="IsHosteler" type="hidden" value="false" />#}
+{#		            </div>#}
+{#				</fieldset>#}
+{#				<fieldset>#}
+{#					<div class="form-group" >#}
+{#		                <label for="IsHosteler">Designer </label>#}
+{#		                <input data-val="true" data-val-required="The IsHosteler field is required." id="IsHosteler" name="IsHosteler" type="checkbox" value="true" /><input name="IsHosteler" type="hidden" value="false" />#}
+{#		            </div>#}
+{#				</fieldset>#}
+				<button type="submit" class="btn button fill">Submit</button>
+			</form>
+		</div>
+		<div class="col-lg-7" class="reg-img">
+			<img src="images/placeholder_image.jpg" width="100%">
+		</div>
+	</div>
+</div>
+
+ <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footor  -->
+
+    <section class="container-fluid " style="background-color: #252525;">
+    	<div class="container footer" >
+    		<div class="row">
+    			<div class="col-sm-12">
+    				<div class="row">
+    					<div class="col-sm-4">
+    						<h2 >Featured Websites</h2>
+    						<hr class="footer-line">
+    						<button type="button" class="u-btn btn-primary">AKGEC</button>
+    						<button type="button" class="u-btn btn-primary">TechTrishna</button>
+    						<button type="button" class="u-btn btn-primary">Scrolls</button>
+    						<button type="button" class="u-btn btn-primary">Table Tennis Tournament</button>
+    						<button type="button" class="u-btn btn-primary">Riches</button>
+    						<button type="button" class="u-btn btn-primary">BytePad</button>
+    						<button type="button" class="u-btn btn-primary">Resume Builder</button>
+    					</div>
+    					<div class="col-sm-4">
+    						<h2 >Services</h2>
+    						<hr class="footer-line">
+    						<button type="button" class="u-btn btn-primary">Mobile Development</button>
+    						<button type="button" class="u-btn btn-primary">Website Development</button>
+    						<button type="button" class="u-btn btn-primary">Desktop Development</button>
+    						<button type="button" class="u-btn btn-primary">Web and Graphic Designing</button>
+    					</div>
+    					<div class="col-sm-4">
+    						<h2 >Clients</h2>
+    						<hr class="footer-line">
+    						<button type="button" class="u-btn btn-primary">AKGEC</button>
+    						<button type="button" class="u-btn btn-primary">4th Pointer</button>
+    						<button type="button" class="u-btn btn-primary">National Instrument</button>
+    						<button type="button" class="u-btn btn-primary">TIFAC</button>
+    						<button type="button" class="u-btn btn-primary">KUKA</button>
+    						<button type="button" class="u-btn btn-primary">Rexroth</button>
+    						<button type="button" class="u-btn btn-primary">NBA</button>
+    						<button type="button" class="u-btn btn-primary">GMA</button>
+    						<button type="button" class="u-btn btn-primary">Brain Soft</button>
+    					</div>
+    				</div>
+    			</div>    			
+    		</div>
+    	</div>
+
+    </section>
+    <div class="container-fluid" style="background-color: #424242; padding: 0px;">
+    	<div class="row social-icon">
+    		<div style="font-size: 40px;text-align: center;">
+    			<h6 style="color: #fff; margin-top: 30px;">Connect Socially with Software Incubator</h6>
+    			<span class="fa fa-facebook-square"></span><span class="fa fa-twitter-square"></span><span class="fa fa-github-square"></span><span class="fa fa-linkedin-square"></span><span class="fa fa-behance-square"></span><span class="fa fa-youtube-play"></span> <span class="fa fa-vimeo-square"></span>
+    		</div>
+    	</div>
+    </div>
+    <!-- =================================================================================== -->
+
+    <!-- ================================================================================== -->
+
+
+    <div class="container-fluid" id="footor-bottom">
+    	<div class="row" >
+    		<div class="col-sm-12" style="padding:25px 25px 25px 90px;">
+    			<p>
+    				<span style="  color: #808080; font-size: 12px;">
+    					Copyright <span class="glyphicon glyphicon-copyright-mark"></span> 2016 Software Incubator  .  All Rights Reserved  .  Terms of Services  .  Privacy Policy  .  Site Map
+    				</span>
+    				<!-- Scroll Top Button -->
+
+    				<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow204.js"></script>
+
+
+    			</p>
+    		</div>
+    	</div>
+    </div>
+
+
+
+
+</div>
+<!-- Wrapper End -->
+</body>
+</html>
