@@ -172,7 +172,7 @@
         <div class="fluid-container">
             <div class="container1">
                 <div class="registration_trigger hvr-buzz">
-                    register here!
+                    Register here!
                 </div>
                 <!-- <div class="circular size1"></div> -->
                 <div class="col-xs-12 hvr-bounce-in circular size7" id="circle7">
@@ -216,7 +216,8 @@
 </div>
 <!-- ============================================================================================== Services  -->
 <!-- Error -->
-<div class="error" id="nav2"></div>
+<div class="error" id="nav2">
+</div>
 
 
 <section class="services">
@@ -270,12 +271,12 @@
                 <div class="col-sm-6 col-sm-push-6">
                     <!-- Mobile Image -->
                     <img src="{% static 'images/Service_mob.png' %}"
-                         class="img-responsive pull-left"
+                         class="img-responsive pull-left iphone"
                          style="width: 375px; height: auto;">
                 </div>
                 <div class="col-sm-6 col-sm-pull-6">
                     <!-- Mobile Content -->
-                    <h4 class="service-head">Mobile Application
+                    <h4 class="service-head mobile_heading">Mobile Application
                         Development</h4>
                     <p class="service-text hidden-xs">We realize that the
                         world is changing it's trends from typewriter to
@@ -315,7 +316,7 @@
                 </div>
                 <div class=" col-sm-6">
                     <!-- Website Content -->
-                    <h3 class="service-head">Website Development</h3>
+                    <h3 class="service-head mobile_heading">Website Development</h3>
                     <p class="service-text hidden-xs">We offer great
                         Websites and Web applications, understanding the
                         clients' needs and requirements. We deliver the
@@ -467,7 +468,7 @@
     </script>
     <!-- modal for portfolio -->
 
-
+    <!-- Contact Us form -->
     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog contact_modal" role="document">
@@ -481,53 +482,19 @@
                         Us</h4>
                 </div>
                 <div class="modal-body contact-modal">
-                    <form method="POST" action="/core/contact_us/" enctype="multipart/form-data">
+                    <form method="POST" action="/" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <fieldset class="form-group">
-                            <label for="exampleInputname1">Name</label>
-                            <input type="text" name="name" class="form-control"
-                                   id="exampleInputName1"
-                                   placeholder="Enter Name">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exampleInputcontact1">Contact
-                                Number</label>
-                            <input type="number" name="phone" class="form-control"
-                                   id="exampleInputcontact1"
-                                   placeholder="Enter Contact">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exampleInputEmail1">Email
-                                address</label>
-                            <input type="email" name="email" class="form-control"
-                                   id="exampleInputEmail1"
-                                   placeholder="Enter Email">
-                            <small class="text-muted">We'll never share your
-                                email with anyone else.
-                            </small>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exampleInputsub1">Subject</label>
-                            <input type="text" name="subject" class="form-control"
-                                   id="exampleInputsub1"
-                                   placeholder="Enter Subject">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="examplemessage">Message</label>
-                            <textarea class="form-control" name="message" id="message"
-                                      rows="5"></textarea>
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="exampleInputFile">Any
-                                Attachment</label>
-                            <input type="file" name="file" class="form-control-file"
-                                   id="exampleInputFile">
-                            <small class="text-muted">Make sure that the
-                                attachment you are attaching should be
-                                smaller than 25MB.
-                            </small>
-                        </fieldset>
+                        {% for field in contact_form %}
+                            <fieldset class="form-group">
+                                {% for error in field.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                                <label for="{{ field.name }}">
+                                        {{ field.label }}
+                                </label>
+                                {{ field }}
+                            </fieldset>
+                        {% endfor %}
                         <button type="submit" class="btn button fill">
                             Submit
                         </button>
@@ -540,14 +507,6 @@
             $('#contactModal').on('shown.bs.modal', function () {
                 $('#myInput').focus()
             })
-
-
-
-
-
-
-
-
     </script>
 
 
@@ -824,7 +783,7 @@
                 focus on customer satisfaction. We are an equal
                 opportunity organization that motivates every member to
                 work with passion and commitment.</p>
-            <div class="col-sm-12">
+            <div class="col-sm-12 hides_equation">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="col-user-1by7 about-svg">
@@ -963,7 +922,7 @@
             <div class="row">
                 <div class="col-sm-12 team-member-content">
                     <h4><span>TEAM </span>MEMBERS</h4>
-                    <p>A perfect blend of creativity and technical
+                    <p style="text-align: justify;">A perfect blend of creativity and technical
                         wizardry. The best people formula for great
                         websites and applications!</p>
                 </div>
@@ -1305,6 +1264,12 @@
                                 style="color: #0094ff; font-size: 14px">+91-7053852697</em><span
                                 style="color: #333;"> or </span><em
                                 style="color: #0094ff; font-size: 14px">+91-9412721584</em>
+                            Or email us at <a
+                                href="mailto:si.akgec14@gmail.com">
+                                si.akgec14@gmail.com</a>
+                        </p>
+                        <p>
+
                         </p>
                         <p> You can also meet us in person here
                             24*7:<br/>
@@ -1697,7 +1662,7 @@
 </div>
 
 
-</div><!-- Wrapper End -->
+<!-- Wrapper End -->
 
 <!-- ====================================================================Initialiser -->
 

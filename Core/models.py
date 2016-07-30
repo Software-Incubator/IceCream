@@ -8,7 +8,7 @@ def upload_location(instance, filename):
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=255)
-    contact = models.IntegerField()
+    contact = models.BigIntegerField()
     email = models.EmailField(max_length=50)
     subject = models.CharField(max_length=255)
     message = models.CharField(max_length=500)
@@ -45,7 +45,7 @@ class Technology(models.Model):
 class Member(models.Model):
     name = models.CharField(max_length=225, null=False, blank=False)
     designation = models.ForeignKey(to=Designation, null=True)
-    technology = models.ManyToManyField(to=Technology, null=True)
+    technology = models.ManyToManyField(to=Technology)
     presently_at = models.CharField(max_length=225, null=False, blank=True)
     is_alumni = models.BooleanField(default=False)
     batch = models.IntegerField(null=False)

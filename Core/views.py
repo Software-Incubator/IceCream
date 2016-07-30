@@ -1,20 +1,37 @@
-from django.views.generic import TemplateView, FormView
+from django.views.generic import View
 from django.views.generic.edit import ModelFormMixin
 from .models import Project, Member
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ContactUsForm
+from django.contrib import messages
 
 
-class IndexView(TemplateView):
-
-    template_name = 'index.html'
+class IndexView(View):
 
     http_method_names = [u'get', u'post']
 
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        return render(request, 'index.html', context=context)
+
+    def post(self, request):
+        form_data = request.POST
+        contact_form = ContactUsForm(form_data)
+        context = self.get_context_data()
+        is_form_valid = contact_form.is_valid()
+        if is_form_valid:
+            contact_form.save()
+            message = 'Message submitted successfully!'
+            messages.add_message(request, messages.SUCCESS, message=message)
+            return redirect('/', context)
+        messages.add_message(request, messages.INFO,
+                             'Some fields in the form were missing!')
+        context['contact_form'] = contact_form
+        return redirect('/', context)
+
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
-        context = super(IndexView, self).get_context_data(**kwargs)
-
+        context = kwargs
         contact_form = ContactUsForm()
         # make projects list for Portfolio section
         i = 0
@@ -55,3 +72,4 @@ class IndexView(TemplateView):
         context['contact_form'] = contact_form
 
         return context
+
