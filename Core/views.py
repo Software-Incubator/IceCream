@@ -1,22 +1,27 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
+from django.views.generic.edit import ModelFormMixin
 from .models import Project, Member
 from django.shortcuts import render
 from .forms import ContactUsForm
 
 
 class IndexView(TemplateView):
+
     template_name = 'index.html'
+
+    http_method_names = [u'get', u'post']
 
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
         context = super(IndexView, self).get_context_data(**kwargs)
 
+        contact_form = ContactUsForm()
         # make projects list for Portfolio section
         i = 0
         if len(projects) > 3:
-            project_lists = [projects[i: i + 3] for i in
+            project_lists = [projects[i*3: i*3 + 3] for i in
                              range(len(projects) / 3)]
-            project_lists.append(projects[i + 3:])
+            project_lists.append(projects[i*3 + 3:])
         else:
             project_lists = [projects, ]
 
@@ -24,8 +29,8 @@ class IndexView(TemplateView):
         i = 0
         members = Member.objects.filter(is_alumni=False).order_by('name')
         if len(members) > 6:
-            members_lists = [members[i: i + 6] for i in range(len(members) / 6)]
-            members_lists.append(members[i + 6:])
+            members_lists = [members[i*6: i*6 + 6] for i in range(len(members) / 6)]
+            members_lists.append(members[i*6 + 6:])
         else:
             members_lists = [members, ]
 
@@ -47,5 +52,6 @@ class IndexView(TemplateView):
         context['projects'] = project_lists
         context['members'] = members_lists
         context['alumni'] = alumni
+        context['contact_form'] = contact_form
 
         return context
