@@ -93,7 +93,7 @@ class RegistrationForm(forms.ModelForm):
                    'name': 'contact',
                    'class': 'form-control',
                    'id': 'exampleInputcontact1',
-                   'placeholder': 'Enter Contact No'
+                   'placeholder': 'Enter Contact No.'
                    }
         )
     )
@@ -140,14 +140,14 @@ class RegistrationForm(forms.ModelForm):
                                    'type': 'radio'})
     )
     hosteler = forms.BooleanField(required=False,
-                                  widget=forms.CheckboxInput(attrs={'class': 'form-control',
+                                  widget=forms.CheckboxInput(attrs={
                                                              'data-val': 'true',
                                                              'data-val-required': 'the hosteler field is required',
                                                              'id': 'IsHosteler',
                                                              'name': 'IsHosteler',
                                                              'type': 'checkbox'}))
     designer = forms.BooleanField(required=False,
-                                  widget=forms.CheckboxInput(attrs={'class': 'form-control',
+                                  widget=forms.CheckboxInput(attrs={
                                                              'data-val': 'true',
                                                              'data-val-required': 'the designer is required',
                                                              'id': 'IsDesigner',

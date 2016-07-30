@@ -73,6 +73,7 @@ class IndexView(View):
 
         return context
 
+
 class RegistrationView(FormView):
 
     template_name = 'registration.html'
@@ -80,3 +81,16 @@ class RegistrationView(FormView):
     success_url = reverse_lazy('home')
 
     form_class = RegistrationForm
+
+    def post(self, request, *args, **kwargs):
+        print "Post request: ", request.POST
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse_lazy('home'))
+        return render(request, 'registration.html', {'form': form})
+
+    def get(self, request, *args, **kwargs):
+        form = RegistrationForm()
+        return render(request, 'registration.html', {'form': form})
+
