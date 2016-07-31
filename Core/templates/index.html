@@ -144,6 +144,22 @@
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+<script>
+{#    for horizontal scrolling#}
+    $(function() {
+
+    var $body = $(document);
+    $body.bind('scroll', function() {
+        // "Disable" the horizontal scroll.
+        if ($body.scrollLeft() !== 0) {
+            $body.scrollLeft(0);
+        }
+    });
+
+});
+</script>
+
+
 
 <!-- ================================================================================================== Loader -->
 
@@ -209,6 +225,9 @@
         <a href="/register">
             <div class="registration_trigger hvr-buzz">Register Here!</div>
         </a>
+        <div class="phoneLanding">
+
+        </div>
         <div class="hvr-bounce-in circular popup-item size7" id="circle7">
             <div class="hvr-bounce-in circular popup-item size5" id="circle5">
                 <div class="hvr-bounce-in circular popup-item size4"
