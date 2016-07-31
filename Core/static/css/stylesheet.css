@@ -1890,3 +1890,15 @@ h2.zero, p.zero {
         left: -520px;
     }
 }
+
+.snackbar{
+    position: fixed;
+    bottom : 20px;
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.7);
+    padding: 20px;
+  top: 86%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    color:#fff;
+}

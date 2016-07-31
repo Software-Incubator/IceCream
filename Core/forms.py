@@ -14,7 +14,8 @@ class ContactUsForm(forms.ModelForm):
                    'name': 'name',
                    'class': 'form-control',
                    'id': 'exampleInputName1',
-                   'placeholder': 'Enter Name'}
+                   'placeholder': 'Enter Name'
+                   }
         )
     )
     contact = forms.IntegerField(
@@ -73,7 +74,8 @@ class RegistrationForm(forms.ModelForm):
                    'name': 'name',
                    'class': 'form-control',
                    'id': 'exampleInputName1',
-                   'placeholder': 'Enter Name'}
+                   'placeholder': 'Enter Name',
+                   'onblur': ''}
         )
     )
     email = forms.EmailField(
@@ -93,7 +95,8 @@ class RegistrationForm(forms.ModelForm):
                    'name': 'contact',
                    'class': 'form-control',
                    'id': 'exampleInputcontact1',
-                   'placeholder': 'Enter Contact No.'
+                   'placeholder': 'Enter Contact No.',
+                   'onblur': ''
                    }
         )
     )
@@ -103,7 +106,8 @@ class RegistrationForm(forms.ModelForm):
             attrs={'type': 'number',
                    'class': 'form-control',
                    'id': 'exampleInputstudent1',
-                   'placeholder': 'Enter Student Number'}
+                   'placeholder': 'Enter Student Number',
+                   'onblur': ''}
         )
     )
     BRANCH_CHOICES = [('CE', 'CE'), ('CSE', 'CSE'), ('IT', 'IT'), ('EN', 'EN'),

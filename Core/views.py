@@ -68,7 +68,7 @@ class IndexView(View):
 
         context['projects'] = project_lists
         context['members'] = members_lists
-        context['alumni'] = alumni
+        context['alumni'] = nested_alumni_lists
         context['contact_form'] = contact_form
 
         return context
@@ -87,6 +87,8 @@ class RegistrationView(FormView):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS,
+                                 "Successfully registered. You've taken the first step towards SI.")
             return redirect(reverse_lazy('home'))
         return render(request, 'registration.html', {'form': form})
 

@@ -61,6 +61,7 @@ class Member(models.Model):
 
     class Meta:
         verbose_name_plural = "Members"
+        ordering = ['batch']
 
 
 class Project(models.Model):
@@ -85,9 +86,9 @@ class Project(models.Model):
 
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     contact = models.BigIntegerField()
-    student_number = models.IntegerField()
+    student_number = models.IntegerField(unique=True)
     branch = models.CharField(max_length=3)
     year = models.IntegerField()
     gender = models.CharField(max_length=1)
