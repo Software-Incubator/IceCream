@@ -1931,6 +1931,6 @@ h2.zero, p.zero {
     }
 }
 
-.error {
+.validationerror {
     color: red;
 }
