@@ -54,15 +54,15 @@ class IndexView(View):
         i = 0
         alumni = Member.objects.filter(is_alumni=True).order_by('name')
         if len(alumni) > 12:
-            alumni_lists = [alumni[i: i + 12] for i in range(len(alumni) / 12)]
-            alumni_lists.append(alumni[i + 12:])
+            alumni_lists = [alumni[i*12: i*12 + 12] for i in range(len(alumni) / 12)]
+            alumni_lists.append(alumni[i*12 + 12:])
         else:
             alumni_lists = [alumni, ]
         i = 0
         if len(alumni_lists) > 2:
-            nested_alumni_lists = [alumni_lists[i: i + 2] for
+            nested_alumni_lists = [alumni_lists[i*2: i*2 + 2] for
                                    i in range(len(alumni_lists) / 2)]
-            nested_alumni_lists.append(alumni_lists[i + 2:])
+            nested_alumni_lists.append(alumni_lists[i*2 + 2:])
         else:
             nested_alumni_lists = [alumni_lists, ]
 
