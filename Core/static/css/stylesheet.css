@@ -1908,20 +1908,21 @@ h2.zero, p.zero {
 }
 
 .snackbar {
-    position: fixed;
-    bottom: 20px;
+    position: absolute;
+    bottom: -33px;
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    top: 86%;
+    /*top: 86%;*/
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: #fff;        z-index:99999999;
+
 }
 
 @media (max-width: 768px) {
     .snackbar{
-        top:80%;
+        /*top:80%;*/
         /*bottom:550px;*/
         padding: 5px;
         z-index:99999999;

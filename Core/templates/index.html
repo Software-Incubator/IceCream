@@ -145,20 +145,19 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 <script>
-{#    for horizontal scrolling#}
-    $(function() {
+    {#    for horizontal scrolling#}
+    $(function () {
 
-    var $body = $(document);
-    $body.bind('scroll', function() {
-        // "Disable" the horizontal scroll.
-        if ($body.scrollLeft() !== 0) {
-            $body.scrollLeft(0);
-        }
+        var $body = $(document);
+        $body.bind('scroll', function () {
+            // "Disable" the horizontal scroll.
+            if ($body.scrollLeft() !== 0) {
+                $body.scrollLeft(0);
+            }
+        });
+
     });
-
-});
 </script>
-
 
 
 <!-- ================================================================================================== Loader -->
@@ -225,6 +224,13 @@
         <a href="/register">
             <div class="registration_trigger hvr-buzz">Register Here!</div>
         </a>
+        <div style="text-align: center;width:100%;">
+            {% for message in messages %}
+                <div id="snackbar" class="snackbar">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
         <div class="phoneLanding">
 
         </div>
@@ -250,13 +256,7 @@
         </div>
     </section>
     <!-- ============================================================================================== Services  -->
-    <div style="text-align: center;width:100%;">
-        {% for message in messages %}
-            <div id="snackbar" class="snackbar">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>
+
     <div class="container">
         <div class="typedjs">
             <div class="believe">We believe in&nbsp;&nbsp;</div>
