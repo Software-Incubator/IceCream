@@ -11,7 +11,8 @@ font-family: 'Roboto', sans-serif;*/
     margin-left: 0px;
     }*/
 html {
-    width: 100%;
+    max-width: 100%;
+    overfl-x: hidden;
     height: 100%;
 }
 
@@ -1078,6 +1079,18 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
 }
 
+/*.phoneLanding {*/
+    /*display: none;*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+    /*.phoneLanding {*/
+        /*display: block;*/
+        /*!*background-image: url('../images/landing.png');*!*/
+        /*background-color: #1b6d85;*/
+    /*}*/
+/*}*/
+
 /*..............................................................................*/
 .card-role {
     position: absolute;
@@ -1654,63 +1667,6 @@ h2.zero, p.zero {
     box-shadow: 0px -3px 45px 0px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 768px) {
-    .container1 {
-        height: 350px;
-
-    }
-
-    .typedjs {
-        left: 8px;
-        padding-top: 30px;
-    }
-
-    .believe {
-        font-size: 13px !important;
-    }
-
-    .type-wrap {
-        font-size: 13px;
-    }
-
-    .heading_header {
-        font-size: 15px;
-        letter-spacing: 1.5px;
-    }
-
-    .iphone {
-        margin-left: 50px;
-    }
-
-    .service-icon-pad {
-        display: none;
-    }
-
-    .mobile_heading {
-        padding-left: 35px;
-    }
-
-    .about-para-1 {
-        padding: 35px;
-    }
-
-    .hides_equation {
-        display: none;
-    }
-
-    .envelope {
-        padding: 0;
-        position: relative;
-        left: -20px;
-
-    }
-
-    .container1 {
-        height: 350px !important;
-    }
-
-}
-
 /*svg logo*/
 
 .inner {
@@ -1849,8 +1805,12 @@ h2.zero, p.zero {
 }
 
 .size7 {
-    padding: 220px !important;
+    /*width:100% !important;*/
+    /*height:100% !important;*/
+    padding: 210px !important;
     position: relative;
+    top: -370px;
+    /*top:100px !important;*/
 }
 
 .popup-item {
@@ -1860,12 +1820,13 @@ h2.zero, p.zero {
 }
 
 .container1 {
-    background: #303030;
+    /*background: ;*/
     height: 600px;
     overflow: hidden;
     text-align: center;
     position: relative;
     transition: ease-in;
+        background: url('../images/landing.png') center 25px no-repeat #303030;
 }
 
 .size1 {
@@ -1877,11 +1838,6 @@ h2.zero, p.zero {
     background-size: 80px;
 }
 
-.size7 {
-    position: relative;
-    top: -390px;
-}
-
 @media (max-width: 768px) {
 
     .size7 {
@@ -1891,14 +1847,85 @@ h2.zero, p.zero {
     }
 }
 
-.snackbar{
+@media (max-width: 768px) {
+    .container1 {
+        height: 350px;
+
+    }
+
+    .typedjs {
+        left: 8px;
+        padding-top: 30px;
+    }
+
+    .believe {
+        font-size: 13px !important;
+    }
+
+    .type-wrap {
+        font-size: 13px;
+    }
+
+    .heading_header {
+        font-size: 15px;
+        letter-spacing: 1.5px;
+    }
+
+    .iphone {
+        margin-left: 50px;
+    }
+
+    .service-icon-pad {
+        display: none;
+    }
+
+    .mobile_heading {
+        padding-left: 35px;
+    }
+
+    .about-para-1 {
+        padding: 35px;
+    }
+
+    .hides_equation {
+        display: none;
+    }
+
+    .envelope {
+        padding: 0;
+        position: relative;
+        left: -20px;
+
+    }
+
+    .container1 {
+        height: 350px !important;
+    }
+
+    .size7 {
+        display: none !important;
+    }
+}
+
+.snackbar {
     position: fixed;
-    bottom : 20px;
+    bottom: 20px;
     font-size: 20px;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
-  top: 86%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-    color:#fff;
+    top: 86%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .snackbar{
+        top:80%;
+        /*bottom:550px;*/
+        padding: 5px;
+        z-index:99999999;
+        /*width: 100%;*/
+        overflow:auto;
+    }
 }
