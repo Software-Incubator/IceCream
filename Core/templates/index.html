@@ -1,8 +1,8 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home | Software Incubator</title>
-    {% load staticfiles %}
     <link rel="icon" href="{% static 'images/silogo.ico' %}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,9 +51,6 @@
 
     <!-- Loader -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-    <link href="{% static 'smart.scss' %}" rel="stylesheet/scss"
-          type="text/css">
-
     <style>
 
         /* code for animated blinking cursor */
@@ -63,13 +60,13 @@
         }
 
         .modal-content {
-            margin: 0px;
+            margin: 0;
         }
 
         @media (min-width: 768px) {
             .modal-dialog {
                 width: 600px;
-                margin: 0px auto;
+                margin: 0 auto;
             }
 
             .typed-cursor {
@@ -304,7 +301,7 @@
                             technologies that include high performance and
                             minimize the system requirements.</p>
                         <p class="service-tag"></p>
-                        <div class="col-sm-12" style="padding: 0px;">
+                        <div class="col-sm-12" style="padding: 0;">
                             <!-- DesktopTechnology Icon -->
                             <div class="col-user-1by8 service-icon-pad">
                                 <img src="{% static 'images/java.png' %}"
@@ -351,7 +348,7 @@
                         and Windows Devices. Today in the market and even
                         tomorrow, our apps never die.</p>
                     <p class="service-tag"></p>
-                    <div class="col-sm-12" style="padding: 0px;">
+                    <div class="col-sm-12" style="padding: 0;">
                         <!-- Mobile Technology Icon -->
                         <div class="col-user-1by8 service-icon-pad">
                             <img src="{% static 'images/android.png' %}"
@@ -393,7 +390,7 @@
                         are fully secure and give support to data security
                         and integrity.</p>
                     <p class="service-tag"></p>
-                    <div class="col-xs-12 " style="padding: 0px;">
+                    <div class="col-xs-12 " style="padding: 0;">
                         <!-- Website Technology Icon -->
                         <div class="col-user-1by8 service-icon-pad">
                             <img src="{% static 'images/php.png' %}"
@@ -475,14 +472,12 @@
                         data-target="#myModal" class="btn button fill">
                     Portfolio
                 </button>
-                </a>
             </div>
 
             <div class="col-xs-12 col-sm-4 port_buttons">
                 <button class="btn button fill" type="button"
                         data-target="#comingsoon" data-toggle="modal">Our Blogs
                 </button>
-                </a>
             </div>
         </div>
     </div>
@@ -503,7 +498,7 @@
                 </div>
 
                 <p class="coming-soon"><span
-                        style="font-color:#1eb1f2;">Coming</span> Soon...</p>
+                        style="color:#1eb1f2;">Coming</span> Soon...</p>
             </div>
         </div>
     </div>
@@ -606,66 +601,11 @@
     </script>
 
 
-    <!-- Modal Useage DATA -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1"
-         tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-offset-3">
-                        <div class="modal-body">
-                            <h2>Project Name</h2>
-                            <img src="{% static 'placeholder_image_wide.jpg' %}"
-                                 class="img-responsive img-centered" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Curabitur tristique massa
-                                eget risus vestibulum, id commodo sapien
-                                commodo. Morbi mattis imperdiet mtae neque
-                                vel hendrerit. Quisque tempus nisi eu quam
-                                consequat semper. Aenean quis fermentum
-                                tortor, id mollis tellus. Cum sociis natoque
-                                penatibus et magnis dis parturient montes,
-                                nascetur ridiculus mus. Interdum et
-                                malesuada fames ac ante ipsum primis in
-                                faucibus. Duis in nisi blandit, bibendum
-                                dolor quis, bibendum velit.</p>
-                            <ul class="list-inline item-details">
-                                <li>
-                                    <span class="bolder">Link:</span>
-                                    <span>www.silive.in</span>
-                                </li>
-                            </ul>
-                            <ul class="list-inline item-details">
-                                <li>
-                                    <span class="bolder">Deployed Date:</span>
-                                    <span>13/05/2016</span>
-                                </li>
-                                <li>
-                                    <span class="bolder">Technologies:</span>
-                                    <span>HTML, Css, JavaScript, Bootstrap etc.</span>
-                                </li>
-                                #
-                            </ul>
-                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <script type="text/javascript">
         var nsOptions = {
             thumbWidth: "90%",
             thumbHeight: "auto",
-            showMode: 5,
+            showMode: 5
         }
 
 
@@ -686,7 +626,7 @@
     <!-- Container -->
     <div class="fluid-container">
         <div class="swiper-container swiper1">
-            <div class="swiper-wrapper" style="padding: 50px 0px;">
+            <div class="swiper-wrapper" style="padding: 50px 0;">
                 <!-- Single Slide Card Start -->
                 <div class="swiper-slide">
                     <div class="row client_property">
@@ -774,7 +714,6 @@
         initialSlide: 1,
         centeredSlides: false,
         slidesPerView: 5,
-        autoplayDisableOnInteraction: false,
         keyboardControl: true,
         simulateTouch: false,
         autoplay: 1200,
@@ -801,40 +740,6 @@
             }
         }
     });
-
-    // var swiper1 = new Swiper('.swiper1', {
-    //     pagination: '.swiper-pagination1',
-    //     nextButton: '.swiper-button-next',
-    //     prevButton: '.swiper-button-prev',
-    //     paginationClickable: true,
-    //     initialSlide: 4,
-    //     spaceBetween: 40,
-    //     centeredSlides: false,
-    //     slidesPerView: 4,
-    //     autoplayDisableOnInteraction: false,
-    //     mousewheelControl: false,
-    //     keyboardControl:true,
-    //      breakpoints: {
-    //             1024: {
-    //                 slidesPerView: 4,
-    //                 spaceBetween: 40
-    //             },
-    //             768: {
-    //                 slidesPerView: 3,
-    //                 spaceBetween: 30
-    //             },
-    //             640: {
-    //                 slidesPerView: 2,
-    //                 spaceBetween: 20
-    //             },
-    //             320: {
-    //                 slidesPerView: 1,
-    //                 spaceBetween: 10
-    //             }
-    //         }
-    // });
-
-
 </script>
 
 <!-- Error -->
@@ -855,7 +760,7 @@
         <div class="col-sm-6 about-para-1">
 
             <p><span
-                    style="margin-top: 0px; font-size: 20px;text-transform: uppercase; font-weight: bold"><span
+                    style="margin-top: 0; font-size: 20px;text-transform: uppercase; font-weight: bold"><span
                     style="color: #3b95ed;">Software</span> Incubator</span>
                 is the research and develoment center established within
                 the portal of Ajay Kumar Garg Engineering College. We
@@ -915,91 +820,91 @@
                     allowfullscreen></iframe>
         </div>
     </div>
-
-    <!-- >>>>>>> Testimonail START <<<<<<<<< -->
-    <div class="fluid-container testimonial">
-        <div class="row">
-            <div class="swiper-container swiper2" style="background: black">
-                <div class="swiper-wrapper">
-                    <!-- Single Slider -->
-                    <div class="img-responsive swiper-slide center-block"
-                         style="background-image:url('/static/images/slider1.jpg'); background-size: cover; ">
-                        <div class="single-testimonial">
-                            <h1 style="font-size: 400px;">"</h1>
-                            <p>The important thing is not to stop questioning.
-                                Curiosity has its own reason
-                                for existing. </p>
-                            <h6>- Albert Einstien</h6>
-                        </div>
-                    </div>
-                    <!-- Single Slider -->
-                    <div class="img-responsive swiper-slide center-block"
-                         style="background-image:url('/static/images/slider2.jpg'); background-size: cover; ">
-                        <div class="single-testimonial">
-                            <h1 style="font-size: 400px;">"</h1>
-                            <p>What is important (More than going to west) is
-                                that you need to follow your
-                                dreams and follow your heart.</p>
-                            <h6>- Sundar Pichai</h6>
-                        </div>
-                    </div>
-                    <!-- Single Slider -->
-                    <div class="img-responsive swiper-slide center-block"
-                         style="background-image:url('/static/images/slider3.jpg'); background-size: cover; ">
-                        <div class="single-testimonial">
-                            <h1 style="font-size: 400px;">"</h1>
-                            <p>Sometimes when you innovate, you make mistakes.
-                                It is best to admit them quickly, and get on
-                                with improving your other innovations.</p>
-                            <h6>- Steve Jobs </h6>
-                        </div>
-                    </div>
-                    <!-- Single Slider -->
-                    <div class="img-responsive swiper-slide center-block"
-                         style="background-image:url('/static/images/slider4.jpg'); background-size: cover; ">
-                        <div class="single-testimonial">
-                            <h1 style="font-size: 400px;">"</h1>
-                            <p>Everything is going to be connected to cloud and
-                                data.
-                                All of this will be mediated by software.
-                            </p>
-                            <h6>- Satya Nadella</h6>
-                        </div>
-                    </div>
-                    <!-- Single Slider -->
-                    <div class="img-responsive swiper-slide center-block"
-                         style="background-image:url('/static/images/slider5.jpg'); background-size: cover; ">
-                        <div class="single-testimonial">
-                            <h1 style="font-size: 400px;">"</h1>
-                            <p>God, our Creator, has stored within our minds and
-                                personalities,
-                                great potential strength and ability. Prayer
-                                helps us tap and develop these powers.</p>
-                            <h6>- Dr. APJ Abdul Kalam</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        var swiper2 = new Swiper('.swiper2', {
-            paginationClickable: false,
-            spaceBetween: 0,
-            centeredSlides: true,
-            simulateTouch: false,
-            autoplay: 4000,
-            speed: 1000,
-            autoplayDisableOnInteraction: false,
-            mousewheelControl: false,
-            loop: true
-        });
-
-
-    </script>
-    <!-- >>>>>>> Testimonail ENDS <<<<<<<<< -->
-
+{##}
+{#    <!-- >>>>>>> Testimonail START <<<<<<<<< -->#}
+{#    <div class="fluid-container testimonial">#}
+{#        <div class="row">#}
+{#            <div class="swiper-container swiper2" style="background: black">#}
+{#                <div class="swiper-wrapper">#}
+{#                    <!-- Single Slider -->#}
+{#                    <div class="img-responsive swiper-slide center-block"#}
+{#                         style="background-image:url('/static/images/slider1.jpg'); background-size: cover; ">#}
+{#                        <div class="single-testimonial">#}
+{#                            <h1 style="font-size: 400px;">"</h1>#}
+{#                            <p>The important thing is not to stop questioning.#}
+{#                                Curiosity has its own reason#}
+{#                                for existing. </p>#}
+{#                            <h6>- Albert Einstien</h6>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Slider -->#}
+{#                    <div class="img-responsive swiper-slide center-block"#}
+{#                         style="background-image:url('/static/images/slider2.jpg'); background-size: cover; ">#}
+{#                        <div class="single-testimonial">#}
+{#                            <h1 style="font-size: 400px;">"</h1>#}
+{#                            <p>What is important (More than going to west) is#}
+{#                                that you need to follow your#}
+{#                                dreams and follow your heart.</p>#}
+{#                            <h6>- Sundar Pichai</h6>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Slider -->#}
+{#                    <div class="img-responsive swiper-slide center-block"#}
+{#                         style="background-image:url('/static/images/slider3.jpg'); background-size: cover; ">#}
+{#                        <div class="single-testimonial">#}
+{#                            <h1 style="font-size: 400px;">"</h1>#}
+{#                            <p>Sometimes when you innovate, you make mistakes.#}
+{#                                It is best to admit them quickly, and get on#}
+{#                                with improving your other innovations.</p>#}
+{#                            <h6>- Steve Jobs </h6>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Slider -->#}
+{#                    <div class="img-responsive swiper-slide center-block"#}
+{#                         style="background-image:url('/static/images/slider4.jpg'); background-size: cover; ">#}
+{#                        <div class="single-testimonial">#}
+{#                            <h1 style="font-size: 400px;">"</h1>#}
+{#                            <p>Everything is going to be connected to cloud and#}
+{#                                data.#}
+{#                                All of this will be mediated by software.#}
+{#                            </p>#}
+{#                            <h6>- Satya Nadella</h6>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Slider -->#}
+{#                    <div class="img-responsive swiper-slide center-block"#}
+{#                         style="background-image:url('/static/images/slider5.jpg'); background-size: cover; ">#}
+{#                        <div class="single-testimonial">#}
+{#                            <h1 style="font-size: 400px;">"</h1>#}
+{#                            <p>God, our Creator, has stored within our minds and#}
+{#                                personalities,#}
+{#                                great potential strength and ability. Prayer#}
+{#                                helps us tap and develop these powers.</p>#}
+{#                            <h6>- Dr. APJ Abdul Kalam</h6>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <script>#}
+{#        var swiper2 = new Swiper('.swiper2', {#}
+{#            paginationClickable: false,#}
+{#            spaceBetween: 0,#}
+{#            centeredSlides: true,#}
+{#            simulateTouch: false,#}
+{#            autoplay: 4000,#}
+{#            speed: 1000,#}
+{#            autoplayDisableOnInteraction: false,#}
+{#            mousewheelControl: false,#}
+{#            loop: true#}
+{#        });#}
+{##}
+{##}
+{#    </script>#}
+{#    <!-- >>>>>>> Testimonail ENDS <<<<<<<<< -->#}
+{##}
 
     <!-- >>>>>>> Team Members START <<<<<<<<< -->
     <div class="container-fluid">
@@ -1069,18 +974,11 @@
                 </div>
             </div>
             <div class="col-sm-12">
-                <div class="row" style="padding: 0px;">
-                    {#                    <div class="col-sm-6" style="padding: 0px;">#}
-                    {#                            <div class="col-user-1by12" id="img-family-id">#}
-                    {#                                <!--<a href="#alumnimodal" class="alumini-Modal"#}
-                    {#                               data-toggle="modal"#}
-                    {#                               data-target="#alumni-Modal" id="">-->#}
-                    {#                                <!--</a>-->#}
-                    {#                            </div>#}
+                <div class="row" style="padding: 0;">
                     {% for alumni_list in alumni %}
-                        <div class="row" style="padding:0px;"
+                        <div class="row" style="padding:0;"
                              id="img-family-id">
-                            <div class="col-sm-6" style="padding: 0px;">
+                            <div class="col-sm-6" style="padding: 0;">
                                 {% for alumnus in alumni_list.0 %}
                                     <div class="col-user-1by12"
                                          id="img-family-id">
@@ -1089,7 +987,7 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                            <div class="col-sm-6" style="padding: 0px;">
+                            <div class="col-sm-6" style="padding: 0;">
                                 {% for alumnus in alumni_list.1 %}
                                     <div class="col-user-1by12"
                                          id="img-family-id">
@@ -1104,200 +1002,200 @@
                 </div>
             </div>
 
-            <!-- modal for portfolio -->
-            <div class="modal fade" id="alumni-Modal" tabindex="-1"
-                 role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class=" alumni_Modal modal-dialog" role="document"
-                     style="width: 1155px;">
-                    <div class="modal-content modal-alumni-left">
-                        <div class="modal-header">
-                            <button type="button" class="close"
-                                    data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title">SI
-                                Alumini</h4>
-                        </div>
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-4 col-sm-push-8">
-                                    <div class="modal-body align-left">
-                                        <div class="thumbnail"
-                                             style="padding: 10px;">
-                                            <img src="{% static 'images/profile1.jpg' %}"
-                                                 class="img-responsive img-centered"
-                                                 style="padding:0px; ">
-                                            <h2 style="padding: 0px;">Name
-                                                of Alunimi</h2>
-                                            <p style="padding:0px; ">Lorem
-                                                ipsum dolor sit amet,
-                                                consectetuc ante ipsum
-                                                primis in faucibus. Duis in
-                                                nisi blandit, bibendum dolor
-                                                quis, bibendum velit.</p>
-                                            <p style="padding: 0px;">Social
-                                                Links : </p>
-                                                <span class="fa fa-facebook"
-                                                      style="font-size: 20px; padding-right: 2px;"></span>
-                                                <span class="fa fa-twitter"
-                                                      style="font-size: 20px; padding-right: 2px;"></span>
-                                                <span class="fa fa-linkedin"
-                                                      style="font-size: 20px; padding-right: 2px;"></span>
-                                                <span class="fa fa-github"
-                                                      style="font-size: 20px; padding-right: 2px;"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8 col-sm-pull-4">
-                                    <h4 style="font-size: 24px;  font-weight: bold;text-transform: uppercase;">
-                                        <span style="color: #3b95ed;">MEET </span>YOUR
-                                        YEAR</h4>
-                                    <div class="col-sm-12"
-                                         style="padding: 0px;">
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/profile1.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/profile2.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/profile3.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/profile4.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/profile5.png' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12"
-                                         style="padding: 0px;">
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                             id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                 class="img-responsive img-family">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript">
-                $('#contactModal').on('shown.bs.modal', function () {
-                    $('#myInput').focus()
-                })
-
-
-            </script>
-            <!-- modal for portfolio -->
-
-
-        </div>
+{#            <!-- modal for portfolio -->#}
+{#            <div class="modal fade" id="alumni-Modal" tabindex="-1"#}
+{#                 role="dialog" aria-labelledby="myModalLabel"#}
+{#                 aria-hidden="true">#}
+{#                <div class=" alumni_Modal modal-dialog" role="document"#}
+{#                     style="width: 1155px;">#}
+{#                    <div class="modal-content modal-alumni-left">#}
+{#                        <div class="modal-header">#}
+{#                            <button type="button" class="close"#}
+{#                                    data-dismiss="modal" aria-label="Close">#}
+{#                                <span aria-hidden="true">&times;</span>#}
+{#                            </button>#}
+{#                            <h4 class="modal-title">SI#}
+{#                                Alumini</h4>#}
+{#                        </div>#}
+{##}
+{#                        <div class="container">#}
+{#                            <div class="row">#}
+{#                                <div class="col-sm-4 col-sm-push-8">#}
+{#                                    <div class="modal-body align-left">#}
+{#                                        <div class="thumbnail"#}
+{#                                             style="padding: 10px;">#}
+{#                                            <img src="{% static 'images/profile1.jpg' %}"#}
+{#                                                 class="img-responsive img-centered"#}
+{#                                                 style="padding:0px; ">#}
+{#                                            <h2 style="padding: 0px;">Name#}
+{#                                                of Alunimi</h2>#}
+{#                                            <p style="padding:0px; ">Lorem#}
+{#                                                ipsum dolor sit amet,#}
+{#                                                consectetuc ante ipsum#}
+{#                                                primis in faucibus. Duis in#}
+{#                                                nisi blandit, bibendum dolor#}
+{#                                                quis, bibendum velit.</p>#}
+{#                                            <p style="padding: 0px;">Social#}
+{#                                                Links : </p>#}
+{#                                                <span class="fa fa-facebook"#}
+{#                                                      style="font-size: 20px; padding-right: 2px;"></span>#}
+{#                                                <span class="fa fa-twitter"#}
+{#                                                      style="font-size: 20px; padding-right: 2px;"></span>#}
+{#                                                <span class="fa fa-linkedin"#}
+{#                                                      style="font-size: 20px; padding-right: 2px;"></span>#}
+{#                                                <span class="fa fa-github"#}
+{#                                                      style="font-size: 20px; padding-right: 2px;"></span>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="col-sm-8 col-sm-pull-4">#}
+{#                                    <h4 style="font-size: 24px;  font-weight: bold;text-transform: uppercase;">#}
+{#                                        <span style="color: #3b95ed;">MEET </span>YOUR#}
+{#                                        YEAR</h4>#}
+{#                                    <div class="col-sm-12"#}
+{#                                         style="padding: 0px;">#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/profile1.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/profile2.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/profile3.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/profile4.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/profile5.png' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="col-sm-12"#}
+{#                                         style="padding: 0px;">#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                        <div class="col-user-1by12"#}
+{#                                             id="img-family-id">#}
+{#                                            <img src="{% static 'images/placeholder_image.jpg' %}"#}
+{#                                                 class="img-responsive img-family">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <script type="text/javascript">#}
+{#                $('#contactModal').on('shown.bs.modal', function () {#}
+{#                    $('#myInput').focus()#}
+{#                })#}
+{##}
+{##}
+{#            </script>#}
+{#            <!-- modal for portfolio -->#}
+{##}
+{##}
+{#        </div>#}
         <!-- >>>>>>> Alumini ENDS <<<<<<<<< -->
     </div>
     </div>
@@ -1318,7 +1216,7 @@
     </div>
     <!-- Main Division -->
     <div class="container-fluid contact">
-        <div class="container" style="padding: 0px;">
+        <div class="container" style="padding: 0;">
             <div class="row" style="padding: 40px 15px;">
 
                 <div class="col-sm-8">
@@ -1334,12 +1232,6 @@
                             unmatchable. To help grow your company and
                             our team as well, connect with us.
                             <br/>
-                            <!-- <br/>
-                             Mail us at <em
-                                 style="color: #0094ff; font-size: 14px"><a href="mailto:si.akgec14@gmail.com">Click here to mail us</a> <span
-                                 style="color: #333;"> or </span>aditisinghsikarwar@gmail.com<span
-                                 style="color: #333;"> or </span>shobhitagarwal1612@gmail.com</em>
-                         </p>-->
                         <p>
                             You can give us a call on <em
                                 style="color: #0094ff; font-size: 14px">+91-7827133953</em><span
@@ -1364,36 +1256,6 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <!-- <form>
-                        <fieldset class="form-group">
-                            <label for="exampleInputname1">Name</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Enter Name">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exampleInputcontact1">Contact Number</label>
-                            <input type="number" class="form-control" id="exampleInputcontact1" placeholder="Enter Contact">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
-                            <small class="text-muted">We'll never share your email with anyone else.</small>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="exampleInputsub1">Subject</label>
-                            <input type="text" class="form-control" id="exampleInputsub1" placeholder="Enter Subject">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="examplemessage">Message</label>
-                            <textarea class="form-control" id="message" rows="5"></textarea>
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="exampleInputFile">Any Attachment</label>
-                            <input type="file" class="form-control-file" id="exampleInputFile">
-                            <small class="text-muted">Make sure that the attachment you are attaching should be smaller than 25MB.</small>
-                        </fieldset>
-                        <button type="submit" class="btn button fill">Submit</button>
-                    </form> -->
                     <div class="envelope" data-toggle="modal"
                          data-target="#contactModal">
                         <img src="{% static 'images/mail.png' %}"
@@ -1407,7 +1269,7 @@
 
     <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
     <!-- Map API Customised -->
-    <div class="container-fluid" style="padding: 0px;">
+    <div class="container-fluid" style="padding: 0;">
         <div id="map"></div>
     </div>
     <!-- Map Script -->
@@ -1646,7 +1508,7 @@
                     </div>
                     <div class="col-sm-4">
                         <h2>Services</h2>
-                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                        <hr style="margin-top: 0; border-top: 1px solid #808080;">
                         <button type="button" class="u-btn btn-primary">
                             Mobile Development
                         </button>
@@ -1662,7 +1524,7 @@
                     </div>
                     <div class="col-sm-4">
                         <h2>Clients</h2>
-                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                        <hr style="margin-top: 0; border-top: 1px solid #808080;">
                         <button type="button" class="btn u-btn btn-primary">
                             <a target="_blank"
                                style="color: #fff;text-decoration: none;"
@@ -1719,7 +1581,7 @@
 
 </section>
 <div class="container-fluid"
-     style="background-color: #424242; padding: 0px;">
+     style="background-color: #424242; padding: 0;">
     <div class="row social-icon">
         <div style="font-size: 40px;text-align: center;">
             <h6 style="color: #fff; margin-top: 30px;">Connect Socially
@@ -1754,12 +1616,6 @@
     					Copyright <span
                             class="glyphicon glyphicon-copyright-mark"></span> 2016 Software Incubator
     				</span>
-                <!-- Scroll Top Button -->
-
-                <script type="text/javascript"
-                        src="http://arrow.scrolltotop.com/arrow204.js"></script>
-
-
             </p>
         </div>
     </div>
