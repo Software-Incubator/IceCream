@@ -100,10 +100,10 @@ class RegistrationForm(forms.ModelForm):
                    }
         )
     )
-    student_number = forms.IntegerField(
+    student_number = forms.CharField(
         required=True,
-        widget=forms.NumberInput(
-            attrs={'type': 'number',
+        widget=forms.TextInput(
+            attrs={'type': 'text',
                    'class': 'form-control',
                    'id': 'exampleInputstudent1',
                    'placeholder': 'Enter Student Number',

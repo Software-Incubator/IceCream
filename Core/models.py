@@ -88,7 +88,7 @@ class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
     email = models.EmailField(unique=True)
     contact = models.BigIntegerField()
-    student_number = models.IntegerField(unique=True)
+    student_number = models.CharField(max_length=8, unique=True)
     branch = models.CharField(max_length=3)
     year = models.IntegerField()
     gender = models.CharField(max_length=1)
