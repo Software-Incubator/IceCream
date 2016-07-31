@@ -205,7 +205,7 @@
                             {{ field.label_tag }}
                             {{ field }}
                             {% for error in field.errors %}
-                                {{ error }}
+                                <span class="error">{{ error }}</span>
                             {% endfor %}
                         </fieldset>
                     {% endfor %}

@@ -1930,3 +1930,7 @@ h2.zero, p.zero {
         overflow:auto;
     }
 }
+
+.error {
+    color: red;
+}
