@@ -52,7 +52,7 @@ class IndexView(View):
             members_lists = [members, ]
 
         i = 0
-        alumni = Member.objects.filter(is_alumni=True).order_by('name')
+        alumni = Member.objects.filter(is_alumni=True).order_by('-batch')
         if len(alumni) > 12:
             alumni_lists = [alumni[i*12: i*12 + 12] for i in range(len(alumni) / 12)]
             alumni_lists.append(alumni[i*12 + 12:])
