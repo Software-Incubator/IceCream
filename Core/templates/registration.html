@@ -40,12 +40,13 @@
 
     <!-- User JavaScript -->
     <script src="{% static 'js/javascript.js' %}"></script>
+    <script src="{% static 'js/year_validation.js' %}"></script>
 
     <style type="text/css">
 
 
         .form-group {
-{#            margin-bottom: 0px;#}
+        {#            margin-bottom: 0px;#}
         }
 
         .footer-line {
@@ -144,11 +145,12 @@
 
     </style>
 </head>
-<body id="page-top" data-spy="scroll" style="overflow-x:hidden;" data-target=".navbar-fixed-top">
-<script>$(function() {
+<body id="page-top" data-spy="scroll" style="overflow-x:hidden;"
+      data-target=".navbar-fixed-top">
+<script>$(function () {
 
     var $body = $(document);
-    $body.bind('scroll', function() {
+    $body.bind('scroll', function () {
         // "Disable" the horizontal scroll.
         if ($body.scrollLeft() !== 0) {
             $body.scrollLeft(0);
@@ -222,132 +224,133 @@
 
     <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footor  -->
 
- <section class="container-fluid " style="background-color: #252525;">
-    <div class="container footer">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h2>Featured Websites</h2>
-                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                        <button href="http://www.akgec.in" type="button"
-                                class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://akgec.in/">AKGEC</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://techtrishna.in/">TechTrishna</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://akgec-scrolls.com/">Scrolls</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://techtrishna.in/directme">DirectMe</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://bytepad.silive.in">Bytepad</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://resume.silive.in">Resume
-                                Builder</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://techtrishna.in/photoweb">Photoweb</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://akgec.in/bdc">Blood
-                                Donation Camp</a>
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <h2>Services</h2>
-                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                        <button type="button" class="u-btn btn-primary">
-                            Mobile Development
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            Website Development
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            Desktop Development
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            Web and Graphic Designing
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <h2>Clients</h2>
-                        <hr style="margin-top: 0px; border-top: 1px solid #808080;">
-                        <button type="button" class="btn u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://akgec.in/">AKGEC</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://4thpointer.com/">4th
-                                Pointer</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://india.ni.com/">
-                                National Instrument</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://tifac-core-akgec.org/">TIFAC</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://www.kuka.com/">KUKA</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://www.akgec-bosch.org/">
-                                Rexroth</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://www.gmaindia.org/"> GMA</a>
-                        </button>
-                        <button type="button" class="u-btn btn-primary">
-                            <a target="_blank"
-                               style="color: #fff;text-decoration: none;"
-                               href="http://www.digitalnet.com/">Brain Soft</a>
-                        </button>
+    <section class="container-fluid " style="background-color: #252525;">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2>Featured Websites</h2>
+                            <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                            <button href="http://www.akgec.in" type="button"
+                                    class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec.in/">AKGEC</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://techtrishna.in/">TechTrishna</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec-scrolls.com/">Scrolls</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://techtrishna.in/directme">DirectMe</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://bytepad.silive.in">Bytepad</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://resume.silive.in">Resume
+                                    Builder</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://techtrishna.in/photoweb">Photoweb</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec.in/bdc">Blood
+                                    Donation Camp</a>
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <h2>Services</h2>
+                            <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                            <button type="button" class="u-btn btn-primary">
+                                Mobile Development
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                Website Development
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                Desktop Development
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                Web and Graphic Designing
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <h2>Clients</h2>
+                            <hr style="margin-top: 0px; border-top: 1px solid #808080;">
+                            <button type="button" class="btn u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec.in/">AKGEC</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://4thpointer.com/">4th
+                                    Pointer</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://india.ni.com/">
+                                    National Instrument</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://tifac-core-akgec.org/">TIFAC</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.kuka.com/">KUKA</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.akgec-bosch.org/">
+                                    Rexroth</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.gmaindia.org/"> GMA</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.digitalnet.com/">Brain
+                                    Soft</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
     <div class="container-fluid"
          style="background-color: #424242; padding: 0px;">
         <div class="row social-icon">
@@ -397,15 +400,23 @@
 </div>
 {#Google Analytics#}
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-81678175-1', 'auto');
-  ga('send', 'pageview');
+    ga('create', 'UA-81678175-1', 'auto');
+    ga('send', 'pageview');
 
 </script>
+
 <!-- Wrapper End -->
 </body>
 </html>

@@ -120,9 +120,10 @@ class RegistrationForm(forms.ModelForm):
                    'data-val': 'true',
                    'data-val-required': '*',
                    'id': 'Branch',
-                   'name': 'Branch'})
+                   'name': 'Branch',
+                   'onchange': 'validateBranch()'})
                              )
-    YEAR_CHOICES = [('1', '1'), ('2', '2')]
+    YEAR_CHOICES = [('2', '2'),('1', '1')]
     year = forms.CharField(
         required=True,
         widget=forms.Select(choices=YEAR_CHOICES,
@@ -130,7 +131,9 @@ class RegistrationForm(forms.ModelForm):
                                    'data-val': 'true',
                                    'data-val-required': '*',
                                    'id': 'Year',
-                                   'name': 'Year'})
+                                   'name': 'Year'},
+                            ),
+        # disabled = True,
     )
     GENDER_CHOICES = [('F', 'Female'), ('M', 'Male')]
     gender = forms.CharField(

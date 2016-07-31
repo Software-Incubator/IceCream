@@ -86,6 +86,8 @@ class RegistrationView(FormView):
         print "Post request: ", request.POST
         form = RegistrationForm(request.POST)
         if form.is_valid():
+            print('The year is -')
+            # print(form.year)
             form.save()
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered. You've taken the first step towards SI.")
