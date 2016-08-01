@@ -73,7 +73,7 @@ class RegistrationForm(forms.ModelForm):
             attrs={'type': 'text',
                    'name': 'name',
                    'class': 'form-control',
-                   'id': 'exampleInputName1',
+                   'id': 'Name',
                    'placeholder': 'Enter Name',
                    'onblur': ''}
         )
@@ -84,17 +84,17 @@ class RegistrationForm(forms.ModelForm):
             attrs={'type': 'email',
                    'name': 'email',
                    'class': 'form-control',
-                   'id': 'exampleInputEmail1',
+                   'id': 'Email',
                    'placeholder': 'Enter Email'}
         )
     )
-    contact = forms.IntegerField(
+    contact = forms.CharField(
         required=True,
-        widget=forms.NumberInput(
-            attrs={'type': 'number',
+        widget=forms.TextInput(
+            attrs={'type': 'text',
                    'name': 'contact',
                    'class': 'form-control',
-                   'id': 'exampleInputcontact1',
+                   'id': 'Contact',
                    'placeholder': 'Enter Contact No.',
                    'onblur': ''
                    }
@@ -105,7 +105,7 @@ class RegistrationForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={'type': 'text',
                    'class': 'form-control',
-                   'id': 'exampleInputstudent1',
+                   'id': 'Student',
                    'placeholder': 'Enter Student Number',
                    'onblur': ''}
         )
