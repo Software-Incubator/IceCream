@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>404</title>
+<style type="text/css">
+@media (min-width: 768px){
+	body{
+{#	background-image: url(../../../../../silive.in/images/404.jpg);#}
+	background-image: url('{% static "images/404.jpg" %}');
+	font-family: 'Roboto', sans-serif;
+	background-size: 100%; 
+	background-repeat: no-repeat;
+}
+}
+@media (max-width: 768px){
+	body{
+{#	background-image: url(../../../../../silive.in/images/404m.jpg);#}
+        background-image: url('{% static "images/404m.jpg" %}');
+	background-size: 100%; 
+	background-repeat: no-repeat;
+	}
+}
+	
+</style>
+
+</head>
+<body>
+</body>
+</html>
