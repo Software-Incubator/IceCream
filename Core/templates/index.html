@@ -208,9 +208,7 @@
     <!-- =========================================================================== Landing Page -->
 
     <section class="container1">
-        <a href="/register">
-            <div class="registration_trigger hvr-buzz">Register Here!</div>
-        </a>
+
         <div style="text-align: center;width:100%;">
             {% for message in messages %}
                 <div id="snackbar" class="snackbar">
@@ -245,10 +243,10 @@
     <!-- ============================================================================================== Services  -->
 
     <div class="container">
-        <div class="typedjs">
-            <div class="believe">We believe in&nbsp;&nbsp;</div>
+        <span class="typedjs">
+            <span class="believe">We believe in&nbsp;&nbsp;</span>
 
-            <div class="type-wrap">
+            <span class="type-wrap">
                 <div id="typed-strings">
                     <p>Redefining Limitations...</p>
                     <p>Redefining Limitations...</p>
@@ -257,8 +255,8 @@
                     <p>Sharing Intelligence!</p>
                 </div>
                 <span id="typed" style="white-space:pre;"></span>
-            </div>
-        </div>
+            </span>
+        </span>
     </div>
 </div>
 <!-- ============================================================================================== Services  -->
@@ -517,7 +515,7 @@
                     {% for pro_row in projects %}
                         <div class="row spacerx">
                             {% for pro in pro_row %}
-                                <div class="col-sm-4">
+                                <div class="col-xs-12">
                                     <div class="wrap">
                                         <ul class="demo-2 effect">
                                             <li style="list-style: none;">
@@ -1249,7 +1247,7 @@
                     <div class="envelope" data-toggle="modal"
                          data-target="#contactModal">
                         <img src="{% static 'images/mail.png' %}"
-                             style="height: 300px;">
+                             style="width:100%;" class="center-block">
                     </div>
                 </div>
 
@@ -1259,8 +1257,8 @@
 
     <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
     <!-- Map API Customised -->
-    <div class="container-fluid" style="padding: 0;">
-        <div id="map"></div>
+    <div class="container-fluid" style="padding: 0;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);z-index: 999;">
+        <div id="map" style=""></div>
     </div>
     <!-- Map Script -->
     <script type="text/javascript">
@@ -1600,7 +1598,7 @@
 
 <div class="container-fluid" id="footor-bottom">
     <div class="row">
-        <div class="col-sm-12" style="padding:25px 25px 25px 90px;">
+        <div class="col-sm-12">
             <p>
     				<span style="  color: #808080; font-size: 12px;">
     					Copyright <span
