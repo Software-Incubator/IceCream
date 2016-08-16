@@ -149,7 +149,7 @@
 
 <!-- ================================================================================================== Loader -->
 
-<div class="se-pre-con"></div>
+{#<div class="se-pre-con"></div>#}
 
 <!-- ================================================================================================== Wrapper -->
 
@@ -245,7 +245,6 @@
     <div class="container">
         <span class="typedjs">
             <span class="believe">We believe in&nbsp;&nbsp;</span>
-
             <span class="type-wrap">
                 <div id="typed-strings">
                     <p>Redefining Limitations...</p>
@@ -478,15 +477,14 @@
              style="width: 1155px;">
             <div class="modal-content">
 
-                <div class="modal-body">
+                <div class="modal-body modal-container">
                     <button aria-label="Close" class="close"
                             data-dismiss="modal" type="button"><span
                             aria-hidden="true">&times;</span>
                     </button>
-                </div>
-
-                <p class="coming-soon"><span
+                     <p class="coming-soon"><span
                         style="color:#1eb1f2;">Coming</span> Soon...</p>
+                </div>
             </div>
         </div>
     </div>
@@ -502,16 +500,22 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog portfolio_modal" role="document"
-             style="width: 1155px;">
+             style="width: 100%;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Portfolio</h4>
+                    <div class="col-md-11 col-xs-9">
+                        <h4 class="modal-title" id="myModalLabel">Portfolio</h4>
+                    </div>
+                    <div class="col-md-1 col-xs-1">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-container">
+
+                    <hr>
                     {% for pro_row in projects %}
                         <div class="row spacerx">
                             {% for pro in pro_row %}
@@ -701,7 +705,7 @@
         freeMode: true,
         initialSlide: 1,
         centeredSlides: false,
-        slidesPerView: 5,
+        slidesPerView: 4,
         keyboardControl: true,
         simulateTouch: false,
         autoplay: 1200,
@@ -808,91 +812,72 @@
                     allowfullscreen></iframe>
         </div>
     </div>
-{##}
-{#    <!-- >>>>>>> Testimonail START <<<<<<<<< -->#}
-{#    <div class="fluid-container testimonial">#}
-{#        <div class="row">#}
-{#            <div class="swiper-container swiper2" style="background: black">#}
-{#                <div class="swiper-wrapper">#}
-{#                    <!-- Single Slider -->#}
-{#                    <div class="img-responsive swiper-slide center-block"#}
-{#                         style="background-image:url('/static/images/slider1.jpg'); background-size: cover; ">#}
-{#                        <div class="single-testimonial">#}
-{#                            <h1 style="font-size: 400px;">"</h1>#}
-{#                            <p>The important thing is not to stop questioning.#}
-{#                                Curiosity has its own reason#}
-{#                                for existing. </p>#}
-{#                            <h6>- Albert Einstien</h6>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single Slider -->#}
-{#                    <div class="img-responsive swiper-slide center-block"#}
-{#                         style="background-image:url('/static/images/slider2.jpg'); background-size: cover; ">#}
-{#                        <div class="single-testimonial">#}
-{#                            <h1 style="font-size: 400px;">"</h1>#}
-{#                            <p>What is important (More than going to west) is#}
-{#                                that you need to follow your#}
-{#                                dreams and follow your heart.</p>#}
-{#                            <h6>- Sundar Pichai</h6>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single Slider -->#}
-{#                    <div class="img-responsive swiper-slide center-block"#}
-{#                         style="background-image:url('/static/images/slider3.jpg'); background-size: cover; ">#}
-{#                        <div class="single-testimonial">#}
-{#                            <h1 style="font-size: 400px;">"</h1>#}
-{#                            <p>Sometimes when you innovate, you make mistakes.#}
-{#                                It is best to admit them quickly, and get on#}
-{#                                with improving your other innovations.</p>#}
-{#                            <h6>- Steve Jobs </h6>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single Slider -->#}
-{#                    <div class="img-responsive swiper-slide center-block"#}
-{#                         style="background-image:url('/static/images/slider4.jpg'); background-size: cover; ">#}
-{#                        <div class="single-testimonial">#}
-{#                            <h1 style="font-size: 400px;">"</h1>#}
-{#                            <p>Everything is going to be connected to cloud and#}
-{#                                data.#}
-{#                                All of this will be mediated by software.#}
-{#                            </p>#}
-{#                            <h6>- Satya Nadella</h6>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <!-- Single Slider -->#}
-{#                    <div class="img-responsive swiper-slide center-block"#}
-{#                         style="background-image:url('/static/images/slider5.jpg'); background-size: cover; ">#}
-{#                        <div class="single-testimonial">#}
-{#                            <h1 style="font-size: 400px;">"</h1>#}
-{#                            <p>God, our Creator, has stored within our minds and#}
-{#                                personalities,#}
-{#                                great potential strength and ability. Prayer#}
-{#                                helps us tap and develop these powers.</p>#}
-{#                            <h6>- Dr. APJ Abdul Kalam</h6>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#    <script>#}
-{#        var swiper2 = new Swiper('.swiper2', {#}
-{#            paginationClickable: false,#}
-{#            spaceBetween: 0,#}
-{#            centeredSlides: true,#}
-{#            simulateTouch: false,#}
-{#            autoplay: 4000,#}
-{#            speed: 1000,#}
-{#            autoplayDisableOnInteraction: false,#}
-{#            mousewheelControl: false,#}
-{#            loop: true#}
-{#        });#}
-{##}
-{##}
-{#    </script>#}
-{#    <!-- >>>>>>> Testimonail ENDS <<<<<<<<< -->#}
-{##}
+
+    <!-- >>>>>>> Testimonail START <<<<<<<<< -->
+<div class="container-fluid">
+<div class="row">
+                    <div class="col-md-12" data-wow-delay="0.2s">
+                        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                            <!-- Bottom Carousel Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="{% static 'images/landing.png' %}">
+                                </li>
+                                <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="{% static 'images/landing.png' %}">
+                                </li>
+                                <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="{% static 'images/landing.png' %}">
+                                </li>
+                            </ol>
+
+                            <!-- Carousel Slides / Quotes -->
+                            <div class="carousel-inner text-center">
+
+                                <!-- Quote 1 -->
+                                <div class="item active">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-2">
+
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+                                                <small>Someone famous</small>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- Quote 2 -->
+                                <div class="item">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-2">
+
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                                <small>Someone famous</small>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- Quote 3 -->
+                                <div class="item">
+                                    <blockquote>
+                                        <div class="row">
+                                            <div class="col-sm-8 col-sm-offset-2">
+
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+                                                <small>Someone famous</small>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                            <!-- Carousel Buttons Next/Prev -->
+                            <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                            <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+</div>
+    <!-- >>>>>>> Testimonail ENDS <<<<<<<<< -->
+
 
     <!-- >>>>>>> Team Members START <<<<<<<<< -->
     <div class="container-fluid">
@@ -1257,9 +1242,8 @@
 
     <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
     <!-- Map API Customised -->
-    <div class="container-fluid" style="padding: 0;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);z-index: 999;">
-        <div id="map" style=""></div>
-    </div>
+    <div class="container-fluid" style="padding: 0;">
+        <div id="map">
     <!-- Map Script -->
     <script type="text/javascript">
         // When the window has finished loading create our google map below
@@ -1436,7 +1420,8 @@
 
 
     </script>
-
+        </div>
+    </div>
 
 </section>
 
@@ -1668,5 +1653,32 @@
   ga('send', 'pageview');
 
 </script>
+
+
+
+
+
+
+
+
+
+{#===================================================================================#}
+{#===========================================================================================#}
+
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        };
+    </script>
+
+
+
+
+
+
+
 </body>
 </html>
