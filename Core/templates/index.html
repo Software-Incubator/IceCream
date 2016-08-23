@@ -54,97 +54,13 @@
     <style>
 
         /* code for animated blinking cursor */
-        .coming-soon {
-            font-size: 80px;
-            margin-top: 200px;
-        }
-
-        .modal-content {
-            margin: 0;
-        }
-
-        @media (min-width: 768px) {
-            .modal-dialog {
-                width: 600px;
-                margin: 0 auto;
-            }
-
-            @keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            @-webkit-keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            @-moz-keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            @-ms-keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            @-o-keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-        }
 
 
     </style>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-<script>
-    {#    for horizontal scrolling#}
-    $(function () {
 
-        var $body = $(document);
-        $body.bind('scroll', function () {
-            // "Disable" the horizontal scroll.
-            if ($body.scrollLeft() !== 0) {
-                $body.scrollLeft(0);
-            }
-        });
-
-    });
-</script>
 
 
 <!-- ================================================================================================== Loader -->
@@ -243,19 +159,21 @@
     <!-- ============================================================================================== Services  -->
 
     <div class="container">
-        <span class="typedjs">
-            <span class="believe">We believe in&nbsp;&nbsp;</span>
-            <span class="type-wrap">
-                <div id="typed-strings">
-                    <p>Redefining Limitations...</p>
-                    <p>Redefining Limitations...</p>
-                    <p>Innovating Insanely!</p>
-                    <p>Learning Technologies...</p>
-                    <p>Sharing Intelligence!</p>
-                </div>
-                <span id="typed" style="white-space:pre;"></span>
+        <div class="center-block">
+            <span class="typedjs">
+                <span class="believe">We believe in&nbsp;&nbsp;</span>
+                <span class="type-wrap">
+                    <div id="typed-strings">
+                        <p>Redefining Limitations...</p>
+                        <p>Redefining Limitations...</p>
+                        <p>Innovating Insanely!</p>
+                        <p>Learning Technologies...</p>
+                        <p>Sharing Intelligence!</p>
+                    </div>
+                    <span id="typed" style="white-space:pre;"></span>
+                </span>
             </span>
-        </span>
+        </div>
     </div>
 </div>
 <!-- ============================================================================================== Services  -->
@@ -269,13 +187,13 @@
     <div class="fluid-container">
         <div class="container" id="desktop-padding">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <!-- Desktop Image -->
                     <img src="{% static 'images/Service_desk.png' %}"
-                         class="img-responsive pull-right"
+                         class="img-responsive center-block"
                          style="padding-top: 10px; width: 375px; height: auto;">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <div style="padding: 20px;">
                         <!-- Desktop Content -->
                         <h3 class="service-head">Desktop Application
@@ -317,13 +235,13 @@
     <div class="fluid-container">
         <div class="container" id="mobile-padding">
             <div class="row">
-                <div class="col-sm-6 col-sm-push-6">
+                <div class="col-sm-5 col-sm-push-7">
                     <!-- Mobile Image -->
                     <img src="{% static 'images/Service_mob.png' %}"
-                         class="img-responsive pull-left iphone"
+                         class="img-responsive center-block"
                          style="width: 375px; height: auto;">
                 </div>
-                <div class="col-sm-6 col-sm-pull-6">
+                <div class="col-sm-7 col-sm-pull-5">
                     <!-- Mobile Content -->
                     <h4 class="service-head mobile_heading">Mobile Application
                         Development</h4>
@@ -358,12 +276,12 @@
     <div class="fluid-container">
         <div class="container" id="web-padding">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <!-- Website Image -->
                     <img src="{% static 'images/Service_lap.png' %}"
-                         class="img-responsive pull-right">
+                         class="img-responsive center-block">
                 </div>
-                <div class=" col-sm-6">
+                <div class=" col-sm-7">
                     <!-- Website Content -->
                     <h3 class="service-head mobile_heading">Website
                         Development</h3>
@@ -469,85 +387,79 @@
         </div>
     </div>
 
+{#    <!-- modal for portfolio -->#}
+{#    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade"#}
+{#         id="comingsoon" role="dialog"#}
+{#         tabindex="-1">#}
+{#        <div class="modal-dialog portfolio_modal" role="document"#}
+{#             style="width: 1155px;">#}
+{#            <div class="modal-content">#}
+{##}
+{#                <div class="modal-body modal-container">#}
+{#                    <button aria-label="Close" class="close"#}
+{#                            data-dismiss="modal" type="button"><span#}
+{#                            aria-hidden="true">&times;</span>#}
+{#                    </button>#}
+{#                     <p class="coming-soon"><span#}
+{#                        style="color:#1eb1f2;">Coming</span> Soon...</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <script type="text/javascript">#}
+{#        $('#myModal').on('shown.bs.modal', function () {#}
+{#            $('#myInput').focus()#}
+{#        })#}
+{##}
+{##}
+{#    </script>#}
+
     <!-- modal for portfolio -->
-    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade"
-         id="comingsoon" role="dialog"
-         tabindex="-1">
-        <div class="modal-dialog portfolio_modal" role="document"
-             style="width: 1155px;">
-            <div class="modal-content">
-
-                <div class="modal-body modal-container">
-                    <button aria-label="Close" class="close"
-                            data-dismiss="modal" type="button"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                     <p class="coming-soon"><span
-                        style="color:#1eb1f2;">Coming</span> Soon...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').focus()
-        })
-
-
-    </script>
-
-    <!-- modal for portfolio -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog portfolio_modal" role="document"
-             style="width: 100%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="col-md-11 col-xs-9">
-                        <h4 class="modal-title" id="myModalLabel">Portfolio</h4>
-                    </div>
-                    <div class="col-md-1 col-xs-1">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-body modal-container">
-
-                    <hr>
-                    {% for pro_row in projects %}
-                        <div class="row spacerx">
-                            {% for pro in pro_row %}
-                                <div class="col-xs-12">
-                                    <div class="wrap">
-                                        <ul class="demo-2 effect">
-                                            <li style="list-style: none;">
-                                                <h2 class="zero">{{ pro.name }}</h2>
-                                                <p class="zero">{{ pro.description }}</p>
-                                            </li>
-                                            <li><img class="top"
-                                                     src="{{ pro.image_path.url }}"
-                                                     alt=""/></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <!-- row ends here -->
-                    {% endfor %}
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').focus()
-        })
-
-
-    </script>
+{#    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"#}
+{#         aria-labelledby="myModalLabel" aria-hidden="true">#}
+{#        <div class="modal-dialog portfolio_modal" role="document"#}
+{#             style="width: 100%;">#}
+{#            <div class="modal-content">#}
+{#                <div class="modal-header">#}
+{#                    <div class="col-md-11 col-xs-9">#}
+{#                        <h4 class="modal-title" id="myModalLabel">Portfolio</h4>#}
+{#                    </div>#}
+{#                    <div class="col-md-1 col-xs-1">#}
+{#                        <button type="button" class="close" data-dismiss="modal"#}
+{#                                aria-label="Close">#}
+{#                            <span aria-hidden="true">&times;</span>#}
+{#                        </button>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="modal-body modal-container">#}
+{##}
+{#                    <hr>#}
+{#                    {% for pro_row in projects %}#}
+{#                        <div class="row spacerx">#}
+{#                            {% for pro in pro_row %}#}
+{#                                <div class="col-xs-12">#}
+{#                                    <div class="wrap">#}
+{#                                        <ul class="demo-2 effect">#}
+{#                                            <li style="list-style: none;">#}
+{#                                                <h2 class="zero">{{ pro.name }}</h2>#}
+{#                                                <p class="zero">{{ pro.description }}</p>#}
+{#                                            </li>#}
+{#                                            <li><img class="top"#}
+{#                                                     src="{{ pro.image_path.url }}"#}
+{#                                                     alt=""/></li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            {% endfor %}#}
+{#                        </div>#}
+{#                        <!-- row ends here -->#}
+{#                    {% endfor %}#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{# #}
     <!-- modal for portfolio -->
 
     <!-- Contact Us form -->
@@ -586,22 +498,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $('#contactModal').on('shown.bs.modal', function () {
-            $('#myInput').focus()
-        })
-    </script>
 
 
-    <script type="text/javascript">
-        var nsOptions = {
-            thumbWidth: "90%",
-            thumbHeight: "auto",
-            showMode: 5
-        }
-
-
-    </script>
 
 
     <!-- Error -->
@@ -695,44 +593,6 @@
         </div>
     </div>
 </section>
-<script>
-
-
-    var swiper1 = new Swiper('.swiper1', {
-        pagination: '.swiper-pagination1',
-        paginationClickable: true,
-        spaceBetween: 1,
-        freeMode: true,
-        initialSlide: 1,
-        centeredSlides: false,
-        slidesPerView: 4,
-        keyboardControl: true,
-        simulateTouch: false,
-        autoplay: 1200,
-        speed: 800,
-        autoplayDisableOnInteraction: false,
-        mousewheelControl: false,
-        loop: true,
-        breakpoints: {
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 40
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            },
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 10
-            }
-        }
-    });
-</script>
 
 <!-- Error -->
 <div class="error" id="nav5"></div>
@@ -748,12 +608,10 @@
     <!-- Container -->
     <!-- About Us Introductioon -->
 
-    <div class="row">
-        <div class="col-sm-6 about-para-1">
-
-            <p><span
-                    style="margin-top: 0; font-size: 20px;text-transform: uppercase; font-weight: bold"><span
-                    style="color: #3b95ed;">Software</span> Incubator</span>
+    <div class="container about-content">
+        <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+            <p><span style="margin-top: 0; font-size: 16px;text-transform: uppercase; font-weight: bold">
+                <span style="color: #3b95ed;">Software</span> Incubator</span>
                 is the research and develoment center established within
                 the portal of Ajay Kumar Garg Engineering College. We
                 have set a foothold in the areas of software
@@ -764,30 +622,29 @@
                 focus on customer satisfaction. We are an equal
                 opportunity organization that motivates every member to
                 work with passion and commitment.</p>
-            <div class="col-sm-12 hides_equation">
+            <div class="col-sm-10 col-sm-offset-1 hides_equation">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="col-user-1by7 about-svg">
                             <img src="{% static 'images/people1.png' %}"
-                                 class="img-responsive">
-                            <p style="text-align: center">People</p>
+                                 class="img-responsive center-block">
+                            <p>People</p>
                         </div>
                         <div class="col-user-1by7 about-svg">
                             <span class="glyphicon glyphicon-plus media-middle"></span>
                         </div>
                         <div class="col-user-1by7 about-svg">
                             <img src="{% static 'images/passion.png' %}"
-                                 class="img-responsive">
-                            <p style="text-align: center">Passion</p>
+                                 class="img-responsive center-block">
+                            <p>Passion</p>
                         </div>
                         <div class="col-user-1by7 about-svg">
                             <span class="glyphicon glyphicon-plus"></span>
                         </div>
                         <div class="col-user-1by7 about-svg">
                             <img src="{% static 'images/participation.png' %}"
-                                 class="img-responsive">
-                            <p style="text-align: center">
-                                Participation</p>
+                                 class="img-responsive center-block">
+                            <p>Participation</p>
                         </div>
                         <div class="col-user-1by7 about-svg">
                                     <span class="fa fa-pause"
@@ -795,36 +652,31 @@
                         </div>
                         <div class="col-user-1by7 about-svg">
                             <img src="{% static 'images/progress.png' %}"
-                                 class="img-responsive">
-                            <p style="text-align: center">
-                                Productivity</p>
+                                 class="img-responsive center-block">
+                            <p>Productivity</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6" style="margin-bottom: -5px;">
-
-
-            <iframe width="100%" height="375px"
-                    src="https://www.youtube.com/embed/fC9xDssPzLw"
-                    frameborder="0"
-                    allowfullscreen></iframe>
+        <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+         <iframe width="100%" height="310px" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0" ></iframe>
         </div>
     </div>
 
+
     <!-- >>>>>>> Testimonail START <<<<<<<<< -->
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: #efefef;">
 <div class="row">
                     <div class="col-md-12" data-wow-delay="0.2s">
                         <div class="carousel slide" data-ride="carousel" id="quote-carousel">
                             <!-- Bottom Carousel Indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="{% static 'images/landing.png' %}">
+                                <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive-slider " src="{% static 'images/director.jpg' %}">
                                 </li>
-                                <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="{% static 'images/landing.png' %}">
+                                <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
                                 </li>
-                                <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="{% static 'images/landing.png' %}">
+                                <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
                                 </li>
                             </ol>
 
@@ -835,7 +687,7 @@
                                 <div class="item active">
                                     <blockquote>
                                         <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2">
+                                            <div class="col-md-10 col-md-offset-1">
 
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
                                                 <small>Someone famous</small>
@@ -847,7 +699,7 @@
                                 <div class="item">
                                     <blockquote>
                                         <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2">
+                                            <div class="col-md-10 col-md-offset-1">
 
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                                                 <small>Someone famous</small>
@@ -859,7 +711,7 @@
                                 <div class="item">
                                     <blockquote>
                                         <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2">
+                                            <div class="col-md-10 col-md-offset-1">
 
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
                                                 <small>Someone famous</small>
@@ -1244,182 +1096,7 @@
     <!-- Map API Customised -->
     <div class="container-fluid" style="padding: 0;">
         <div id="map">
-    <!-- Map Script -->
-    <script type="text/javascript">
-        // When the window has finished loading create our google map below
-        google.maps.event.addDomListener(window, 'load', init);
 
-        function init() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 15,
-                scrollwheel: false,
-                draggable: false,
-
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(28.676488, 77.501936), // New York
-
-                // How you would like to style the map.
-                // This is where you would paste any style found on Snazzy Maps.
-                styles: [{
-                    "featureType": "all",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "administrative",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "administrative.neighborhood",
-                    "elementType": "geometry",
-                    "stylers": [{"visibility": "off"}]
-                }, {
-                    "featureType": "landscape",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "landscape.natural",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
-                }, {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
-                }, {
-                    "featureType": "poi.attraction",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}, {"hue": "#ff0000"}]
-                }, {
-                    "featureType": "poi.attraction",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "poi.attraction",
-                    "elementType": "labels.icon",
-                    "stylers": [{"hue": "#ff0000"}, {"saturation": "76"}]
-                }, {
-                    "featureType": "poi.business",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}, {"hue": "#ff0000"}]
-                }, {
-                    "featureType": "poi.business",
-                    "elementType": "labels.icon",
-                    "stylers": [{"hue": "#ff0000"}, {"visibility": "on"}, {"saturation": "66"}]
-                }, {
-                    "featureType": "poi.government",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "poi.government",
-                    "elementType": "labels.icon",
-                    "stylers": [{"hue": "#ff0000"}, {"saturation": "100"}]
-                }, {
-                    "featureType": "poi.medical",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "poi.park",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}, {"hue": "#00ff74"}]
-                }, {
-                    "featureType": "poi.place_of_worship",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "poi.school",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "poi.sports_complex",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "road",
-                    "elementType": "geometry",
-                    "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
-                }, {
-                    "featureType": "road",
-                    "elementType": "labels",
-                    "stylers": [{"visibility": "off"}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}, {"lightness": "10"}, {"saturation": "-23"}, {"gamma": "1.57"}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "geometry",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [{"color": "#c2cacd"}]
-                }, {
-                    "featureType": "road.highway.controlled_access",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "road.highway.controlled_access",
-                    "elementType": "geometry",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "road.arterial",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "road.local",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "transit",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "transit.line",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "transit.line",
-                    "elementType": "geometry",
-                    "stylers": [{"visibility": "on"}, {"lightness": 700}]
-                }, {
-                    "featureType": "transit.station",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "transit.station.bus",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "transit.station.rail",
-                    "elementType": "all",
-                    "stylers": [{"visibility": "on"}]
-                }, {
-                    "featureType": "water",
-                    "elementType": "all",
-                    "stylers": [{"color": "#77c9c9"}, {"visibility": "on"}]
-                }]
-            };
-
-            // Get the HTML DOM element that will contain your map
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('map');
-
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(28.676488, 77.501936),
-                map: map,
-                title: 'Snazzy!'
-            });
-
-        }
-
-
-    </script>
         </div>
     </div>
 
@@ -1599,6 +1276,399 @@
 
 <!-- ====================================================================Initialiser -->
 
+
+
+
+
+
+
+
+{#===================================================================================#}
+{#===========================================================================================#}
+
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        };
+    </script>
+
+{#<div class="container-fluid gap-off container-inside" style="background-color: #424242;">#}
+{#    <div class="row">#}
+{#        <div class="col-lg-3">#}
+{#            <div class="client-pad">#}
+{#                Flipper Starts#}
+{#                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">#}
+{#                    <div class="flipper">#}
+{#                        <div class="front">#}
+{#                            <!-- front content -->#}
+{#                                <img src="{% static 'images/cl1.png' %}" class="center-block img-responsive">#}
+{#                        </div>#}
+{#                        <div class="back">#}
+{#                            <!-- back content -->#}
+{#                            <div>#}
+{#                                <p>Bosch Rexroth is an engineering firm based in Lohr am Main in Germany.</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="col-lg-3">#}
+{#            <div class="client-pad">#}
+{#                Flipper Starts#}
+{#                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">#}
+{#                    <div class="flipper">#}
+{#                        <div class="front">#}
+{#                            <!-- front content -->#}
+{#                                <img src="{% static 'images/cl1.png' %}" class="center-block img-responsive">#}
+{#                        </div>#}
+{#                        <div class="back">#}
+{#                            <!-- back content -->#}
+{#                            <div>#}
+{#                                <p>Bosch Rexroth is an engineering firm based in Lohr am Main in Germany.</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="col-lg-3">#}
+{#            <div class="client-pad">#}
+{#                Flipper Starts#}
+{#                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">#}
+{#                    <div class="flipper">#}
+{#                        <div class="front">#}
+{#                            <!-- front content -->#}
+{#                                <img src="{% static 'images/cl1.png' %}" class="center-block img-responsive">#}
+{#                        </div>#}
+{#                        <div class="back">#}
+{#                            <!-- back content -->#}
+{#                            <div>#}
+{#                                <p>Bosch Rexroth is an engineering firm based in Lohr am Main in Germany.</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="col-lg-3">#}
+{#            <div class="client-pad">#}
+{#                Flipper Starts#}
+{#                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">#}
+{#                    <div class="flipper">#}
+{#                        <div class="front">#}
+{#                            <!-- front content -->#}
+{#                                <img src="{% static 'images/cl1.png' %}" class="center-block img-responsive">#}
+{#                        </div>#}
+{#                        <div class="back">#}
+{#                            <!-- back content -->#}
+{#                            <div>#}
+{#                                <p>Bosch Rexroth is an engineering firm based in Lohr am Main in Germany.</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="m-dialog modal-dialog ">
+      <div class="modal-content m-content">
+        <div class="modal-header m-header">
+            <h4>Portfolio</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body m-body">
+            {% for pro_row in projects %}
+                <div class="row spacerx">
+                    {% for pro in pro_row %}
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="wrap">
+                                <ul class="demo-2 effect">
+                                    <li style="list-style: none;">
+                                        <h2 class="zero">{{ pro.name }}</h2>
+                                        <p class="zero">{{ pro.description }}</p>
+                                    </li>
+                                    <li><img class="top"
+                                             src="{{ pro.image_path.url }}"
+                                             alt=""/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- row ends here -->
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="comingsoon" role="dialog">
+    <div class="m-dialog modal-dialog ">
+      <div class="modal-content m-content">
+        <div class="modal-header m-header">
+            <h4>Portfolio</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body m-body">
+            <div class="conatiner">
+                <h1 style="text-align: center">Coming Soon</h1>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<script>
+    {#    for horizontal scrolling#}
+    $(function () {
+
+        var $body = $(document);
+        $body.bind('scroll', function () {
+            // "Disable" the horizontal scroll.
+            if ($body.scrollLeft() !== 0) {
+                $body.scrollLeft(0);
+            }
+        });
+
+    });
+</script>
+
+ <script type="text/javascript">
+        var nsOptions = {
+            thumbWidth: "90%",
+            thumbHeight: "auto",
+            showMode: 5
+        }
+ </script>
+
+{#Swiper Slider #}
+<script>
+    var swiper1 = new Swiper('.swiper1', {
+        pagination: '.swiper-pagination1',
+        paginationClickable: true,
+        spaceBetween: 1,
+        freeMode: true,
+        initialSlide: 1,
+        centeredSlides: false,
+        slidesPerView: 4,
+        keyboardControl: true,
+        simulateTouch: false,
+        autoplay: 1200,
+        speed: 800,
+        autoplayDisableOnInteraction: false,
+        mousewheelControl: false,
+        loop: true,
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 40
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10
+            }
+        }
+    });
+</script>
+
+<!-- Map Script -->
+    <script type="text/javascript">
+        // When the window has finished loading create our google map below
+        google.maps.event.addDomListener(window, 'load', init);
+
+        function init() {
+            // Basic options for a simple Google Map
+            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions = {
+                // How zoomed in you want the map to start at (always required)
+                zoom: 15,
+                scrollwheel: false,
+                draggable: false,
+
+                // The latitude and longitude to center the map (always required)
+                center: new google.maps.LatLng(28.676488, 77.501936), // New York
+
+                // How you would like to style the map.
+                // This is where you would paste any style found on Snazzy Maps.
+                styles: [{
+                    "featureType": "all",
+                    "elementType": "labels",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "administrative",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "administrative.neighborhood",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}, {"color": "#e0efef"}]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"visibility": "on"}, {"hue": "#1900ff"}, {"color": "#c0e8e8"}]
+                }, {
+                    "featureType": "poi.attraction",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}, {"hue": "#ff0000"}]
+                }, {
+                    "featureType": "poi.attraction",
+                    "elementType": "labels",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "poi.attraction",
+                    "elementType": "labels.icon",
+                    "stylers": [{"hue": "#ff0000"}, {"saturation": "76"}]
+                }, {
+                    "featureType": "poi.business",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}, {"hue": "#ff0000"}]
+                }, {
+                    "featureType": "poi.business",
+                    "elementType": "labels.icon",
+                    "stylers": [{"hue": "#ff0000"}, {"visibility": "on"}, {"saturation": "66"}]
+                }, {
+                    "featureType": "poi.government",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "poi.government",
+                    "elementType": "labels.icon",
+                    "stylers": [{"hue": "#ff0000"}, {"saturation": "100"}]
+                }, {
+                    "featureType": "poi.medical",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}, {"hue": "#00ff74"}]
+                }, {
+                    "featureType": "poi.place_of_worship",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "poi.school",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "poi.sports_complex",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [{"lightness": 100}, {"visibility": "simplified"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}, {"lightness": "10"}, {"saturation": "-23"}, {"gamma": "1.57"}]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.fill",
+                    "stylers": [{"color": "#c2cacd"}]
+                }, {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "road.local",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "transit.line",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "on"}, {"lightness": 700}]
+                }, {
+                    "featureType": "transit.station",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "transit.station.bus",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "transit.station.rail",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{"color": "#77c9c9"}, {"visibility": "on"}]
+                }]
+            };
+
+            // Get the HTML DOM element that will contain your map
+            // We are using a div with id="map" seen below in the <body>
+            var mapElement = document.getElementById('map');
+
+            // Create the Google Map using our element and options defined above
+            var map = new google.maps.Map(mapElement, mapOptions);
+
+            // Let's also add a marker while we're at it
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(28.676488, 77.501936),
+                map: map,
+                title: 'Snazzy!'
+            });
+
+        }
+
+</script>
+
+
 <!-- TYPED JS SCRIPT -->
 <script>
     $(function () {
@@ -1653,31 +1723,6 @@
   ga('send', 'pageview');
 
 </script>
-
-
-
-
-
-
-
-
-
-{#===================================================================================#}
-{#===========================================================================================#}
-
-    <script type="text/javascript">
-        window.alert = function(){};
-        var defaultCSS = document.getElementById('bootstrap-css');
-        function changeCSS(css){
-            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');
-            else $('head > link').filter(':first').replaceWith(defaultCSS);
-        };
-    </script>
-
-
-
-
-
 
 
 </body>
