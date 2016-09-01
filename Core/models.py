@@ -117,7 +117,6 @@ class Registration(models.Model):
     year = models.IntegerField()
     gender = models.ForeignKey('Gender')
     hosteler = models.BooleanField(default=False)
-    designer = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event')
 
