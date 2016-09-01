@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('Core', '0004_auto_20160710_1937'),
     ]
@@ -15,10 +14,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Project',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=225)),
                 ('description', models.CharField(max_length=225)),
-                ('completion_year', models.IntegerField(default=None, null=True)),
+                ('completion_year',
+                 models.IntegerField(default=None, null=True)),
             ],
             options={
                 'verbose_name_plural': 'Projects',

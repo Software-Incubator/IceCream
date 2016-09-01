@@ -65,7 +65,7 @@ class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Registration
         fields = ['name', 'email', 'contact', 'student_number', 'branch',
-                  'year', 'gender', 'hosteler', 'designer']
+                  'year', 'gender', 'hosteler',]
 
     name = forms.CharField(
         max_length=225, required=True,

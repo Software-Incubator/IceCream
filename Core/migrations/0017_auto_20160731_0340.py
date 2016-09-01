@@ -3,12 +3,12 @@
 from __future__ import unicode_literals
 
 import datetime
+
 from django.db import migrations, models
 from django.utils.timezone import utc
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('Core', '0016_auto_20160730_1525'),
     ]
@@ -21,7 +21,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='registration',
             name='timestamp',
-            field=models.DateTimeField(auto_now_add=True, default=datetime.datetime(2016, 7, 31, 3, 40, 30, 857247, tzinfo=utc)),
+            field=models.DateTimeField(auto_now_add=True,
+                                       default=datetime.datetime(2016, 7, 31, 3,
+                                                                 40, 30, 857247,
+                                                                 tzinfo=utc)),
             preserve_default=False,
         ),
         migrations.AlterField(

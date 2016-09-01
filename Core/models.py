@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 import os
 import uuid
 
-from django.db import models
 from django.core.exceptions import ValidationError
+from django.db import models
 
 
 ## DO NOT DELETE THIS FUNCTION
@@ -108,13 +108,21 @@ class Branch(models.Model):
         verbose_name_plural = 'Branches'
 
 
+class Year(models.Model):
+    value = models.IntegerField()
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.value)
+
+
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
     email = models.EmailField(unique=True)
     contact = models.CharField(max_length=10, unique=True, null=False)
     student_number = models.CharField(max_length=8, unique=True)
     branch = models.ForeignKey('Branch')
-    year = models.IntegerField()
+    year = models.ForeignKey('Year')
     gender = models.ForeignKey('Gender')
     hosteler = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -130,11 +138,11 @@ def event_validator(value):
             'More than one events cannot be active at a given time'
         )
 
+
 class Event(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False, validators=[event_validator,])
-
+    active = models.BooleanField(default=False, validators=[event_validator, ])
 
     def __str__(self):
         return "{} | {}".format(self.name, self.timestamp.date())
@@ -145,4 +153,3 @@ class Gender(models.Model):
 
     def __str__(self):
         return self.name
-

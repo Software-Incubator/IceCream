@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('Core', '0007_auto_20160728_1136'),
     ]
@@ -15,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ContactForm',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
                 ('contact', models.IntegerField(max_length=15)),
                 ('email', models.EmailField(max_length=50)),

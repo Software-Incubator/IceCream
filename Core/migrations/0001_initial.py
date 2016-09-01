@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -16,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Members',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=225)),
                 ('designation', models.CharField(max_length=225)),
                 ('presently_at', models.CharField(max_length=225)),
@@ -27,7 +27,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Technology',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=225, unique=True)),
             ],
         ),
