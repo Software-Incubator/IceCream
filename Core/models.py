@@ -120,7 +120,7 @@ class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
     email = models.EmailField(unique=True)
     contact = models.CharField(max_length=10, unique=True, null=False)
-    student_number = models.CharField(max_length=8, unique=True)
+    student_number = models.CharField(max_length=8)
     branch = models.ForeignKey('Branch')
     year = models.ForeignKey('Year')
     gender = models.ForeignKey('Gender')
