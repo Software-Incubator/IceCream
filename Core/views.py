@@ -1,4 +1,4 @@
-from django.views.generic import View, FormView
+from django.views.generic import View, FormView, CreateView
 from .models import Project, Member
 from django.shortcuts import render, redirect
 from .forms import ContactUsForm, RegistrationForm
@@ -83,14 +83,11 @@ class RegistrationView(FormView):
     form_class = RegistrationForm
 
     def post(self, request, *args, **kwargs):
-        print "Post request: ", request.POST
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            print('The year is -')
-            # print(form.year)
             form.save()
             messages.add_message(request, messages.SUCCESS,
-                                 "Successfully registered. You've taken the first step towards SI.")
+                                 "Successfully registered.")
             return redirect(reverse_lazy('home'))
         return render(request, 'registration.html', {'form': form})
 

@@ -128,6 +128,12 @@ class Registration(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event')
 
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.event = Event.objects.filter(active=True).first()
+
+        super(Registration, self).save()
+
     def __str__(self):
         return "{} || {} || {}".format(self.name, self.branch, str(self.year))
 
