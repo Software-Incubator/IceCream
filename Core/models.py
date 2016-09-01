@@ -99,6 +99,7 @@ class Project(models.Model):
 
 class Branch(models.Model):
     name = models.CharField(max_length=3, null=False)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -109,7 +110,7 @@ class Registration(models.Model):
     email = models.EmailField(unique=True)
     contact = models.CharField(max_length=10, unique=True, null=False)
     student_number = models.CharField(max_length=8, unique=True)
-    branch = models.CharField(max_length=3)
+    branch = models.ForeignKey('Branch')
     year = models.IntegerField()
     gender = models.CharField(max_length=1)
     hosteler = models.BooleanField(default=False)
