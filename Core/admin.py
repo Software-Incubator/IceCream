@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Technology, Member, Designation, Project, ContactUs, Registration, Event, Branch
+from models import Technology, Member, Designation, Project, ContactUs, Registration, Event, Branch, Gender
 
 
 class RegistrationAdmin(admin.ModelAdmin):
@@ -14,3 +14,4 @@ admin.site.register(ContactUs)
 admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Event)
 admin.site.register(Branch)
+admin.site.register(Gender)

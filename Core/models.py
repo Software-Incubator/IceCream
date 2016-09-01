@@ -104,6 +104,9 @@ class Branch(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = 'Branches'
+
 
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
@@ -112,7 +115,7 @@ class Registration(models.Model):
     student_number = models.CharField(max_length=8, unique=True)
     branch = models.ForeignKey('Branch')
     year = models.IntegerField()
-    gender = models.CharField(max_length=1)
+    gender = models.ForeignKey('Gender')
     hosteler = models.BooleanField(default=False)
     designer = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -136,4 +139,11 @@ class Event(models.Model):
 
     def __str__(self):
         return "{} | {}".format(self.name, self.timestamp.date())
+
+
+class Gender(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
