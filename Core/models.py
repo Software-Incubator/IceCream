@@ -4,6 +4,7 @@ import os
 import uuid
 
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 ## DO NOT DELETE THIS FUNCTION
@@ -96,11 +97,11 @@ class Project(models.Model):
         verbose_name_plural = "Projects"
 
 
-# class Branch(models.Model):
-#     name = models.CharField(max_length=3, null=False)
-#
-#     def __str__(self):
-#         return self.name
+class Branch(models.Model):
+    name = models.CharField(max_length=3, null=False)
+
+    def __str__(self):
+        return self.name
 
 
 class Registration(models.Model):
@@ -114,6 +115,24 @@ class Registration(models.Model):
     hosteler = models.BooleanField(default=False)
     designer = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
+    event = models.ForeignKey('Event')
 
     def __str__(self):
         return "{} || {} || {}".format(self.name, self.branch, str(self.year))
+
+
+def event_validator(value):
+    if value is True and Event.objects.filter(active=True).count() >= 1:
+        raise ValidationError(
+            'More than one events cannot be active at a given time'
+        )
+
+class Event(models.Model):
+    name = models.CharField(max_length=255, blank=False, null=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False, validators=[event_validator,])
+
+
+    def __str__(self):
+        return "{} | {}".format(self.name, self.timestamp.date())
+
