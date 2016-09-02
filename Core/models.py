@@ -115,12 +115,17 @@ class Year(models.Model):
     def __str__(self):
         return str(self.value)
 
+def student_number_validator(value):
+    if Registration.objects.filter(student_number=value, event=Event.objects.filter(active=True).first()).exists():
+        raise ValidationError(
+            'Student number already registered!'
+        )
 
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
     email = models.EmailField(unique=True)
     contact = models.CharField(max_length=10, unique=True, null=False)
-    student_number = models.CharField(max_length=8)
+    student_number = models.CharField(max_length=8, validators=[student_number_validator])
     branch = models.ForeignKey('Branch')
     year = models.ForeignKey('Year')
     gender = models.ForeignKey('Gender')
@@ -136,6 +141,9 @@ class Registration(models.Model):
 
     def __str__(self):
         return "{} || {} || {}".format(self.name, self.branch, str(self.year))
+
+    class Meta:
+        unique_together = ('student_number', 'event')
 
 
 def event_validator(value):
