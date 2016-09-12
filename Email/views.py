@@ -1,7 +1,12 @@
-from django.views.generic import View
 from django.http import HttpResponse
+from django.views.generic import FormView
 
-class IncomingEmailView(View):
-    def post(self, *args, **kwargs):
-        print self.request.POST
+from .forms import EmailForm
+
+
+class IncomingEmailView(FormView):
+    form_class = EmailForm
+
+    def form_valid(self, form):
+        form.save()
         return HttpResponse()
