@@ -1,5 +1,25 @@
-from __future__ import unicode_literals
+import os
+import uuid
 
 from django.db import models
 
-# Create your models here.
+
+def email_attachment_upload_location(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('uploads/email_attachments', filename)
+
+
+class Email(models.Model):
+    sender = models.CharField(max_length=255)
+    receiver = models.EmailField(null=False, blank=False)
+    html = models.TextField()
+    sender_ip = models.IPAddressField()
+    subject = models.TextField()
+    text = models.TextField()
+
+
+class Attachment(models.Model):
+    email = models.ForeignKey('Email')
+    file = models.FileField(upload_to=email_attachment_upload_location, null=False)
+    filename = models.CharField(max_length=255, null=False, blank=False)
