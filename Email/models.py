@@ -11,10 +11,10 @@ def email_attachment_upload_location(instance, filename):
 
 
 class Email(models.Model):
-    sender = models.CharField(max_length=255)
-    receiver = models.EmailField(null=False, blank=False)
+    sender = models.CharField(max_length=255, name='from')
+    receiver = models.EmailField(null=False, blank=False, name='to')
     html = models.TextField()
-    sender_ip = models.IPAddressField()
+    sender_ip = models.GenericIPAddressField()
     subject = models.TextField()
     text = models.TextField()
 
