@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'et5csce+0jh4-8!u2s#5n!d!6nvnrs*0uw^)mgfd+(@m1wr&oz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Core',
+    'Si_blog'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -118,6 +119,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.environ['HOME'], 'Assets/IceCream/static')
+# STATIC_ROOT = ( 'IceCream/static')
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.environ['HOME'], "Assets/IceCream/media")

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+{%  for obj in object_list %}
+<a href='{% url "detail" id=obj.id %}'>{{ obj.title }}</a>
+{{ obj.content }}
+{{ obj.id }}
+{% endfor %}
+{% endblock %}

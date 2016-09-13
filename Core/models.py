@@ -14,6 +14,7 @@ def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 
 
+
 def members_upload_location(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)

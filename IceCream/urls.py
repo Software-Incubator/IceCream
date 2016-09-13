@@ -24,8 +24,9 @@ from django.views.generic import RedirectView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('Core.urls')),
-    url(r'^bytepad/', RedirectView.as_view(url='http://bytepad.silive.in'))
+    url(r'^bytepad/', RedirectView.as_view(url='http://bytepad.silive.in')),
     # url(r'^form/', Contact_Form, name="form" )
+    url(r'^blog/', include('Si_blog.urls'))
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}{{ instance.title }}|{{ block.super }}{% endblock %}
+{% block content %}
+{{ instance.id }}
+{{ instance.updated }}
+{% endblock %}
