@@ -8,7 +8,7 @@ class EmailAdmin(admin.ModelAdmin):
         'from',
         'to',
         'html',
-        'sender_ip',
+        # 'sender_ip',
         'subject',
         'text'
     )

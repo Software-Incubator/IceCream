@@ -10,3 +10,6 @@ class IncomingEmailView(FormView):
     def form_valid(self, form):
         form.save()
         return HttpResponse()
+
+    def form_invalid(self, form):
+        print(form.error)
