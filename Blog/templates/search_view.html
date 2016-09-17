@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row right_grid_bottom">
+        <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5 col-xl-5">
+            <h4>SEARCH RESULTS</h4>
+        </div>
+
+    </div>
+    <div class="row">
+        {% if search_results %}
+            {% for post in search_results %}
+                <div class="card card-1 col-sm-10 col-lg-3 col-md-6 col-xs-10 col-xl-3">
+                    <img src="{{ post.image.url }}" class="img-responsive">
+                    <div class="content">
+                        <h4> {{ post.title }}</h4>
+                        <p>{{ post.content|safe }}</p>
+                        <p><a href="{% url 'post_by_tag' post.id %}"> #{{ post.category.name }}</a></p>
+                        <a href="{% url 'detail' post.id %}">Read more </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> Sorry, no results found!!</p>
+        {% endif %}
+    </div>
+{% endblock %}

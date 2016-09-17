@@ -36,7 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Core',
-    'Si_blog'
+    'Blog',
+    'django_wysiwyg',
+    'tinymce',
+    'django_summernote',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,3 +128,56 @@ STATIC_ROOT = os.path.join(os.environ['HOME'], 'Assets/IceCream/static')
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.environ['HOME'], "Assets/IceCream/media")
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode
+    'iframe': True,  # or set False to use SummernoteInplaceWidget - no iframe mode
+
+    # Using Summernote Air-mode
+    'airMode': False,
+
+    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
+    # (Firefox, Chrome only)
+    'styleWithTags': True,
+
+    # Set text direction : 'left to right' is default.
+    'direction': 'ltr',
+
+    # Change editor size
+    'width': '100%',
+    'height': '480',
+
+    # Use proper language setting automatically (default)
+    'lang': None,
+
+    # Customize toolbar buttons
+    'toolbar': [
+        ['style', ['style', 'ol']],
+        ['style', ['bold', 'italic', 'superscript', 'subscript', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'height']],
+        ['insert', ['link', 'picture']],
+        ['view', ['codeview']]
+    ],
+
+    # Need authentication while uploading attachments.
+    'attachment_require_authentication': True,
+
+    # Set common css/js media files
+    'external_css': (
+        '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+    ),
+    'external_js': (
+        '//code.jquery.com/jquery-1.9.1.min.js',
+        '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js',
+    ),
+    'internal_css': (
+        ('django_summernote/summernote.css'),
+    ),
+    'internal_js': (
+        ('django_summernote/jquery.ui.widget.js'),
+        ('django_summernote/jquery.iframe-transport.js'),
+        ('django_summernote/jquery.fileupload.js'),
+        ('django_summernote/summernote.min.js'),
+    ),
+
+}

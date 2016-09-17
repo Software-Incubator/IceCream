@@ -26,7 +26,10 @@ urlpatterns = [
     url(r'', include('Core.urls')),
     url(r'^bytepad/', RedirectView.as_view(url='http://bytepad.silive.in')),
     # url(r'^form/', Contact_Form, name="form" )
-    url(r'^blog/', include('Si_blog.urls'))
+    url(r'^blog/', include('Blog.urls')),
+
+    url(r'^summernote/', include('django_summernote.urls'))
+
 ]
 
 if settings.DEBUG:

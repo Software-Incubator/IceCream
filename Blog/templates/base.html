@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>
+        {% block title %}
+            Si Blog
+        {% endblock %}
+    </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/5cd91b09e0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
+</head>
+<style>
+    .container-fluid {
+        padding-left: 0px;
+        padding-right: 0px;
+        font-family: 'Karla', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -o-hyphens: auto;
+        hyphens: auto;
+    }
+
+    #left_grid {
+        color: #eee;
+        background-color: rgba(59, 149, 237, 1);
+        padding-bottom: 25%;
+        font-weight: lighter;
+
+    }
+
+    #right_grid {
+        background-color: #dcdcdc;
+
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #heading {
+        color: #fff;
+    }
+
+    .search_bar {
+        background-color: #fff;
+        padding: 0 15px;
+    }
+
+    ul {
+        list-style: none;
+        font-size: 20px;
+        padding-top: 10%;
+    }
+
+    .add {
+        background-color: transparent;
+        border: 1px solid rgba(59, 149, 237, 1);
+        box-shadow: none;
+        transition: none;
+        color: rgba(59, 149, 237, 1);
+    }
+
+    .add:hover {
+        background-color: transparent;
+        border: 1px solid rgba(59, 149, 237, 1);
+        box-shadow: none;
+        transition: none;
+        color: rgba(59, 149, 237, 1);
+    }
+
+    .fa {
+        padding-right: 3%;
+    }
+
+    .search {
+        padding-top: 4%;
+    }
+
+    li {
+        padding-top: 4%;
+    }
+
+    .right_grid_bottom {
+        padding: 0 15px;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 2px;
+        display: inline-block;
+        margin: 1rem;
+        position: relative;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .card .content {
+        padding: 15px;
+    }
+
+    .card-1 {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    }
+
+    .card-1:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+</style>
+{% include "messages.html" %}
+<body>
+<div class="container-fluid">
+    <div class="col-sm-1 col-lg-2 col-md-2 col-xs-1 col-xl-2 " id="left_grid">
+        <h3 id="heading"><a style="color:white; text-decoration:none" href="{% url 'list' %}"><img src="{% static 'images/si.png' %}"
+                                                                                      width="50px" height="50px"
+                                                                                      class="img-responsive">
+            Blogger</a></h3>
+        <ul>
+            <li><i class="fa fa-dashcube"></i>Dashboard</li>
+            <li><i class="fa fa-pencil-square-o"></i>Write a blog</li>
+            <li><i class="fa fa-eye"></i>see all blogs</li>
+            <li><i class="fa fa-users"></i>About us</li>
+        </ul>
+    </div>
+    <div class="col-sm-11 col-lg-10 col-md-10 col-xs-11 col-xl-10" id="right_grid">
+        <div class="row search_bar">
+            <form method="post" class="col-sm-6" action="{% url 'search' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col-sm-1 search">
+                        <i class="fa fa-search "></i>
+                    </div>
+                    <div class="input-field col-sm-8">
+                        <input type="text" name="search" class="validate">
+
+                        <input id="icon-prefix" type="submit">
+                        <label for="icon_prefix">Search</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% block content %}
+        {% endblock %}
+
+    </div>
+</div>
+</div>
+</body>
+</html>
