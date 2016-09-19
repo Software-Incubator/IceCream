@@ -22,9 +22,10 @@
         <div class="card card-1">
             <img src="{{ post.image.url }}" class="img-responsive">
             <div class="content">
-{#                <h4> {{ post.title }} </h4>#}
-                <p><a href="{% url 'post_by_tag' post.id %}"> #{{ post.category.name }}</a></p>
+                {#                <h4> {{ post.title }} </h4>#}
+
                 <p>{{ post.content|safe }}</p>
+                <p><a href="{% url 'post_by_tag' post.id %}"> #{{ post.category.name }}</a></p>
 
             </div>
         </div>

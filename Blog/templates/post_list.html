@@ -14,7 +14,7 @@
                 <div class="content">
                     <h4> {{ post.title }}</h4>
                     {% with content=post.content|safe %}
-                        <p>{{ content|truncatewords:40 }}</p>
+                        <p>{{ content|truncatechars:20 }}</p>
                     {% endwith %}
                     <p><a href="{% url 'post_by_tag' post.id %}"> #{{ post.category.name }}</a></p>
                     <a href="{% url 'detail' post.id %}">Read more </a>
