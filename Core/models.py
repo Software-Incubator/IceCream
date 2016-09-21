@@ -132,6 +132,7 @@ class Registration(models.Model):
     hosteler = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event')
+    fee_paid = models.BooleanField(default=False)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

@@ -5,6 +5,7 @@ from models import Technology, Member, Designation, Project, ContactUs, Registra
 class RegistrationAdmin(admin.ModelAdmin):
     readonly_fields = ('timestamp', )
     list_display = ('name', 'branch', 'year','event')
+    search_fields = ('student_number', 'name')
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ('name', 'active')

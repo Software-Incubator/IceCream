@@ -65,7 +65,7 @@ class ContactUsForm(forms.ModelForm):
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Registration
-        exclude = ['event', ]
+        exclude = ['event', 'fee_paid']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
