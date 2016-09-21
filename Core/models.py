@@ -115,6 +115,9 @@ class Year(models.Model):
     def __str__(self):
         return str(self.value)
 
+    class Meta:
+        ordering = ['value',]
+
 
 def student_number_validator(value):
     if Registration.objects.filter(student_number=value,
