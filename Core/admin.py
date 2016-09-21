@@ -1,20 +1,27 @@
 from django.contrib import admin
-from models import Technology, Member, Designation, Project, ContactUs, Registration, Event, Branch, Gender, Year
+
+from models import Technology, Member, Designation, Project, ContactUs, \
+    Registration, Event, Branch, Gender, Year
 
 
 class RegistrationAdmin(admin.ModelAdmin):
-    readonly_fields = ('timestamp', )
-    list_display = ('name', 'branch', 'year','event')
+    readonly_fields = ('timestamp',)
+    list_display = (
+    'name', 'student_number', 'branch', 'year', 'event', 'fee_paid')
     search_fields = ('student_number', 'name')
+
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ('name', 'active')
 
+
 class BranchAdmin(admin.ModelAdmin):
     list_display = ('name', 'active')
 
+
 class YearAdmin(admin.ModelAdmin):
     list_display = ('value', 'active')
+
 
 admin.site.register(Technology)
 admin.site.register(Member)
