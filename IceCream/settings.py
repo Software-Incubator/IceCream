@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Core',
     'Blog',
-    'django_wysiwyg',
-    'tinymce',
+    # 'django_wysiwyg',
+    # 'tinymce',
     'django_summernote',
 
 ]
