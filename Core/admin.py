@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import Technology, Member, Designation, Project, ContactUs, \
+from .models import Technology, Member, Designation, Project, ContactUs, \
     Registration, Event, Branch, Gender, Year
 
 

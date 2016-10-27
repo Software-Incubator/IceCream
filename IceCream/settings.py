@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'et5csce+0jh4-8!u2s#5n!d!6nvnrs*0uw^)mgfd+(@m1wr&oz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'IceCream.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD']
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'newdb',
+        #'USER': os.environ['DB_USER'],
+        #'PASSWORD': os.environ['DB_PASSWORD']
     }
 }
 
