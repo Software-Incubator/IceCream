@@ -374,7 +374,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Landing Page =============================================*/
-
+#landing{
+    background-color: #424242;
+    height: 100vh;
+    width: 100%;
+}
 .landing {
     height: 600px;
     overflow: hidden;
@@ -733,88 +737,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Client ===========================================*/
-.client {
-
+.client{
+    background-color: #fdfdfd;
+    text-align: center;
 }
-
-.client-text {
-
+.client p {
+    text-align: center;
+    margin-bottom: 20px;
 }
-
-.client h2 {
-    font-size: 18px;
-    margin-bottom: 2px;
+.c-logo img{
+    padding: 20px 0;
+    filter: grayscale(100%);
 }
-
-.client_property {
-    margin: 0px;
+.c-logo img:hover{
+    filter: grayscale(0%);
 }
-
-/*................................*/
-
-#cl-text-2 {
-    visibility: hidden;
+#client-pad{
+    padding: 7em 0;
 }
-
-#cl-img-2:hover + #cl-text-2 {
-    visibility: visible;
-}
-
-#cl-img-2:hover + #cl-img-1 {
-    opacity: 0.3;
-}
-
-.user-col-cl-2 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.user-col-cl-4 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.user-col-cl-3 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-@media (max-width: 768px) {
-    .user-col-cl-2 {
-        float: left;
-        width: 25%;
-    }
-
-    .user-col-cl-4 {
-        float: left;
-        width: 100%;
-    }
-
-    .user-col-cl-3 {
-        float: left;
-        width: 20%;
+@media(max-width: 768px){
+    #client-pad{
+        padding: 2em 0;
     }
 }
-
-@media (min-width: 768px) {
-    .user-col-cl-2 {
-        float: left;
-        width: 16.666666667%;
-    }
-
-    .user-col-cl-4 {
-        float: left;
-        width: 33.3333333334%;
-    }
-}
-
-/*...........................................................................*/
+/*.Team Members =====================================*/
 .thumbnail {
     padding: 8px;
 }
@@ -845,18 +791,46 @@ h1, h2, h3, h4, h5, h6 {
 #about-text span span {
     color: #3b95ed;
 }
+.ytp-title {
+    font-size: 163%;
+   display: none !important;
+}
+@media(max-width: 769px){
+    #about-text {
+        text-align: justify;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    #about-icon{
+        padding: 20px 0 !important;
+    }
+    #si-video{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        height: 200px !important;
+    }
+}
 #about-icon{
     padding-right: 15px;
     padding-left: 15px;
 }
 .icon-tab{
-    width: 12.7%;
+    width: 13.7%;
     display: inline-block;
     margin-right: auto;
     margin-left: auto;
     vertical-align: middle;
     text-align: center;
     color: #3b95ed;
+}
+.icon-tab p{
+    margin-top: 10px;
+    font-size: 12px;
+}
+@media(max-width: 1200px){
+    .icon-tab{
+        width: 12.7%;
+    }
 }
 .about {
     color: #000;
@@ -879,51 +853,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 80px;
     margin-right: auto;
 }
-/*
-.about h3 {
-    font-size: 16px;
-}
 
-.about-para-1 {
-    
-}
-
-.about-para-1 h3 {
-    font-family: 'Karla', sans-serif;
-    text-transform: uppercase;
-}
-
-.about-para-1 p {
-    text-align: justify;
-}
-
-.about-para-1 h3 > span {
-
-}
-
-.about-para-1 p > span {
-
-}
-
-.about-para-2 {
-    margin-top: 00px;
-}
-
-.about-para-2 p {
-    text-align: justify;
-    padding: 0px;
-    margin: 0px;
-}
-.about-svg {
-    color: #3b95ed;
-    text-align: center;
-}
-
-.about-svg span {
-    padding-top: 30px;
-    color: #3b95ed;
-}
-*/
 .team-member {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -1108,6 +1038,8 @@ h1, h2, h3, h4, h5, h6 {
 #si-video{
     padding-right: 15px;
     padding-left: 15px;
+    width: 100%;
+    height: 315px;
 }
 .carousel-control.left {
     background: 0 0;
