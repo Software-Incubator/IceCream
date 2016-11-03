@@ -12,7 +12,7 @@ font-family: 'Roboto', sans-serif;*/
     }*/
 html {
     /* max-width: 100%; */
-    overfl-x: hidden;
+    overflow-x: hidden;
     height: 100%;
 }
 
@@ -761,6 +761,27 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 /*.Team Members =====================================*/
+.team-div{
+    padding: 0 10px;
+}
+.team-div img{
+    filter: grayscale(100%);
+}
+.team-div img:hover {
+    filter: grayscale(0%);
+}
+.team-div h3 {
+    font-size: 13px;
+    color: #fff;
+    padding: 21px 0;
+    background-color: #212121;
+    text-align: center;
+    margin: 0;
+}
+#team-member .row{
+    margin-top: 4em;
+}
+
 .thumbnail {
     padding: 8px;
 }
@@ -1895,7 +1916,29 @@ h2.zero, p.zero {
         display: none !important;
     }
 }
-
+#team-member{
+    padding: 4em 0;
+    background-color: #efefef;
+}#team-head{
+    text-align: center;
+    /* padding-top: 4em; */
+}
+#team-head h1{
+    color: #000;
+    font-size: 30px;
+    margin: 0;
+}
+#team-head h1 span{
+    color: #3b95ed;
+}
+#team-head h6{
+    color: #3b95ed;
+    margin-top: 2px;
+}
+#team-head p{
+    font-size: 12px;
+    color: #777777;
+}
 .snackbar {
     position: absolute;
     bottom: -33px;
@@ -1928,13 +1971,13 @@ h2.zero, p.zero {
     padding-top: 4em;
 }
 #testimonial-head h1{
-    color: #777777;
+    color: #000;
     font-size: 30px;
     margin: 0;
 }
 #testimonial-head h6{
-    color: #777777;
-    margin-top: -2px;
+    color: #3b95ed;
+    margin-top: 2px;
 }
 #testimonial-head p{
     font-size: 12px;

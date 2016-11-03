@@ -37,7 +37,7 @@ $(function() {
         var _0xce37xa = $(this);
         $('html, body')['stop']()['animate']({
             scrollTop: $(_0xce37xa['attr']('href'))['offset']()['top']
-        }, 3000, 'easeInOutExpo');
+        }, 1500, 'easeInOutExpo');
         _0xce37x9['preventDefault']()
     })
 });

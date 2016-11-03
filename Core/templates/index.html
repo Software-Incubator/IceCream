@@ -60,8 +60,8 @@
 
     <!-- ================================================================================================== Loader -->
 
-    <div class="se-pre-con"></div>
-
+    <!-- <div class="se-pre-con"></div>
+ -->
     <!-- ================================================================================================== Wrapper -->
 
     <div id="wrapper">
@@ -103,10 +103,10 @@
                         <a class="page-scroll" href="#nav4">Client</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#nav5">About Us</a>
+                        <a class="page-scroll" href="#nav7">Testimonial</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#nav7">Testimonial</a>
+                        <a class="page-scroll" href="#nav5">About Us</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#nav6">Contact Us</a>
@@ -562,7 +562,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
                     <img src="{% static 'images/c11.jpg' %}" class="img-responsive thumbnail">
                 </div>
             </div>
-            <p><a class="page-scroll" href="#nav5">See Our Testimonials also... </a></p>
+            <p><a class="page-scroll" href="#nav7">See Our Testimonials also... </a></p>
         </div>
     </div>
 </section>
@@ -770,238 +770,249 @@ aria-labelledby="myModalLabel" aria-hidden="true">
 </section>                
 <!-- ==========================================================Team Member -->
 
-                <!-- >>>>>>> Team Members START <<<<<<<<< -->
-                <!-- <div class="container-fluid" style="background-color: #efefef;">
-                    <div class="container team-member">
-
-                        <div class="row">
-                            <div class="col-sm-12 team-member-content">
-                                <h4><span>TEAM </span>MEMBERS</h4>
-                                <p style="text-align: justify;">A perfect blend of
-                                    creativity and technical
-                                    wizardry. The best people formula for great
-                                    websites and applications!</p>
-                                </div>
-                            </div>
-                            {% for member_list in members %}
-                            <div class="row">
-                                {% for member in member_list %}
-                                <div class="team-responsive col-sm-2">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <img src="{{ member.pic_path.url }}"
-                                            class="img-responsive">
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="card-role">{{ member.designation.name }}
-                                            </div>
-                                            <h5 class="card-name">{{ member.name }} </h5>
-                                            <div class="card-link">
-                                                <p>
-                                                    {{ member.technology.all.first.name }} </p>
-                                                    <a href="{{ member.facebook }}"><span
-                                                        class="fa fa-facebook"></span></a>
-                                                        <a href="{{ member.twitter }}"><span
-                                                            class="fa fa-twitter"></span></a>
-                                                            <a href="{{ member.linkedin }}"><span
-                                                                class="fa fa-linkedin"></span></a>
-                                                                <a href="{{ member.github }}"><span
-                                                                    class="fa fa-github"></span></a>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {% endfor %}
-                                                </div>
-                                                {% endfor %}
-
-                                            </div>
-                                        </div> -->
-                                        <!-- >>>>>>> Team Members ENDS <<<<<<<<< -->
-
-
-                                        <!-- >>>>>>> Alumini START <<<<<<<<< -->
-                                        <div class="container-fluid" style="padding-bottom: 40px;">
-                                            <div class="container alumini">
-
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="row alumini-information">
-                                                            <h4><span>SI </span>ALUMNI</h4>
-                                                            <p>Treading this long road wouldn't have been
-                                                                viable without these innovative minds. We
-                                                                extend our gratitude to all our admirable
-                                                                alumni for refining this divine place year
-                                                                by year.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="row" style="padding: 0;">
-                                                            {% for alumni_list in alumni %}
-                                                            <div class="row" style="padding:0;"
-                                                            id="img-family-id">
-                                                            <div class="col-sm-6" style="padding: 0;">
-                                                                {% for alumnus in alumni_list.0 %}
-                                                                <div class="col-user-1by12"
-                                                                id="img-family-id">
-                                                                <img src="{{ alumnus.pic_path.url }}"
-                                                                class="img-responsive img-family">
-                                                            </div>
-                                                            {% endfor %}
-                                                        </div>
-                                                        <div class="col-sm-6" style="padding: 0;">
-                                                            {% for alumnus in alumni_list.1 %}
-                                                            <div class="col-user-1by12"
-                                                            id="img-family-id">
-                                                            <img src="{{ alumnus.pic_path.url }}"
-                                                            class="img-responsive img-family">
-                                                        </div>
-                                                        {% endfor %}
-                                                    </div>
-
-                                                </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-
-
-
-                                        <!-- modal for portfolio -->
-                                        <div class="modal fade" id="alumni-Modal" tabindex="-1"
-                                        role="dialog" aria-labelledby="myModalLabel"
-                                        aria-hidden="true">
-                                        <div class=" alumni_Modal modal-dialog" role="document"
-                                        style="width: 1155px;">
-                                        <div class="modal-content modal-alumni-left">
-                                            <div class="modal-header">
-                                                <button type="button" class="close"
-                                                data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h4 class="modal-title">SI
-                                                Alumini</h4>
-                                            </div>
-
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm-4 col-sm-push-8">
-                                                        <div class="modal-body align-left">
-                                                            <div class="thumbnail"
-                                                            style="padding: 10px;">
-                                                            <img src="{% static 'images/profile1.jpg' %}"
-                                                            class="img-responsive img-centered"
-                                                            style="padding:0px; ">
-                                                            <h2 style="padding: 0px;">Name
-                                                                of Alunimi</h2>
-                                                                <p style="padding:0px; ">Lorem
-                                                                    ipsum dolor sit amet,
-                                                                    consectetuc ante ipsum
-                                                                    primis in faucibus. Duis in
-                                                                    nisi blandit, bibendum dolor
-                                                                    quis, bibendum velit.</p>
-                                                                    <p style="padding: 0px;">Social
-                                                                        Links : </p>
-                                                                        <span class="fa fa-facebook"
-                                                                        style="font-size: 20px; padding-right: 2px;"></span>
-                                                                        <span class="fa fa-twitter"
-                                                                        style="font-size: 20px; padding-right: 2px;"></span>
-                                                                        <span class="fa fa-linkedin"
-                                                                        style="font-size: 20px; padding-right: 2px;"></span>
-                                                                        <span class="fa fa-github"
-                                                                        style="font-size: 20px; padding-right: 2px;"></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-8 col-sm-pull-4">
-                                                                <h4 style="font-size: 24px;  font-weight: bold;text-transform: uppercase;">
-                                                                    <span style="color: #3b95ed;">MEET </span>YOUR
-                                                                    YEAR</h4>
-                                                                    <div class="col-sm-12"
-                                                                    style="padding: 0px;">
-                                                                    <div class="col-user-1by12"
-                                                                    id="img-family-id">
-                                                                    <img src="{% static 'images/profile1.jpg' %}"
-                                                                    class="img-responsive img-family">
-                                                                </div>
-                                                                <div class="col-user-1by12"
-                                                                id="img-family-id">
-                                                                <img src="{% static 'images/profile2.jpg' %}"
-                                                                class="img-responsive img-family">
-                                                            </div>
-                                                            <div class="col-user-1by12"
-                                                            id="img-family-id">
-                                                            <img src="{% static 'images/profile3.jpg' %}"
-                                                            class="img-responsive img-family">
-                                                        </div>
-                                                        <div class="col-user-1by12"
-                                                        id="img-family-id">
-                                                        <img src="{% static 'images/profile4.jpg' %}"
-                                                        class="img-responsive img-family">
-                                                    </div>
-                                                    <div class="col-user-1by12"
-                                                    id="img-family-id">
-                                                    <img src="{% static 'images/profile5.png' %}"
-                                                    class="img-responsive img-family">
-                                                </div>
-                                                <div class="col-user-1by12"
-                                                id="img-family-id">
-                                                <img src="{% static 'images/placeholder_image.jpg' %}"
-                                                class="img-responsive img-family">
-                                            </div>
-                                            <div class="col-user-1by12"
-                                            id="img-family-id">
-                                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                                            class="img-responsive img-family">
-                                        </div>
-                                        <div class="col-user-1by12"
-                                        id="img-family-id">
-                                        <img src="{% static 'images/placeholder_image.jpg' %}"
-                                        class="img-responsive img-family">
-                                    </div>
-                                    <div class="col-user-1by12"
-                                    id="img-family-id">
-                                    <img src="{% static 'images/placeholder_image.jpg' %}"
-                                    class="img-responsive img-family">
-                                </div>
-                                <div class="col-user-1by12"
-                                id="img-family-id">
-                                <img src="{% static 'images/placeholder_image.jpg' %}"
-                                class="img-responsive img-family">
-                            </div>
-                            <div class="col-user-1by12"
-                            id="img-family-id">
-                            <img src="{% static 'images/placeholder_image.jpg' %}"
-                            class="img-responsive img-family">
-                        </div>
-                        <div class="col-user-1by12"
-                        id="img-family-id">
-                        <img src="{% static 'images/placeholder_image.jpg' %}"
-                        class="img-responsive img-family">
-                    </div>
-                </div>
-                <div class="col-sm-12"
-                style="padding: 0px;">
-                <div class="col-user-1by12"
-                id="img-family-id">
-                <img src="{% static 'images/placeholder_image.jpg' %}"
-                class="img-responsive img-family">
-            </div>
-            <div class="col-user-1by12"
-            id="img-family-id">
-            <img src="{% static 'images/placeholder_image.jpg' %}"
-            class="img-responsive img-family">
+<section id="team-member">
+    <div class="container">
+        <div id="team-head">
+            <h1>Team Member</h1>
+            <h6>What people say about us.</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare lacinia. Maecenas convallis, diam sit amet placerat suscipit, libero nisl tincidunt risus, vehicula lacinia massa odio non ex. Vestibulum ac condimentum arcu. Sed laoreet lacinia varius. Duis at ex eu sem aliquet sodales.</p>
         </div>
-        <div class="col-user-1by12"
-        id="img-family-id">
-        <img src="{% static 'images/placeholder_image.jpg' %}"
-        class="img-responsive img-family">
+
+        {% for member_list in members %}
+        <div class="row">
+            {% for member in member_list %}
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 team-div">
+                <div>
+                    <img src="{{ member.pic_path.url }}" class="img-responsive">
+                    <h3>{{ member.name }}</h3> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
     </div>
-    <div class="col-user-1by12"
-    id="img-family-id">
-    <img src="{% static 'images/placeholder_image.jpg' %}"
-    class="img-responsive img-family">
+</section>
+<!-- <div class="container-fluid" style="background-color: #efefef;">
+<div class="container team-member">
+
+<div class="row">
+<div class="col-sm-12 team-member-content">
+<h4><span>TEAM </span>MEMBERS</h4>
+<p style="text-align: justify;">A perfect blend of
+creativity and technical
+wizardry. The best people formula for great
+websites and applications!</p>
+</div>
+</div>
+{% for member_list in members %}
+<div class="row">
+    {% for member in member_list %}
+    <div class="team-responsive col-sm-2">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ member.pic_path.url }}" class="img-responsive">
+            </div>
+            <div class="card-body">
+                <div class="card-role">{{ member.designation.name }}</div>
+                <h5 class="card-name">{{ member.name }} </h5>
+                <div class="card-link">
+                    <p>{{ member.technology.all.first.name }} </p>
+                    <a href="{{ member.facebook }}"><span class="fa fa-facebook"></span></a>
+                    <a href="{{ member.twitter }}"><span class="fa fa-twitter"></span></a>
+                    <a href="{{ member.linkedin }}"><span class="fa fa-linkedin"></span></a>
+                    <a href="{{ member.github }}"><span class="fa fa-github"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+</div>
+</div> -->
+                                     
+<!-- ==========================================================Team Member -->
+<div class="container-fluid" style="padding-bottom: 40px;">
+<div class="container alumini">
+
+<div class="row">
+<div class="col-sm-12">
+<div class="row alumini-information">
+<h4><span>SI </span>ALUMNI</h4>
+<p>Treading this long road wouldn't have been
+viable without these innovative minds. We
+extend our gratitude to all our admirable
+alumni for refining this divine place year
+by year.</p>
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="row" style="padding: 0;">
+{% for alumni_list in alumni %}
+<div class="row" style="padding:0;"
+id="img-family-id">
+<div class="col-sm-6" style="padding: 0;">
+{% for alumnus in alumni_list.0 %}
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{{ alumnus.pic_path.url }}"
+class="img-responsive img-family">
+</div>
+{% endfor %}
+</div>
+<div class="col-sm-6" style="padding: 0;">
+{% for alumnus in alumni_list.1 %}
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{{ alumnus.pic_path.url }}"
+class="img-responsive img-family">
+</div>
+{% endfor %}
+</div>
+
+</div>
+{% endfor %}
+</div>
+</div>
+
+
+
+<!-- modal for portfolio -->
+<div class="modal fade" id="alumni-Modal" tabindex="-1"
+role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class=" alumni_Modal modal-dialog" role="document"
+style="width: 1155px;">
+<div class="modal-content modal-alumni-left">
+<div class="modal-header">
+<button type="button" class="close"
+data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<h4 class="modal-title">SI
+Alumini</h4>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-sm-4 col-sm-push-8">
+<div class="modal-body align-left">
+<div class="thumbnail"
+style="padding: 10px;">
+<img src="{% static 'images/profile1.jpg' %}"
+class="img-responsive img-centered"
+style="padding:0px; ">
+<h2 style="padding: 0px;">Name
+of Alunimi</h2>
+<p style="padding:0px; ">Lorem
+ipsum dolor sit amet,
+consectetuc ante ipsum
+primis in faucibus. Duis in
+nisi blandit, bibendum dolor
+quis, bibendum velit.</p>
+<p style="padding: 0px;">Social
+Links : </p>
+<span class="fa fa-facebook"
+style="font-size: 20px; padding-right: 2px;"></span>
+<span class="fa fa-twitter"
+style="font-size: 20px; padding-right: 2px;"></span>
+<span class="fa fa-linkedin"
+style="font-size: 20px; padding-right: 2px;"></span>
+<span class="fa fa-github"
+style="font-size: 20px; padding-right: 2px;"></span>
+</div>
+</div>
+</div>
+<div class="col-sm-8 col-sm-pull-4">
+<h4 style="font-size: 24px;  font-weight: bold;text-transform: uppercase;">
+<span style="color: #3b95ed;">MEET </span>YOUR
+YEAR</h4>
+<div class="col-sm-12"
+style="padding: 0px;">
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/profile1.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/profile2.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/profile3.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/profile4.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/profile5.png' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+</div>
+<div class="col-sm-12"
+style="padding: 0px;">
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
+</div>
+<div class="col-user-1by12"
+id="img-family-id">
+<img src="{% static 'images/placeholder_image.jpg' %}"
+class="img-responsive img-family">
 </div>
 <div class="col-user-1by12"
 id="img-family-id">
@@ -1052,9 +1063,9 @@ class="img-responsive img-family">
 </div>
 </div>
 <script type="text/javascript">
-    $('#contactModal').on('shown.bs.modal', function () }
-        $('#myInput').focus()
-    })
+$('#contactModal').on('shown.bs.modal', function () }
+$('#myInput').focus()
+})
 
 
 </script>
