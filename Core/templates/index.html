@@ -438,60 +438,7 @@
 
 
 </script>
-<!-- modal for portfolio -->
 
-<!-- Contact Us form -->
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog"
-aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-dialog contact_modal" role="document">
-    <div class="modal-content modal-contact-left">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-            aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">Contact
-            Us</h4>
-        </div>
-        <div class="modal-body contact-modal">
-            <form name="contact_form" method="POST" action="/"
-            enctype="multipart/form-data">
-            {% csrf_token %}
-            {% for field in contact_form %}
-            <fieldset class="form-group">
-                {% for error in field.errors %}
-                <p>{{ error }}</p>
-                {% endfor %}
-                <label for="{{ field.name }}">
-                    {{ field.label }}
-                </label>
-                {{ field }}
-            </fieldset>
-            {% endfor %}
-            <button type="submit" class="btn button fill">
-                Submit
-            </button>
-        </form>
-    </div>
-</div>
-</div>
-</div>
-<script type="text/javascript">
-    $('#contactModal').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-    })
-</script>
-
-
-<script type="text/javascript">
-    var nsOptions = {
-        thumbWidth: "90%",
-        thumbHeight: "auto",
-        showMode: 5
-    }
-
-
-</script>
 
 
 <!-- Error -->
@@ -685,15 +632,13 @@ aria-labelledby="myModalLabel" aria-hidden="true">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="row">
-                <!-- <iframe id="si-video" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0" allowfullscreen></iframe> -->
-                <div id="video-btn">
-                    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
-                    <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
-                    <source src="https://www.youtube.com/embed/fC9xDssPzLw" type="video/mp4">
-                    </video>
-                <!-- <img src="{%static 'images/flex.png' %}" class="img-responsive"> -->
-                </div>
+            <!-- <iframe id="si-video" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0" allowfullscreen></iframe> -->
+            <div id="video-btn">
+                <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+                <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
+                <source src="https://www.youtube.com/embed/fC9xDssPzLw" type="video/mp4">
+                </video>
+            <!-- <img src="{%static 'images/flex.png' %}" class="img-responsive"> -->
             </div>
         </div>
 
@@ -832,259 +777,38 @@ websites and applications!</p>
 </div>
 </div> -->
                                      
-<!-- ==========================================================Team Member -->
-<div class="container-fluid" style="padding-bottom: 40px;">
-<div class="container alumini">
-
-<div class="row">
-<div class="col-sm-12">
-<div class="row alumini-information">
-<h4><span>SI </span>ALUMNI</h4>
-<p>Treading this long road wouldn't have been
-viable without these innovative minds. We
-extend our gratitude to all our admirable
-alumni for refining this divine place year
-by year.</p>
-</div>
-</div>
-</div>
-<div class="col-sm-12">
-<div class="row" style="padding: 0;">
-{% for alumni_list in alumni %}
-<div class="row" style="padding:0;"
-id="img-family-id">
-<div class="col-sm-6" style="padding: 0;">
-{% for alumnus in alumni_list.0 %}
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{{ alumnus.pic_path.url }}"
-class="img-responsive img-family">
-</div>
-{% endfor %}
-</div>
-<div class="col-sm-6" style="padding: 0;">
-{% for alumnus in alumni_list.1 %}
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{{ alumnus.pic_path.url }}"
-class="img-responsive img-family">
-</div>
-{% endfor %}
-</div>
-
-</div>
-{% endfor %}
-</div>
-</div>
-
-
-
-<!-- modal for portfolio -->
-<div class="modal fade" id="alumni-Modal" tabindex="-1"
-role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class=" alumni_Modal modal-dialog" role="document"
-style="width: 1155px;">
-<div class="modal-content modal-alumni-left">
-<div class="modal-header">
-<button type="button" class="close"
-data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-<h4 class="modal-title">SI
-Alumini</h4>
-</div>
-
-<div class="container">
-<div class="row">
-<div class="col-sm-4 col-sm-push-8">
-<div class="modal-body align-left">
-<div class="thumbnail"
-style="padding: 10px;">
-<img src="{% static 'images/profile1.jpg' %}"
-class="img-responsive img-centered"
-style="padding:0px; ">
-<h2 style="padding: 0px;">Name
-of Alunimi</h2>
-<p style="padding:0px; ">Lorem
-ipsum dolor sit amet,
-consectetuc ante ipsum
-primis in faucibus. Duis in
-nisi blandit, bibendum dolor
-quis, bibendum velit.</p>
-<p style="padding: 0px;">Social
-Links : </p>
-<span class="fa fa-facebook"
-style="font-size: 20px; padding-right: 2px;"></span>
-<span class="fa fa-twitter"
-style="font-size: 20px; padding-right: 2px;"></span>
-<span class="fa fa-linkedin"
-style="font-size: 20px; padding-right: 2px;"></span>
-<span class="fa fa-github"
-style="font-size: 20px; padding-right: 2px;"></span>
-</div>
-</div>
-</div>
-<div class="col-sm-8 col-sm-pull-4">
-<h4 style="font-size: 24px;  font-weight: bold;text-transform: uppercase;">
-<span style="color: #3b95ed;">MEET </span>YOUR
-YEAR</h4>
-<div class="col-sm-12"
-style="padding: 0px;">
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/profile1.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/profile2.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/profile3.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/profile4.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/profile5.png' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-</div>
-<div class="col-sm-12"
-style="padding: 0px;">
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-<div class="col-user-1by12"
-id="img-family-id">
-<img src="{% static 'images/placeholder_image.jpg' %}"
-class="img-responsive img-family">
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<script type="text/javascript">
-$('#contactModal').on('shown.bs.modal', function () }
-$('#myInput').focus()
-})
-
-
-</script>
-<!-- modal for portfolio -->
-
-
-</div>
-<!-- >>>>>>> Alumini ENDS <<<<<<<<< -->
-</div>
-</div>
-
+<!-- ========================================================== SI Alumni -->
+<section id="alumni">
+    <div class="container">
+        <div id="alumni-head">
+            <h1>Alumni Member</h1>
+            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare lacinia. Maecenas convallis, diam sit amet placerat suscipit, libero nisl tincidunt risus, vehicula lacinia massa odio non ex. Vestibulum ac condimentum arcu. Sed laoreet lacinia varius. Duis at ex eu sem aliquet sodales.</p>
+        </div>
+        <div class="row">
+            {% for alumni_list in alumni %}
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                {% for alumnus in alumni_list.0 %}
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 pad-off">
+                    <img src="{{ alumnus.pic_path.url }}" class="img-responsive">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pad-off">
+                {% for alumnus in alumni_list.1 %}
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <img src="{{ alumnus.pic_path.url }}" class="img-responsive">
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 
-<!-- Error -->
+<!-- ========================================================== Contact Us  -->
 <div class="error" id="nav6"></div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Contact Us  -->
-
 <section>
     <!-- Section Head -->
     <div class="container-fluid section-head">
@@ -1132,11 +856,27 @@ $('#myInput').focus()
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="envelope" data-toggle="modal"
+                        <div class="col-sm-4" style="margin-top: 3em;">
+                            <!-- div class="envelope" data-toggle="modal"
                             data-target="#contactModal">
                             <img src="{% static 'images/mail.png' %}"
                             style="height: 300px;">
+                             -->
+                             <form name="contact_form" method="POST" action="/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% for field in contact_form %}
+                                <fieldset class="form-group">
+                                    {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                    {% endfor %}
+                                    <!-- <label for="{{ field.name }}">
+                                        {{ field.label }}
+                                    </label> -->
+                                    {{ field }}
+                                </fieldset>
+                                {% endfor %}
+                                <button type="submit" class="btn button fill">Submit</button>
+                            </form>
                         </div>
                     </div>
 
@@ -1493,6 +1233,42 @@ style="background-color: #424242; padding: 0;">
 
 <!-- Wrapper End -->
 
+
+
+
+
+
+
+
+<!-- <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog contact_modal" role="document">
+        <div class="modal-content modal-contact-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Contact Us</h4>
+            </div>
+            <div class="modal-body contact-modal">
+                <form name="contact_form" method="POST" action="/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in contact_form %}
+                    <fieldset class="form-group">
+                        {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                        <label for="{{ field.name }}">
+                            {{ field.label }}
+                        </label>
+                        {{ field }}
+                    </fieldset>
+                    {% endfor %}
+                    <button type="submit" class="btn button fill">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
 <!-- ====================================================================Initialiser -->
 
 <!-- TYPED JS SCRIPT -->

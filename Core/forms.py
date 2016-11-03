@@ -6,7 +6,7 @@ from .models import ContactUs, Registration, Branch, Year, Gender
 class ContactUsForm(forms.ModelForm):
     class Meta:
         model = ContactUs
-        fields = ['name', 'contact', 'email', 'subject', 'message']
+        fields = ['name', 'email', 'message']
 
     name = forms.CharField(
         max_length=225, required=True,
@@ -16,17 +16,6 @@ class ContactUsForm(forms.ModelForm):
                    'class': 'form-control',
                    'id': 'exampleInputName1',
                    'placeholder': 'Enter Name'
-                   }
-        )
-    )
-    contact = forms.IntegerField(
-        required=True,
-        widget=forms.NumberInput(
-            attrs={'type': 'number',
-                   'name': 'contact',
-                   'class': 'form-control',
-                   'id': 'exampleInputcontact1',
-                   'placeholder': 'Enter Contact No'
                    }
         )
     )
@@ -40,23 +29,14 @@ class ContactUsForm(forms.ModelForm):
                    'placeholder': 'Enter Email'}
         )
     )
-    subject = forms.CharField(
-        225, required=True,
-        widget=forms.TextInput(
-            attrs={'type': 'text',
-                   'name': 'subject',
-                   'class': 'form-control',
-                   'id': 'exampleInputsub1',
-                   'placeholder': 'Enter Subject'}
-        )
-    )
     message = forms.CharField(
         required=True,
         widget=forms.Textarea(
             attrs={'class': 'form-control',
                    'name': 'message',
                    'id': 'message',
-                   'rows': '5'
+                   'rows': '5',
+                   'placeholder': 'Enter Your Message'
                    }
         ),
     )
