@@ -106,6 +106,9 @@
                         <a class="page-scroll" href="#nav5">About Us</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#nav7">Testimonial</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#nav6">Contact Us</a>
                     </li>
                 </ul>
@@ -563,6 +566,70 @@ aria-labelledby="myModalLabel" aria-hidden="true">
         </div>
     </div>
 </section>
+<!-- ==================================================Testimonial -->
+<div class="error" id="nav7"></div>
+<section>
+<div class="row" style="background-color: #efefef;">
+    <div class="container">
+        <div id="testimonial-head">
+            <h1>Testimonials</h1>
+            <h6>What people say about us.</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare lacinia. Maecenas convallis, diam sit amet placerat suscipit, libero nisl tincidunt risus, vehicula lacinia massa odio non ex. Vestibulum ac condimentum arcu. Sed laoreet lacinia varius. Duis at ex eu sem aliquet sodales.</p>
+        </div>
+        <div class="col-md-12" data-wow-delay="0.2s">
+            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                <!-- Bottom Carousel Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive-slider " src="{% static 'images/director.jpg' %}">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
+                    </li>
+                </ol>
+                <!-- Carousel Slides / Quotes -->
+                <div class="carousel-inner text-center">
+                    <!-- Quote 1 -->
+                    <div class="item active">
+                        <blockquote>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+                                    <small>Someone famous</small>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <!-- Quote 2 -->
+                    <div class="item">
+                        <blockquote>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    <small>Someone famous</small>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <!-- Quote 3 -->
+                    <div class="item">
+                        <blockquote>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+                                    <small>Someone famous</small>
+                                </div>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+                <!-- Carousel Buttons Next/Prev -->
+                <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- =========================================================About Us -->
 <div class="error" id="nav5"></div>
 <div class="container-fluid section-head">
@@ -619,7 +686,14 @@ aria-labelledby="myModalLabel" aria-hidden="true">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
-                <iframe id="si-video" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0" allowfullscreen></iframe>
+                <!-- <iframe id="si-video" src="https://www.youtube.com/embed/fC9xDssPzLw" frameborder="0" allowfullscreen></iframe> -->
+                <div id="video-btn">
+                    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+                    <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
+                    <source src="https://www.youtube.com/embed/fC9xDssPzLw" type="video/mp4">
+                    </video>
+                <!-- <img src="{%static 'images/flex.png' %}" class="img-responsive"> -->
+                </div>
             </div>
         </div>
 
@@ -694,68 +768,10 @@ aria-labelledby="myModalLabel" aria-hidden="true">
                     </div>
                 </div> -->
 </section>                
-<!-- ==================================================Testimonial -->
-<section>
-<div class="row" style="background-color: #efefef;">
-    <div class="container">
-        <div class="col-md-12" data-wow-delay="0.2s">
-            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-                <!-- Bottom Carousel Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive-slider " src="{% static 'images/director.jpg' %}">
-                    </li>
-                    <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
-                    </li>
-                    <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
-                    </li>
-                </ol>
-                <!-- Carousel Slides / Quotes -->
-                <div class="carousel-inner text-center">
-                    <!-- Quote 1 -->
-                    <div class="item active">
-                        <blockquote>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
-                                    <small>Someone famous</small>
-                                </div>
-                            </div>
-                        </blockquote>
-                    </div>
-                    <!-- Quote 2 -->
-                    <div class="item">
-                        <blockquote>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    <small>Someone famous</small>
-                                </div>
-                            </div>
-                        </blockquote>
-                    </div>
-                    <!-- Quote 3 -->
-                    <div class="item">
-                        <blockquote>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
-                                    <small>Someone famous</small>
-                                </div>
-                            </div>
-                        </blockquote>
-                    </div>
-                </div>
-                <!-- Carousel Buttons Next/Prev -->
-                <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-                <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- ==========================================================Team Member -->
 
                 <!-- >>>>>>> Team Members START <<<<<<<<< -->
-                <div class="container-fluid">
+                <!-- <div class="container-fluid" style="background-color: #efefef;">
                     <div class="container team-member">
 
                         <div class="row">
@@ -801,7 +817,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
                                                 {% endfor %}
 
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- >>>>>>> Team Members ENDS <<<<<<<<< -->
 
 
