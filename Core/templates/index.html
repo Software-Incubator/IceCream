@@ -7,8 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet"
@@ -118,204 +116,51 @@
 </div><!-- Navigation Ends -->
 
 <!-- =========================================================================== Landing Page -->
-<!-- <section class="container1"> -->
-    <!-- Registration Button -->
-    <!-- <a href="/register">
-        <div class="registration_trigger hvr-buzz">Register Here!</div>
-    </a>
-    <div style="text-align: center;width:100%;">
-        {% for message in messages %}
-        <div id="snackbar" class="snackbar">
-            {{ message }}
-        </div>
-        {% endfor %}
-    </div> -->
-<!--     <div class="hvr-bounce-in circular popup-item size7" id="circle7">
-        <div class="hvr-bounce-in circular popup-item size5" id="circle5">
-            <div class="hvr-bounce-in circular popup-item size4"
-            id="circle4">
-                <div class="hvr-bounce-in circular popup-item size3"
-                id="circle3">
-                    <div class="hvr-bounce-in circular popup-item size2"
-                    id="circle2">
-                        <div class="hvr-bounce-in circular popup-item size1"
-                        id="circle1">
-                            <div class="logo_container">
-                                <div class="logo inner "></div>
-                                <div class="text inner"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-<!-- </section> -->
 <section id="landing">
     
 </section>
-<!-- =========================================================================== Typed.js  -->
-<!-- <div class="container">
-    <div class="typedjs">
-        <div class="believe">We believe in&nbsp;&nbsp;</div>
-        <div class="type-wrap">
-            <div id="typed-strings">
-                <p>Redefining Limitations...</p>
-                <p>Redefining Limitations...</p>
-                <p>Innovating Insanely!</p>
-                <p>Learning Technologies...</p>
-                <p>Sharing Intelligence!</p>
-            </div>
-            <span id="typed" style="white-space:pre;"></span>
-        </div>
-    </div>
-</div> -->
 <!-- ============================================================================== Services  -->
-<div class="error" id="nav2"></div><!-- Navigation Correction -->
-<section class="services">
-    <!-- Desktop Development -->
-    <div class="fluid-container">
-        <div class="container" id="desktop-padding">
-            <div class="row">
-                <div class="col-sm-6">
-                    <img src="{% static 'images/Service_desk.png' %}"
-                    class="img-responsive center-block"
-                    style="padding-top: 10px; width: 375px; height: auto;">
-                </div>
-                <div class="col-sm-6">
-                    <div style="padding: 20px;">
-                        <h3 class="service-head">Desktop Application Development</h3>
-                        <p class="service-text hidden-xs">We have developers
-                        who are solely developing desktop applications
-                        and high end software products. We develop
-                        highly user interactive applications for
-                        industry as well as for personal use. We work on
-                        technologies that include high performance and
-                        minimize the system requirements.</p>
-                        <p class="service-tag"></p>
-                        <div class="col-sm-12" style="padding: 0;">
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/java.png' %}"
-                                class="img-responsive" alt="tech_name">
-                            </div>
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/Unity_3D.png' %}"
-                                class="img-responsive" alt="tech_name">
-                            </div>
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/open-cv.png' %}"
-                                class="img-responsive" alt="tech_name">
-                            </div>
-                            <div class="col-user-1by8 service-icon-pad">
-                                <img src="{% static 'images/asp-net.png' %}"
-                                class="img-responsive" alt="tech_name">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="error" id="nav2"></div>
+<section class="services" id="services">
+    <div class="container">
+        <div id="testimonial-head">
+            <h1>Services</h1>
+            <h6>What we provide to our Customers.</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare lacinia. Maecenas convallis, diam sit amet placerat suscipit, libero nisl tincidunt risus, vehicula lacinia massa odio non ex. Vestibulum ac condimentum arcu. Sed laoreet lacinia varius. Duis at ex eu sem aliquet sodales.</p>
         </div>
-    </div>
-    <div class="fluid-container">
-        <div class="container" id="mobile-padding">
-            <div class="row">
-                <div class="col-sm-6 col-sm-push-6">
-                    <img src="{% static 'images/Service_mob.png' %}"
-                    class="img-responsive center-block iphone"
-                    style="width: 375px; height: auto;">
-                </div>
-                <div class="col-sm-6 col-sm-pull-6">
-                    <h4 class="service-head mobile_heading">Mobile Application
-                        Development</h4>
-                    <p class="service-text hidden-xs">We realize that the
-                    world is changing it's trends from typewriter to
-                    keyboard and now from click to touch. Hence, we here
-                    at Software Incubator develop mobile as well as
-                    tablet apps. The apps we make are for Android, iOS
-                    and Windows Devices. Today in the market and even
-                    tomorrow, our apps never die.</p>
-                    <p class="service-tag"></p>
-                    <div class="col-sm-12" style="padding: 0;">
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/android.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/ios.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/windows8.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                    </div>
+        <div class="row" style="padding: 4em 0;">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="service-sec">
+                    <img src="{% static 'images/web.svg' %}" class="img-responsive">
+                    <h4>Web Services</h4>
+                    <p>We have developers who are solely developing desktop applications and high end software products. </p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="fluid-container">
-    <div class="container" id="web-padding">
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="{% static 'images/Service_lap.png' %}"
-                class="img-responsive center-block">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="service-sec">
+                    <img src="{% static 'images/mobile.svg' %}" class="img-responsive">
+                    <h4>Mobile Application</h4>
+                    <p>We develop highly user interactive applications for industry as well as for personal use. nclude high performance and minimize the system requirements.</p>
+                </div>
             </div>
-            <div class=" col-sm-6">
-                    <h3 class="service-head mobile_heading">Website Development</h3>
-                    <p class="service-text hidden-xs">We offer great
-                    Websites and Web applications, understanding the
-                    clients' needs and requirements. We deliver the
-                    projects built on the latest technologies in the
-                    market-place at most diminishing costs. We give a
-                    larger hand to the latest trends of website
-                    development, especially SEO. The websites we provide
-                    are fully secure and give support to data security
-                    and integrity.</p>
-                    <p class="service-tag"></p>
-                    <div class="col-xs-12 " style="padding: 0;">
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/php.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/python.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/asp-net.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/js.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/html.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/jquery.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/css.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/node-js.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                        <div class="col-user-1by8 service-icon-pad">
-                            <img src="{% static 'images/jsp.png' %}"
-                            class="img-responsive" alt="tech_name">
-                        </div>
-                    </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="service-sec">
+                    <img src="{% static 'images/ux.svg' %}" class="img-responsive">
+                    <h4>UX/UI Design</h4>
+                    <p>We have developers who are solely developing desktop applications and high end software products we develop.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="service-sec">
+                    <img src="{% static 'images/market.svg' %}" class="img-responsive">
+                    <h4>Event Handeling</h4>
+                    <p>We work on technologies that include high performance and minimize the system requirements.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- ============================================================================== Portfolio  -->
+<!-- ======================================================================== Portfolio  -->
 <div class="error" id="nav3"></div>
 <div class="container-fluid section-head">
     <h1 style="">PORTFOLIO</h1>
@@ -383,8 +228,8 @@
                             <h2 style="margin-top: 0px;">SI Experiments</h2>
                             <h6>We all can a do a little more.</h6>
                             <p>SI Experiment was created as an open and flexible platform, giving people more ways to come together to imagine and create. Developers everywhere have used the unique capabilities of the platform to push the limits of what’s possible on phones, tablets, watches and beyond.</p>
-                            <button class="thumbnail-btn">Visit SI Experiments</button>
                         </div>
+                        <button class="thumbnail-btn">Visit SI Experiments</button>
                     </div>
                 </div>
             </div>
@@ -396,8 +241,8 @@
                             <h2 style="margin-top: 0px;">SI Blog</h2>
                             <h6>Lets discuss.</h6>
                             <p>SI blog is sometimes referred to as an online personal journal. It is a site designated for an individual to write about his/her daily experiences, to illicit thoughts and often allowing readers to offer their comments.</p>
-                            <button class="thumbnail-btn">Visit SI Blog</button>
                         </div>
+                        <button class="thumbnail-btn">Visit SI Blog</button>
                     </div>
                 </div>
             </div>
@@ -556,15 +401,7 @@ data-target="#comingsoon" data-toggle="modal">Our Blogs
         </div>
         <div class="col-md-12" data-wow-delay="0.2s">
             <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-                <!-- Bottom Carousel Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive-slider " src="{% static 'images/director.jpg' %}">
-                    </li>
-                    <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
-                    </li>
-                    <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
-                    </li>
-                </ol>
+                
                 <!-- Carousel Slides / Quotes -->
                 <div class="carousel-inner text-center">
                     <!-- Quote 1 -->
@@ -601,6 +438,15 @@ data-target="#comingsoon" data-toggle="modal">Our Blogs
                         </blockquote>
                     </div>
                 </div>
+                <!-- Bottom Carousel Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive-slider " src="{% static 'images/director.jpg' %}">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
+                    </li>
+                    <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive-slider" src="{% static 'images/director.jpg' %}">
+                    </li>
+                </ol>
                 <!-- Carousel Buttons Next/Prev -->
                 <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
                 <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
