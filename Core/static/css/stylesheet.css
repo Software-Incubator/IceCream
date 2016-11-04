@@ -627,7 +627,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) {
     .modal-dialog {
         width: 600px;
-        margin: 0px auto;
+        /* margin: 0px auto; */
     }
 }
 
@@ -762,26 +762,93 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*.Team Members =====================================*/
 .team-div{
-    padding: 0 10px;
+    padding: 5px 10px;
 }
 .team-div img{
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
     border-radius: 4px 4px 0px 0px;
+    height: inherit;
+    filter: blur(0px);
+}
+.img-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.img-list .img-li {
+  display: inline-block;
+  /* height: 128px; */
+  /* margin: 0 1em 1em 0; */
+  position: relative;
+  /* width: 128px; */
+  overflow: hidden;
+}
+span.text-content {
+  background: rgba(0,0,0,0.8);
+  color: #b3b3b3;
+  cursor: pointer;
+  display: table;
+  /* height: 150px; */
+  left: 0;
+  padding: 11px;
+  font-size: 11px;
+  font-style: italic;
+  position: absolute;
+  top: 0;
+  /* width: 125px; */
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  height: 100vh;
+}
+span.text-content span{
+    color: #fff;
+    font-size: 12px;
+}
+.text-content a .fa {
+    font-size: 20px;
+    padding: 2px 4px;
+}
+.img-list .img-li:hover span.text-content {
+  opacity: 1;
+  z-index: 100;
+}
+.img-list .img-li:hover img{
+    filter: blur(1px);
 }
 .team-div img:hover {
     filter: grayscale(0%);
+    filter: blur(40px);
+    opacity: 0;
 }
 .team-div h3 {
     font-size: 13px;
     color: #fff;
-    padding: 21px 0;
+    padding: 18px 1vw;
     background-color: #212121;
     text-align: center;
     margin: 0;
     border-radius: 0px 0px 4px 4px;
+    z-index: 222;
 }
-.team-div img:hover + h3{
-    
+#up-img{
+    position: absolute;
+}
+#up-hover{
+    position: relative;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 400px;
+    background-color: rgba(0,0,0,0.5);
+    /* height: 21vh; */
+    padding: 10px;
+    color: #fff;
+    opacity: 0;
+}
+#up-hover:hover{
+    opacity: 1;
 }
 
 .thumbnail {
@@ -2136,6 +2203,12 @@ h2.zero, p.zero {
 @media(max-width: 415px) {
     .carousel-inner {
         min-height: 360px;
+    }
+}
+
+@media(max-width: 354px){
+    .team-div {
+        padding: 4px 1px;
     }
 }
 @media(max-width:509px){
