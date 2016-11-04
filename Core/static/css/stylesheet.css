@@ -294,6 +294,12 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0px; /* Padding of BLUE Nav bar Test */
         background-color: rgba(59, 149, 237, 1); /*DESKTOPVIEW: On Scroll Background Color Change i.e BLUE */
         color: #000;
+        /* background-color: #3b95ed; */
+        /* color: #fff; */
+        /* background-color: #3b95ed; */
+        color: #fff;
+        box-shadow: 1px #000;
+        box-shadow: 1px 0px 3px #000;
     }
 
     .navbar-custom.top-nav-collapse .nav li a:hover {
@@ -583,6 +589,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* portfolio =============================================*/
+#portfolio{
+    padding: 7em 0;
+}
 .portfolio {
     background-color: #f2f2f2;
     color: #000;
@@ -861,9 +870,11 @@ span.text-content span{
 }
 
 .thumbnail p {
-    font-size: 11px;
+    font-size: 14px;
     text-align: justify;
-    line-height: 1.3;
+    line-height: 1.4;
+    letter-spacing: 0;
+    padding: 10px 0;
 }
 
 /* About =============================================*/
@@ -1324,6 +1335,31 @@ video {
 }
 
 /* Contact =============================================*/
+#contact{
+    padding: 4em 0;
+    background-color: #e4e4e4;
+}
+#contact-head{
+    text-align: center;
+    /* padding-top: 4em; */
+}
+#contact-head h1{
+    color: #000;
+    font-size: 30px;
+    margin: 0;
+}
+#contact-head h1 span{
+    color: #3b95ed;
+}
+#contact-head h6{
+    color: #3b95ed;
+    margin-top: 2px;
+}
+#contact-head p{
+    font-size: 13px;
+    color: #777777;
+}
+
 
 .contact .form-control {
     display: block;
@@ -2083,7 +2119,7 @@ h2.zero, p.zero {
     margin-top: 2px;
 }
 #alumni-head p{
-    font-size: 12px;
+    font-size: 13px;
     color: #777777;
 }
 .snackbar {
@@ -2130,7 +2166,7 @@ h2.zero, p.zero {
     margin-top: 2px;
 }
 #testimonial-head p{
-    font-size: 12px;
+    font-size: 13px;
     color: #777777;
 }
 .validationerror {
@@ -2317,6 +2353,20 @@ h2.zero, p.zero {
     padding: 20px 48%;
     /* position: relative; */
     /* top: 0; */
+}
+#carousel-bounding-box{
+    padding: 0;
+}
+.see-more img{
+    display: inline;
+    width: 24% !important;
+}
+.thumbnail-btn{
+    width: 100%;
+    background: #fff;
+    color: #3b95ed;
+    border: 0px;
+    padding: 10px;
 }
 .modal-footer{
     padding: 0;
