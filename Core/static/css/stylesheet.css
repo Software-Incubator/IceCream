@@ -696,7 +696,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-body p {
     text-align: justify;
-    padding: 30px 0px;
+    padding: 0 20px;
 }
 
 .modal-body h2 {
@@ -2248,4 +2248,79 @@ h2.zero, p.zero {
     max-height: 100%;
     width: auto;
     display: block;
+}
+#alumni-modal .modal-body img{
+    margin: 0 auto;
+}
+#alumni-modal .modal-body{
+    padding: 10px;
+}
+#alumni-modal .modal-content{
+    padding: 0;
+}
+#alumni-modal .modal-dialog{
+    width: 600px;
+}
+.modal{
+    background-color: rgba(0,0,0,0.8) !important;
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+
+
+@media(max-width: 768px){
+    .modal:before {
+      content: '';
+      display: inline-block;
+      height: 0% !important;
+      vertical-align: middle;
+      margin-right: -4px;
+    }
+    #alumni-modal .modal-dialog {
+        width: 93% !important;
+    }
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+#alumni-modal a .fa {
+    font-size: 20px;
+    float: right;
+    color: #000;
+    padding: 15px;
+}
+#alumni-modal a .fa:hover {
+    font-size: 20px;
+    float: right;
+    color: #3b95ed;
+    padding: 15px;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.btn-close-modal{
+    background-color: #0d7ce4;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    /* padding: 20px 100%; */
+    /* left: 0; */
+    padding: 20px 48%;
+    /* position: relative; */
+    /* top: 0; */
+}
+.modal-footer{
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
 }

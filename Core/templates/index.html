@@ -645,7 +645,7 @@ data-target="#comingsoon" data-toggle="modal">Our Blogs
                         <a href="{{ member.facebook }}"><span class="fa fa-facebook"></span></a> 
                         <a href="{{ member.linkedin }}"><span class="fa fa-linkedin"></span></a> 
                     </span>
-                    <h3>{{ member.name }}<!-- <a data-toggle="modal" data-target="#member-profile"><span class="fa fa-info-circle pull-right"></span></a> --></h3>
+                    <h3>{{ member.name }}</h3>
                 </div>
             </div>
             {% endfor %}
@@ -666,14 +666,14 @@ data-target="#comingsoon" data-toggle="modal">Our Blogs
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                 {% for alumnus in alumni_list.0 %}
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 pad-off">
-                    <img src="{{ alumnus.pic_path.url }}" class="img-responsive">
+                    <a data-toggle="modal" data-target="#alumni-modal"><img src="{{ alumnus.pic_path.url }}" class="img-responsive"></a>
                 </div>
                 {% endfor %}
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pad-off">
                 {% for alumnus in alumni_list.1 %}
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                    <img src="{{ alumnus.pic_path.url }}" class="img-responsive">
+                    <a data-toggle="modal" data-target="#alumni-modal"><img src="{{ alumnus.pic_path.url }}" class="img-responsive"></a>
                 </div>
                 {% endfor %}
             </div>
@@ -681,6 +681,38 @@ data-target="#comingsoon" data-toggle="modal">Our Blogs
         </div>
     </div>
 </section>
+
+
+<div class="modal fade" id="alumni-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 ">
+                        <img src="{% static 'images/profile.jpeg' %}" class="img-responsive">
+                    </div>
+                    <div class="col-lg-8 col-md-8  ">
+                        <h2>Siddhant S Goral</h2>
+                        <p>I Siddhant S Goral Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare laciniaLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare laciniaLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare laciniaLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare laciniaLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare laciniaLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id sapien magna. Maecenas dapibus ornare lacinia. <br> 
+                            <a href="#"><span class="fa fa-github"></span></a> 
+                            <a href="#"><span class="fa fa-facebook"></span></a> 
+                            <a href="#"><span class="fa fa-linkedin"></span></a> 
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="alumni-batchmates">
+                        <span class="batchmates"></span>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="modal-footer" data-dismiss="modal"> -->
+                <button type="button" class="modal-footer btn btn-default btn-close-modal" data-dismiss="modal">Close</button>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
 
 <!-- ========================================================== Contact Us  -->
 <div class="error" id="nav6"></div>
@@ -1191,5 +1223,39 @@ style="background-color: #424242; padding: 0;">
   ga('send', 'pageview');
 
 </script>
+<script>
+    function setModalMaxHeight(element) {
+  this.$element     = $(element);  
+  this.$content     = this.$element.find('.modal-content');
+  var borderWidth   = this.$content.outerHeight() - this.$content.innerHeight();
+  var dialogMargin  = $(window).width() < 768 ? 20 : 60;
+  var contentHeight = $(window).height() - (dialogMargin + borderWidth);
+  var headerHeight  = this.$element.find('.modal-header').outerHeight() || 0;
+  var footerHeight  = this.$element.find('.modal-footer').outerHeight() || 0;
+  var maxHeight     = contentHeight - (headerHeight + footerHeight);
+
+  this.$content.css({
+      'overflow': 'hidden'
+  });
+  
+  this.$element
+    .find('.modal-body').css({
+      'max-height': maxHeight,
+      'overflow-y': 'auto'
+  });
+}
+
+$('.modal').on('show.bs.modal', function() {
+  $(this).show();
+  setModalMaxHeight(this);
+});
+
+$(window).resize(function() {
+  if ($('.modal.in').length != 0) {
+    setModalMaxHeight($('.modal.in'));
+  }
+});
+</script>
+
 </body>
 </html>
