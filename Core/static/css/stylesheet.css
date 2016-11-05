@@ -13,6 +13,7 @@ font-family: 'Roboto', sans-serif;*/
 html {
      max-width: 100%; 
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -2189,7 +2190,7 @@ h2.zero, p.zero {
 }
 /*Testimonial Carosol*/
 #quote-carousel {
-    padding: 40px 10px 30px 10px;
+    padding: 40px 10px 140px 10px;
     margin: 30px 0;
 }
 #quote-carousel .carousel-control {
@@ -2208,10 +2209,10 @@ h2.zero, p.zero {
     color: #424242;
 }
 #quote-carousel .carousel-indicators {
-    right: 50%;
-    top: auto;
-    bottom: 0px;
-    margin-right: -19px;
+    /* right: 50%; */
+    /* top: auto; */
+    /* bottom: 0px; */
+    /* margin-right: -19px; */
 }
 #quote-carousel .carousel-indicators li {
     width: 50px;
@@ -2266,7 +2267,7 @@ h2.zero, p.zero {
     #quote-carousel .carousel-indicators {
         right: 0;
         top: auto;
-        bottom: 0px;
+        bottom: au;
         margin-right: 0;
     }
 
@@ -2353,7 +2354,7 @@ h2.zero, p.zero {
     color: #3b95ed;
     padding: 15px;
 }
-.modal-dialog {
+#alumni-modal .modal-dialog {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
@@ -2386,20 +2387,36 @@ h2.zero, p.zero {
     border: 0px;
     padding: 19px;
 }
-.modal-footer{
+#alumni-modal .modal-footer{
     padding: 0;
     text-align: center;
     width: 100%;
     padding: 20px;
 }
 .carousel-indicators {
-     position: initial; 
-     bottom: auto; 
-    left: auto;
-    z-index: 15;
-    width: 100%;
-    padding-left: 0;
-    margin-left: initial;
+     position: absolute;
+     bottom: auto;
+     left: auto;
+     z-index: 15;
+     width: 100%;
+     padding-left: 0;
+     margin-left: initial;
+     text-align: center;
+     list-style: none;
+     /* top: 36px; */
+}
+#technology{
     text-align: center;
-    list-style: none;
+}
+.tech-tag{
+    padding: 20px 0;
+}
+#technology .tech-tag p{
+    padding: 8px 20px;
+    margin: 0 4px;
+    line-height: 44px;
+    border-radius: 20px;
+    background-color: #e4e4e4;
+    color: #424242;
+    display: inline;
 }
