@@ -131,7 +131,7 @@ def student_number_validator(value):
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
     email = models.EmailField(unique=True)
-    contact = models.CharField(max_length=10, unique=True, null=False)
+    contact = models.CharField(max_length=10, unique=False , null=False)
     student_number = models.CharField(max_length=8)
     branch = models.ForeignKey('Branch')
     year = models.ForeignKey('Year')
