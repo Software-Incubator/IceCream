@@ -218,9 +218,12 @@
     <!-- =========================================================================== Landing Page -->
 
     <section class="container1">
+
+        {% if event %}
         <a href="/register">
             <div class="registration_trigger hvr-buzz">Register Here!</div>
         </a>
+        {% endif %}
         <div style="text-align: center;width:100%;">
             {% for message in messages %}
                 <div id="snackbar" class="snackbar">

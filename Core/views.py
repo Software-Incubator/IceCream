@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from .models import Event
 
 
 class IndexView(View):
@@ -32,6 +33,7 @@ class IndexView(View):
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
         context = kwargs
+        event = Event.objects.filter(active=True).first()
         contact_form = ContactUsForm()
         # make projects list for Portfolio section
         i = 0
@@ -70,17 +72,20 @@ class IndexView(View):
         context['members'] = members_lists
         context['alumni'] = nested_alumni_lists
         context['contact_form'] = contact_form
+        context['event'] = event
 
         return context
 
 
 class RegistrationView(FormView):
 
+
     template_name = 'registration.html'
 
     success_url = reverse_lazy('home')
 
     form_class = RegistrationForm
+
 
     def post(self, request, *args, **kwargs):
         form = RegistrationForm(request.POST)
@@ -91,7 +96,13 @@ class RegistrationView(FormView):
             return redirect(reverse_lazy('home'))
         return render(request, 'registration.html', {'form': form})
 
+
     def get(self, request, *args, **kwargs):
         form = RegistrationForm()
-        return render(request, 'registration.html', {'form': form})
+        event = Event.objects.filter(active=True).first()
+        context = {
+            'form':form,
+            'event':event
+        }
+        return render(request, 'registration.html',context)
 

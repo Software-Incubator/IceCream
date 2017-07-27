@@ -25,6 +25,10 @@ def projects_upload_location(instance, filename):
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('uploads/projects', filename)
 
+def events_upload_location(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('uploads/events', filename)
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=255)
@@ -165,6 +169,9 @@ class Event(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False, validators=[event_validator, ])
+    pic_path = models.FileField(upload_to=events_upload_location, null=True,
+                                default=None)
+
 
     def __str__(self):
         return "{} | {}".format(self.name, self.timestamp.date())
