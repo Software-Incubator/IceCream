@@ -182,3 +182,16 @@ class Gender(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ContactInfo(models.Model):
+    active = models.BooleanField(default=False)
+    member_name = models.CharField(max_length=255)
+    contact_number = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = "contact_information"
+
+    def __str__(self):
+        return self.member_name
+

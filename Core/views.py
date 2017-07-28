@@ -1,5 +1,5 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member
+from .models import Project, Member, ContactInfo
 from django.shortcuts import render, redirect
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
@@ -10,6 +10,7 @@ from .models import Event
 class IndexView(View):
 
     http_method_names = [u'get', u'post']
+
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
@@ -35,6 +36,7 @@ class IndexView(View):
         context = kwargs
         event = Event.objects.filter(active=True).first()
         contact_form = ContactUsForm()
+        contact_info = ContactInfo.objects.filter(active=True)
         # make projects list for Portfolio section
         i = 0
         if len(projects) > 3:
@@ -73,6 +75,9 @@ class IndexView(View):
         context['alumni'] = nested_alumni_lists
         context['contact_form'] = contact_form
         context['event'] = event
+        context['contact_info'] = contact_info
+
+        print(contact_info[0].contact_number)
 
         return context
 
@@ -86,6 +91,7 @@ class RegistrationView(FormView):
 
     form_class = RegistrationForm
 
+    event = Event.objects.filter(active=True).first()
 
     def post(self, request, *args, **kwargs):
         form = RegistrationForm(request.POST)
@@ -94,15 +100,15 @@ class RegistrationView(FormView):
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
             return redirect(reverse_lazy('home'))
-        return render(request, 'registration.html', {'form': form})
+        return render(request, 'registration.html', {'form': form,'event':self.event})
 
 
     def get(self, request, *args, **kwargs):
         form = RegistrationForm()
-        event = Event.objects.filter(active=True).first()
+
         context = {
             'form':form,
-            'event':event
+            'event':self.event
         }
         return render(request, 'registration.html',context)
 
