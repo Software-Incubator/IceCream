@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% autoescape off %}
+{% for blog in blogs %}
+{{ blog.author }}
+{{ blog.content|safe }}
+<br>
+{% endfor %}
+{% endautoescape %}
+</body>
+</html>
