@@ -5,6 +5,8 @@ import uuid
 
 from django.core.exceptions import ValidationError
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 
 ## DO NOT DELETE THIS FUNCTION
@@ -194,4 +196,13 @@ class ContactInfo(models.Model):
 
     def __str__(self):
         return self.member_name
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=80, blank=False, null=False)
+    author = models.CharField(max_length=30,blank=False,null=False)
+    content = RichTextUploadingField()
+
+    def __str__(self):
+        return "{} | {}".format(self.title, self.author)
 

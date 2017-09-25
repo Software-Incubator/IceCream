@@ -4,13 +4,11 @@ from django.shortcuts import render, redirect
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
-from .models import Event
+from .models import Event, Blog
 
 
 class IndexView(View):
-
     http_method_names = [u'get', u'post']
-
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
@@ -40,9 +38,9 @@ class IndexView(View):
         # make projects list for Portfolio section
         i = 0
         if len(projects) > 3:
-            project_lists = [projects[i*3: i*3 + 3] for i in
+            project_lists = [projects[i * 3: i * 3 + 3] for i in
                              range(len(projects) / 3)]
-            project_lists.append(projects[i*3 + 3:])
+            project_lists.append(projects[i * 3 + 3:])
         else:
             project_lists = [projects, ]
 
@@ -50,23 +48,23 @@ class IndexView(View):
         i = 0
         members = Member.objects.filter(is_alumni=False)
         if len(members) > 6:
-            members_lists = [members[i*6: i*6 + 6] for i in range(len(members) / 6)]
-            members_lists.append(members[i*6 + 6:])
+            members_lists = [members[i * 6: i * 6 + 6] for i in range(len(members) / 6)]
+            members_lists.append(members[i * 6 + 6:])
         else:
             members_lists = [members, ]
 
         i = 0
         alumni = Member.objects.filter(is_alumni=True).order_by('-batch')
         if len(alumni) > 12:
-            alumni_lists = [alumni[i*12: i*12 + 12] for i in range(len(alumni) / 12)]
-            alumni_lists.append(alumni[i*12 + 12:])
+            alumni_lists = [alumni[i * 12: i * 12 + 12] for i in range(len(alumni) / 12)]
+            alumni_lists.append(alumni[i * 12 + 12:])
         else:
             alumni_lists = [alumni, ]
         i = 0
         if len(alumni_lists) > 2:
-            nested_alumni_lists = [alumni_lists[i*2: i*2 + 2] for
+            nested_alumni_lists = [alumni_lists[i * 2: i * 2 + 2] for
                                    i in range(len(alumni_lists) / 2)]
-            nested_alumni_lists.append(alumni_lists[i*2 + 2:])
+            nested_alumni_lists.append(alumni_lists[i * 2 + 2:])
         else:
             nested_alumni_lists = [alumni_lists, ]
 
@@ -83,8 +81,6 @@ class IndexView(View):
 
 
 class RegistrationView(FormView):
-
-
     template_name = 'registration.html'
 
     success_url = reverse_lazy('home')
@@ -100,15 +96,21 @@ class RegistrationView(FormView):
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
             return redirect(reverse_lazy('home'))
-        return render(request, 'registration.html', {'form': form,'event':self.event})
-
+        return render(request, 'registration.html', {'form': form, 'event': self.event})
 
     def get(self, request, *args, **kwargs):
         form = RegistrationForm()
 
         context = {
-            'form':form,
-            'event':self.event
+            'form': form,
+            'event': self.event
         }
-        return render(request, 'registration.html',context)
+        return render(request, 'registration.html', context)
 
+
+class BlogView(View):
+    template_name = 'blog.html'
+
+    def get(self, request, *args, **kwargs):
+        blogs = Blog.objects.all()
+        return render(request, self.template_name, context={'blogs': blogs})

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blogs | Software Incubator</title>
+    {% load staticfiles %}
+    <link rel="icon" href="{% static 'images/silogo.ico' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet"
+          href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/16cc13ce3b.js"></script>
+
+    <!-- User Stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/stylesheet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+
+    <!--Google Map-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTPWN__X_moAy4Nty0TgEJKMkynbw-n6U&callback=initMap"
+            async defer></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,400,900"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush"
+          rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Karla:400,700,400italic'
+          rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- User JavaScript -->
+    <script src="{% static 'js/javascript.js' %}"></script>
+    <script src="{% static 'js/year_validation.js' %}"></script>
+
+    <style type="text/css">
+        .footer-line {
+            margin-top: 0;
+            border-top: 1px solid #808080;
+        }
+
+        .reg-img {
+            padding: 40px 15px;
+        }
+
+        .navbar-other {
+            margin-bottom: 0;
+            border-bottom: none;
+            text-transform: uppercase;
+            background-color: rgba(17, 174, 244, 1);
+        }
+
+        .navbar-other .navbar-brand {
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .navbar-other .navbar-brand:focus {
+            outline: 0;
+        }
+
+        .navbar-other .navbar-brand .navbar-toggle {
+            padding: 4px 6px;
+            font-size: 30px;
+            color: #000;
+        }
+
+        .navbar-other .navbar-brand .navbar-toggle:focus,
+        .navbar-other .navbar-brand .navbar-toggle:active {
+            outline: 0;
+        }
+
+        .navbar-other a {
+            color: #fff;
+        }
+
+        .navbar-other .nav li a {
+            -webkit-transition: background .3s ease-in-out;
+            -moz-transition: background .3s ease-in-out;
+            transition: background .3s ease-in-out;
+        }
+
+        .navbar-other .nav li a:hover {
+            outline: 0;
+            color: #11aef5;
+            background-color: #fff;
+        }
+
+        .navbar-other .nav li a:focus,
+        .navbar-other .nav li a:active {
+            outline: 0;
+            background-color: transparent;
+        }
+
+        .navbar-other .nav li.active {
+            outline: 0;
+        }
+
+        .navbar-other .nav li.active a {
+            background-color: #fff;
+            color: #11aef5;
+        }
+
+        .navbar-other .nav li.active a:hover {
+            color: #11aef5;
+        }
+
+        @media (min-width: 768px) {
+            .navbar-other {
+                border-bottom: 0;
+                letter-spacing: 1px;
+                background: rgba(17, 174, 244, 1);
+                -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+                -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+                transition: background .5s ease-in-out, padding .5s ease-in-out;
+            }
+
+            .navbar-other.top-nav-collapse {
+                padding: 0;
+                background-color: rgba(17, 174, 244, 1);
+                color: #000;
+            }
+
+            .navbar-other.top-nav-collapse .nav li a:hover {
+                outline: 0;
+                color: #11aef5;
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+        .blog_text p{
+        font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+        }
+
+
+    </style>
+</head>
+<body id="page-top" data-spy="scroll" style="overflow-x:hidden;"
+      data-target=".navbar-fixed-top">
+<script>$(function () {
+
+    var $body = $(document);
+    $body.bind('scroll', function () {
+        // "Disable" the horizontal scroll.
+        if ($body.scrollLeft() !== 0) {
+            $body.scrollLeft(0);
+        }
+    });
+
+});
+</script>
+
+<!-- ================================================================================================== Wrapper -->
+
+<div id="wrapper">
+
+    <!-- ===================================================================================================== Navigation Bar -->
+    <!-- Navigation Ends -->
+
+
+    <div class="navigation">
+
+        <nav class="navbar navbar-other " role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand page-scroll" href="http://silive.in">
+  							<span>
+  								Software Incubator
+  							</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div><!-- Navigation Ends -->
+
+ <div class="page-header">
+    <h1 align="center">Our Blogs</h1>
+  </div>
+        {% autoescape off %}
+            {% for blog in blogs %}
+            <div class="well well-lg" style="margin: 5% 5% 5% 5%">
+            <h2 id="{{ blog.id }}" align="center" >{{ blog.title }}</h2>
+            <h4 align="center">----{{ blog.author }}</h4>
+                <div class="blog_text">{{ blog.content|safe }}</div>
+                </div>
+            <hr>
+            {% endfor %}
+        {% endautoescape %}
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footor  -->
+
+    <section class="container-fluid " style="background-color: #252525;">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2>Featured Websites</h2>
+                            <hr style="margin-top: 0; border-top: 1px solid #808080;">
+                            <button type="button"
+                                    class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec.in/">AKGEC</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://techtrishna.in/">TechTrishna</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec-scrolls.com/">Scrolls</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://techtrishna.in/directme">DirectMe</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://bytepad.silive.in">Bytepad</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://resume.silive.in">Resume
+                                    Builder</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://techtrishna.in/photoweb">Photoweb</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec.in/bdc">Blood
+                                    Donation Camp</a>
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <h2>Services</h2>
+                            <hr style="margin-top: 0; border-top: 1px solid #808080;">
+                            <button type="button" class="u-btn btn-primary">
+                                Mobile Development
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                Website Development
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                Desktop Development
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                Web and Graphic Designing
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            <h2>Clients</h2>
+                            <hr style="margin-top: 0; border-top: 1px solid #808080;">
+                            <button type="button" class="btn u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://akgec.in/">AKGEC</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://4thpointer.com/">4th
+                                    Pointer</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://india.ni.com/">
+                                    National Instrument</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://tifac-core-akgec.org/">TIFAC</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.kuka.com/">KUKA</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.akgec-bosch.org/">
+                                    Rexroth</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.gmaindia.org/"> GMA</a>
+                            </button>
+                            <button type="button" class="u-btn btn-primary">
+                                <a target="_blank"
+                                   style="color: #fff;text-decoration: none;"
+                                   href="http://www.digitalnet.com/">Brain
+                                    Soft</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="container-fluid"
+         style="background-color: #424242; padding: 0;">
+        <div class="row social-icon">
+            <div style="font-size: 40px;text-align: center;">
+                <h6 style="color: #fff; margin-top: 30px;">Connect Socially
+                    with Software Incubator</h6>
+                <a href="https://www.facebook.com/RedefiningLimitations"
+                   target="_blank"><span
+                        class="fa fa-facebook-square"></span></a>
+                <a href="https://twitter.com/si_akgec" target="_blank"><span
+                        class="fa fa-twitter-square"></span></a>
+                <a href="https://github.com/Software-Incubator" target="_blank"><span
+                        class="fa fa-github-square"></span></a>
+                <!--<a href=""><span
+                    class="fa fa-linkedin-square"></span></a>-->
+                <a href="https://www.youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw"
+                   target="_blank"><span
+                        class="fa fa-youtube-play"></span></a>
+
+            </div>
+        </div>
+    </div>
+    <!-- =================================================================================== -->
+
+    <!-- ================================================================================== -->
+
+
+    <div class="container-fluid" id="footor-bottom">
+        <div class="row">
+            <div class="col-sm-12" style="padding:25px 25px 25px 90px;">
+                <p>
+    				<span style="  color: #808080; font-size: 12px;">
+    					Copyright <span
+                            class="glyphicon glyphicon-copyright-mark"></span> 2017 Software Incubator</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{#Google Analytics#}
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-81678175-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<!-- Wrapper End -->
+</body>
+</html>
