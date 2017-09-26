@@ -118,10 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.environ['HOME'], 'Assets/IceCream/static')
+STATIC_ROOT = os.path.join('/home/si', 'Assets/IceCream/static')
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(os.environ['HOME'], "Assets/IceCream/media")
+MEDIA_ROOT = os.path.join('/home/si', "Assets/IceCream/media")
 
 CKEDITOR_UPLOAD_PATH = "/uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
