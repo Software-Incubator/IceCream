@@ -6,6 +6,7 @@ import uuid
 from django.core.exceptions import ValidationError
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.core.urlresolvers import reverse
 
 
 
@@ -202,6 +203,11 @@ class Blog(models.Model):
     title = models.CharField(max_length=80, blank=False, null=False)
     author = models.CharField(max_length=30,blank=False,null=False)
     content = RichTextUploadingField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse('blog_detail',kwargs={'pk':self.pk})
+
 
     def __str__(self):
         return "{} | {}".format(self.title, self.author)

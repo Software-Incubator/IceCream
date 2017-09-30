@@ -1,10 +1,11 @@
 from django.views.generic import View, FormView, CreateView
 from .models import Project, Member, ContactInfo
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from .models import Event, Blog
+
 
 
 class IndexView(View):
@@ -114,3 +115,17 @@ class BlogView(View):
     def get(self, request, *args, **kwargs):
         blogs = Blog.objects.all()
         return render(request, self.template_name, context={'blogs': blogs})
+
+
+class BlogDetailView(View):
+    template_name = "blog_detail.html"
+
+    def get(self,request,pk, *args,**kwargs):
+        # print(pk)
+        # print(Blog.objects.first().id)
+        blog = get_object_or_404(Blog,pk=pk)
+        context = {
+            'blog':blog
+        }
+        
+        return render(request, self.template_name, context=context)
