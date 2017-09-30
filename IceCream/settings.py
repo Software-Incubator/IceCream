@@ -123,6 +123,6 @@ STATIC_ROOT = os.path.join('/home/si', 'Assets/IceCream/static')
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join('/home/si', "Assets/IceCream/media")
 
-CKEDITOR_UPLOAD_PATH = "/uploads/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
-CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDITOR_FILENAME_GENERATOR = 'Core.utils.get_filename'
