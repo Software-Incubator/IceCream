@@ -997,8 +997,8 @@
                                 {% for alumnus in alumni_list.1 %}
                                     <div class="col-user-1by12"
                                          id="img-family-id">
-                                        <img src="{{ alumnus.pic_path.url }}"
-                                             class="img-responsive img-family">
+                                    <a href="#" data-toggle="tooltip" title="{{ alumnus.name }}|{{ alumnus.batch }}"><img src="{{ alumnus.pic_path.url }}"
+                                             class="img-responsive img-family"></a>
                                     </div>
                                 {% endfor %}
                             </div>
