@@ -1,12 +1,19 @@
 from django import forms
 
-from .models import ContactUs, Registration, Branch, Year, Gender
+from .models import ContactUs, Registration, Branch, Year, Gender, Event
+
+from django.forms import ValidationError
+
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 
 class ContactUsForm(forms.ModelForm):
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+
     class Meta:
         model = ContactUs
-        fields = ['name', 'contact', 'email', 'subject', 'message']
+        fields = ['name', 'contact', 'email', 'subject', 'message','captcha']
 
     name = forms.CharField(
         max_length=225, required=True,
@@ -63,9 +70,12 @@ class ContactUsForm(forms.ModelForm):
 
 
 class RegistrationForm(forms.ModelForm):
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    
     class Meta:
         model = Registration
-        exclude = ['event', 'fee_paid']
+        fields = ['name', 'contact', 'email', 'student_number', 'branch','year','gender','hosteler','captcha']
+        # exclude = ['event', 'fee_paid']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -165,3 +175,28 @@ class RegistrationForm(forms.ModelForm):
                 'type': 'checkbox'}
             )
         )
+
+    def clean(self):
+        cleaned_data = super(RegistrationForm, self).clean()
+
+        try:
+            student_number = cleaned_data['student_number']
+        except KeyError:
+            raise ValidationError("")
+
+        try:
+            email = cleaned_data['email']
+        except KeyError:
+            raise ValidationError("")
+
+        event = Event.objects.filter(active=True).first()
+
+        if Registration.objects.filter(email=email, event=event, student_number=student_number).exists():
+            raise ValidationError('Registration with this student number and email already exist.')
+        elif Registration.objects.filter(student_number=student_number, event=event).exists():
+            raise ValidationError('Registration with this student number already exist.')
+        elif Registration.objects.filter(email=email, event=event).exists():
+            raise ValidationError('Registration with this email already exist.')
+
+        return cleaned_data
+
