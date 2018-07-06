@@ -1,31 +1,40 @@
 
 $(document).ready(function(){
 
+	
+
 	/* ********* WOW JS INIT ****************/
 	new WOW().init();
 
-	/* ********* enallax JS INIT ****************/
-	$(window).enllax();
+	/**********/
+	$(window).scroll(function() {
+		if($(this).scrollTop() < 1000){
+			$('.service').stop().animate({ left: '100%' });
+		}
+		else if(($(this).scrollTop() > 1000) && ($(this).scrollTop() < 1600)){
+			$('.service').stop().animate({ left: '0%' });
+		}
+		else if(($(this).scrollTop() > 1600) && ($(this).scrollTop() < 2200)){
+			$('.service').stop().animate({ left: '-100%' });
+		}
+		else if(($(this).scrollTop() > 2200) && ($(this).scrollTop() < 2800)){
+			$('.service').stop().animate({ left: '-200%' });
+		} else {
+			$('.service').stop().animate({ left: '-300%' });
+		}
 
+		if($('.cl').isOnScreen()){
+			$('.client').css({
+				'filter': 'hue-rotate(50)'
+				});
+			console.log('done')
+		}
+	});
 	/* ********* Parallax js JS INIT ****************/
 
 	var scene = document.getElementById('scene');
 	var parallaxInstance = new Parallax(scene);
-
-	/* ********* SCROLL MAGIC JS INIT ****************/
-
-
-	var controller = new ScrollMagic.Controller();
-
-
-	new ScrollMagic.Scene({
-		duration: 100,	// the scene should last for a scroll distance of 100px
-		offset: 50		// start this scene after scrolling for 50px
-	})
-	.setPin("#scene1") // pins the element for the the scene's duration
-	.addTo(controller); // assign the scene to the controller
-
-
+	
 	/* ********* PARTICLES JS INIT ****************/
 
 
@@ -141,9 +150,26 @@ $(document).ready(function(){
 	};
 	var jsonUri = "data:text/plain;base64,"+window.btoa(JSON.stringify(partJson));
 	particlesJS.load('particles-js', jsonUri);
+	
 
 
-
-
+	/**************/
+$.fn.isOnScreen = function(){
+    
+    var win = $(window);
+    
+    var viewport = {
+        top : win.scrollTop() - 200,
+        left : win.scrollLeft()
+    };
+    viewport.right = viewport.left + win.width();
+    viewport.bottom = viewport.top + win.height();
+    
+    var bounds = this.offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+    
+    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    
+};
 });
-

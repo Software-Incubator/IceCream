@@ -145,31 +145,76 @@ padding-top: 5vh !important;
 
 
 /********************** services secction ************/
+.large-div
+{
+    height:500vh;
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+}
 
-.services {
-/*    background: linear-gradient(to bottom, #37ecba, #72afd3);
-*/    text-align: center;
-    font-weight:500;
-    font-family: 'Varela', sans-serif;
+.service {
+position:fixed;
+top:20%;
+left:100%;
+width:300%;
+height:50%;
+color:white;
 }
-.web-service{
-    background: linear-gradient(to right, rgba(250,250,250,0.8), rgba(250,250,250,0.8)), url(../images/Service_lap.png);
-    min-height: 80vh;
-    /* Center and scale the image nicely */
-    background-position: left;
-    background-repeat: no-repeat;
+
+
+/**** portfolio *****/
+
+.portfolio {
+  text-align: center;
+  height: 100vh;
+  background: #f2f2f2;
 }
-.mob-service{
-    background: linear-gradient(to right, rgba(250,250,250,0.8), rgba(250,250,250,0.8)), url(../images/Service_mob.png);
-    min-height: 80vh;
-    /* Center and scale the image nicely */
-    background-position: right;
-    background-repeat: no-repeat;
+
+.avatar {
+  width: 50%;
+  margin: 0 auto;
+  transition:.2s;
+  vertical-align: middle;
 }
-.desk-service{
-    background: linear-gradient(to right, rgba(250,250,250,0.8), rgba(250,250,250,0.8)), url(../images/Service_desk.png);
-    min-height: 80vh;
-    /* Center and scale the image nicely */
-    background-position: left;
-    background-repeat: no-repeat;
+
+.portfolio_button{
+    background: -webkit-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background: -o-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    padding: .84rem 2.14rem;
+    font-size: .81rem;
+    border-radius: 10em;
+    transition: .5s ease;
+    color: #fff;
+    margin: .375rem;
+    border: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.portfolio_button:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 5px 50px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+  outline: 0;
+}
+.portfolio_button:focus{
+  outline: 0;
+}
+
+/********************* CLIENTS **********************/
+
+.clients_section {
+  text-align: center;
+  background-image: linear-gradient(120deg, #ffe400 0%, #ffbc00 100%);
+  height:90vh;
+}
+.clients{
+  transition: .5s ease;
+}
+.clients:hover{
+  transform: translateY(-10px);
+  transform: scale(1.1);
+  -webkit-filter: drop-shadow(0px 5px 1px rgb(255, 255, 255));
+  filter: drop-shadow(0px 5px 1px rgb(255, 255, 255)); 
 }

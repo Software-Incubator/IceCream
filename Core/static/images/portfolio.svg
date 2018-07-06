@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 251 432" style="enable-background:new 0 0 251 432;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#383838;}
+	.st1{fill:#2D2D2D;}
+	.st2{fill:#D3B39B;}
+	.st3{opacity:0.2;}
+	.st4{fill:#0A0A0A;}
+	.st5{fill:#E1BFA3;}
+	.st6{fill:none;stroke:#333333;stroke-miterlimit:10;}
+	.st7{fill:#3F95E9;}
+	.st8{fill:#040404;}
+	.st9{fill:#515151;}
+	.st10{fill:#353535;}
+	.st11{fill:#BCBCBC;}
+	.st12{opacity:0.14;}
+	.st13{fill:#E6B99B;}
+	.st14{fill:#212121;}
+	.st15{fill:#2B2B2B;}
+	.st16{fill:#EAEAEA;}
+	.st17{fill:#898989;}
+	.st18{fill:#C1C2C7;}
+	.st19{fill:#FFFFFF;}
+	.st20{opacity:0.66;fill:none;enable-background:new    ;}
+	.st21{opacity:0.1;}
+	.st22{fill:#333333;}
+	.st23{fill:#777070;}
+    #sobrancelhas {
+  transform: translateY(-9px);
+  animation: sobrancelhas 5s linear infinite;
+}
+
+@keyframes sobrancelhas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#nariz {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: nariz 5s linear infinite;
+}
+
+@keyframes nariz {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#boca {
+  transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  animation: boca 5s linear infinite;
+}
+
+@keyframes boca {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#olhos {
+  transform: translateX(-2px);
+  -moz-transform: translateX(-2px);
+  -ms-transform: translateX(-2px);
+  animation: olhos 2s linear infinite;
+}
+
+@keyframes olhos {
+  0% {
+    transform: translateX(-2);
+    -ms-transform: translateX(-2);
+    -moz-transform: translateX(-2);
+  }
+
+  25% {
+    transform: translateX(2px);
+    -moz-transform: translateX(2px);
+    -ms-transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-2px);
+    -ms-transform: translateX(-2px);
+    -moz-transform: translateX(-2px);
+  }
+
+  100% {
+    transform: translateX(2);
+    -ms-transform: translateX(2);
+    -moz-transform: translateX(2);
+  }
+}
+
+#notebook {
+  transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  animation: notebook 6s linear infinite;
+}
+
+@keyframes notebook {
+  0% {
+    transform: translateY(-4);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(4);
+  }
+}
+
+#pernas {
+  transform: translateY(-9px);
+  animation: pernas 6s infinite;
+}
+
+@keyframes pernas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#pe {
+  animation: pe 6s infinite;
+}
+
+@keyframes pe {
+  0% {
+    transform: rotateX(2deg);
+    -ms-transform: rotateX(2deg);
+    -moz-transform: rotateX(2deg);
+  }
+
+  25% {
+  }
+
+  75% {
+  }
+
+  100% {
+  }
+}
+
+#camisas {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: camisas 6s infinite;
+}
+
+@keyframes camisas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#camisacostas {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: camisacostas 6s infinite;
+}
+
+@keyframes camisacostas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#cabeca {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: cabeca 6s infinite;
+}
+
+@keyframes cabeca {
+  0% {
+    transform: translateY(-8);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(8);
+  }
+}
+
+#macae {
+  opacity: 1;
+  animation: macae 2s linear;
+}
+
+@keyframes macae {
+  0% {
+    opacity: 0.2;
+  }
+
+  25% {
+  }
+
+  75% {
+  }
+
+  100% {
+  }
+}
+
+#luzmacae {
+  animation: luzmacae 5s;
+}
+
+@keyframes luzmacae {
+  0% {
+    opacity: 0.2;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+#orelhas {
+  animation: orelhas 6s linear infinite;
+}
+
+@keyframes orelhas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#sombras {
+  animation: sombras 6.1s linear infinite;
+}
+
+@keyframes sombras {
+  0% {
+    transform: scale(0.96);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.96);
+  }
+}
+
+.aviso {
+  background: #fff;
+  color: #fc6103;
+  text-align: center;
+  padding: 2px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  font-size: 9px;
+}
+</style>
+<g id="camisacostas">
+	<path class="st0" d="M127.7,170.5c-8.3,0-23.5-7.9-25-13c-0.3-1.1,0.1-2.1,1.2-2.8c2.9-1.8,7.9-2.8,15-2.8c8.2,0,16.5,1.3,17.5,1.5
+		c0,0.8-0.4,6-3.4,14.4C132.3,169.6,130.6,170.5,127.7,170.5L127.7,170.5z"/>
+	<path class="st1" d="M118.8,152c8,0,16,1.2,17.4,1.4c-0.1,1.1-0.5,6.1-3.4,14.2c-0.6,1.7-2.3,2.6-5.2,2.6
+		c-8.3,0-23.4-7.8-24.9-12.9c-0.3-1.1,0.1-2,1.1-2.6C106.8,152.9,111.8,152,118.8,152 M118.8,151.8c-5.8,0-11.7,0.6-15,2.8
+		c-6.8,4.2,13.5,16,23.9,16c2.7,0,4.7-0.8,5.4-2.7c3.4-9.3,3.4-14.5,3.4-14.5S127.7,151.8,118.8,151.8L118.8,151.8z"/>
+</g>
+<g id="antebracos">
+	<path class="st2" d="M177.5,205.6c0,0,3.3,23.5,0,27.7s-14.5,0-16-5.8s-1.5-5.8-1.5-5.8s-0.2-6.8,2.9-9.2c3.1-2.4,3.4-2.7,3.4-2.7
+		L177.5,205.6z"/>
+	<path class="st2" d="M62.5,205.6c0,0-3.3,23.5,0,27.7c3.3,4.2,14.5,0,16-5.8s1.5-5.8,1.5-5.8s0.2-6.8-2.9-9.2s-3.4-2.7-3.4-2.7
+		L62.5,205.6z"/>
+</g>
+<g id="sombras" class="st3">
+	<path class="st4" d="M1.5,390.1c0-1.2,1.9-1.8,5.4-2.8c6.2-1.8,17.3-4,32-5.3c22.5-2,53.4-2,87.4-3.3c19.6-0.7,41.2,1,58.8,1.9
+		c39.1,1.9,65.9,5.2,65.9,9.6s-26.9,8.2-66.4,10.1c-7.3,0.4-16.1-0.5-24.2-0.3c-11.1,0.3-21.9,1.6-34.1,1.6c-4.2,0-8.4,0-12.6-0.1
+		c-9.2-0.1-18.1-0.3-26.6-0.5C37.3,399.4,1.5,395.1,1.5,390.1z"/>
+</g>
+<g id="cabeca">
+	<g id="pescoco">
+		<rect x="105.5" y="131.5" class="st5" width="27" height="47"/>
+	</g>
+	<circle class="st6" cx="117.1" cy="79" r="56"/>
+	<path class="st7" d="M79.1,92.9c0,2.6,1.5,4.9,4.1,4.9c4.9,0,8.1-1.4,12.3-3.4c4.6-2.1,8.3-4.3,12.6-6.9c1.1-0.6,2.5-1.3,2.7-2.2
+		c-1.9,0.2-11.7,4.7-16.3,2.4c-5.3-2.5,5-15.2,6.5-17.2l3.6-4.3c0.5-0.6,0.9-0.7,1.5-1.3c7-6.9,28.5-24.2,38.2-19.1
+		c0.6,0.3,1,0.6,1.5,1c0.6,0.5,0.9,1,1.6,1.2c1.5-2.8,2.4-9.2-3.4-9.2c-7.2,0-15.9,5.2-22,8.3c-2.6,1.3-6.8,3.9-9.2,5.6
+		c-3.7,2.4-11.3,8.2-14.4,11.3c-0.7,0.7-1.2,1.2-1.9,1.8c-0.7,0.5-1.2,1.1-1.9,1.8c-0.7,0.7-1,1.2-1.7,1.9
+		C88.5,73.9,79.1,86.4,79.1,92.9L79.1,92.9z"/>
+	<path class="st8" d="M118.5,80.9c0.6,0.3,0.8,0,1.5-0.2l4.9-2c2-0.7,9.7-3.1,11.9-0.6c2.8,3.1-0.6,9.5-2.2,11.8l-3.8,4.5
+		c-0.9,0.9-1.2,1.5-2.7,2.9l-5.9,5.2c-0.5,0.4-1,0.9-1.5,1.3c-5.5,4.5-16.6,12.3-22.8,16.1c-1.1,0.7-6.3,3.8-6.8,4.4
+		c2.1,0,7.8-3.2,9.7-4.2c5-2.5,13.5-7.1,18.1-10.1c1.5-1,2.8-1.7,4.3-2.7c1.5-1,2.8-1.9,4.2-2.9c2.7-1.9,5.3-4.1,7.9-6.2
+		c0.4-0.3,0.5-0.5,0.9-0.8c4.8-4.1,9.2-8.6,12.5-14c1.8-2.9,6.8-13.5,0.5-15.7c-5-1.8-14.3,3.1-17.7,5.1l-6.7,3.8
+		C123.7,77.3,119,80.2,118.5,80.9L118.5,80.9z"/>
+	<path class="st8" d="M142.2,58c0,2.6,2.7,4.6,5,5.3c8.4,2.5,16.1-4.9,9.3-9.3C151.4,50.7,142.2,53,142.2,58L142.2,58z"/>
+</g>
+<g id="camisas">
+	<path class="st9" d="M137.9,158.8c0,0,35.4,13.8,38.3,40.9l-11,11.5c0,0-0.5,67.7,1.9,71.6c0,0-20.1,12.2-33.3,15.1
+		s-40-2.2-43.1-3.6s-15.3-10.8-15.3-10.8s2.6-9.8,2.4-13.9s0.5-27.5,0.2-31.8c-0.2-4.3-1.2-19.9-1.2-19.9l-15.3-14.4
+		c0,0,7.6-41.2,38.7-42.3c0,0,13,15.5,15.6,15.5s3.1,6.2,3.1,6.2s3.1-6.3,11-15.2C137.9,158.8,137.9,158.8,137.9,158.8z"/>
+	<g>
+		<polygon class="st10" points="62.8,204.6 60.2,208.5 77,222.6 77.8,220.8 77.2,217.2 		"/>
+	</g>
+	<g>
+		<polygon class="st10" points="165.1,211.1 175.5,200.3 179.3,207.2 165.1,219.8 		"/>
+	</g>
+	<g id="gola">
+		<g>
+			<path class="st9" d="M109,173.8l-0.2-8.2l7.7,0.8l1.9,1.4c0,0,2.3,4.6,2.1,8.8c-0.2,4.1-4.6,5-4.6,5L109,173.8z"/>
+		</g>
+		<g>
+			<path class="st9" d="M121.8,166c0,0-5.4,15.2-5.6,23.3l0.5,6.4l8.9,0.2l-1-8.8c0,0,6.7-11,7.7-12
+				C133.3,174.2,130.1,163.5,121.8,166z"/>
+		</g>
+		<g>
+			<g>
+				<g>
+					<path class="st9" d="M109.7,180.7c-4.3-4.1-12.4-18.1-12.5-18.2c0.4-2.1,5.6-7,6.5-7.7c0,0,0,0.1,0.1,0.2
+						c0.5,0.8,2.8,2.8,3.5,3c0.7,0.1,10.6,6.3,11.4,7.1c0.6,0.6,0.8,4.1,0.9,6c-0.3-0.8-1-2.1-1.2-2.8c-0.2-0.5-0.7-0.8-1.6-0.8
+						c-1,0-2.5,0.3-4.5,1c-2.8,1-2.7,7.5-2.7,10.7C109.7,179.8,109.7,180.4,109.7,180.7z"/>
+					<path class="st1" d="M103.6,154.9C103.7,154.9,103.7,154.9,103.6,154.9c0.5,0.9,2.8,2.9,3.6,3.1c0.7,0.1,10.6,6.3,11.4,7.1
+						c0.4,0.4,0.7,3.1,0.8,5.3c-0.3-0.7-0.7-1.7-0.9-2.2c-0.2-0.6-0.8-0.9-1.7-0.9c-1,0-2.6,0.3-4.5,1c-2.9,1-2.8,7.4-2.8,10.8
+						c0,0.4,0,0.9,0,1.2c-4.1-4.1-11.5-16.7-12.2-17.9C97.9,160.4,102.5,155.8,103.6,154.9 M103.8,154.5c-0.3,0-6.2,5.7-6.7,8
+						c0,0,8.3,14.4,12.6,18.3l0,0c0.4,0-0.9-11,2.7-12.3c2-0.7,3.4-1,4.4-1c0.9,0,1.3,0.2,1.5,0.7c0.3,1,1.4,3.4,1.4,3.4
+						s-0.2-5.9-1-6.7s-10.7-7-11.5-7.2C106.5,157.6,103.6,155,103.8,154.5L103.8,154.5L103.8,154.5z"/>
+				</g>
+			</g>
+		</g>
+		<g>
+			<path class="st10" d="M129.5,175.6c0,0-5.2-4.5-6.8-4.2c-1.6,0.3-4.2,5.5-4.5,6.2c-0.2,0.7-1,18.7-0.4,20.6l-0.7-0.1
+				c0,0,0.6-20.3,0.6-21c0.1-0.7,2-5.5,2-5.5l2.1-5.6C121.8,166,129.1,161.8,129.5,175.6z"/>
+		</g>
+		<g>
+			<circle class="st11" cx="121.6" cy="178.2" r="2.2"/>
+		</g>
+		<g>
+			<circle class="st11" cx="121.7" cy="186.3" r="2"/>
+		</g>
+		<g>
+			<g>
+				<g>
+					<path class="st9" d="M129.7,183.1c0.2-2.4,0.7-12.4-2.8-16.2c-0.9-0.9-1.9-1.4-3.1-1.4c-0.4,0-0.8,0.1-1.2,0.2
+						c2.5-1.7,11.3-8,12.6-10.6l1.4-1.7c0.5,0.2,3.5,1.6,7.3,8.3L129.7,183.1z"/>
+					<path class="st1" d="M136.6,153.6c0.7,0.3,3.5,1.9,7.1,8.1l-13.9,20.9c0.2-3,0.4-12.2-2.8-15.8c-0.9-1-2-1.5-3.2-1.5
+						c-0.2,0-0.5,0-0.7,0c3-2.1,10.8-7.8,12.2-10.3L136.6,153.6 M136.5,153.3l-1.4,1.8c-1.6,3-13.2,11-13.2,11
+						c0.7-0.2,1.4-0.4,1.9-0.4c7.4,0,5.7,17.9,5.7,17.9l14.5-21.9C139.7,154.2,136.5,153.3,136.5,153.3L136.5,153.3z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g class="st12">
+		<path d="M78.9,272c0,0-0.7,5.3-1.4,6.9c-0.7,1.7,24.4,11.5,24.4,11.5L78.9,272z"/>
+	</g>
+</g>
+<g>
+	<path class="st13" d="M43.6,246"/>
+</g>
+<path class="st2" d="M66.2,229.2c0,0,6.5-6.7,15.8,1c9.2,7.7,2.2,12-4.1,12.7c-6.3,0.7-6.3,0.7-6.3,0.7s-4.2-0.9-7.3-2.2
+	c-1.9-0.8-3.1-2.7-3.1-4.7l0.1-7L66.2,229.2z"/>
+<path class="st5" d="M173.3,229.2c0,0-6.5-6.7-15.8,1c-9.2,7.7-2.2,12,4.1,12.7c6.3,0.7,6.3,0.7,6.3,0.7s3.6-1,6.5-2.2
+	c2.3-0.9,3.8-3.1,3.8-5.6v-5.5L173.3,229.2z"/>
+<g id="maos">
+	<path id="esquerda" class="st5" d="M172.1,246.9c0,0,8.2-4,5.2-10.6s-15.5-14.6-18-13.8s-16.7,14-16.5,15.4s4.6,0.8,5.6,0.4
+		c1-0.4-0.2,0,4.4,3C157.3,244.3,168.1,248.4,172.1,246.9z"/>
+	<path id="direita" class="st5" d="M66.3,235.3c0,0,10.5-9,13-10.2s10.6-1.8,12.8-4.6c2.3-2.8,1.7,4-2.5,7c0,0,8.3,10.5,8.9,13.2
+		c0.7,2.7-4.4,0-4.4,0s-12.3,5.4-13.5,4.8s-3,0-3,0s-3.7,1-6-3s-2.3-4-2.3-4L66.3,235.3z"/>
+</g>
+<g id="pernas">
+	<g>
+		<path class="st14" d="M15.7,287.3c0,0-1.9-11.2,8-15s37,3.2,64.8,18.5s69.9-5.1,98-14.7s45.9-10.1,49.3,0.9
+			c0,0-24.7,39.3-45.5,40.6s-48.2-1-48.2-1l-31.9,0.6c0,0-24.3,8.6-28.7,8.3C77,325.2,20.8,309.3,15.7,287.3z"/>
+	</g>
+	<g>
+		<path class="st15" d="M91.2,317.1c0,0,20.3-12,21.9-11.5s6.9,5.9,9.1,6.9s1.6,3.7,1.6,3.7l-3,9.3l-22.3-1.9L91.2,317.1z"/>
+	</g>
+	<g>
+		<polygon class="st5" points="134.9,325.1 114.3,326 119.9,315 137.6,314.6 136.7,326.2 		"/>
+	</g>
+	<g>
+		<polygon class="st16" points="119,313.9 127.3,314.7 126,326.5 115.4,324.3 		"/>
+	</g>
+	<g id="notebook">
+		<g>
+			<g>
+				<path class="st17" d="M212.5,279.1c0,1.9-1.5,3.4-3.4,3.4H33.9c-1.9,0-3.4-1.5-3.4-3.4v-1.3c0-1.9,1.5-3.4,3.4-3.4h175.3
+					c1.9,0,3.4,1.5,3.4,3.4v1.3H212.5z"/>
+			</g>
+			<g>
+				<path class="st18" d="M212.5,273.7c0,3.8-3,6.8-6.8,6.8H37.3c-3.8,0-6.8-3-6.8-6.8V170.3c0-3.8,3-6.8,6.8-6.8h168.4
+					c3.8,0,6.8,3,6.8,6.8V273.7z"/>
+			</g>
+		</g>
+		<g id="macae">
+			<path class="st19" d="M125.4,212.3c0.9-1.1,1.6-2.7,1.4-4.3c-1.4,0.1-3,0.9-4,2.1c-0.9,1-1.6,2.6-1.4,4.2
+				C122.9,214.3,124.5,213.5,125.4,212.3"/>
+			<path class="st19" d="M128.8,222.4c0-3.4,2.8-5.1,2.9-5.2c-1.6-2.3-4.1-2.6-4.9-2.7c-2.1-0.2-4.1,1.2-5.2,1.2s-2.7-1.2-4.5-1.2
+				c-2.3,0-4.4,1.3-5.6,3.4c-2.4,4.1-0.6,10.3,1.7,13.6c1.1,1.6,2.5,3.5,4.3,3.4c1.7-0.1,2.4-1.1,4.4-1.1c2.1,0,2.7,1.1,4.5,1.1
+				c1.8,0,3-1.7,4.1-3.3c1.3-1.9,1.8-3.8,1.9-3.9C132.4,227.8,128.9,226.5,128.8,222.4"/>
+		</g>
+		<radialgradient  cx="121.6441" cy="239.6875" gradientunits="userSpaceOnUse" id="luzmacae_1_" r="17.2316">
+			<stop  offset="0" style="stop-color:#FFFFFF;"></stop>
+			<stop  offset="0.9458" style="stop-color:#FFFFFF;stop-opacity:0;"></stop>
+		</radialgradient>
+		<path id="luzmacae" class="st20" d="M138.7,223.7c0,2.9-0.7,5.7-2,8.1c-2.9,5.4-8.6,9.1-15.2,9.1c-9.5,0-17.2-7.7-17.2-17.2
+			s7.7-17.2,17.2-17.2c7.3,0,13.5,4.5,16,10.9c0.7,1.7,1.1,3.5,1.2,5.4l0.2,0.3v0.3L138.7,223.7z"/>
+	</g>
+	<g class="st21">
+		<polygon points="135.8,325 132.4,325.2 134.8,314.6 136,314.5 		"/>
+	</g>
+	<g>
+		<path class="st22" d="M135.7,310.9l-1,27.8c0,0,55.2-2.9,87.4-33.8s2.2-37,2.2-37s-10.2-0.6-10.2,1.3
+			C214.2,271,191.9,303.9,135.7,310.9z"/>
+	</g>
+	<g>
+		<path class="st5" d="M129.3,333.5c0,0,24.9-2.1,25.4-1.6s3.8,8.9,3.8,8.9l-34,1.4c0,0,1.1-5.3,1.8-6.5
+			C126.9,334.5,129.3,333.5,129.3,333.5z"/>
+	</g>
+	<g>
+		<path class="st22" d="M130.9,345c0.9-0.2-1.6-23.3-1.6-23.3S61,316.6,31,276.1l0,0c-1.5-2.9-6.7-5.8-9.3-3.9l-2.3,1
+			c-8.7,6.3-7.5,19.3-1.7,28.4c3.1,4.8,7.6,10.1,14.3,15.3C53.4,333.5,88.8,352.7,130.9,345z"/>
+	</g>
+	<g class="st21">
+		<polygon points="150.4,341.3 145.7,341.4 146.8,332 149.4,335.4 		"/>
+	</g>
+	<g>
+		<polygon class="st16" points="157.2,342.6 149.4,341.8 146.4,331.8 155.8,331.3 		"/>
+	</g>
+	<g id="pe">
+		<g>
+			<path class="st15" d="M150.9,331c-0.7-0.5,12.3-10.4,13.4-10.2c1.1,0.2,11.6,9.4,12.8,9.4c1.1,0,27.8,8.5,25.2,16.4l-25.5-0.6
+				l-19.9-1.1C156.8,344.9,155.3,334.7,150.9,331z"/>
+		</g>
+		<g>
+			
+				<rect x="158.9" y="340.5" transform="matrix(0.1612 -0.9869 0.9869 0.1612 -200.3738 447.1256)" class="st23" width="7.9" height="1.9"/>
+		</g>
+		<g>
+			
+				<rect x="162.5" y="340.8" transform="matrix(0.1884 -0.9821 0.9821 0.1884 -200.6387 440.6142)" class="st23" width="7.6" height="1.9"/>
+		</g>
+		<g>
+			
+				<rect x="165.8" y="341.3" transform="matrix(4.594173e-002 -0.9989 0.9989 4.594173e-002 -180.3583 495.7224)" class="st23" width="7" height="1.9"/>
+		</g>
+		<g>
+			
+				<rect x="169.6" y="341.7" transform="matrix(0.1308 -0.9914 0.9914 0.1308 -189.6591 468.9804)" class="st23" width="6.1" height="1.9"/>
+		</g>
+	</g>
+	<g>
+		<path class="st13" d="M133,326.9"/>
+	</g>
+</g>
+</svg>
