@@ -18,7 +18,7 @@ html{
 /**************************** Landing Page *****************************/
 
 .content {
-padding-top: 5vh !important;
+    padding-top: 5vh !important;
 }
 .elements{
     min-height:100vh;
@@ -139,8 +139,8 @@ padding-top: 5vh !important;
 .logo-image{
 	text-align: center;
     max-width: 100%;
-     -webkit-filter: drop-shadow(5px 5px 5px #222);
-  filter: drop-shadow(5px 5px 5px #222); 
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222); 
 }
 
 
@@ -152,12 +152,12 @@ padding-top: 5vh !important;
 }
 
 .service {
-position:fixed;
-top:20%;
-left:100%;
-width:300%;
-height:50%;
-color:white;
+    position:fixed;
+    top:20%;
+    left:100%;
+    width:300%;
+    height:50%;
+    color:white;
 }
 
 
@@ -206,15 +206,33 @@ color:white;
 
 .clients_section {
   text-align: center;
-  background-image: linear-gradient(120deg, #ffe400 0%, #ffbc00 100%);
   height:90vh;
 }
 .clients{
   transition: .5s ease;
 }
 .clients:hover{
-  transform: translateY(-10px);
   transform: scale(1.1);
-  -webkit-filter: drop-shadow(0px 5px 1px rgb(255, 255, 255));
-  filter: drop-shadow(0px 5px 1px rgb(255, 255, 255)); 
+}
+
+
+/********** Aboutus *************/
+
+.aboutus_section {
+    height: 100vh;
+  align-items: center;
+  color:#fff;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+  background-blend-mode: multiply,multiply;
+}
+.aboutus_video{
+    transition: .5s ease;
+    box-shadow: 0 5px 20px #020202;
+}
+.aboutus_video:hover {
+    color: #3260B1;
+    -webkit-box-shadow: 0 2px 2px rgba(41,47,56,0.1), 0 4px 4px rgba(41,47,56,0.1), 0 8px 8px rgba(41,47,56,0.1), 0 16px 16px rgba(41,47,56,0.1), 0 32px 32px rgba(41,47,56,0.1);
+    box-shadow: 0 2px 2px rgba(41,47,56,0.1), 0 4px 4px rgba(41,47,56,0.1), 0 8px 8px rgba(41,47,56,0.1), 0 16px 16px rgba(41,47,56,0.1), 0 32px 32px rgba(41,47,56,0.1);
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
 }
