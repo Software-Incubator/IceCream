@@ -374,6 +374,29 @@ html{
     width: 8.33%;
 }
 
+/************* MAP ***********************/
+
+.contactus_section{
+    text-align: center;
+    padding: 1rem 0;
+    background: #f2f2f2;
+}
+
+.map-frame {
+    border-radius:50%;
+    border:8px solid #fff;
+    box-shadow: 5px 5px 50px #949393;
+    -webkit-transition: all .5s ease;
+       -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+         -o-transition: all .5s ease;
+            transition: all .5s ease;
+}
+.map-frame:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px #949393;
+}
+
 /************ FOOTER  *****************/
 
 .btn-floating i {
