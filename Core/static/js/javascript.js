@@ -2,7 +2,17 @@
 $(document).ready(function(){
 	
 	
-	
+	/******************* Type js init */
+
+	  
+	  var typed = new Typed("#typed", {
+		stringsElement: '#typed-strings',
+		typeSpeed: 30,
+		backSpeed: 15,
+		backDelay: 1000,
+		loop: true
+	});
+
 	/* ********* WOW JS INIT ****************/
 	new WOW().init();
 	
@@ -27,13 +37,6 @@ $(document).ready(function(){
 		} else {
 			$('.service').hide();
 			$('.service').stop().animate({ left: '-300%' });
-		}
-		
-		if($('.cl').isOnScreen()){
-			$('.client').css({
-				'filter': 'hue-rotate(50)'
-			});
-			console.log('done')
 		}
 	});
 	/* ********* Parallax js JS INIT ****************/
@@ -157,25 +160,26 @@ $(document).ready(function(){
 	var jsonUri = "data:text/plain;base64,"+window.btoa(JSON.stringify(partJson));
 	particlesJS.load('particles-js', jsonUri);
 	
-	/**************/
-	$.fn.isOnScreen = function(){
-		
-		var win = $(window);
-		
-		var viewport = {
-			top : win.scrollTop() - 200,
-			left : win.scrollLeft()
-		};
-		viewport.right = viewport.left + win.width();
-		viewport.bottom = viewport.top + win.height();
-		
-		var bounds = this.offset();
-		bounds.right = bounds.left + this.outerWidth();
-		bounds.bottom = bounds.top + this.outerHeight();
-		
-		return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-		
-	};
+	/*******  Ticker  *******/
+
+	$(".default-ticker").ticker({
+
+		// item selector
+		item: 'div',
+	  
+		// Toggles whether the ticker should pause on mouse hover
+		pauseOnHover: true,
+	  
+		// <a href="https://www.jqueryscript.net/animation/">Animation</a> speed
+		speed: 70,
+	  
+		// Decides whether the ticker breaks when it hits a new item or if the track has reset
+		pauseAt: '',
+	  
+		// delay in milliseconds
+		delay: 500
+	  
+	  });
 	
 	/************ Tooltip init *****************/
 	
