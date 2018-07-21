@@ -176,10 +176,7 @@ html{
   vertical-align: middle;
 }
 
-.portfolio_button{
-  background: -webkit-linear-gradient(50deg,#45cafc,#303f9f)!important;
-  background: -o-linear-gradient(50deg,#45cafc,#303f9f)!important;
-  background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+.contact_button, .portfolio_button{
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   padding: .84rem 2.14rem;
   font-size: .81rem;
@@ -193,15 +190,19 @@ html{
   white-space: normal;
   word-wrap: break-word;
 }
-.portfolio_button:hover{
+.contact_button:hover, .portfolio_button:hover{
   transform: translateY(-10px);
   box-shadow: 0 5px 50px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
   outline: 0;
 }
-.portfolio_button:focus{
+.contact_button:focus, .portfolio_button:focus{
   outline: 0;
 }
-
+.portfolio_button {
+    background: -webkit-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background: -o-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+}
 /********************* CLIENTS **********************/
 
 .clients_section {
@@ -299,7 +300,7 @@ html{
 }
 
 .inner {
-  transform: translateY(-50%) translateZ(60px) scale(0.94);
+  transform: translateY(-10%) translateZ(60px) scale(0.94);
   top: 50%;
   position: absolute;
   left: 0;
@@ -310,6 +311,18 @@ html{
   perspective: inherit;
   z-index: 2;
 }
+.inner2 {
+    transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    outline: 1px solid transparent;
+    perspective: inherit;
+    z-index: 2;
+  }
 
 .cont .back {
   transform: rotateY(180deg);
@@ -363,11 +376,11 @@ html{
     transition: all .5s ease;
 }
 .alumini_pics:hover {
- -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-     -ms-transform: scale(1.5);
-      -o-transform: scale(1.5);
-         transform: scale(1.5);;
+ -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+     -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+         transform: scale(1.2);;
 }
 .col-user-1by12 {
     float: left;
@@ -377,7 +390,6 @@ html{
 /************* MAP ***********************/
 
 .contactus_section{
-    text-align: center;
     padding: 1rem 0;
     background: #f2f2f2;
 }
@@ -395,6 +407,12 @@ html{
 .map-frame:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 30px #949393;
+}
+.modal-lg {
+    max-width: 600px;
+}
+.contact_button {
+    background-image: linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%);
 }
 
 /************ FOOTER  *****************/
