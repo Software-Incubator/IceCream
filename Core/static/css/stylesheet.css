@@ -292,6 +292,7 @@ html{
   }
   
 .slider-wrapper {
+    background: url(../images/portfoliobg.svg);
     padding: 20px 0 0 0; 
     white-space: nowrap;
     overflow: hidden;
@@ -349,26 +350,26 @@ html{
     opacity: 1;
   }
   .slide1 {
-    background-image: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    background-image: linear-gradient(90deg, #f193fbde 0%, #f5576cbe 100%);
   }
   
   .slide2 {
-    background-image: linear-gradient(90deg, #f5576c 0%, #feac40 100%);
+    background-image: linear-gradient(90deg, #f5576cbe 0%, #feac40be 100%);
   }
   
   .slide3 {
-    background-image: linear-gradient(90deg, #feac40 0%, #009efd 100%);
+    background-image: linear-gradient(90deg, #feac40be 0%, #009efdbe 100%);
   }
   
   .slide4 {
-    background-image: linear-gradient(90deg, #009efd 0%, #330867 100%);
+    background-image: linear-gradient(90deg, #009efdbe 0%, #330867be 100%);
   }
   .slide5 {
-    background-image: linear-gradient(120deg, #330867 0%, #13547a 100%);
+    background-image: linear-gradient(120deg, #330867be 0%, #13547abe 100%);
   }
   
   .slide6 {
-    background-image: linear-gradient(120deg, #13547a 0%, #29323c 100%);
+    background-image: linear-gradient(120deg, #13547abe 0%, #29323cbe 100%);
   }
 /* 
 .large-div
@@ -568,7 +569,7 @@ html{
 
 .portfolio {
     padding: 3rem 0;
-    background:  #f2f2f2d8 url(../images/portfoliobg.svg);
+    background:  #f2f2f2;
 }
 
 .avatar {
