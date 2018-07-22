@@ -17,12 +17,12 @@ html{
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 10px;
-    background-color: rgba(25, 9, 66, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
+    border-radius: 2px;
     background-color: rgba(0,0,0,.5);
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 /*************************** navbar *****************************/
 .open {
@@ -139,7 +139,7 @@ html{
 
 /**************************** Landing Page *****************************/
 
-.content {
+.content-si {
     padding-top: 5vh !important;
 }
 .elements{
@@ -154,7 +154,7 @@ html{
     left: 35% !important;
     font-family: 'Montserrat', sans-serif;
 }
-.content {
+.content-si {
     position: relative !important;
     height: auto;
     opacity: 1;
@@ -259,11 +259,15 @@ html{
         transform: rotate(-19deg)
     }
 }
-.logo-image{
+.logo-image, .logo-imagebg{
     text-align: center;
-    max-width: 100%;
+    position:relative;
+    max-width: 100%; 
+}
+.logo-image{
     -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222); 
+    filter: drop-shadow(5px 5px 5px #222);
+    margin-top:-100%;
 }
 /***************  Type Js ***********************/
 
@@ -283,27 +287,288 @@ html{
     text-align: center;
 }
 /********************** services secction ************/
+.parallax-slider {
+    position: relative;
+  }
+  
+.slider-wrapper {
+    padding: 20px 0 0 0; 
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 20px 0 0 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  .slide {
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    display: inline-block;
+    width: 100%;
+    flex-shrink: 0;
+    transition: 0.9s ease-in-out transform;
+    backface-visibility: hidden;
+  }
+  
+  .slide::before {
+    content: '';
+    display: inline-block;
+    height: 50%;
+  }
+  
+  .content {
+    display: inline-block;
+    width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    white-space: normal;
+    color: rgb(0, 0, 0);
+    transform: translate(-5px);
+  }
+  
+  .caption {
+    padding: 20px;
+    transition: 0.4s;
+    transition-delay: 0.8s;
+    opacity: 0;
+    color: #fff;
+    transform: translatey(200%);
+  }
+  .caption h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+  
+  .slide-active .caption {
+    transform: translatey(0);
+    opacity: 1;
+  }
+  .slide1 {
+    background-image: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+  }
+  
+  .slide2 {
+    background-image: linear-gradient(90deg, #f5576c 0%, #feac40 100%);
+  }
+  
+  .slide3 {
+    background-image: linear-gradient(90deg, #feac40 0%, #009efd 100%);
+  }
+  
+  .slide4 {
+    background-image: linear-gradient(90deg, #009efd 0%, #330867 100%);
+  }
+  .slide5 {
+    background-image: linear-gradient(120deg, #330867 0%, #13547a 100%);
+  }
+  
+  .slide6 {
+    background-image: linear-gradient(120deg, #13547a 0%, #29323c 100%);
+  }
+/* 
 .large-div
 {
-    height:500vh;
     background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
-}
+} */
 
-.service {
-    position:fixed;
-    top:20%;
-    left:100%;
-    width:300%;
-    height:50%;
-    color:white;
-}
+/***** Mob service ****/
 
+.capa{
+    background-color: #ffffff;   
+    border-radius: 15px;
+    box-shadow: 0px 1px 10px 0px #33333382;
+    margin: 3em auto;
+    min-height: 477px;
+    max-height: 100%;
+    position: relative;
+    width: 250px;
+}
+/*Fone*/
+.capa .fone {
+    background-color: #545252c2;
+    border-radius: 12px;
+    margin: 0 auto;
+    padding: 3px 0;
+    position: absolute;
+    top: 1.5em;
+    left: 6.5em;
+    width: 21%;
+}
+.capa .fone:after{
+    background-color: #545252c2;
+    border-radius: 50%;
+    content: "";
+    height: 5px;
+    position: absolute;
+    top: 0px;
+    left: -0.6em;
+    width: 5px;
+}
+.capa .fone:before {
+    background-color: #545252c2;
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    position: absolute;
+    top: -15px;
+    left: 1.4em;
+    width: 10px;
+}
+/*Tela*/
+.capa .tela {
+    background-color: #333;    
+    border: 0.2em solid #000;
+    min-height: 368px;
+    position: absolute;
+    top: 3em;
+    left: 0.84em;
+    width: 90%;
+}
+.capa .tela:after{
+    border: 0.4em solid #94949469;
+    border-radius: 50%;
+    content: "";
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: -51px;
+    left: 5.6em;
+} 
+.capa .tela .android {
+    margin: 4em auto;
+    width: 99%;
+}
+/*Topo*/
+.topo{width: 100%;}
+.topo li{
+    color: #fff;
+    display: inline-block;
+    margin: 1px;
+    padding: 2px;
+}
+.topo li:nth-child(5n){
+    margin-left: 5em;
+}
+/*Android*/
+.container-nd{
+    margin: 4em auto;
+    position: relative;
+    transition: transform 1s linear, box-shadow 1s ease-in;
+    transition-delay: 0s, 1s;
+    -ms-animation: quicando 1s infinite;
+    -moz-animation: quicando 1s infinite;
+    -o-animation: quicando 1s infinite;
+    -webkit-animation: quicando 1s infinite;
+    animation: quicando 1s infinite;
+    -moz-animate-direction: alternate;
+    -ms-animate-direction: alternate;
+    -o-animate-direction: alternate;
+    animation-direction: alternate;
+    -moz-animation-timing-function: ease-in;
+    -ms-animation-timing-function: ease-in;
+    -o-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    width: 80%;
+}
+@-webkit-keyframes quicando{
+    from{
+        top: 0;
+    }
+    to{
+        top: 1em;
+    }
+}
+@keyframes quicando{
+    from{
+        top: 0;
+    }
+    to{
+        top: 1em;
+    }
+}
+.cabeca, .braco-esquerdo, .braco-direito,
+.perna-esquerda, .perna-direita, .cabeca:after,
+.cabeca:before{
+    background-color: #a4c739;    
+} 
+.cabeca:after, .cabeca:before{
+    border-radius: 115px;
+    content: "";
+    height: 24px;
+    position: absolute;
+    width: 3px;    
+    top: -6px;
+    
+}
+.cabeca:after{
+    transform: rotate(-39deg);
+    left: 13px;
+}
+.cabeca:before{
+    transform: rotate(31deg);
+    left: 102px;
+}
+.olho-esquerdo, .olho-direito{
+    background-color: #fff;
+    border-radius: 50%;
+    height: 10px;
+    position: absolute;
+    top: 20px;
+    width: 10px;
+}
+.olho-direito{left: 27px;}
+.olho-esquerdo{right: 27px;}
+.cabeca {    
+    border-radius: 200px 200px 38px 38px;
+    position: relative;
+    left: 2em;
+    min-height: 160px;
+    width: 120px;
+}
+.cabeca .boca {
+    background-color: #333;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    top: 3.2em;
+}
+.braco-direito, .braco-esquerdo{
+    border-radius: 55px;
+    height: 100px;
+    position: absolute;
+    top: 3em;
+    width: 30px;
+}
+.braco-esquerdo{   
+    left: -0.2em;   
+}
+.braco-direito{       
+    right: -0.7em;   
+}
+.perna-direita, .perna-esquerda{
+    border-radius: 55px;
+    height: 80px;
+    position: absolute; 
+    top: 130px;
+    width:35px; 
+}
+.perna-direita{    
+    left: 3em;   
+}
+.perna-esquerda{
+    left: 6.3em;
+}
 
 /**** portfolio *****/
 
 .portfolio {
     padding: 3rem 0;
-    background: #f2f2f2d8 url(../images/portfoliobg.svg);
+    background:  #f2f2f2d8 url(../images/portfoliobg.svg);
 }
 
 .avatar {
@@ -377,7 +642,7 @@ html{
 
 .clients_section {
   text-align: center;
-  padding: 3rem 0;
+  padding: 3rem 0 !important;
 }
 .clients{
   transition: .5s ease;
@@ -385,7 +650,7 @@ html{
   margin: 0 20px;
 }
 .clients:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 
