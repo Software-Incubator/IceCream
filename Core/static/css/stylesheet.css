@@ -11,6 +11,9 @@ html{
     margin-left:0;
     margin-right:0;
 }
+.h1 {
+    font-weight: 800;
+}
 /*************************** navbar *****************************/
 .open {
     z-index:10000;
@@ -586,5 +589,5 @@ html{
 }
 
 .page-footer {
-    background-color: #252525;
+    background: #1d1d1de7 url(../images/footer.svg) repeat;;
 }
