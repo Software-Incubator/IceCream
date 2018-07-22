@@ -50,6 +50,7 @@ $(document).ready(function(){
 		loop: true
 	});
 
+	$('h1').shadowtext();
 
 	/*********** Slider ***********/
 
@@ -83,32 +84,6 @@ $(document).ready(function(){
 
     $('.slide-indicator li').removeClass('active');
     dotNext.addClass('active');
-    
-    
-
-  };
-  function parallaxX() {
-    var scrollTop = window.pageYOffset
-
-    $(window).on("scroll resize", function() {
-      scrollTop = window.pageYOffset;
-    });
-
-    $(".slide").each(function() {
-      var parallaxImage = $(this);
-      var parallaxOffset = parallaxImage.offset().top;
-      var yPos;
-      var coords;
-
-      $(window).on("scroll resize", function() {
-        yPos = -(parallaxOffset - scrollTop) / 2;
-        coords = '50% ' + yPos + 'px';
-
-        parallaxImage.css({
-          backgroundPosition: coords
-        });
-      });
-    });
   };
   function siteNav() {
 
