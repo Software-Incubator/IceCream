@@ -14,6 +14,16 @@ html{
 .h1 {
     font-weight: 800;
 }
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+    background-color: rgba(25, 9, 66, 0.5);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 /*************************** navbar *****************************/
 .open {
     z-index:10000;
@@ -293,7 +303,7 @@ html{
 
 .portfolio {
     padding: 3rem 0;
-    background: #f2f2f2;
+    background: #f2f2f2d8 url(../images/portfoliobg.svg);
 }
 
 .avatar {
@@ -589,5 +599,5 @@ html{
 }
 
 .page-footer {
-    background: #1d1d1de7 url(../images/footer.svg) repeat;;
+    background: #1d1d1de7 url(../images/footer.svg) repeat;
 }
