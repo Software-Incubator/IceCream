@@ -324,7 +324,7 @@ transform-origin: 50% 50% 0;
 .slider-con {
     margin-bottom: -130px;
     color: #fff;
-    z-index:  10000000;
+    z-index:  1000;
 }
 .parallax-slider {
     position: relative;
@@ -608,7 +608,7 @@ transform-origin: 50% 50% 0;
 
 .portfolio {
     padding: 3rem 0;
-    background:  #f2f2f2;
+    background-color:  #f2f2f2;
 }
 
 .avatar {
@@ -646,9 +646,11 @@ transform-origin: 50% 50% 0;
     background: linear-gradient(40deg,#45cafc,#303f9f)!important;
 }
 .portfolio_modal {
+    display: block;
     width: 85%;
+    margin: 5px auto;
 }
-.project-container {
+/* .project-container {
     font-size: 0.8rem;
     position: relative;
     width: 100%;
@@ -677,7 +679,7 @@ transform-origin: 50% 50% 0;
 .effect img.top:hover {
     bottom: -150px;
     padding-top: 100px;
-}
+} */
 /********************* CLIENTS **********************/
 
 .clients_section {
@@ -894,7 +896,10 @@ transform-origin: 50% 50% 0;
     box-shadow: 0 0 30px #949393;
 }
 .contactus-modal {
+    margin:0;
     width: 45%;
+    display: block;
+    margin: 5px auto;
 }
 .contact_button {
     background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
