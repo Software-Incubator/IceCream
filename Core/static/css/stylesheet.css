@@ -331,7 +331,7 @@ transform-origin: 50% 50% 0;
   }
   
 .slider-wrapper {
-    background: url(../images/portfoliobg.svg);
+    background: url(../images/servicesbg.svg);
     padding: 20px 0 0 0; 
     white-space: nowrap;
     overflow: hidden;
@@ -713,6 +713,14 @@ transform-origin: 50% 50% 0;
   box-shadow: 0 2px 2px rgba(41,47,56,0.1), 0 4px 4px rgba(41,47,56,0.1), 0 8px 8px rgba(41,47,56,0.1), 0 16px 16px rgba(41,47,56,0.1), 0 32px 32px rgba(41,47,56,0.1);
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
+}
+.col-user-1by7 {
+    float: left;
+    width: 14.2856%;
+}
+.about-svg {
+    color: #fff;
+    text-align: center;
 }
 
 /****** Team Members *********/

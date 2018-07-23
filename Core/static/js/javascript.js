@@ -50,7 +50,6 @@ $(document).ready(function(){
 		loop: true
 	});
 
-	$('h1').shadowtext();
 
 	/*********** Slider ***********/
 
