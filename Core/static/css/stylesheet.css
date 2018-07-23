@@ -47,6 +47,10 @@ transform: none;
 -webkit-transform-origin: 50% 50% 0;
 transform-origin: 50% 50% 0;
 } */
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 10px;
