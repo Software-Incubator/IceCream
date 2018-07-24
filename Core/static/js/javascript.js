@@ -311,6 +311,17 @@ function validateForm() {
 			return false;
 		}
 	}
+	var contact =  document.getElementById('contact').value;
+	if (contact == "") {
+		document.getElementById('status').innerHTML = "Contact cannot be empty";
+		return false;
+	} else {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if(!re.test(contact)){
+			document.getElementById('status').innerHTML = "Contact format invalid";
+			return false;
+		}
+	}
 	var subject =  document.getElementById('subject').value;
 	if (subject == "") {
 		document.getElementById('status').innerHTML = "Subject cannot be empty";
@@ -321,6 +332,7 @@ function validateForm() {
 		document.getElementById('status').innerHTML = "Message cannot be empty";
 		return false;
 	}
+	// console.log('sab sai hai');
 	document.getElementById('status').innerHTML = "Sending...";
 	document.getElementById('contact-form').submit();
 	

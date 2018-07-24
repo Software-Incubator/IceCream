@@ -611,13 +611,14 @@
                                         </div>
                                         <!--Body-->
                                         <div class="modal-body">
-                                            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                                                
+                                            <!-- <form id="contact-form" name="contact-form" action="mail.php" method="POST"> -->
+                                            <form id="contact-form" name="contact_form" method="POST" action="/" enctype="multipart/form-data">
+                                                {% csrf_token %}
                                                 <!--Grid row-->
                                                 <div class="row">
                                                     
                                                     <!--Grid column-->
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="md-form mb-0">
                                                             <input type="text" id="name" name="name" class="form-control">
                                                             <label for="name" class="">Your name</label>
@@ -626,7 +627,7 @@
                                                     <!--Grid column-->
                                                     
                                                     <!--Grid column-->
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="md-form mb-0">
                                                             <input type="text" id="email" name="email" class="form-control">
                                                             <label for="email" class="">Your email</label>
@@ -647,6 +648,14 @@
                                                     </div>
                                                 </div>
                                                 <!--Grid row-->
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="md-form mb-0">
+                                                            <input type="text" id="contact" name="contact" class="form-control">
+                                                            <label for="contact" class="">Contact</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 
                                                 <!--Grid row-->
                                                 <div class="row">
@@ -661,13 +670,13 @@
                                                         
                                                     </div>
                                                 </div>
+                                                {{ message }}
                                                 <!--Grid row-->
-                                                
+                                                <div class="text-center text-danger" id="status"></div>
+                                                <div class="text-center text-md-center">
+                                                    <input type="submit" class="btn btn-primary" onclick="validateForm()" value="Send">
+                                                </div>
                                             </form>
-                                            <div class="text-center text-danger" id="status"></div>
-                                            <div class="text-center text-md-center">
-                                                <a class="btn btn-primary" onclick="validateForm()">Send</a>
-                                            </div>
                                         </div>
                                     </div>
                                     <!--/.Content-->

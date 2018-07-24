@@ -24,10 +24,12 @@ class IndexView(View):
             message = 'Message submitted successfully!'
             messages.add_message(request, messages.SUCCESS, message=message)
             return redirect('/', context)
-        messages.add_message(request, messages.INFO,
-                             'Some fields in the form were missing!')
-        context['contact_form'] = contact_form
-        return redirect('/', context)
+        else:
+            messages.add_message(request, messages.INFO,
+                                 'Some fields in the form were missing!')
+            message = ""
+            context['contact_form'] = contact_form
+            return render(request, 'index.html', {'message':message})
 
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
@@ -74,9 +76,6 @@ class IndexView(View):
         context['contact_form'] = contact_form
         context['event'] = event
         context['contact_info'] = contact_info
-
-        print(contact_info[0].contact_number)
-
         return context
 
 
