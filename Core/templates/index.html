@@ -19,7 +19,6 @@
     rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Karla:400,700,400italic'
     rel='stylesheet' type='text/css'>
-    
 </head>
 <body>
     <!-- ================================================================================================== Loader -->
@@ -486,8 +485,8 @@
                                         </div>
                                         <!--Body-->
                                         <div class="modal-body">
-                                            <!-- <form id="contact-form" name="contact-form" action="mail.php" method="POST"> -->
-                                            <form id="contact-form" name="contact_form" method="POST" action="/" enctype="multipart/form-data">
+                                            <form id="contact-form" name="contact_form">
+                                            <!-- <form id="contact-form" name="contact_form" method="POST" action="/" enctype="multipart/form-data"> -->
                                                 {% csrf_token %}
                                                 <!--Grid row-->
                                                 <div class="row">
@@ -549,7 +548,7 @@
                                                 <!--Grid row-->
                                                 <div class="text-center text-danger" id="status"></div>
                                                 <div class="text-center text-md-center">
-                                                    <input type="submit" class="btn btn-primary" onclick="validateForm()" value="Send">
+                                                    <input class="btn btn-primary" onclick="validateForm()" value="Send">
                                                 </div>
                                             </form>
                                         </div>
@@ -748,6 +747,85 @@
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
                         <!-- User JavaScript -->
                         <script src="../static/js/javascript.js"></script>
+                        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+                        <script>
+                            function validateForm() {
+                                console.log('hi');
+                                var name =  document.getElementById('name').value;
+                                if (name == "") {
+                                    document.getElementById('status').innerHTML = "Name cannot be empty";
+                                    return false;
+                                }
+                                var email =  document.getElementById('email').value;
+                                if (email == "") {
+                                    document.getElementById('status').innerHTML = "Email cannot be empty";
+                                    return false;
+                                } else {
+                                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                    if(!re.test(email)){
+                                        document.getElementById('status').innerHTML = "Email format invalid";
+                                        return false;
+                                    }
+                                }
+                                var subject =  document.getElementById('subject').value;
+                                if (subject == "") {
+                                    document.getElementById('status').innerHTML = "Subject cannot be empty";
+                                    return false;
+                                }
+                                var contact =  document.getElementById('contact').value;
+                                if (contact == "") {
+                                    document.getElementById('status').innerHTML = "Contact cannot be empty";
+                                    return false;
+                                } 
+                                // else {
+                                // 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                // 	if(!re.test(contact)){
+                                // 		document.getElementById('status').innerHTML = "Contact format invalid";
+                                // 		return false;
+                                // 	}
+                                // }
+                                var message =  document.getElementById('message').value;
+                                if (message == "") {
+                                    document.getElementById('status').innerHTML = "Message cannot be empty";
+                                    return false;
+                                }
+                                // console.log('sab sai hai');
+                                document.getElementById('status').innerHTML = "Sending...";
+                                // document.getElementById('contact-form').submit();
+                                console.log(1);
+                                        console.log(3);
+                                        var email;
+                                        var name;
+                                        var subject;
+                                        var contact;
+                                        var message;
+                                        name = $('#name').val();
+                                        email = $('#email').val();
+                                        subject = $('#subject').val();
+                                        contact = $('#contact').val();
+                                        message = $('#message').val();
+                                        console.log(name);
+                                        console.log(email);
+                                        console.log(contact);
+                                        console.log(message);
+                                        console.log(subject);
+                                        console.log(4);
+                                        $.ajax({
+                                            type:"POST",
+                                            url: '{% url 'save_contact' %}',
+                                            data: {
+                                                'email': email,
+                                                'name': name,
+                                                'contact': contact,
+                                                'message': message,
+                                                'subject':subject,
+                                                },
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                }
+                                        });
+                            }
+                            </script>
                         
                     </body>
                     </html>

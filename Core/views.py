@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 
 
-
 class IndexView(View):
     http_method_names = [u'get', u'post']
 
@@ -14,22 +13,38 @@ class IndexView(View):
         context = self.get_context_data()
         return render(request, 'index.html',context)
 
-    def post(self, request):
-        form_data = request.POST
-        contact_form = ContactUsForm(form_data)
-        context = self.get_context_data()
-        is_form_valid = contact_form.is_valid()
-        if is_form_valid:
-            contact_form.save()
-            message = 'Message submitted successfully!'
-            messages.add_message(request, messages.SUCCESS, message=message)
-            return redirect('/', context)
-        else:
-            messages.add_message(request, messages.INFO,
-                                 'Some fields in the form were missing!')
-            message = ""
-            context['contact_form'] = contact_form
-            return render(request, 'index.html', {'message':message})
+    # @csrf_exempt
+    # def post(self, request):
+    #     print("1")
+    #     img_id = 0
+    #     if request.method == 'GET':
+    #         img_id=request.GET['imgid']
+
+    #     if img_id:
+    #         d = dict()
+    #         image = Document.objects.get(pk=img_id)
+    #         user = User.objects.get(username=str(request.user))
+    #         com = request.GET['comment']
+    #         d['user'] = user.username
+    #         d['comment'] = com
+    #         comm = Comments.objects.create(user=request.user, document=image, comment=com)
+    #         x = json.dumps(d)
+    #         return HttpResponse(x)
+        # form_data = request.POST
+        # contact_form = ContactUsForm(form_data)
+        # context = self.get_context_data()
+        # is_form_valid = contact_form.is_valid()
+        # if is_form_valid:
+        #     contact_form.save()
+        #     message = 'Message submitted successfully!'
+        #     messages.add_message(request, messages.SUCCESS, message=message)
+        #     return redirect('/', context)
+        # else:
+        #     messages.add_message(request, messages.INFO,
+        #                          'Some fields in the form were missing!')
+        #     message = ""
+        #     context['contact_form'] = contact_form
+        #     return render(request, 'index.html', {'message':message})
 
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
@@ -79,6 +94,41 @@ class IndexView(View):
         context['event'] = event
         context['contact_info'] = contact_info
         return context
+
+
+class SaveContactView(View):
+
+    def get(self, request):
+        print("1")
+        name = request.GET['name']
+        email = request.GET['email']
+        contact = request.GET['contact']
+        message = request.GET['message']
+        subject = request.GET['subject']
+        d = dict()
+        image = Document.objects.get(pk=img_id)
+        user = User.objects.get(username=str(request.user))
+        com = request.GET['comment']
+        d['user'] = user.username
+        d['comment'] = com
+        comm = Comments.objects.create(user=request.user, document=image, comment=com)
+        x = json.dumps(d)
+        return HttpResponse(x)
+        # form_data = request.POST
+        # contact_form = ContactUsForm(form_data)
+        # context = self.get_context_data()
+        # is_form_valid = contact_form.is_valid()
+        # if is_form_valid:
+        #     contact_form.save()
+        #     message = 'Message submitted successfully!'
+        #     messages.add_message(request, messages.SUCCESS, message=message)
+        #     return redirect('/', context)
+        # else:
+        #     messages.add_message(request, messages.INFO,
+        #                          'Some fields in the form were missing!')
+        #     message = ""
+        #     context['contact_form'] = contact_form
+        #     return render(request, 'index.html', {'message':message})
 
 
 class RegistrationView(FormView):
