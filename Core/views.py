@@ -78,7 +78,6 @@ class IndexView(View):
         context['contact_form'] = contact_form
         context['event'] = event
         context['contact_info'] = contact_info
-        print(context)
         return context
 
 

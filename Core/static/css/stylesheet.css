@@ -800,19 +800,25 @@ h1 {
 /************ ALUMINI ****************/
 
 .alumini_pics {
+    margin:0px;
+    padding:0px;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: all .5s ease;
 }
-.alumini_pics:hover {
+.alumini_pics_container{
+    float:left; 
+    width: 40px;
+   height: 40px;
+   transition: all .5s ease;
+}
+.alumini_pics:hover, .alumini_pics_container:hover {
  -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
      -ms-transform: scale(1.2);
       -o-transform: scale(1.2);
          transform: scale(1.2);;
-}
-.col-user-1by12 {
-    float: left;
-    width: 8.33%;
 }
 
 /************* MAP ***********************/
@@ -874,5 +880,11 @@ h1 {
     }
     .equation{
         display: none;
-    }   
+    }
+    .alumini_pics_container{
+        float:left; 
+        width: 30px;
+       height: 30px;
+       transition: all .5s ease;
+    }
 }

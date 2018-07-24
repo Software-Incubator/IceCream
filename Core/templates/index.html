@@ -418,82 +418,16 @@
                                 <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12 my-4">
                                     <h1>SI Alumini</h1>
                                 </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 p-0">
-                                    <div class="col-user-1by12">
-                                        <img data-toggle="tooltip" data-placement="top" title="name | year" class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 p-0">
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                    <div class="col-user-1by12">
-                                        <img class="alumini_pics" src="https://unsplash.it/500/500/" alt="">
-                                    </div>
-                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                {% for alumni_list in alumni %}
+                                    {% for alumnus in alumni_list.0 %}  
+                                            <div class="alumini_pics_container">  
+                                                <img data-toggle="tooltip" data-placement="top" title="{{ alumnus.name }}|{{ alumnus.batch }}" class="alumini_pics" src="{{ alumnus.pic_path.url }}" alt="{{ alumnus.name }}">
+                                            </div>
+                                    {% endfor %}
+                                {% endfor %}
+
+                            </div>
                             </div>
                         </div>
                     </section>
