@@ -1,9 +1,11 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member, ContactInfo, Blog, Event
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+import json
+from django.http import HttpResponse
 
 
 class IndexView(View):
@@ -106,12 +108,14 @@ class SaveContactView(View):
         message = request.GET['message']
         subject = request.GET['subject']
         d = dict()
-        image = Document.objects.get(pk=img_id)
-        user = User.objects.get(username=str(request.user))
-        com = request.GET['comment']
-        d['user'] = user.username
-        d['comment'] = com
-        comm = Comments.objects.create(user=request.user, document=image, comment=com)
+        
+        try:
+            con = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
+            d['message']='Request successfully registered.'
+        except Exception as e:
+            print("excption",e)
+            d['message']=str(e)
+        # print(con)
         x = json.dumps(d)
         return HttpResponse(x)
         # form_data = request.POST

@@ -811,7 +811,6 @@
                                         console.log(subject);
                                         console.log(4);
                                         $.ajax({
-                                            type:"POST",
                                             url: '{% url 'save_contact' %}',
                                             data: {
                                                 'email': email,
@@ -822,6 +821,8 @@
                                                 },
                                             dataType: 'json',
                                             success: function (data) {
+                                                console.log(data);
+                                                document.getElementById('status').innerHTML = data['message'];
                                                 }
                                         });
                             }
