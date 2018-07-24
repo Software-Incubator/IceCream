@@ -279,29 +279,6 @@
                                         </div>
                                     {% endfor %}
                                 {% endfor %}
-                                
-                                <!-- Card -->
-                                <!-- <div class="card mb-4">
-                                    
-                                    Card image
-                                    <div class="view overlay">
-                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-                                        <a href="#!">
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    
-                                    Card content
-                                    <div class="card-body">
-                                        
-                                        Title
-                                        <h4 class="card-title">Card title</h4>
-                                        Text
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        Provides extra visual weight and identifies the primary action in a set of buttons                                    
-                                    </div>
-                                    
-                                </div> -->
                                 <!-- Card -->
                             </div>
                             <!-- Card deck -->
@@ -401,43 +378,32 @@
                                 <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12 my-4">
                                     <h1>Our Team</h1>
                                 </div>
-                                <div class="col-6 col-sm-6 col-md-4 col-lg-2">
-                                    <div ontouchstart="this.classList.toggle('hover');">
-                                        <div class="cont">
-                                            <div class="front" style="background-image: url(https://unsplash.it/500/500/);">
-                                                <div class="inner">
-                                                    <p>Param Mittal</p>
-                                                </div>
-                                            </div>
-                                            <div class="back">
-                                                <div class="inner2">
-                                                    <p>UI/UX Developer</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-6 col-md-4 col-lg-2">
-                                    <div ontouchstart="this.classList.toggle('hover');">
-                                        <div class="cont">
-                                            <div class="front" style="background-image: url(http://silive.in/media/uploads/members/8dbc8788-5764-43d9-a687-ad1c7b938d61.jpg);">
-                                                <div class="inner">
-                                                    <p>Param Mittal</p>
-                                                </div>
-                                            </div>
-                                            <div class="back">
-                                                <div class="inner2">
-                                                    <p>UI/UX Developer</p>
-                                                    <div class="text-cent">
-                                                        <a href target="_blank"><i class="text-white fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-                                                        <a href target="_blank"><i class="text-white fa fa-github fa-lg" aria-hidden="true"></i></a>
-                                                        <a href target="_blank"><i class="text-white fa fa-linkedin fa-lg" aria-hidden="true"></i></a>
+                                {% for member_list in members %}
+                                        {% for member in member_list %}
+                                            <div class="col-6 col-sm-6 col-md-4 col-lg-2">
+                                                <div ontouchstart="this.classList.toggle('hover');">
+                                                    <div class="cont">
+                                                        <div class="front" style="background-image: url({{ member.pic_path.url }});">
+                                                            <div class="inner">
+                                                                <p>{{ member.name }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="back">
+                                                            <div class="inner2">
+                                                                <p>{{ member.designation.name }}</p>
+                                                                <div class="text-cent">
+                                                                    <a href="{{ member.facebook }}" target="_blank"><i class="text-white fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                                                                    <a href="{{ member.github }}" target="_blank"><i class="text-white fa fa-github fa-lg" aria-hidden="true"></i></a>
+                                                                    <a href="{{ member.linkedin }}" target="_blank"><i class="text-white fa fa-linkedin fa-lg" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        {% endfor %}
+                                {% endfor %}
+
                             </div>
                         </div>
                     </section>
