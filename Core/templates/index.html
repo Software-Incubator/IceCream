@@ -255,11 +255,35 @@
                         <div class="container">
                             <!-- Card deck -->
                             <div class="card-deck">
+                                {% for pro_row in projects %}
+                                    {% for pro in pro_row %}
+                                        <div class="card mb-4">
+                                            <!--Card image-->
+                                            <div class="view overlay">
+                                                <img class="card-img-top" src="{{ pro.image_path.url }}" alt="Card image cap">
+                                                <a href="#!">
+                                                    <div class="mask rgba-white-slight"></div>
+                                                </a>
+                                            </div>
+                                            
+                                            <!--Card content-->
+                                            <div class="card-body">
+                                                
+                                                <!--Title-->
+                                                <h4 class="card-title">{{ pro.name }}</h4>
+                                                <!--Text-->
+                                                <p class="card-text">{{ pro.description }}</p>
+                                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->                                    
+                                            </div>
+                                            
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
                                 
                                 <!-- Card -->
-                                <div class="card mb-4">
+                                <!-- <div class="card mb-4">
                                     
-                                    <!--Card image-->
+                                    Card image
                                     <div class="view overlay">
                                         <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
                                         <a href="#!">
@@ -267,67 +291,18 @@
                                         </a>
                                     </div>
                                     
-                                    <!--Card content-->
+                                    Card content
                                     <div class="card-body">
                                         
-                                        <!--Title-->
+                                        Title
                                         <h4 class="card-title">Card title</h4>
-                                        <!--Text-->
+                                        Text
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->                                    
+                                        Provides extra visual weight and identifies the primary action in a set of buttons                                    
                                     </div>
                                     
-                                </div>
+                                </div> -->
                                 <!-- Card -->
-                                
-                                <!-- Card -->
-                                <div class="card mb-4">
-                                    
-                                    <!--Card image-->
-                                    <div class="view overlay">
-                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-                                        <a href="#!">
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        
-                                        <!--Title-->
-                                        <h4 class="card-title">Card title</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                    </div>
-                                    
-                                </div>
-                                <!-- Card -->
-                                
-                                <!-- Card -->
-                                <div class="card mb-4">
-                                    
-                                    <!--Card image-->
-                                    <div class="view overlay">
-                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-                                        <a href="#!">
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        
-                                        <!--Title-->
-                                        <h4 class="card-title">Card title</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                    </div>
-                                    
-                                </div>
-                                <!-- Card -->
-                                
                             </div>
                             <!-- Card deck -->
                         </div>

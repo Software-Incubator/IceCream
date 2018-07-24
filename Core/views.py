@@ -11,8 +11,8 @@ class IndexView(View):
     http_method_names = [u'get', u'post']
 
     def get(self, request, *args, **kwargs):
-        # context = self.get_context_data()
-        return render(request, 'index.html')
+        context = self.get_context_data()
+        return render(request, 'index.html',context)
 
     def post(self, request):
         form_data = request.POST
@@ -33,6 +33,7 @@ class IndexView(View):
 
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
+        print("projects",projects)
         context = kwargs
         event = Event.objects.filter(active=True).first()
         contact_form = ContactUsForm()
@@ -45,6 +46,7 @@ class IndexView(View):
             project_lists.append(projects[i * 3 + 3:])
         else:
             project_lists = [projects, ]
+        print("projects_list",project_lists)
 
         # make members list for Member section
         i = 0
@@ -76,6 +78,7 @@ class IndexView(View):
         context['contact_form'] = contact_form
         context['event'] = event
         context['contact_info'] = contact_info
+        print(context)
         return context
 
 
