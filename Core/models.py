@@ -5,7 +5,7 @@ import uuid
 
 from django.core.exceptions import ValidationError
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
+# from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
 
 
@@ -32,6 +32,25 @@ def events_upload_location(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('uploads/events', filename)
+
+
+def event_validator(value):
+    if value is True and Event.objects.filter(active=True).count() >= 1:
+        raise ValidationError(
+            'More than one events cannot be active at a given time'
+        )
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=255, blank=False, null=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False, validators=[event_validator, ])
+    pic_path = models.FileField(upload_to=events_upload_location, null=True,
+                                default=None)
+
+
+    def __str__(self):
+        return "{} | {}".format(self.name, self.timestamp.date())
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=255)
@@ -161,23 +180,6 @@ class Registration(models.Model):
         unique_together = ('student_number', 'event')
 
 
-def event_validator(value):
-    if value is True and Event.objects.filter(active=True).count() >= 1:
-        raise ValidationError(
-            'More than one events cannot be active at a given time'
-        )
-
-
-class Event(models.Model):
-    name = models.CharField(max_length=255, blank=False, null=False)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False, validators=[event_validator, ])
-    pic_path = models.FileField(upload_to=events_upload_location, null=True,
-                                default=None)
-
-
-    def __str__(self):
-        return "{} | {}".format(self.name, self.timestamp.date())
 
 
 class Gender(models.Model):
@@ -202,7 +204,7 @@ class ContactInfo(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=80, blank=False, null=False)
     author = models.CharField(max_length=30,blank=False,null=False)
-    content = RichTextUploadingField()
+    # content = RichTextUploadingField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def get_absolute_url(self):

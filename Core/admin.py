@@ -1,8 +1,6 @@
 from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
-from .models import Technology, Member, Designation, Project, ContactUs, \
-    Registration, Event, Branch, Gender, Year, ContactInfo, Blog
-
+from .models import Technology, Member, Designation, Project, ContactUs, Registration, Branch, Gender, Year, ContactInfo, Blog, Event
 
 
 class RegistrationAdmin(ImportExportActionModelAdmin):

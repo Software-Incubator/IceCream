@@ -1,10 +1,9 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member, ContactInfo
+from .models import Project, Member, ContactInfo, Blog, Event
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
-from .models import Event, Blog
 
 
 
@@ -12,8 +11,8 @@ class IndexView(View):
     http_method_names = [u'get', u'post']
 
     def get(self, request, *args, **kwargs):
-        context = self.get_context_data()
-        return render(request, 'index.html', context=context)
+        # context = self.get_context_data()
+        return render(request, 'index.html')
 
     def post(self, request):
         form_data = request.POST
