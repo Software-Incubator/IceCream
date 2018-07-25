@@ -92,6 +92,7 @@ class RegistrationView(FormView):
     event = Event.objects.filter(active=True).first()
 
     def post(self, request, *args, **kwargs):
+        print("Here  We are!!")
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()

@@ -7,388 +7,398 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Registration Page</title>
-   <!-- Font Awesome -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   <!-- Bootstrap CDN -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-   <!-- Material Design Bootstrap -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">   
-   <!-- Google FOnt -->
-   <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,900"
-   rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">   
+    <!-- Google FOnt -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,900"
+    rel="stylesheet">
     <link href="../static/css/stylesheet_register.css" rel="stylesheet">
     
 </head>
 
 <body>
-  <!--HTML-->
-  <div class="container-fluid" id="main_container">
-    <div class="container-fluid mx-auto mt-lg-5" id="second_container">
-      <div class="row ">
-        <div class="col-lg-4 col-12 poster_image d-none d-md-block d-lg-block"> <!--poster_image large and med screen-->
-          <img class="card-img z-depth-2" src="./img/poster.jpg" alt="Card image cap">
-        </div>
-        <div class="col-lg-8 col-12 student_details z-depth-1"> <!--inputs_values-->
-          <div class="row">
-          <div class=" col-12 poster_image_small d-lg-none d-sm-block d-md-none mx-auto"> <!--poster_image small screen-->
-            <img class="img-fluid z-depth-1 " src="./img/posterSmall.jpg" alt="poster banner image">
-          </div>
-        </div>
-          <!-- Material form register -->
-            <form>
-                <p class="h4 text-center my-4 mb-4 blue-text register_text">Register</p>
-                <!-- name -->
-                <div class="md-form">
-                    <i class="fa fa-user prefix grey-text"></i>
-                    <input type="text" id="Name" class="form-control">
-                    <label for="name">Name</label>
+    <!--HTML-->
+    <div class="container-fluid" id="main_container">
+        <div class="container-fluid mx-auto mt-lg-5" id="second_container">
+            <div class="row ">
+                <div class="col-lg-4 col-12 poster_image d-none d-md-block d-lg-block"> <!--poster_image large and med screen-->
+                    <img class="card-img z-depth-2" src="{{ event.pic_path.url }}" alt="Card image cap">
                 </div>
-                <!-- email -->
-                <div class="md-form">
-                    <i class="fa fa-envelope prefix grey-text"></i>
-                    <input type="email" id="Email" class="form-control">
-                    <label for="email">Email</label>
+                <div class="col-lg-8 col-12 student_details z-depth-1"> <!--inputs_values-->
+                    <div class="row">
+                        <div class=" col-12 poster_image_small d-lg-none d-sm-block d-md-none mx-auto"> <!--poster_image small screen-->
+                            <img class="img-fluid z-depth-1 " src="./img/posterSmall.jpg" alt="poster banner image">
+                        </div>
+                    </div>
+                    <!-- Material form register -->
+                    
+                    
+                    
+                    
+                    <form method="post" name="form">
+                        {% csrf_token %}
+                        <p class="h4 text-center my-4 mb-4 blue-text register_text">Register</p>
+                        <!-- name -->
+                        <div class="md-form">
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input type="text" id="Name" name="name" class="form-control">
+                            <label for="name">Name</label>
+                        </div>
+                        <!-- email -->
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="email" id="Email" name="email" class="form-control">
+                            <label for="email">Email</label>
+                        </div>
+                        <!-- contact -->
+                        <div class="md-form">
+                            <i class="fa fa-mobile prefix grey-text"></i>
+                            <input type="text" id="Contact" name="contact" class="form-control">
+                            <label for="contact">Contact Number</label>
+                        </div>
+                        <!-- student no. -->
+                        <div class="md-form">
+                            <i class="fa fa-id-badge prefix grey-text"></i>
+                            <input type="text" id="Student" name="student_number" class="form-control">
+                            <label for="student">Student no.</label>
+                        </div>
+                        <!--choose Branch-->
+                        <div class="md-form">
+                            <div class="row p-1">
+                                <div class="col-4 p-1">
+                                    <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
+                                        <option value="1" disabled selected>Branch</option>
+                                        <option  value="2">CSE</option>
+                                        <option value="3">IT</option>
+                                        <option value="4">ECE</option>
+                                        <option value="5" >EN</option>
+                                        <option value="6" >EI</option>
+                                        <option value="7" >CE</option>
+                                        <option value="8" >ME</option>
+                                        <option value="9" >MCA</option>
+                                        
+                                    </select>
+                                </div>
+                                <!--choose year-->
+                                <div class="col-4 p-1">
+                                    <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
+                                        <option value="1" disabled selected>Year</option>
+                                        <option value="2">I</option>
+                                        <option value="3">II</option>
+                                        <option value="4">III</option>
+                                        
+                                    </select>
+                                </div>
+                                <!--choose gender-->
+                                <div class="col-4 p-1 ">
+                                    <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
+                                        <option value="1" disabled selected>Gender</option>
+                                        <option  value="2">Female</option>
+                                        <option value="3">Male</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <!-- Material checked -->
+                            
+                            <div class="toggle toggle--knob form-check">
+                                <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
+                                <label class="toggle--btn" for="IsHosteler">Hosteler</label>
+                            </div>
+                        </div>
+                        <!--button-->
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
+                        </div>
+                    </form>
+                    
+                    
+                    
+                    
+                    <!-- Material form register -->
                 </div>
-                <!-- contact -->
-                <div class="md-form">
-                   <i class="fa fa-mobile prefix grey-text"></i>
-                   <input type="text" id="Contact" class="form-control">
-                   <label for="contact">Contact</label>
-                </div>
-                <!-- student no. -->
-                <div class="md-form">
-                   <i class="fa fa-id-badge prefix grey-text"></i>
-                   <input type="text" id="Student" class="form-control">
-                   <label for="student">Student no.</label>
-                </div>
-                <!--choose Branch-->
-                <div class="md-form">
-                  <div class="row p-1">
-                    <div class="col-4 p-1">
-                       <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
-                         <option value="1" disabled selected>Branch</option>
-                        <option  value="2">CSE</option>
-                        <option value="3">IT</option>
-                        <option value="4">ECE</option>
-                        <option value="5" >EN</option>
-                        <option value="6" >EI</option>
-                        <option value="7" >CE</option>
-                        <option value="8" >ME</option>
-                        <option value="9" >MCA</option>
-
-                       </select>
-                   </div>
-                   <!--choose year-->
-                   <div class="col-4 p-1">
-                      <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
-                        <option value="1" disabled selected>Year</option>
-                       <option value="2">I</option>
-                       <option value="3">II</option>
-                       <option value="4">III</option>
-
-                      </select>
-                   </div>
-                   <!--choose gender-->
-                   <div class="col-4 p-1 ">
-                      <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
-                        <option value="1" disabled selected>Gender</option>
-                       <option  value="2">Female</option>
-                       <option value="3">Male</option>
-
-                      </select>
-                   </div>
-                 </div>
-                </div>
-            <div class="col-lg-12">
-              <!-- Material checked -->
-
-            <div class="toggle toggle--knob form-check">
-        			<input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
-        			<label class="toggle--btn" for="IsHosteler">Hosteler</label>
-        		</div>
             </div>
-                <!--button-->
-                <div class="text-center mt-4">
-                   <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
-                </div>
-            </form>
-<!-- Material form register -->
         </div>
-      </div>
     </div>
-  </div>
     <!-- Footer -->
     <footer class="page-footer font-small pt-4">
-                                
-            <!-- Footer Links -->
-            <div class="footer-container container text-center text-md-left">
+        
+        <!-- Footer Links -->
+        <div class="footer-container container text-center text-md-left">
+            
+            <!-- Grid row -->
+            <div class="row">
                 
-                <!-- Grid row -->
-                <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-4 mx-auto">
                     
-                    <!-- Grid column -->
-                    <div class="col-md-4 mx-auto">
-                        
-                        <!-- Content -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
-                        <p>WE BELIEVE IN</p>
-                        <p>Redefine Limitations</p>
-                        <p>Innovating Insanely!</p>
-                        <p>Learning Technologies.</p>
-                        <p>Sharing Intelligence!
-                            
-                        </div>
-                        <!-- Grid column -->
-                        
-                        <hr class="clearfix w-100 d-md-none">
-                        
-                        <!-- Grid column -->
-                        <div class="col-sm-4 col-md-2">
-                            
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
-                            
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="http://akgec.in/">AKGEC</a>
-                                </li>
-                                <li>
-                                    <a href="http://techtrishna.in/">TechTrishna</a>
-                                </li>
-                                <li>
-                                    <a href="http://akgec-scrolls.com/">Scrolls</a>
-                                </li>
-                                <li>
-                                    <a href="http://techtrishna.in/directme">DirectMe</a>
-                                </li>
-                                <li>
-                                    <a href="http://bytepad.silive.in/">Bytepad</a>
-                                </li>
-                                <li>
-                                    <a href="http://resume.silive.in/">Resume Builder</a>
-                                </li>
-                                <li>
-                                    <a href="http://techtrishna.in/photoweb">Photoweb</a>
-                                </li>
-                                <li>
-                                    <a href="http://akgec.in/bdc">Blood Donation Camp</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Grid column -->
-                        
-                        <!-- Grid column -->
-                        <div class="col-sm-4 col-md-2">
-                            
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-                            
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a>Mobile Development</a>
-                                </li>
-                                <li>
-                                    <a>Website Development</a>
-                                </li>
-                                <li>
-                                    <a >Desktop Development</a>
-                                </li>
-                                <li>
-                                    <a>Web And Graphic Designing</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Grid column -->
-                        
-                        <!-- Grid column -->
-                        <div class="col-sm-4 col-md-2">
-                            
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
-                            
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="http://akgec.in/">AKGEC</a>
-                                </li>
-                                <li>
-                                    <a href="http://4thpointer.com/">4th Pointer</a>
-                                </li>
-                                <li>
-                                    <a href="http://india.ni.com/">National Instrument</a>
-                                </li>
-                                <li>
-                                    <a href="http://tifac-core-akgec.org/">TIFAC</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.kuka.com/">KUKA</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.akgec-bosch.org/">Rexroth</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                                </li>
-                                <li>
-                                    <a href="http://gmaindia.org/">GMA</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.digitalnet.com/">Brain Soft</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Grid column -->
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
+                    <p>WE BELIEVE IN</p>
+                    <p>Redefine Limitations</p>
+                    <p>Innovating Insanely!</p>
+                    <p>Learning Technologies.</p>
+                    <p>Sharing Intelligence!
                         
                     </div>
-                    <!-- Grid row -->
+                    <!-- Grid column -->
+                    
+                    <hr class="clearfix w-100 d-md-none">
+                    
+                    <!-- Grid column -->
+                    <div class="col-sm-4 col-md-2">
+                        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
+                        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="http://akgec.in/">AKGEC</a>
+                            </li>
+                            <li>
+                                <a href="http://techtrishna.in/">TechTrishna</a>
+                            </li>
+                            <li>
+                                <a href="http://akgec-scrolls.com/">Scrolls</a>
+                            </li>
+                            <li>
+                                <a href="http://techtrishna.in/directme">DirectMe</a>
+                            </li>
+                            <li>
+                                <a href="http://bytepad.silive.in/">Bytepad</a>
+                            </li>
+                            <li>
+                                <a href="http://resume.silive.in/">Resume Builder</a>
+                            </li>
+                            <li>
+                                <a href="http://techtrishna.in/photoweb">Photoweb</a>
+                            </li>
+                            <li>
+                                <a href="http://akgec.in/bdc">Blood Donation Camp</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <!-- Grid column -->
+                    
+                    <!-- Grid column -->
+                    <div class="col-sm-4 col-md-2">
+                        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+                        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>Mobile Development</a>
+                            </li>
+                            <li>
+                                <a>Website Development</a>
+                            </li>
+                            <li>
+                                <a >Desktop Development</a>
+                            </li>
+                            <li>
+                                <a>Web And Graphic Designing</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <!-- Grid column -->
+                    
+                    <!-- Grid column -->
+                    <div class="col-sm-4 col-md-2">
+                        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
+                        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="http://akgec.in/">AKGEC</a>
+                            </li>
+                            <li>
+                                <a href="http://4thpointer.com/">4th Pointer</a>
+                            </li>
+                            <li>
+                                <a href="http://india.ni.com/">National Instrument</a>
+                            </li>
+                            <li>
+                                <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                            </li>
+                            <li>
+                                <a href="http://www.kuka.com/">KUKA</a>
+                            </li>
+                            <li>
+                                <a href="http://www.akgec-bosch.org/">Rexroth</a>
+                            </li>
+                            <li>
+                                <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                            </li>
+                            <li>
+                                <a href="http://gmaindia.org/">GMA</a>
+                            </li>
+                            <li>
+                                <a href="http://www.digitalnet.com/">Brain Soft</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <!-- Grid column -->
                     
                 </div>
-                <!-- Footer Links -->
+                <!-- Grid row -->
                 
-                <hr>
+            </div>
+            <!-- Footer Links -->
+            
+            <hr>
+            
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
+                        <i class="fa fa-facebook"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
+                        <i class="fa fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
+                        <i class="fa fa-github"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
+                        <i class="fa fa-youtube-play"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+            
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="https://silive.in">Software Incubator</a>
+            </div>
+            <!-- Copyright -->
+            
+        </footer>
+        
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+        
+        <!-- User js -->
+        
+        <script>
+            
+            //validations
+            function validateBranch () {
+                console.log("Branch Changed");
                 
-                <!-- Social buttons -->
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
-                            <i class="fa fa-facebook"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
-                            <i class="fa fa-twitter"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
-                            <i class="fa fa-github"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
-                            <i class="fa fa-youtube-play"> </i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- Social buttons -->
+                if ($("#Branch").val() == "MCA") {
+                    $("#Year").val("1");
+                }
+                else  {
+                    $("#Year").val("2");
+                }
+            }
+            
+            $(document).ready(function () {
+                $("#Name").focusout(function (event) {
+                    if (event.charCode!=0) {
+                        var regex = new RegExp("^[a-zA-Z ]+$");
+                        if (!regex.test($(this).val())) {
+                            $( "#Name" ).after( "<span class='validationerror'>Invalid Name </span>" );
+                        }
+                    }
+                });
                 
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                    <a href="https://silive.in">Software Incubator</a>
-                </div>
-                <!-- Copyright -->
+                $("#Name").focusin(function () {
+                    if (event.charCode!=0) {
+                        $("#Name").siblings("span").each(function () {
+                            $(this).remove()
+                        });
+                    }
+                });
                 
-            </footer>
-
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+                $("#Email").focusout(function (event) {
+                    if (event.charCode!=0) {
+                        var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+                        if (!regex.test($("#Email").val())) {
+                            $( "#Email" ).after( "<span class='validationerror'>Invalid Email</span>" );
+                        }
+                    }
+                });
+                
+                $("#Email").focusin(function () {
+                    if (event.charCode!=0) {
+                        $("#Email").siblings("span").each(function () {
+                            $(this).remove()
+                        });
+                    }
+                });
+                
+                
+                $("#Contact").focusout(function (event) {
+                    if (event.charCode!=0) {
+                        var regex = new RegExp("^[0-9]{10}$");
+                        if (!regex.test($("#Contact").val())) {
+                            $( "#Contact" ).after( "<span class='validationerror'>Invalid Mobile Number </span>" );
+                        }
+                    }
+                });
+                
+                $("#Contact").focusin(function () {
+                    if (event.charCode!=0) {
+                        $("#Contact").siblings("span").each(function () {
+                            $(this).remove()
+                        });
+                    }
+                });
+                
+                
+                $("#Student").focusout(function (event) {
+                    if (event.charCode!=0) {
+                        var regex = new RegExp("^[0-9]{7}[dD]?$");
+                        if (!regex.test($("#Student").val())) {
+                            $( "#Student" ).after( "<span class='validationerror'>Invalid Student Number </span>" );
+                        }
+                    }
+                });
+                
+                $("#Student").focusin(function () {
+                    if (event.charCode!=0) {
+                        $("#Student").siblings("span").each(function () {
+                            $(this).remove()
+                        });
+                    }
+                });
+                
+                
+            });
+            
+            
+            /*$(document).ready(function () {
+                $("#Year").val("");
+            });*/
+            
+        </script>
+    </body>
     
-    <!-- User js -->
+    </html>
     
-    <script>
-
-  //validations
-    function validateBranch () {
-        console.log("Branch Changed");
-
-        if ($("#Branch").val() == "MCA") {
-            $("#Year").val("1");
-        }
-        else  {
-            $("#Year").val("2");
-        }
-    }
-
-    $(document).ready(function () {
-        $("#Name").focusout(function (event) {
-            if (event.charCode!=0) {
-                var regex = new RegExp("^[a-zA-Z ]+$");
-                if (!regex.test($(this).val())) {
-                    $( "#Name" ).after( "<span class='validationerror'>Invalid Name </span>" );
-                }
-            }
-        });
-
-        $("#Name").focusin(function () {
-            if (event.charCode!=0) {
-                $("#Name").siblings("span").each(function () {
-                    $(this).remove()
-                });
-            }
-        });
-
-        $("#Email").focusout(function (event) {
-            if (event.charCode!=0) {
-                var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
-                if (!regex.test($("#Email").val())) {
-                    $( "#Email" ).after( "<span class='validationerror'>Invalid Email</span>" );
-                }
-            }
-        });
-
-        $("#Email").focusin(function () {
-            if (event.charCode!=0) {
-                $("#Email").siblings("span").each(function () {
-                    $(this).remove()
-                });
-            }
-        });
-
-
-        $("#Contact").focusout(function (event) {
-            if (event.charCode!=0) {
-                var regex = new RegExp("^[0-9]{10}$");
-                if (!regex.test($("#Contact").val())) {
-                    $( "#Contact" ).after( "<span class='validationerror'>Invalid Mobile Number </span>" );
-                }
-            }
-        });
-
-        $("#Contact").focusin(function () {
-            if (event.charCode!=0) {
-                $("#Contact").siblings("span").each(function () {
-                    $(this).remove()
-                });
-            }
-        });
-
-
-        $("#Student").focusout(function (event) {
-            if (event.charCode!=0) {
-                var regex = new RegExp("^[0-9]{7}[dD]?$");
-                if (!regex.test($("#Student").val())) {
-                    $( "#Student" ).after( "<span class='validationerror'>Invalid Student Number </span>" );
-                }
-            }
-        });
-
-        $("#Student").focusin(function () {
-            if (event.charCode!=0) {
-                $("#Student").siblings("span").each(function () {
-                    $(this).remove()
-                });
-            }
-        });
-
-
-    });
-
-
-    /*$(document).ready(function () {
-        $("#Year").val("");
-    });*/
-
-    </script>
-</body>
-
-</html>
