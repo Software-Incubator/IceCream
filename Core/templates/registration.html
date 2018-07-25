@@ -31,7 +31,7 @@
                 <div class="col-lg-8 col-12 student_details z-depth-1"> <!--inputs_values-->
                     <div class="row">
                         <div class=" col-12 poster_image_small d-lg-none d-sm-block d-md-none mx-auto"> <!--poster_image small screen-->
-                            <img class="img-fluid z-depth-1 " src="./img/posterSmall.jpg" alt="poster banner image">
+                            <img class="img-fluid z-depth-1 " src="{{ event.pic_path.url }}" alt="poster banner image">
                         </div>
                     </div>
                     <!-- Material form register -->
@@ -47,28 +47,28 @@
                             <i class="fa fa-user prefix grey-text"></i>
                             <input type="text" id="Name" name="name" class="form-control">
                             <label for="name">Name</label>
-                            <p class="text-danger">{{ form.name.errors }}</p>
+                            <span style="color: red">{{ form.name.errors }}</span>
                         </div>
                         <!-- email -->
                         <div class="md-form">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="Email" name="email" class="form-control">
                             <label for="email">Email</label>
-                            <p class="text-danger">{{ form.email.errors }}</p>
+                            <span style="color: red">{{ form.email.errors }}</span>
                         </div>
                         <!-- contact -->
                         <div class="md-form">
                             <i class="fa fa-mobile prefix grey-text"></i>
                             <input type="text" id="Contact" name="contact" class="form-control">
                             <label for="contact">Contact Number</label>
-                            <p class="text-danger">{{ form.contact.errors }}</p>
+                            <span style="color: red">{{ form.contact.errors }}</span>
                         </div>
                         <!-- student no. -->
                         <div class="md-form">
                             <i class="fa fa-id-badge prefix grey-text"></i>
                             <input type="text" id="Student" name="student_number" class="form-control">
                             <label for="student">Student no.</label>
-                            <p class="text-danger">{{ form.student_number.errors }}</p>
+                            <span style="color: red">{{ form.student_number.errors }}</span>
                         </div>
                         <!--choose Branch-->
                         <div class="md-form">
@@ -87,7 +87,7 @@
                                     </select> -->
                                     {{ form.branch.label }}
                                     {{ form.branch }}
-                                    <p class="text-danger">{{ form.branch.errors }}</p>
+                                    <span style="color: red">{{ form.branch.errors }}</span>
                                 </div>
                                 <!--choose year-->
                                 <div class="col-4 p-1">
@@ -99,7 +99,7 @@
                                     </select> -->
                                     {{ form.year.label }}
                                     {{ form.year }}
-                                    <p class="text-danger">{{ form.year.errors }}</p>
+                                    <span style="color: red">{{ form.year.errors }}</span>
                                 </div>
                                 <!--choose gender-->
                                 <div class="col-4 p-1 ">
@@ -110,7 +110,7 @@
                                     </select> -->
                                     {{ form.gender.label }}
                                     {{ form.gender }}
-                                    <p class="text-danger">{{ form.gender.errors }}</p>
+                                    <span style="color: red">{{ form.gender.errors }}</span>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                 <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
                                 <label class="toggle--btn" for="IsHosteler">Hosteler</label>
                             </div>
-                            <p class="text-danger">{{ form.hosteler.errors }}</p>
+                            <span style="color: red">{{ form.hosteler.errors }}</span>
                         </div>
                         <!--button-->
                         <div class="text-center mt-4">
