@@ -1,0 +1,117 @@
+body
+{
+  background-color: white;
+  overflow-x: hidden;
+}
+#main_container
+{
+  height: 100vh;
+  background-color: white;
+}
+#second_container
+{
+  height: 100vh;
+}
+.poster_image,.poster_image_small
+{
+  background-color: white;
+}
+.poster_image_small
+{
+  margin-top: -1.5rem;
+  z-index: 1;
+}
+.student_details
+{
+  background-color: white;
+}
+
+#Branch,#Year,#Gender
+{
+  border:None;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.beInCenter
+{
+  height: 100vh;
+}
+.validationerror
+{
+  color: #f44336;
+  margin-left: 3rem;
+  text-shadow: 2px 2px 20px #eee;
+}
+.toggle--knob .toggle--btn {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background: none;
+}
+.toggle--knob .toggle--btn:before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  box-shadow: 0 4px 10px 0 #999, inset 0 10px 10px 8px rgba(241, 241, 241, 0.6), inset 0 0 8px 0px #333, inset 0 0 0 13px #ccc, inset 0 0 0 14px #f1f1f1;
+  text-indent: -100%;
+}
+.toggle--knob .toggle--feature {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 40px;
+  text-shadow: 0 1px 2px #666;
+}
+.toggle--knob .toggle--feature:before, .toggle--knob .toggle--feature:after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toggle--knob .toggle--feature:before {
+  content: attr(data-label-on);
+  left: 20%;
+}
+.toggle--knob .toggle--feature:after {
+  content: attr(data-label-off);
+  right: -60%;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn {
+  background: #a2a2a2;
+  box-shadow: inset 0 20px 40px -10px #7e7e7e;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn:before {
+  left: 0;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn .toggle--feature:before {
+  left: -60%;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn .toggle--feature:after {
+  right: 20%;
+}
+
+@media (max-width:475px)
+{
+  .student_details
+  {
+    margin-top: 4rem;
+  }
+
+}
+.btn-floating i {
+    font-size: 1.625rem;
+    line-height: 61.1px;
+    display: inline-block;
+    width: inherit;
+    text-align: center;
+    color: #fff;
+}
+
+.page-footer {
+    background: #1d1d1de7 url(../images/footer.svg) repeat;
+}
