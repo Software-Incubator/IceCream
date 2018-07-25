@@ -20,6 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Karla:400,700,400italic'
     rel='stylesheet' type='text/css'>
 </head>
+
 <body>
     <!-- ================================================================================================== Loader -->
     
@@ -494,7 +495,7 @@
                                                         <div class="col-md-12">
                                                             <div class="md-form mb-0">
                                                                 <input type="text" id="contact" name="contact" class="form-control">
-                                                                <label for="contact" class="">Contact</label>
+                                                                <label for="contact" class="">Contact Number</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -508,15 +509,19 @@
                                                             <div class="md-form">
                                                                 <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                                                 <label for="message">Your message</label>
-                                                            </div>
-                                                            
+                                                            </div> 
                                                         </div>
                                                     </div>
-                                                    {{ message }}
+                                                    <div class="row">
+                                                        <!--Grid column-->
+                                                        <div class="col-md-12">
+                                                            <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                                                        </div>
+                                                    </div>
                                                     <!--Grid row-->
                                                     <div class="text-center text-danger" id="status"></div>
                                                     <div class="text-center text-md-center">
-                                                        <a href="#" class="btn btn-primary" onclick="validateForm()" >Send</a>
+                                                        <a class="btn btn-primary" onclick="validateForm()" >Send</a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -715,7 +720,7 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
                             <!-- User JavaScript -->
                             <script src="../static/js/javascript.js"></script>
-                            <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+                            <script src='https://www.google.com/recaptcha/api.js'></script>
                             <script>
                                 /******************* Type js init */
                                 
@@ -756,59 +761,68 @@
                                     }
                                     var contact =  document.getElementById('contact').value;
                                     if (contact == "") {
-                                        document.getElementById('status').innerHTML = "Contact cannot be empty";
+                                        document.getElementById('status').innerHTML = "Contact number cannot be empty";
                                         return false;
                                     } 
-                                    // else {
-                                        // 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                                        // 	if(!re.test(contact)){
-                                            // 		document.getElementById('status').innerHTML = "Contact format invalid";
-                                            // 		return false;
-                                            // 	}
-                                            // }
-                                            var message =  document.getElementById('message').value;
-                                            if (message == "") {
-                                                document.getElementById('status').innerHTML = "Message cannot be empty";
-                                                return false;
-                                            }
-                                            // console.log('sab sai hai');
-                                            document.getElementById('status').innerHTML = "Sending...";
-                                            // document.getElementById('contact-form').submit();
-                                            console.log(1);
-                                            console.log(3);
-                                            var email;
-                                            var name;
-                                            var subject;
-                                            var contact;
-                                            var message;
-                                            name = $('#name').val();
-                                            email = $('#email').val();
-                                            subject = $('#subject').val();
-                                            contact = $('#contact').val();
-                                            message = $('#message').val();
-                                            console.log(name);
-                                            console.log(email);
-                                            console.log(contact);
-                                            console.log(message);
-                                            console.log(subject);
-                                            console.log(4);
-                                            $.ajax({
-                                                url: '{% url 'save_contact' %}',
-                                                data: {
-                                                    'email': email,
-                                                    'name': name,
-                                                    'contact': contact,
-                                                    'message': message,
-                                                    'subject':subject,
-                                                },
-                                                dataType: 'json',
-                                                success: function (data) {
-                                                    console.log(data);
-                                                    document.getElementById('status').innerHTML = data['message'];
-                                                }
-                                            });
+                                    else {
+                                        var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
+                                        if(!re.test(contact)){
+                                            document.getElementById('status').innerHTML = "Contact number format invalid";
+                                            return false;
                                         }
-                                    </script>
+                                    }
+                                    var message =  document.getElementById('message').value;
+                                    if (message == "") {
+                                        document.getElementById('status').innerHTML = "Message cannot be empty";
+                                        return false;
+                                    }
+                                    var v = grecaptcha.getResponse();
+                                    if(v.length == 0)
+                                    {
+                                        document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
+                                        return false;
+                                    }
                                     
-                                </body>
-                                </html>
+                                    // console.log('sab sai hai');
+                                    document.getElementById('status').innerHTML = "Sending...";
+                                    // document.getElementById('contact-form').submit();
+                                    console.log(1);
+                                    console.log(3);
+                                    var email;
+                                    var name;
+                                    var subject;
+                                    var contact;
+                                    var message;
+                                    name = $('#name').val();
+                                    email = $('#email').val();
+                                    subject = $('#subject').val();
+                                    contact = $('#contact').val();
+                                    message = $('#message').val();
+                                    console.log(name);
+                                    console.log(email);
+                                    console.log(contact);
+                                    console.log(message);
+                                    console.log(subject);
+                                    console.log(4);
+                                    $.ajax({
+                                        url: '{% url 'save_contact' %}',
+                                        data: {
+                                            'email': email,
+                                            'name': name,
+                                            'contact': contact,
+                                            'message': message,
+                                            'subject':subject,
+                                        },
+                                        dataType: 'json',
+                                        success: function (data) {
+                                            console.log(data);
+                                            document.getElementById('status').innerHTML = data['message'];
+                                            document.getElementById('status').style.color = "green";
+                                            document.getElementById('status').classList = "text-center";
+                                        }
+                                    });
+                                }
+                            </script>
+                            
+                        </body>
+                        </html>

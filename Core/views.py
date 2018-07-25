@@ -75,13 +75,8 @@ class SaveContactView(View):
         message = request.GET['message']
         subject = request.GET['subject']
         d = dict()
-        
-        try:
-            con = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
-            d['message']='Request successfully registered.'
-        except Exception as e:
-            print("excption",e)
-            d['message']=str(e)
+        con = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
+        d['message']='Request successfully registered.'
         x = json.dumps(d)
         return HttpResponse(x)
 
