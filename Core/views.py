@@ -94,15 +94,25 @@ class RegistrationView(FormView):
     def post(self, request, *args, **kwargs):
         print("Here  We are!!")
         form = RegistrationForm(request.POST)
+        print()
+        print("Errors",dict(form.errors))
+        # error = dict(form.errors)
+        # print("Error", form.errors.email)
+        # form = self.form_class(request.POST)
         if form.is_valid():
+            print("Submitted sucessfully")
             form.save()
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
             return redirect(reverse_lazy('home'))
-        return render(request, 'registration.html', {'form': form, 'event': self.event})
+        else:
+            print("Not submitted")
+            # form=self.form_class()
+            # form=RegistrationForm()
+            return render(request, 'registration.html', {'form': form, 'event': self.event})
 
     def get(self, request, *args, **kwargs):
-        form = RegistrationForm()
+        form = self.form_class()
 
         context = {
             'form': form,

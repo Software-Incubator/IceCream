@@ -47,30 +47,34 @@
                             <i class="fa fa-user prefix grey-text"></i>
                             <input type="text" id="Name" name="name" class="form-control">
                             <label for="name">Name</label>
+                            <p class="text-danger">{{ form.name.errors }}</p>
                         </div>
                         <!-- email -->
                         <div class="md-form">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="Email" name="email" class="form-control">
                             <label for="email">Email</label>
+                            <p class="text-danger">{{ form.email.errors }}</p>
                         </div>
                         <!-- contact -->
                         <div class="md-form">
                             <i class="fa fa-mobile prefix grey-text"></i>
                             <input type="text" id="Contact" name="contact" class="form-control">
                             <label for="contact">Contact Number</label>
+                            <p class="text-danger">{{ form.contact.errors }}</p>
                         </div>
                         <!-- student no. -->
                         <div class="md-form">
                             <i class="fa fa-id-badge prefix grey-text"></i>
                             <input type="text" id="Student" name="student_number" class="form-control">
                             <label for="student">Student no.</label>
+                            <p class="text-danger">{{ form.student_number.errors }}</p>
                         </div>
                         <!--choose Branch-->
                         <div class="md-form">
                             <div class="row p-1">
                                 <div class="col-4 p-1">
-                                    <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
+                                    <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
                                         <option value="1" disabled selected>Branch</option>
                                         <option  value="2">CSE</option>
                                         <option value="3">IT</option>
@@ -80,27 +84,33 @@
                                         <option value="7" >CE</option>
                                         <option value="8" >ME</option>
                                         <option value="9" >MCA</option>
-                                        
-                                    </select>
+                                    </select> -->
+                                    {{ form.branch.label }}
+                                    {{ form.branch }}
+                                    <p class="text-danger">{{ form.branch.errors }}</p>
                                 </div>
                                 <!--choose year-->
                                 <div class="col-4 p-1">
-                                    <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
+                                    <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
                                         <option value="1" disabled selected>Year</option>
                                         <option value="2">I</option>
                                         <option value="3">II</option>
                                         <option value="4">III</option>
-                                        
-                                    </select>
+                                    </select> -->
+                                    {{ form.year.label }}
+                                    {{ form.year }}
+                                    <p class="text-danger">{{ form.year.errors }}</p>
                                 </div>
                                 <!--choose gender-->
                                 <div class="col-4 p-1 ">
-                                    <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
+                                    <!-- <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
                                         <option value="1" disabled selected>Gender</option>
                                         <option  value="2">Female</option>
                                         <option value="3">Male</option>
-                                        
-                                    </select>
+                                    </select> -->
+                                    {{ form.gender.label }}
+                                    {{ form.gender }}
+                                    <p class="text-danger">{{ form.gender.errors }}</p>
                                 </div>
                             </div>
                         </div>
@@ -111,6 +121,7 @@
                                 <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
                                 <label class="toggle--btn" for="IsHosteler">Hosteler</label>
                             </div>
+                            <p class="text-danger">{{ form.hosteler.errors }}</p>
                         </div>
                         <!--button-->
                         <div class="text-center mt-4">
