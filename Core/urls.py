@@ -8,3 +8,5 @@ urlpatterns = [
     url(r'^blogs/$', BlogView.as_view(), name='blog'),
     url(r'^blogs/(?P<pk>\d+)/detail/$', BlogDetailView.as_view(), name='blog_detail')
 ]
+
+

@@ -141,3 +141,6 @@ class BlogDetailView(View):
         }
         
         return render(request, self.template_name, context=context)
+
+def view404(request):
+    return render(request, '404.html' )
