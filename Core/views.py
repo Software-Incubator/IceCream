@@ -20,6 +20,7 @@ class IndexView(View):
         print("projects",projects)
         context = kwargs
         event = Event.objects.filter(active=True).first()
+        print("Event",event)
         contact_form = ContactUsForm()
         contact_info = ContactInfo.objects.filter(active=True)
         # make projects list for Portfolio section
