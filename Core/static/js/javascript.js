@@ -39,18 +39,6 @@ $(document).ready(function(){
 			} // End if
 		  });
 
-	/******************* Type js init */
-
-	  
-	  var typed = new Typed("#typed", {
-		stringsElement: '#typed-strings',
-		typeSpeed: 30,
-		backSpeed: 15,
-		backDelay: 1000,
-		loop: true
-	});
-
-
 	/*********** Slider ***********/
 
 	var slideStart;

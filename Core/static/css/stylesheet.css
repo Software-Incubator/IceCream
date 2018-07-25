@@ -41,6 +41,7 @@ h1 {
   .open:hover { opacity: 0.8; }
   
   .open span {
+    border: 1px solid rgb(61, 61, 61);
     display: block;
     float: left;
     clear: both;
@@ -122,7 +123,7 @@ h1 {
     transform: rotate(45deg);
   }
   
-  .oppenned span:nth-child(1) { transform: rotate(45deg) translateY(12px) translateX(12px); }
+  .oppenned span:nth-child(1) { transform: rotate(45deg) translateY(12px) translateX(12px); border: none; }
   
   .oppenned span:nth-child(2) {
     height: 400px;
@@ -131,9 +132,10 @@ h1 {
     top: -160px;
     border-radius: 50%;
     background-color: rgba(38, 84, 133, 0.54);
+    border:none;
   }
   
-  .oppenned span:nth-child(3) { transform: rotate(-45deg) translateY(-5px) translateX(2px); }
+  .oppenned span:nth-child(3) { transform: rotate(-45deg) translateY(-5px) translateX(2px); border: none; }
   
   .oppenned li { margin-right: 168px; }
 
@@ -463,113 +465,17 @@ h1 {
     margin-left: 5em;
 }
 /*Android*/
-.container-nd{
-    margin: 4em auto;
-    position: relative;
-    transition: transform 1s linear, box-shadow 1s ease-in;
-    transition-delay: 0s, 1s;
-    -ms-animation: quicando 1s infinite;
-    -moz-animation: quicando 1s infinite;
-    -o-animation: quicando 1s infinite;
-    -webkit-animation: quicando 1s infinite;
-    animation: quicando 1s infinite;
-    -moz-animate-direction: alternate;
-    -ms-animate-direction: alternate;
-    -o-animate-direction: alternate;
-    animation-direction: alternate;
-    -moz-animation-timing-function: ease-in;
-    -ms-animation-timing-function: ease-in;
-    -o-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-    width: 80%;
+.floating{
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
-@-webkit-keyframes quicando{
-    from{
-        top: 0;
-    }
-    to{
-        top: 1em;
-    }
-}
-@keyframes quicando{
-    from{
-        top: 0;
-    }
-    to{
-        top: 1em;
-    }
-}
-.cabeca, .braco-esquerdo, .braco-direito,
-.perna-esquerda, .perna-direita, .cabeca:after,
-.cabeca:before{
-    background-color: #a4c739;    
-} 
-.cabeca:after, .cabeca:before{
-    border-radius: 115px;
-    content: "";
-    height: 24px;
-    position: absolute;
-    width: 3px;    
-    top: -6px;
-    
-}
-.cabeca:after{
-    transform: rotate(-39deg);
-    left: 13px;
-}
-.cabeca:before{
-    transform: rotate(31deg);
-    left: 102px;
-}
-.olho-esquerdo, .olho-direito{
-    background-color: #fff;
-    border-radius: 50%;
-    height: 10px;
-    position: absolute;
-    top: 20px;
-    width: 10px;
-}
-.olho-direito{left: 27px;}
-.olho-esquerdo{right: 27px;}
-.cabeca {    
-    border-radius: 200px 200px 38px 38px;
-    position: relative;
-    left: 2em;
-    min-height: 160px;
-    width: 120px;
-}
-.cabeca .boca {
-    background-color: #333;
-    height: 2px;
-    width: 100%;
-    position: absolute;
-    top: 3.2em;
-}
-.braco-direito, .braco-esquerdo{
-    border-radius: 55px;
-    height: 100px;
-    position: absolute;
-    top: 3em;
-    width: 30px;
-}
-.braco-esquerdo{   
-    left: -0.2em;   
-}
-.braco-direito{       
-    right: -0.7em;   
-}
-.perna-direita, .perna-esquerda{
-    border-radius: 55px;
-    height: 80px;
-    position: absolute; 
-    top: 130px;
-    width:35px; 
-}
-.perna-direita{    
-    left: 3em;   
-}
-.perna-esquerda{
-    left: 6.3em;
+
+@keyframes floating {
+    from { transform: translate(0, 0px); }
+    65%  { transform: translate(0, 15px); }
+    to {transform: translate(0, -0px); } 
 }
 
 /**** portfolio *****/
