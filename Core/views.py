@@ -66,7 +66,6 @@ class IndexView(View):
 class SaveContactView(View):
 
     def get(self, request):
-        print("1")
         name = request.GET['name']
         email = request.GET['email']
         contact = request.GET['contact']
@@ -94,18 +93,13 @@ class RegistrationView(FormView):
     # event=''
 
     def post(self, request, *args, **kwargs):
-        print("Here  We are!!")
         form = RegistrationForm(request.POST)
-        print()
-        print("Errors",dict(form.errors))
         if form.is_valid():
-            print("Submitted sucessfully")
             form.save()
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
             return redirect(reverse_lazy('home'))
         else:
-            print("Not submitted")
             # form=self.form_class()
             # form=RegistrationForm()
             return render(request, 'registration.html', {'form': form, 'event': self.event})

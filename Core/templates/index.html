@@ -430,9 +430,13 @@
                                         our team as well, connect with us.
                                     </p>
                                     <p>
-                                        You can give us a call on
-                                        email us at
-                                        <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a>
+                                        {% for contact in contact_info %}
+                                            You can give us a call on {{ contact.contact_number }}
+                                            or email us at <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a>
+                                        {% endfor %}
+                                        <!-- You can give us a call on 
+                                        or email us at
+                                        <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a> -->
                                     </p>
                                     <p>
                                         <span style="color: #0094ff;">Software Incubator - SDC Lab<br/>
@@ -827,16 +831,13 @@
                                         document.getElementById('status').innerHTML = "Message cannot be empty";
                                         return false;
                                     }
-                                    // var v = grecaptcha.getResponse();
-                                    // if(v.length == 0)
-                                    // {
-                                    //     document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
-                                    //     return false;
-                                    // }
-                                    
-                                    // console.log('sab sai hai');
+                                    var v = grecaptcha.getResponse();
+                                    if(v.length == 0)
+                                    {
+                                        document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
+                                        return false;
+                                    }
                                     document.getElementById('status').innerHTML = "Sending...";
-                                    // document.getElementById('contact-form').submit();
                                     var email;
                                     var name;
                                     var subject;
@@ -866,8 +867,6 @@
                                                     document.getElementById('centralModalLg2').style.display = "none";
                                                     document.querySelector('.modal-backdrop').classList = "modal-backdrop fade";
                                                 }, 2000);
-                                                
-                                                // window.onload = closeWindow();
                                             }    
                                         }
                                     });
