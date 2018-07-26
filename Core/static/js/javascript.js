@@ -126,8 +126,9 @@ $(document).ready(function(){
   siteNav();
 	
 	/* ********* WOW JS INIT ****************/
-	new WOW().init();
-	
+	// new WOW().init();
+	window.sr = ScrollReveal({ reset: true });
+	sr.reveal('.scroll');
 	/* ********* PARTICLES JS INIT ****************/
 	
 	
