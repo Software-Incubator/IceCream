@@ -128,12 +128,6 @@ $(document).ready(function(){
 	/* ********* WOW JS INIT ****************/
 	new WOW().init();
 	
-	
-	/* ********* Parallax js JS INIT ****************/
-	
-	var scene = document.getElementById('scene');
-	var parallaxInstance = new Parallax(scene);
-	
 	/* ********* PARTICLES JS INIT ****************/
 	
 	

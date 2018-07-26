@@ -3,6 +3,10 @@
 html{
     overflow-x: hidden;
     display:block;
+    font-family: 'Montserrat', sans-serif !important;
+}
+body {
+    font-family: 'Montserrat', sans-serif !important;
 }
 .container-fluid{
     padding: 0 !important;
@@ -590,11 +594,11 @@ h1 {
     background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
     background-blend-mode: multiply,multiply;
 }
-.aboutus_video{
+.video-frame{
     transition: .5s ease;
     box-shadow: 0 5px 20px #020202;
 }
-.aboutus_video:hover {
+.video-frame:hover {
     color: #3260B1;
     -webkit-box-shadow: 0 2px 2px rgba(41,47,56,0.1), 0 4px 4px rgba(41,47,56,0.1), 0 8px 8px rgba(41,47,56,0.1), 0 16px 16px rgba(41,47,56,0.1), 0 32px 32px rgba(41,47,56,0.1);
     box-shadow: 0 2px 2px rgba(41,47,56,0.1), 0 4px 4px rgba(41,47,56,0.1), 0 8px 8px rgba(41,47,56,0.1), 0 16px 16px rgba(41,47,56,0.1), 0 32px 32px rgba(41,47,56,0.1);
