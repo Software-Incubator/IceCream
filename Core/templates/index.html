@@ -54,15 +54,20 @@
         <section class="elements">
             <div class="content-si">
                 <div class="container">
-                    <div id="scene" class="row justify-content-center">       
-                        <div class="col-sm-10 col-md-6 col-lg-3 col-xl-3">
+                    <div id="scene" class="row justify-content-center">  
+                        <div class="text-center">
+                            <img style="width:40%" class="logo-image" src="../static/images/silogo.svg" alt="si_logo">
+                            <h1 class="redlit2">Software Incubator</h1>
+                        </div>     
+                        
+                        <!-- <div class="col-sm-10 col-md-6 col-lg-3 col-xl-3">
                             <img class="logo-image" src="../static/images/silogo.svg" alt="si_logo">
                         </div>
                         <div class="redlit wow fadeIn mx-auto col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
-                            <h1>Software Incubator</h1>
-                        </div>
+                            
+                        </div> -->
                     </div>
-                    <br><br><br><br><br><br>
+                    <br><br><br><br><br><br> -->
                 </div>
             </div>
             <div id="particles-js" class="background" style="background-image: url(../static/images/backtheme.svg);"></div>
@@ -287,10 +292,10 @@
         <section id="About-us" class="aboutus_section">
             <div class="container">                        
                 <div class="row">
-                    <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12 my-4">
+                    <div class="text-center col-sm-12 col-md-12 col-lg-12 my-4">
                         <h1>About Us</h1>
                     </div>
-                    <div class="wow fadeIn col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="wow fadeIn col-sm-12 col-md-6 col-lg-6">
                         <p><b>Software Incubator</b> is the research and develoment center established within
                             the portal of Ajay Kumar Garg Engineering College. We
                             have set a foothold in the areas of software
@@ -333,7 +338,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="wow fadeInRight col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="wow fadeInRight col-sm-12 col-md-6 col-lg-6">
                                     <a target="_blank" href="https://www.youtube.com/watch?v=fC9xDssPzLw"><img class="video-frame lazy" src="../static/images/video.jpg"></a>
                                 </div>
                             </div>
@@ -863,10 +868,20 @@
                                         },
                                         dataType: 'json',
                                         success: function (data) {
-                                            console.log(data);
-                                            document.getElementById('status').innerHTML = data['message'];
-                                            document.getElementById('status').style.color = "green";
-                                            document.getElementById('status').classList = "text-center";
+                                            if(data['done'] == 1){
+                                                console.log(data);
+                                                document.getElementById('status').innerHTML = data['message'];
+                                                document.getElementById('status').style.color = "green";
+                                                document.getElementById('status').classList = "text-center";
+                                                var win = document.getElementById('contact-form')
+                                                console.log("here1");
+                                                setTimeout(function() {
+                                                    console.log("here2");
+                                                    win.close();
+                                                }, 2000);
+                                                
+                                                // window.onload = closeWindow();
+                                            }    
                                         }
                                     });
                                 }

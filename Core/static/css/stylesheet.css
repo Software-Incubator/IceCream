@@ -199,6 +199,13 @@ h1 {
     left: 35% !important;
     font-family: 'Montserrat', sans-serif;
 }
+.redlit2{
+    position: relative;
+    margin-top:-20px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
 .content-si {
     position: relative !important;
     height: auto;
@@ -309,11 +316,10 @@ h1 {
     position:relative;
     max-width: 100%; 
 }
-.logo-image{
+/* .logo-image{
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
-    margin-top:-100%;
-}
+} */
 /***************  Type Js ***********************/
 
 .believe {
@@ -595,6 +601,7 @@ h1 {
     background-blend-mode: multiply,multiply;
 }
 .video-frame{
+    max-width:100%;
     transition: .5s ease;
     box-shadow: 0 5px 20px #020202;
 }

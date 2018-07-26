@@ -17,10 +17,8 @@ class IndexView(View):
 
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
-        print("projects",projects)
         context = kwargs
         event = Event.objects.filter(active=True).first()
-        print("Event",event)
         contact_form = ContactUsForm()
         contact_info = ContactInfo.objects.filter(active=True)
         # make projects list for Portfolio section
@@ -31,7 +29,6 @@ class IndexView(View):
             project_lists.append(projects[i * 3 + 3:])
         else:
             project_lists = [projects, ]
-        print("projects_list",project_lists)
 
         # make members list for Member section
         i = 0
@@ -77,6 +74,10 @@ class SaveContactView(View):
         subject = request.GET['subject']
         d = dict()
         con = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
+        if con:
+            d['done']=1
+        else:
+            d['done']=0
         d['message']='Request successfully registered.'
         x = json.dumps(d)
         return HttpResponse(x)
@@ -97,9 +98,6 @@ class RegistrationView(FormView):
         form = RegistrationForm(request.POST)
         print()
         print("Errors",dict(form.errors))
-        # error = dict(form.errors)
-        # print("Error", form.errors.email)
-        # form = self.form_class(request.POST)
         if form.is_valid():
             print("Submitted sucessfully")
             form.save()
