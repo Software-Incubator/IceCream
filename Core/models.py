@@ -47,6 +47,8 @@ class Event(models.Model):
     active = models.BooleanField(default=False, validators=[event_validator, ])
     pic_path = models.FileField(upload_to=events_upload_location, null=True,
                                 default=None)
+    small_pic_path = models.FileField(upload_to=events_upload_location, null=True,
+                                default=None)
 
 
     def __str__(self):

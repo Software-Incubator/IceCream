@@ -88,8 +88,9 @@ class RegistrationView(FormView):
     success_url = reverse_lazy('home')
 
     form_class = RegistrationForm
-
+    
     event = Event.objects.filter(active=True).first()
+    # event=''
 
     def post(self, request, *args, **kwargs):
         print("Here  We are!!")
@@ -143,4 +144,4 @@ class BlogDetailView(View):
         return render(request, self.template_name, context=context)
 
 def view404(request):
-    return render(request, '404.html' )
+    return render(request, '404.html')
