@@ -1,5 +1,5 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member, ContactInfo, Blog, Event, ContactUs
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
@@ -94,11 +94,17 @@ class RegistrationView(FormView):
 
     def post(self, request, *args, **kwargs):
         form = RegistrationForm(request.POST)
+        print(((dict(request.POST))['student_number'])[0])
         if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS,
+            if Registration.objects.get(student_number=((dict(request.POST))['student_number'])[0], event=self.event):
+                print("1")
+                message='Already Registered!!'
+                return render(request, 'registration.html', {'form': form, 'event': self.event, 'message':message})
+            else: 
+                form.save()
+                messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
-            return redirect(reverse_lazy('home'))
+                return redirect(reverse_lazy('home'))
         else:
             # form=self.form_class()
             # form=RegistrationForm()

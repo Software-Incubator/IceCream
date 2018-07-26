@@ -22,6 +22,7 @@
 
 <body>
     <!--HTML-->
+    
     <div class="container-fluid" id="main_container">
         <div class="container-fluid mx-auto mt-lg-5" id="second_container">
             <div class="row ">
@@ -71,7 +72,7 @@
                         <!--choose Branch-->
                         <div class="md-form">
                             <div class="row p-1">
-                                <div class="col-4 p-1">
+                                <div class="col-4 p-1 ">
                                     <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
                                         <option value="1" disabled selected>Branch</option>
                                         <option  value="2">CSE</option>
@@ -84,7 +85,7 @@
                                         <option value="9" >MCA</option>
                                     </select> -->
                                     {{ form.branch.label }}
-                                    {{ form.branch }}
+                                    <div class="hoverable"> {{ form.branch }}</div>
                                     <span style="color: red">{{ form.branch.errors }}</span>
                                 </div>
                                 <!--choose year-->
@@ -96,7 +97,7 @@
                                         <option value="4">III</option>
                                     </select> -->
                                     {{ form.year.label }}
-                                    {{ form.year }}
+                                    <div class="hoverable"> {{ form.year }}</div>
                                     <span style="color: red">{{ form.year.errors }}</span>
                                 </div>
                                 <!--choose gender-->
@@ -107,7 +108,7 @@
                                         <option value="3">Male</option>
                                     </select> -->
                                     {{ form.gender.label }}
-                                    {{ form.gender }}
+                                    <div class="hoverable"> {{ form.gender }}</div>
                                     <span style="color: red">{{ form.gender.errors }}</span>
                                 </div>
                             </div>
@@ -122,6 +123,7 @@
                             <span style="color: red">{{ form.hosteler.errors }}</span>
                         </div>
                         <!--button-->
+                        <center style="color: red" >{{ message }}</center>
                         <div class="text-center mt-4">
                             <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
                         </div>
@@ -136,7 +138,8 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer class="page-footer font-small pt-4">
+    <div class="container-fluid"></div>
+    <footer class="page-footer font-small pt-4 mt-1">
         
         <!-- Footer Links -->
         <div class="footer-container container text-center text-md-left">
@@ -299,7 +302,7 @@
             <!-- Copyright -->
             
         </footer>
-        
+    </div>
         <!-- SCRIPTS -->
         <!-- JQuery -->
         

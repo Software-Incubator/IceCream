@@ -4,15 +4,16 @@ body
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif !important;
 }
+
 #main_container
 {
-  height: 100vh;
   background-color: white;
 }
 #second_container
 {
   height: 100vh;
 }
+
 .poster_image,.poster_image_small
 {
   background-color: white;

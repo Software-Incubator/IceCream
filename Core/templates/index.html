@@ -91,14 +91,19 @@
                 </div>
             </div>
         </section>
-        <!-- ============================================================================================== Services  -->
         
+        <!-- ============================================================================================== Services  -->
+        {% for message in messages %}
+        <div class="alert alert-success" id="success_message">
+            <strong>{{ message }}</strong>
+        </div>
+        {% endfor %}
         <!-- Error -->
         <section id="Services" class="large-div">
             <div class="slider-con container">                        
                 <div class="row">
                     <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12 my-4">
-                        <h1 class="align-middle">Our Services</h1>
+                        <h1 class="align-middle">What we do</h1>
                     </div>
                 </div>
             </div>
@@ -228,7 +233,7 @@
                     <div class="modal-body">
                         <div class="container">
                             <!-- Card deck -->
-                                    <div class="row">
+                            <div class="row">
                                 {% for pro_row in projects %}
                                 {% for pro in pro_row %}
                                 <div class="col-sm-12 col-md-6 col-lg-4 card mb-4 p-0">
@@ -254,8 +259,8 @@
                                 {% endfor %}
                                 {% endfor %}
                                 <!-- Card -->
-                            <!-- Card deck -->
-                        </div>
+                                <!-- Card deck -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -431,447 +436,447 @@
                                     </p>
                                     <p>
                                         {% for contact in contact_info %}
-                                            You can give us a call on {{ contact.contact_number }}
-                                            or email us at <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a>
+                                        You can give us a call on {{ contact.contact_number }}
+                                        or email us at <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a>
                                         {% endfor %}
                                         <!-- You can give us a call on 
-                                        or email us at
-                                        <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a> -->
-                                    </p>
-                                    <p>
-                                        <span style="color: #0094ff;">Software Incubator - SDC Lab<br/>
-                                            Ajay Kumar Garg Engineering College,<br/>
-                                            27th Km milestone NH-24 Delhi-Hapur Bypass,<br/>
-                                            Adhyatmik Nagar Ghaziabad, Uttar Pradesh - 201009.</span>
+                                            or email us at
+                                            <a href="mailto:si.akgec14@gmail.com">si.akgec14@gmail.com</a> -->
                                         </p>
-                                        <div class="text-center my-4">
-                                            <button type="button" class="contact_button" data-toggle="modal" data-target="#centralModalLg2">Contact Us</button>
+                                        <p>
+                                            <span style="color: #0094ff;">Software Incubator - SDC Lab<br/>
+                                                Ajay Kumar Garg Engineering College,<br/>
+                                                27th Km milestone NH-24 Delhi-Hapur Bypass,<br/>
+                                                Adhyatmik Nagar Ghaziabad, Uttar Pradesh - 201009.</span>
+                                            </p>
+                                            <div class="text-center my-4">
+                                                <button type="button" class="contact_button" data-toggle="modal" data-target="#centralModalLg2">Contact Us</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Central Modal Large -->
-                            <div class="modal fade" id="centralModalLg2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="contactus-modal modal-dialog modal-lg" role="document">
-                                    <!--Content-->
-                                    <div class="modal-content">
-                                        <!--Header-->
-                                        <div class="modal-header">
-                                            <h4 class="text-center modal-title w-100" id="myModalLabel">Contact Us</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <!--Body-->
-                                        <div class="modal-body">
-                                            <form id="contact-form" name="contact_form">
-                                                <!-- <form id="contact-form" name="contact_form" method="POST" action="/" enctype="multipart/form-data"> -->
-                                                    {% csrf_token %}
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        
-                                                        <!--Grid column-->
-                                                        <div class="col-md-12">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="name" name="name" class="form-control">
-                                                                <label for="name" class="">Your name</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        
-                                                        <!--Grid column-->
-                                                        <div class="col-md-12">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="email" name="email" class="form-control">
-                                                                <label for="email" class="">Your email</label>
-                                                            </div>
-                                                        </div>
-                                                        <!--Grid column-->
-                                                        
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="subject" name="subject" class="form-control">
-                                                                <label for="subject" class="">Subject</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="md-form mb-0">
-                                                                <input type="text" id="contact" name="contact" class="form-control">
-                                                                <label for="contact" class="">Contact Number</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <!--Grid row-->
-                                                    <div class="row">
-                                                        
-                                                        <!--Grid column-->
-                                                        <div class="col-md-12">
+                                <!-- Central Modal Large -->
+                                <div class="modal fade" id="centralModalLg2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="contactus-modal modal-dialog modal-lg" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                            <!--Header-->
+                                            <div class="modal-header">
+                                                <h4 class="text-center modal-title w-100" id="myModalLabel">Contact Us</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <!--Body-->
+                                            <div class="modal-body">
+                                                <form id="contact-form" name="contact_form">
+                                                    <!-- <form id="contact-form" name="contact_form" method="POST" action="/" enctype="multipart/form-data"> -->
+                                                        {% csrf_token %}
+                                                        <!--Grid row-->
+                                                        <div class="row">
                                                             
-                                                            <div class="md-form">
-                                                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                                                                <label for="message">Your message</label>
-                                                            </div> 
+                                                            <!--Grid column-->
+                                                            <div class="col-md-12">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="name" name="name" class="form-control">
+                                                                    <label for="name" class="">Your name</label>
+                                                                </div>
+                                                            </div>
+                                                            <!--Grid column-->
+                                                            
+                                                            <!--Grid column-->
+                                                            <div class="col-md-12">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="email" name="email" class="form-control">
+                                                                    <label for="email" class="">Your email</label>
+                                                                </div>
+                                                            </div>
+                                                            <!--Grid column-->
+                                                            
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <!--Grid column-->
-                                                        <div class="col-md-12">
-                                                            <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                                                        <!--Grid row-->
+                                                        
+                                                        <!--Grid row-->
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="subject" name="subject" class="form-control">
+                                                                    <label for="subject" class="">Subject</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!--Grid row-->
-                                                    <div class="text-center text-danger" id="status"></div>
-                                                    <div class="text-center text-md-center">
-                                                        <a class="btn btn-primary" onclick="validateForm()" >Send</a>
-                                                    </div>
-                                                </form>
+                                                        <!--Grid row-->
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="contact" name="contact" class="form-control">
+                                                                    <label for="contact" class="">Contact Number</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!--Grid row-->
+                                                        <div class="row">
+                                                            
+                                                            <!--Grid column-->
+                                                            <div class="col-md-12">
+                                                                
+                                                                <div class="md-form">
+                                                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                                                    <label for="message">Your message</label>
+                                                                </div> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <!--Grid column-->
+                                                            <div class="col-md-12">
+                                                                <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid row-->
+                                                        <div class="text-center text-danger" id="status"></div>
+                                                        <div class="text-center text-md-center">
+                                                            <a class="btn btn-primary" onclick="validateForm()" >Send</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
+                                            <!--/.Content-->
                                         </div>
-                                        <!--/.Content-->
                                     </div>
-                                </div>
-                            </section>
-                            
-                            <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-                            
-                            
-                            
-                            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footer  -->
-                            <footer class="page-footer font-small pt-4">
+                                </section>
                                 
-                                <!-- Footer Links -->
-                                <div class="footer-container container text-center text-md-left">
+                                <!-- >>>>>>>>>>>>>>>>>>>>>>>>> Conatct Map <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+                                
+                                
+                                
+                                <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footer  -->
+                                <footer class="page-footer font-small pt-4">
                                     
-                                    <!-- Grid row -->
-                                    <div class="row">
-                                        
-                                        <!-- Grid column -->
-                                        <div class="col-md-4 mx-auto">
-                                            
-                                            <!-- Content -->
-                                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
-                                            <p>WE BELIEVE IN</p>
-                                            <p>Redefine Limitations</p>
-                                            <p>Innovating Insanely!</p>
-                                            <p>Learning Technologies.</p>
-                                            <p>Sharing Intelligence!
-                                                
-                                            </div>
-                                            <!-- Grid column -->
-                                            
-                                            <hr class="clearfix w-100 d-md-none">
-                                            
-                                            <!-- Grid column -->
-                                            <div class="col-sm-4 col-md-2">
-                                                
-                                                <!-- Links -->
-                                                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
-                                                
-                                                <ul class="list-unstyled">
-                                                    <li>
-                                                        <a href="http://akgec.in/">AKGEC</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://techtrishna.in/">TechTrishna</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://akgec-scrolls.com/">Scrolls</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://techtrishna.in/directme">DirectMe</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://bytepad.silive.in/">Bytepad</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://resume.silive.in/">Resume Builder</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://techtrishna.in/photoweb">Photoweb</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://akgec.in/bdc">Blood Donation Camp</a>
-                                                    </li>
-                                                </ul>
-                                                
-                                            </div>
-                                            <!-- Grid column -->
-                                            
-                                            <!-- Grid column -->
-                                            <div class="col-sm-4 col-md-2">
-                                                
-                                                <!-- Links -->
-                                                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-                                                
-                                                <ul class="list-unstyled">
-                                                    <li>
-                                                        <a>Mobile Development</a>
-                                                    </li>
-                                                    <li>
-                                                        <a>Website Development</a>
-                                                    </li>
-                                                    <li>
-                                                        <a >Desktop Development</a>
-                                                    </li>
-                                                    <li>
-                                                        <a>Web And Graphic Designing</a>
-                                                    </li>
-                                                </ul>
-                                                
-                                            </div>
-                                            <!-- Grid column -->
-                                            
-                                            <!-- Grid column -->
-                                            <div class="col-sm-4 col-md-2">
-                                                
-                                                <!-- Links -->
-                                                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
-                                                
-                                                <ul class="list-unstyled">
-                                                    <li>
-                                                        <a href="http://akgec.in/">AKGEC</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://4thpointer.com/">4th Pointer</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://india.ni.com/">National Instrument</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://tifac-core-akgec.org/">TIFAC</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://www.kuka.com/">KUKA</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://www.akgec-bosch.org/">Rexroth</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://gmaindia.org/">GMA</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://www.digitalnet.com/">Brain Soft</a>
-                                                    </li>
-                                                </ul>
-                                                
-                                            </div>
-                                            <!-- Grid column -->
-                                            
-                                        </div>
-                                        <!-- Grid row -->
-                                        
-                                    </div>
                                     <!-- Footer Links -->
-                                    
-                                    <hr>
-                                    
-                                    <!-- Social buttons -->
-                                    <ul class="list-unstyled list-inline text-center">
-                                        <li class="list-inline-item">
-                                            <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
-                                                <i class="fa fa-facebook"> </i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
-                                                <i class="fa fa-twitter"> </i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
-                                                <i class="fa fa-github"> </i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
-                                                <i class="fa fa-youtube-play"> </i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <!-- Social buttons -->
-                                    
-                                    <!-- Copyright -->
-                                    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                                        <a href="https://silive.in">Software Incubator</a>
-                                    </div>
-                                    <!-- Copyright -->
-                                    
-                                </footer>
-                                <!-- Footer -->
-                            </div>
-                            
-                            
-                            <!-- JQuery -->
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                            <!-- Bootstrap tooltips -->
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-                            <!-- Bootstrap core JavaScript -->
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-                            <!-- MDB core JavaScript -->
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
-                            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" type="text/javascript"></script> -->
-                            <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-                            <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" type="text/javascript"></script>
-                            <script src="../static/js/typed.min.js"></script>
-                            <!-- swiper js -->
-                            <script src="../static/js/ticker.min.js"></script>
-                            <!-- User JavaScript for lazyloader -->
-                            <script>
-                                registerListener('load', setLazy);
-                                registerListener('load', lazyLoad);
-                                registerListener('scroll', lazyLoad);
+                                    <div class="footer-container container text-center text-md-left">
+                                        
+                                        <!-- Grid row -->
+                                        <div class="row">
+                                            
+                                            <!-- Grid column -->
+                                            <div class="col-md-4 mx-auto">
+                                                
+                                                <!-- Content -->
+                                                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
+                                                <p>WE BELIEVE IN</p>
+                                                <p>Redefine Limitations</p>
+                                                <p>Innovating Insanely!</p>
+                                                <p>Learning Technologies.</p>
+                                                <p>Sharing Intelligence!
+                                                    
+                                                </div>
+                                                <!-- Grid column -->
+                                                
+                                                <hr class="clearfix w-100 d-md-none">
+                                                
+                                                <!-- Grid column -->
+                                                <div class="col-sm-4 col-md-2">
+                                                    
+                                                    <!-- Links -->
+                                                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
+                                                    
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <a href="http://akgec.in/">AKGEC</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://techtrishna.in/">TechTrishna</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://akgec-scrolls.com/">Scrolls</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://techtrishna.in/directme">DirectMe</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://bytepad.silive.in/">Bytepad</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://resume.silive.in/">Resume Builder</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://techtrishna.in/photoweb">Photoweb</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://akgec.in/bdc">Blood Donation Camp</a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                </div>
+                                                <!-- Grid column -->
+                                                
+                                                <!-- Grid column -->
+                                                <div class="col-sm-4 col-md-2">
+                                                    
+                                                    <!-- Links -->
+                                                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+                                                    
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <a>Mobile Development</a>
+                                                        </li>
+                                                        <li>
+                                                            <a>Website Development</a>
+                                                        </li>
+                                                        <li>
+                                                            <a >Desktop Development</a>
+                                                        </li>
+                                                        <li>
+                                                            <a>Web And Graphic Designing</a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                </div>
+                                                <!-- Grid column -->
+                                                
+                                                <!-- Grid column -->
+                                                <div class="col-sm-4 col-md-2">
+                                                    
+                                                    <!-- Links -->
+                                                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
+                                                    
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <a href="http://akgec.in/">AKGEC</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://4thpointer.com/">4th Pointer</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://india.ni.com/">National Instrument</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://www.kuka.com/">KUKA</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://www.akgec-bosch.org/">Rexroth</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://gmaindia.org/">GMA</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="http://www.digitalnet.com/">Brain Soft</a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                </div>
+                                                <!-- Grid column -->
+                                                
+                                            </div>
+                                            <!-- Grid row -->
+                                            
+                                        </div>
+                                        <!-- Footer Links -->
+                                        
+                                        <hr>
+                                        
+                                        <!-- Social buttons -->
+                                        <ul class="list-unstyled list-inline text-center">
+                                            <li class="list-inline-item">
+                                                <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
+                                                    <i class="fa fa-facebook"> </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
+                                                    <i class="fa fa-twitter"> </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
+                                                    <i class="fa fa-github"> </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
+                                                    <i class="fa fa-youtube-play"> </i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- Social buttons -->
+                                        
+                                        <!-- Copyright -->
+                                        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                                            <a href="https://silive.in">Software Incubator</a>
+                                        </div>
+                                        <!-- Copyright -->
+                                        
+                                    </footer>
+                                    <!-- Footer -->
+                                </div>
                                 
-                                var lazy = [];
                                 
-                                function setLazy(){
-                                    lazy = document.getElementsByClassName('lazy');
-                                } 
-                                
-                                function lazyLoad(){
-                                    for(var i=0; i<lazy.length; i++){
-                                        if(isInViewport(lazy[i])){
-                                            if (lazy[i].getAttribute('data-src')){
-                                                lazy[i].src = lazy[i].getAttribute('data-src');
-                                                lazy[i].removeAttribute('data-src');
+                                <!-- JQuery -->
+                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                                <!-- Bootstrap tooltips -->
+                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+                                <!-- Bootstrap core JavaScript -->
+                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                                <!-- MDB core JavaScript -->
+                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+                                <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" type="text/javascript"></script> -->
+                                <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+                                <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" type="text/javascript"></script>
+                                <script src="../static/js/typed.min.js"></script>
+                                <!-- swiper js -->
+                                <script src="../static/js/ticker.min.js"></script>
+                                <!-- User JavaScript for lazyloader -->
+                                <script>
+                                    registerListener('load', setLazy);
+                                    registerListener('load', lazyLoad);
+                                    registerListener('scroll', lazyLoad);
+                                    
+                                    var lazy = [];
+                                    
+                                    function setLazy(){
+                                        lazy = document.getElementsByClassName('lazy');
+                                    } 
+                                    
+                                    function lazyLoad(){
+                                        for(var i=0; i<lazy.length; i++){
+                                            if(isInViewport(lazy[i])){
+                                                if (lazy[i].getAttribute('data-src')){
+                                                    lazy[i].src = lazy[i].getAttribute('data-src');
+                                                    lazy[i].removeAttribute('data-src');
+                                                }
                                             }
                                         }
+                                        
+                                        cleanLazy();
                                     }
                                     
-                                    cleanLazy();
-                                }
-                                
-                                function cleanLazy(){
-                                    lazy = Array.prototype.filter.call(lazy, function(l){ return l.getAttribute('data-src');});
-                                }
-                                
-                                function isInViewport(el){
-                                    var rect = el.getBoundingClientRect();
+                                    function cleanLazy(){
+                                        lazy = Array.prototype.filter.call(lazy, function(l){ return l.getAttribute('data-src');});
+                                    }
                                     
-                                    return (
-                                    rect.bottom >= 0 && 
-                                    rect.right >= 0 && 
-                                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) && 
-                                    rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-                                    );
-                                }
-                                
-                                function registerListener(event, func) {
-                                    if (window.addEventListener) {
-                                        window.addEventListener(event, func)
-                                    } else {
-                                        window.attachEvent('on' + event, func)
+                                    function isInViewport(el){
+                                        var rect = el.getBoundingClientRect();
+                                        
+                                        return (
+                                        rect.bottom >= 0 && 
+                                        rect.right >= 0 && 
+                                        rect.top <= (window.innerHeight || document.documentElement.clientHeight) && 
+                                        rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+                                        );
                                     }
-                                }
-                            </script>
-                            <script src="../static/js/javascript.js"></script>
-                            <script src='https://www.google.com/recaptcha/api.js'></script>
-                            <script>
-                                /******************* Type js init */
-                                
-                                
-                                var typed = new Typed("#typed", {
-                                    stringsElement: '#typed-strings',
-                                    typeSpeed: 30,
-                                    backSpeed: 15,
-                                    backDelay: 1000,
-                                    loop: true
-                                });
-                                
-                                
-                            </script>
-                            <script>
-                                function validateForm() {
-                                    var name =  document.getElementById('name').value;
-                                    if (name == "") {
-                                        document.getElementById('status').innerHTML = "Name cannot be empty";
-                                        return false;
-                                    }
-                                    var email =  document.getElementById('email').value;
-                                    if (email == "") {
-                                        document.getElementById('status').innerHTML = "Email cannot be empty";
-                                        return false;
-                                    } else {
-                                        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                                        if(!re.test(email)){
-                                            document.getElementById('status').innerHTML = "Email format invalid";
-                                            return false;
+                                    
+                                    function registerListener(event, func) {
+                                        if (window.addEventListener) {
+                                            window.addEventListener(event, func)
+                                        } else {
+                                            window.attachEvent('on' + event, func)
                                         }
                                     }
-                                    var subject =  document.getElementById('subject').value;
-                                    if (subject == "") {
-                                        document.getElementById('status').innerHTML = "Subject cannot be empty";
-                                        return false;
-                                    }
-                                    var contact =  document.getElementById('contact').value;
-                                    if (contact == "") {
-                                        document.getElementById('status').innerHTML = "Contact number cannot be empty";
-                                        return false;
-                                    } 
-                                    else {
-                                        var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
-                                        if(!re.test(contact)){
-                                            document.getElementById('status').innerHTML = "Contact number format invalid";
-                                            return false;
-                                        }
-                                    }
-                                    var message =  document.getElementById('message').value;
-                                    if (message == "") {
-                                        document.getElementById('status').innerHTML = "Message cannot be empty";
-                                        return false;
-                                    }
-                                    var v = grecaptcha.getResponse();
-                                    if(v.length == 0)
-                                    {
-                                        document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
-                                        return false;
-                                    }
-                                    document.getElementById('status').innerHTML = "Sending...";
-                                    var email;
-                                    var name;
-                                    var subject;
-                                    var contact;
-                                    var message;
-                                    name = $('#name').val();
-                                    email = $('#email').val();
-                                    subject = $('#subject').val();
-                                    contact = $('#contact').val();
-                                    message = $('#message').val();
-                                    $.ajax({
-                                        url: '{% url 'save_contact' %}',
-                                        data: {
-                                            'email': email,
-                                            'name': name,
-                                            'contact': contact,
-                                            'message': message,
-                                            'subject':subject,
-                                        },
-                                        dataType: 'json',
-                                        success: function (data) {
-                                            if(data['done'] == 1){
-                                                document.getElementById('status').innerHTML = data['message'];
-                                                document.getElementById('status').style.color = "green";
-                                                document.getElementById('status').classList = "text-center";
-                                                setTimeout(function() {
-                                                    document.getElementById('centralModalLg2').style.display = "none";
-                                                    document.querySelector('.modal-backdrop').classList = "modal-backdrop fade";
-                                                }, 2000);
-                                            }    
-                                        }
+                                </script>
+                                <script src="../static/js/javascript.js"></script>
+                                <script src='https://www.google.com/recaptcha/api.js'></script>
+                                <script>
+                                    /******************* Type js init */
+                                    
+                                    
+                                    var typed = new Typed("#typed", {
+                                        stringsElement: '#typed-strings',
+                                        typeSpeed: 30,
+                                        backSpeed: 15,
+                                        backDelay: 1000,
+                                        loop: true
                                     });
-                                }
-                            </script>
-                            
-                        </body>
-                        </html>
+                                    
+                                    
+                                </script>
+                                <script>
+                                    function validateForm() {
+                                        var name =  document.getElementById('name').value;
+                                        if (name == "") {
+                                            document.getElementById('status').innerHTML = "Name cannot be empty";
+                                            return false;
+                                        }
+                                        var email =  document.getElementById('email').value;
+                                        if (email == "") {
+                                            document.getElementById('status').innerHTML = "Email cannot be empty";
+                                            return false;
+                                        } else {
+                                            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                            if(!re.test(email)){
+                                                document.getElementById('status').innerHTML = "Email format invalid";
+                                                return false;
+                                            }
+                                        }
+                                        var subject =  document.getElementById('subject').value;
+                                        if (subject == "") {
+                                            document.getElementById('status').innerHTML = "Subject cannot be empty";
+                                            return false;
+                                        }
+                                        var contact =  document.getElementById('contact').value;
+                                        if (contact == "") {
+                                            document.getElementById('status').innerHTML = "Contact number cannot be empty";
+                                            return false;
+                                        } 
+                                        else {
+                                            var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
+                                            if(!re.test(contact)){
+                                                document.getElementById('status').innerHTML = "Contact number format invalid";
+                                                return false;
+                                            }
+                                        }
+                                        var message =  document.getElementById('message').value;
+                                        if (message == "") {
+                                            document.getElementById('status').innerHTML = "Message cannot be empty";
+                                            return false;
+                                        }
+                                        var v = grecaptcha.getResponse();
+                                        if(v.length == 0)
+                                        {
+                                            document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
+                                            return false;
+                                        }
+                                        document.getElementById('status').innerHTML = "Sending...";
+                                        var email;
+                                        var name;
+                                        var subject;
+                                        var contact;
+                                        var message;
+                                        name = $('#name').val();
+                                        email = $('#email').val();
+                                        subject = $('#subject').val();
+                                        contact = $('#contact').val();
+                                        message = $('#message').val();
+                                        $.ajax({
+                                            url: '{% url 'save_contact' %}',
+                                            data: {
+                                                'email': email,
+                                                'name': name,
+                                                'contact': contact,
+                                                'message': message,
+                                                'subject':subject,
+                                            },
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                if(data['done'] == 1){
+                                                    document.getElementById('status').innerHTML = data['message'];
+                                                    document.getElementById('status').style.color = "green";
+                                                    document.getElementById('status').classList = "text-center";
+                                                    setTimeout(function() {
+                                                        document.getElementById('centralModalLg2').style.display = "none";
+                                                        document.querySelector('.modal-backdrop').classList = "modal-backdrop fade";
+                                                    }, 2000);
+                                                }    
+                                            }
+                                        });
+                                    }
+                                </script>
+                                
+                            </body>
+                            </html>
