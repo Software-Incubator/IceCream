@@ -228,10 +228,10 @@
                     <div class="modal-body">
                         <div class="container">
                             <!-- Card deck -->
-                            <div class="card-deck">
+                                    <div class="row">
                                 {% for pro_row in projects %}
                                 {% for pro in pro_row %}
-                                <div class="card mb-4">
+                                <div class="col-sm-12 col-md-6 col-lg-4 card mb-4 p-0">
                                     <!--Card image-->
                                     <div class="view overlay">
                                         <img class="card-img-top lazy" data-src="{{ pro.image_path.url }}" alt="Card image cap">
@@ -254,8 +254,8 @@
                                 {% endfor %}
                                 {% endfor %}
                                 <!-- Card -->
-                            </div>
                             <!-- Card deck -->
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -733,7 +733,6 @@
                                 
                                 function setLazy(){
                                     lazy = document.getElementsByClassName('lazy');
-                                    console.log('Found ' + lazy.length + ' lazy images');
                                 } 
                                 
                                 function lazyLoad(){
@@ -790,7 +789,6 @@
                             </script>
                             <script>
                                 function validateForm() {
-                                    console.log('hi');
                                     var name =  document.getElementById('name').value;
                                     if (name == "") {
                                         document.getElementById('status').innerHTML = "Name cannot be empty";
@@ -829,18 +827,16 @@
                                         document.getElementById('status').innerHTML = "Message cannot be empty";
                                         return false;
                                     }
-                                    var v = grecaptcha.getResponse();
-                                    if(v.length == 0)
-                                    {
-                                        document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
-                                        return false;
-                                    }
+                                    // var v = grecaptcha.getResponse();
+                                    // if(v.length == 0)
+                                    // {
+                                    //     document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
+                                    //     return false;
+                                    // }
                                     
                                     // console.log('sab sai hai');
                                     document.getElementById('status').innerHTML = "Sending...";
                                     // document.getElementById('contact-form').submit();
-                                    console.log(1);
-                                    console.log(3);
                                     var email;
                                     var name;
                                     var subject;
@@ -851,12 +847,6 @@
                                     subject = $('#subject').val();
                                     contact = $('#contact').val();
                                     message = $('#message').val();
-                                    console.log(name);
-                                    console.log(email);
-                                    console.log(contact);
-                                    console.log(message);
-                                    console.log(subject);
-                                    console.log(4);
                                     $.ajax({
                                         url: '{% url 'save_contact' %}',
                                         data: {
@@ -869,15 +859,12 @@
                                         dataType: 'json',
                                         success: function (data) {
                                             if(data['done'] == 1){
-                                                console.log(data);
                                                 document.getElementById('status').innerHTML = data['message'];
                                                 document.getElementById('status').style.color = "green";
                                                 document.getElementById('status').classList = "text-center";
-                                                var win = document.getElementById('contact-form')
-                                                console.log("here1");
                                                 setTimeout(function() {
-                                                    console.log("here2");
-                                                    win.close();
+                                                    document.getElementById('centralModalLg2').style.display = "none";
+                                                    document.querySelector('.modal-backdrop').classList = "modal-backdrop fade";
                                                 }, 2000);
                                                 
                                                 // window.onload = closeWindow();

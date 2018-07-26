@@ -25,7 +25,7 @@ class IndexView(View):
         i = 0
         if len(projects) > 3:
             project_lists = [projects[i * 3: i * 3 + 3] for i in
-                             range(len(projects) / 3)]
+                             range(int(len(projects) / 3))]
             project_lists.append(projects[i * 3 + 3:])
         else:
             project_lists = [projects, ]
