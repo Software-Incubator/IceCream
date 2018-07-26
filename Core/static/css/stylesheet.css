@@ -1,5 +1,6 @@
 
 /************************ General *********************************/
+
 html{
     overflow-x: hidden;
     display:block;
@@ -316,10 +317,10 @@ h1 {
     position:relative;
     max-width: 100%; 
 }
-/* .logo-image{
+.logo-image{
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
-} */
+}
 /***************  Type Js ***********************/
 
 .believe {
