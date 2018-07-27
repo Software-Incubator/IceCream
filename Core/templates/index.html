@@ -51,13 +51,13 @@
     
     <!-- =========================================================================== Landing Page -->
     <div class="container-fluid">
-        {% if message %}
+        <!-- {% if message %}
         <div class="alert alert-success" id="success_message" style="background-color: white;">
             {% for message in messages %}
             <strong><span style="color: green">{{ message }}</span></strong>
             {% endfor %}
         </div>
-        {% endif %}
+        {% endif %} -->
         
         <section class="elements">
             <div class="content-si">
@@ -227,10 +227,10 @@
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
                         <h4 class="text-center modal-title w-100" id="myModalLabel">Portfolio</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
                     </div>
                     <!--Body-->
                     <div class="modal-body">
@@ -278,16 +278,16 @@
                     <h1 style="color: #424242">Our Clients</h1>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 default-ticker my-5">
-                    <div><img class="clients lazy" data-src="../static/images/cl7.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl2.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl3.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl4.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl5.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl6.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl1.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl8.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl9.svg" alt="client1"></div>
-                    <div><img class="clients lazy" data-src="../static/images/cl10.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl7.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl2.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl3.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl4.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl5.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl6.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl1.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl8.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl9.svg" alt="client1"></div>
+                    <div><img class="clients" src="../static/images/cl10.svg" alt="client1"></div>
                 </div>    
             </div>                                                  
         </section>
@@ -465,10 +465,11 @@
                                         <div class="modal-content">
                                             <!--Header-->
                                             <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
                                                 <h4 class="text-center modal-title w-100" id="myModalLabel">Contact Us</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
+                                                
                                             </div>
                                             <!--Body-->
                                             <div class="modal-body">
@@ -589,9 +590,6 @@
                                                             <a href="http://akgec.in/">AKGEC</a>
                                                         </li>
                                                         <li>
-                                                            <a href="http://techtrishna.in/">TechTrishna</a>
-                                                        </li>
-                                                        <li>
                                                             <a href="http://akgec-scrolls.com/">Scrolls</a>
                                                         </li>
                                                         <li>
@@ -602,9 +600,6 @@
                                                         </li>
                                                         <li>
                                                             <a href="http://resume.silive.in/">Resume Builder</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="http://techtrishna.in/photoweb">Photoweb</a>
                                                         </li>
                                                         <li>
                                                             <a href="http://akgec.in/bdc">Blood Donation Camp</a>
@@ -885,13 +880,12 @@
                                             });
                                         }
                                     </script>
-                                    <script>
+                                    <!-- <script>
                                         $(document).ready(function () {
                                             setTimeout(function() {
                                                 document.getElementById('success_message').style.display = "none";
                                             }, 2000);
                                         });
-                                    </script>
-                                    
+                                    </script> -->
                                 </body>
                                 </html>

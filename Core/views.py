@@ -99,13 +99,15 @@ class RegistrationView(FormView):
             try:
                 Registration.objects.get(student_number=((dict(request.POST))['student_number'])[0], event=self.event)
                 print("1")
-                message='Already Registered!!'
-                return render(request, 'registration.html', {'form': form, 'event': self.event, 'message':message})
+                alert='Already Registered!!'
+                return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
             except: 
                 form.save()
+                print("2")
                 messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
-                return redirect(reverse_lazy('home'))
+                return redirect(reverse_lazy('registration'))
+                # return render(request, 'registration.html', {'form': form, 'event': self.event, 'messages':messages})
         else:
             # form=self.form_class()
             # form=RegistrationForm()
@@ -141,6 +143,7 @@ class BlogDetailView(View):
         }
         
         return render(request, self.template_name, context=context)
+
 
 def view404(request):
     return render(request, '404.html')

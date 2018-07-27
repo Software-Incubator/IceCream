@@ -14,16 +14,57 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">   
     <!-- Google FOnt -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700"
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
     <link href="../static/css/stylesheet_register.css" rel="stylesheet">
+    
     
 </head>
 
 <body>
     <!--HTML-->
-    
+    <!-- Image and text -->
+    <div class="topnav">
+        <a style="font-weight:700;" class="active" href="{% url 'home' %}">Software Incubator</a>
+    </div>
     <div class="container-fluid" id="main_container">
+        <!-- <button type="button" class="portfolio_button" data-toggle="modal" data-target="#centralModalLg">Take a look</button> -->
+        
+        
+        <!-- Central Modal Large -->
+        {% if messages %}
+        <div class="modal fade show" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block;" aria-hidden="true">
+            <div class="success-modal modal-dialog modal-lg" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <h3 class="text-center modal-title w-100" id="myModalLabel">
+                            <strong style="color: green">Thank You!</strong>
+                        </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="container">
+                            <!-- Card deck -->
+                            <div class="text-center row">
+                                <h4 class="text-center  w-100">
+                                    {% for message in messages %}
+                                    <span style="color: green">{{ message }}</span>
+                                    {% endfor %}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        {% endif %}
+        
         <div class="container-fluid mx-auto mt-lg-5" id="second_container">
             <div class="row ">
                 <div class="col-lg-4 col-12 poster_image d-none d-md-block d-lg-block"> <!--poster_image large and med screen-->
@@ -123,7 +164,7 @@
                             <span style="color: red">{{ form.hosteler.errors }}</span>
                         </div>
                         <!--button-->
-                        <center style="color: red" id="already_exit">{{ message }}</center>
+                        <center style="color: red" id="already_exit">{{ alert }}</center>
                         <div class="text-center mt-4">
                             <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
                         </div>
@@ -139,169 +180,163 @@
     </div>
     <!-- Footer -->
     <div class="container-fluid"></div>
-    <footer class="page-footer font-small pt-4 mt-1">
-        
-        <!-- Footer Links -->
-        <div class="footer-container container text-center text-md-left">
-            
-            <!-- Grid row -->
-            <div class="row">
+    <footer class="page-footer font-small pt-4">
+                                    
+            <!-- Footer Links -->
+            <div class="footer-container container text-center text-md-left">
                 
-                <!-- Grid column -->
-                <div class="col-md-4 mx-auto">
+                <!-- Grid row -->
+                <div class="row">
                     
-                    <!-- Content -->
-                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
-                    <p>WE BELIEVE IN</p>
-                    <p>Redefine Limitations</p>
-                    <p>Innovating Insanely!</p>
-                    <p>Learning Technologies.</p>
-                    <p>Sharing Intelligence!
+                    <!-- Grid column -->
+                    <div class="col-md-4">
+                        
+                        <!-- Content -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
+                        <p>WE BELIEVE IN</p>
+                        <p>Redefine Limitations</p>
+                        <p>Innovating Insanely!</p>
+                        <p>Learning Technologies.</p>
+                        <p>Sharing Intelligence!
+                            
+                        </div>
+                        <!-- Grid column -->
+                        
+                        <hr class="clearfix w-100 d-md-none">
+                        
+                        <!-- Grid column -->
+                        <div class="col-sm-4 col-md-2 mx-auto">
+                            
+                            <!-- Links -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
+                            
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="http://akgec.in/">AKGEC</a>
+                                </li>
+                                <li>
+                                    <a href="http://akgec-scrolls.com/">Scrolls</a>
+                                </li>
+                                <li>
+                                    <a href="http://techtrishna.in/directme">DirectMe</a>
+                                </li>
+                                <li>
+                                    <a href="http://bytepad.silive.in/">Bytepad</a>
+                                </li>
+                                <li>
+                                    <a href="http://resume.silive.in/">Resume Builder</a>
+                                </li>
+                                <li>
+                                    <a href="http://akgec.in/bdc">Blood Donation Camp</a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Grid column -->
+                        
+                        <!-- Grid column -->
+                        <div class="col-sm-4 col-md-2 mx-auto">
+                            
+                            <!-- Links -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+                            
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a>Mobile Development</a>
+                                </li>
+                                <li>
+                                    <a>Website Development</a>
+                                </li>
+                                <li>
+                                    <a >Desktop Development</a>
+                                </li>
+                                <li>
+                                    <a>Web And Graphic Designing</a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Grid column -->
+                        
+                        <!-- Grid column -->
+                        <div class="col-sm-4 col-md-2 mx-auto">
+                            
+                            <!-- Links -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
+                            
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="http://akgec.in/">AKGEC</a>
+                                </li>
+                                <li>
+                                    <a href="http://4thpointer.com/">4th Pointer</a>
+                                </li>
+                                <li>
+                                    <a href="http://india.ni.com/">National Instrument</a>
+                                </li>
+                                <li>
+                                    <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.kuka.com/">KUKA</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.akgec-bosch.org/">Rexroth</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                                </li>
+                                <li>
+                                    <a href="http://gmaindia.org/">GMA</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.digitalnet.com/">Brain Soft</a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Grid column -->
                         
                     </div>
-                    <!-- Grid column -->
-                    
-                    <hr class="clearfix w-100 d-md-none">
-                    
-                    <!-- Grid column -->
-                    <div class="col-sm-4 col-md-2">
-                        
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
-                        
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="http://akgec.in/">AKGEC</a>
-                            </li>
-                            <li>
-                                <a href="http://techtrishna.in/">TechTrishna</a>
-                            </li>
-                            <li>
-                                <a href="http://akgec-scrolls.com/">Scrolls</a>
-                            </li>
-                            <li>
-                                <a href="http://techtrishna.in/directme">DirectMe</a>
-                            </li>
-                            <li>
-                                <a href="http://bytepad.silive.in/">Bytepad</a>
-                            </li>
-                            <li>
-                                <a href="http://resume.silive.in/">Resume Builder</a>
-                            </li>
-                            <li>
-                                <a href="http://techtrishna.in/photoweb">Photoweb</a>
-                            </li>
-                            <li>
-                                <a href="http://akgec.in/bdc">Blood Donation Camp</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- Grid column -->
-                    
-                    <!-- Grid column -->
-                    <div class="col-sm-4 col-md-2">
-                        
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-                        
-                        <ul class="list-unstyled">
-                            <li>
-                                <a>Mobile Development</a>
-                            </li>
-                            <li>
-                                <a>Website Development</a>
-                            </li>
-                            <li>
-                                <a >Desktop Development</a>
-                            </li>
-                            <li>
-                                <a>Web And Graphic Designing</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- Grid column -->
-                    
-                    <!-- Grid column -->
-                    <div class="col-sm-4 col-md-2">
-                        
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
-                        
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="http://akgec.in/">AKGEC</a>
-                            </li>
-                            <li>
-                                <a href="http://4thpointer.com/">4th Pointer</a>
-                            </li>
-                            <li>
-                                <a href="http://india.ni.com/">National Instrument</a>
-                            </li>
-                            <li>
-                                <a href="http://tifac-core-akgec.org/">TIFAC</a>
-                            </li>
-                            <li>
-                                <a href="http://www.kuka.com/">KUKA</a>
-                            </li>
-                            <li>
-                                <a href="http://www.akgec-bosch.org/">Rexroth</a>
-                            </li>
-                            <li>
-                                <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                            </li>
-                            <li>
-                                <a href="http://gmaindia.org/">GMA</a>
-                            </li>
-                            <li>
-                                <a href="http://www.digitalnet.com/">Brain Soft</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- Grid column -->
+                    <!-- Grid row -->
                     
                 </div>
-                <!-- Grid row -->
+                <!-- Footer Links -->
                 
-            </div>
-            <!-- Footer Links -->
-            
-            <hr>
-            
-            <!-- Social buttons -->
-            <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
-                        <i class="fa fa-facebook"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
-                        <i class="fa fa-twitter"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
-                        <i class="fa fa-github"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
-                        <i class="fa fa-youtube-play"> </i>
-                    </a>
-                </li>
-            </ul>
-            <!-- Social buttons -->
-            
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                <a href="https://silive.in">Software Incubator</a>
-            </div>
-            <!-- Copyright -->
-            
-        </footer>
+                <hr>
+                
+                <!-- Social buttons -->
+                <ul class="list-unstyled list-inline text-center">
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
+                            <i class="fa fa-facebook"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
+                            <i class="fa fa-twitter"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
+                            <i class="fa fa-github"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
+                            <i class="fa fa-youtube-play"> </i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Social buttons -->
+                
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                    <a href="https://silive.in">Software Incubator</a>
+                </div>
+                <!-- Copyright -->
+                
+            </footer>   
     </div>
     <!-- SCRIPTS -->
     <!-- JQuery -->
@@ -313,7 +348,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
-    
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
     <!-- User js -->
     
     <script>
@@ -418,6 +453,15 @@
                 document.getElementById('already_exit').style.display = "none";
             }, 3500);
         });
+    </script>
+    <script>
+        console.log(1);
+        $(document).ready(function () {
+            console.log(2);
+            setTimeout(function() {
+                document.getElementById('centralModalLg').style.display = "none";
+            }, 4000);
+            });
     </script> 
 </body>
 

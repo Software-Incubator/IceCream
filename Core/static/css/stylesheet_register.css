@@ -9,18 +9,19 @@ body
 {
   background-color: white;
 }
-#second_container
+/* #second_container
 {
   height: 100vh;
+} */
+li {
+list-style: none; 
 }
-
 .poster_image,.poster_image_small
 {
   background-color: white;
 }
 .poster_image_small
 {
-  margin-top: -1.5rem;
   z-index: 1;
 }
 .student_details
@@ -116,4 +117,40 @@ body
 
 .page-footer {
     background: #1d1d1de7 url(../images/footer.svg) repeat;
+}
+
+/***** navbar ***/
+.topnav {
+  font-family: 'Montserrat', sans-serif !important;
+  overflow: hidden;
+  background-color: #0094ff;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.success-modal {
+  margin:0;
+  width: 45%;
+  display: block;
+  margin: 5px auto;
+}
+@media(max-width: 576px) {
+  .contactus-modal {
+      margin:0;
+      width: 85%;
+      display: block;
+      margin: 5px auto;
+  }
 }
