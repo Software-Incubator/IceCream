@@ -95,7 +95,7 @@ h1 {
     right: 0;
     top: 0;
     position: absolute;
-    background-color: rgba(38, 84, 133, 0.54);
+    background-color: rgba(31, 31, 31, 0.54);
     border-radius: 50%;
     z-index: 18;
     overflow: hidden;
