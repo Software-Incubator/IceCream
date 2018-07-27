@@ -30,6 +30,23 @@ h1 {
     background-color: rgba(0,0,0,.5);
     box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+#loader {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: #fff;
+    z-index:100000000; /*highest in this site */
+}
+
+.loader-img {
+    position: fixed;
+    max-height:60%;
+    top: 50% !important;
+   left: 50% !important;
+   transform: translate(-50%, -50%);
+}
 /*************************** navbar *****************************/
 .open {
     z-index:10000;
@@ -148,14 +165,12 @@ h1 {
 /**************************  Register Buttor **************************/
 
 .register_button{
-    background-color: #fff;
-    z-index:10000;
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);    z-index:10000;
     position: absolute;
     top: 32px;
     padding: .5rem 1.14rem !important; 
     right: 70px;
     cursor: pointer;
-    color: #3a96eb;
     font-weight: 800;
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
     transform: translate3d(0, 0, 0);

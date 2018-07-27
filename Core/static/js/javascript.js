@@ -1,4 +1,7 @@
-
+$(window).on('load', function() {      //Do the code in the {}s when the window has loaded 
+console.log('hi');
+  $("#loader").fadeOut("fast");  //Fade out the #loader div
+});
 $(document).ready(function(){
 	
 	/*************** mavbar ******/
@@ -125,10 +128,7 @@ $(document).ready(function(){
   startSlide();
   siteNav();
 	
-	/* ********* WOW JS INIT ****************/
-	// new WOW().init();
-	window.sr = ScrollReveal({ reset: true });
-	sr.reveal('.scroll');
+	
 	/* ********* PARTICLES JS INIT ****************/
 	
 	
