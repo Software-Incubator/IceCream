@@ -123,7 +123,7 @@
                             <span style="color: red">{{ form.hosteler.errors }}</span>
                         </div>
                         <!--button-->
-                        <center style="color: red" >{{ message }}</center>
+                        <center style="color: red" id="already_exit">{{ message }}</center>
                         <div class="text-center mt-4">
                             <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
                         </div>
@@ -303,114 +303,122 @@
             
         </footer>
     </div>
-        <!-- SCRIPTS -->
-        <!-- JQuery -->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+    
+    <!-- User js -->
+    
+    <script>
         
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
-        
-        <!-- User js -->
-        
-        <script>
+        //validations
+        function validateBranch () {
+            console.log("Branch Changed");
             
-            //validations
-            function validateBranch () {
-                console.log("Branch Changed");
-                
-                if ($("#Branch").val() == "MCA") {
-                    $("#Year").val("1");
-                }
-                else  {
-                    $("#Year").val("2");
-                }
+            if ($("#Branch").val() == "MCA") {
+                $("#Year").val("1");
             }
+            else  {
+                $("#Year").val("2");
+            }
+        }
+        
+        $(document).ready(function () {
+            $("#Name").focusout(function (event) {
+                if (event.charCode!=0) {
+                    var regex = new RegExp("^[a-zA-Z ]+$");
+                    if (!regex.test($(this).val())) {
+                        $( "#Name" ).after( "<span class='validationerror'>Invalid Name </span>" );
+                    }
+                }
+            });
             
-            $(document).ready(function () {
-                $("#Name").focusout(function (event) {
-                    if (event.charCode!=0) {
-                        var regex = new RegExp("^[a-zA-Z ]+$");
-                        if (!regex.test($(this).val())) {
-                            $( "#Name" ).after( "<span class='validationerror'>Invalid Name </span>" );
-                        }
+            $("#Name").focusin(function () {
+                if (event.charCode!=0) {
+                    $("#Name").siblings("span").each(function () {
+                        $(this).remove()
+                    });
+                }
+            });
+            
+            $("#Email").focusout(function (event) {
+                if (event.charCode!=0) {
+                    var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+                    if (!regex.test($("#Email").val())) {
+                        $( "#Email" ).after( "<span class='validationerror'>Invalid Email</span>" );
                     }
-                });
-                
-                $("#Name").focusin(function () {
-                    if (event.charCode!=0) {
-                        $("#Name").siblings("span").each(function () {
-                            $(this).remove()
-                        });
-                    }
-                });
-                
-                $("#Email").focusout(function (event) {
-                    if (event.charCode!=0) {
-                        var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
-                        if (!regex.test($("#Email").val())) {
-                            $( "#Email" ).after( "<span class='validationerror'>Invalid Email</span>" );
-                        }
-                    }
-                });
-                
-                $("#Email").focusin(function () {
-                    if (event.charCode!=0) {
-                        $("#Email").siblings("span").each(function () {
-                            $(this).remove()
-                        });
-                    }
-                });
-                
-                
-                $("#Contact").focusout(function (event) {
-                    if (event.charCode!=0) {
-                        var regex = new RegExp("^[0-9]{10}$");
-                        if (!regex.test($("#Contact").val())) {
-                            $( "#Contact" ).after( "<span class='validationerror'>Invalid Mobile Number </span>" );
-                        }
-                    }
-                });
-                
-                $("#Contact").focusin(function () {
-                    if (event.charCode!=0) {
-                        $("#Contact").siblings("span").each(function () {
-                            $(this).remove()
-                        });
-                    }
-                });
-                
-                
-                $("#Student").focusout(function (event) {
-                    if (event.charCode!=0) {
-                        var regex = new RegExp("^[0-9]{7}[dD]?$");
-                        if (!regex.test($("#Student").val())) {
-                            $( "#Student" ).after( "<span class='validationerror'>Invalid Student Number </span>" );
-                        }
-                    }
-                });
-                
-                $("#Student").focusin(function () {
-                    if (event.charCode!=0) {
-                        $("#Student").siblings("span").each(function () {
-                            $(this).remove()
-                        });
-                    }
-                });
-                
-                
+                }
+            });
+            
+            $("#Email").focusin(function () {
+                if (event.charCode!=0) {
+                    $("#Email").siblings("span").each(function () {
+                        $(this).remove()
+                    });
+                }
             });
             
             
-            /*$(document).ready(function () {
-                $("#Year").val("");
-            });*/
+            $("#Contact").focusout(function (event) {
+                if (event.charCode!=0) {
+                    var regex = new RegExp("^[0-9]{10}$");
+                    if (!regex.test($("#Contact").val())) {
+                        $( "#Contact" ).after( "<span class='validationerror'>Invalid Mobile Number </span>" );
+                    }
+                }
+            });
             
-        </script>
-    </body>
-    
-    </html>
-    
+            $("#Contact").focusin(function () {
+                if (event.charCode!=0) {
+                    $("#Contact").siblings("span").each(function () {
+                        $(this).remove()
+                    });
+                }
+            });
+            
+            
+            $("#Student").focusout(function (event) {
+                if (event.charCode!=0) {
+                    var regex = new RegExp("^[0-9]{7}[dD]?$");
+                    if (!regex.test($("#Student").val())) {
+                        $( "#Student" ).after( "<span class='validationerror'>Invalid Student Number </span>" );
+                    }
+                }
+            });
+            
+            $("#Student").focusin(function () {
+                if (event.charCode!=0) {
+                    $("#Student").siblings("span").each(function () {
+                        $(this).remove()
+                    });
+                }
+            });
+            
+            
+        });
+        
+        
+        /*$(document).ready(function () {
+            $("#Year").val("");
+        });*/
+        
+    </script>
+    <script>
+        console.log(1);
+        $(document).ready(function () {
+            console.log(2);
+            setTimeout(function() {
+                document.getElementById('already_exit').style.display = "none";
+            }, 3500);
+        });
+    </script> 
+</body>
+
+</html>

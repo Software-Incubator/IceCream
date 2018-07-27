@@ -135,14 +135,14 @@ $(document).ready(function(){
 	var partJson = {
 		"particles": {
 			"number": {
-				"value": 40,
+				"value": 100,
 				"density": {
 					"enable": true,
 					"value_area": 800
 				}
 			},
 			"color": {
-				"value": "#fff"
+				"value": "#5e5e5e"
 			},
 			"shape": {
 				"type": "circle",
@@ -182,7 +182,7 @@ $(document).ready(function(){
 			"line_linked": {
 				"enable": true,
 				"distance": 80,
-				"color": "#fff",
+				"color": "#5e5e5e",
 				"opacity": 0.4,
 				"width": 0.6413648243462091
 			},

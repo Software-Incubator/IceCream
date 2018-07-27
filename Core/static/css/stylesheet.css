@@ -148,14 +148,15 @@ h1 {
 /**************************  Register Buttor **************************/
 
 .register_button{
-    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    background-color: #fff;
     z-index:10000;
     position: absolute;
     top: 32px;
     padding: .5rem 1.14rem !important; 
     right: 70px;
     cursor: pointer;
-    color: #fff;
+    color: #3a96eb;
+    font-weight: 800;
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
@@ -182,6 +183,17 @@ h1 {
     }
   }
 
+/********************** Alert *******************/
+
+.alert {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
 
 /**************************** Landing Page *****************************/
 

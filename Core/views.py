@@ -96,11 +96,12 @@ class RegistrationView(FormView):
         form = RegistrationForm(request.POST)
         print(((dict(request.POST))['student_number'])[0])
         if form.is_valid():
-            if Registration.objects.get(student_number=((dict(request.POST))['student_number'])[0], event=self.event):
+            try:
+                Registration.objects.get(student_number=((dict(request.POST))['student_number'])[0], event=self.event)
                 print("1")
                 message='Already Registered!!'
                 return render(request, 'registration.html', {'form': form, 'event': self.event, 'message':message})
-            else: 
+            except: 
                 form.save()
                 messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")

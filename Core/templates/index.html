@@ -44,12 +44,19 @@
     
     {% if event %}
     <div class="register_button">
-        <a style="text-decoration: none; color:#fff" href="/register">Register</a>
+        <a style="text-decoration: none;" href="/register">Register</a>
     </div>
     {% endif %}
     
     <!-- =========================================================================== Landing Page -->
     <div class="container-fluid">
+        {% if message %}
+        <div class="alert alert-success" id="success_message" style="background-color: white;">
+            {% for message in messages %}
+            <strong><span style="color: green">{{ message }}</span></strong>
+            {% endfor %}
+        </div>
+        {% endif %}
         
         <section class="elements">
             <div class="content-si">
@@ -57,7 +64,7 @@
                     <div id="scene" class="row justify-content-center">  
                         <div class="scroll text-center">
                             <img style="width:40%" class="logo-image" src="../static/images/silogo.svg" alt="si_logo">
-                            <h1 class="redlit2">Software Incubator</h1>
+                            <h1 style="color:#0094ff" class="redlit2">Software</h1><h1 style="color:#000;" class="redlit2">Incubator</h1>
                         </div>     
                         
                         <!-- <div class="col-sm-10 col-md-6 col-lg-3 col-xl-3">
@@ -93,11 +100,6 @@
         </section>
         
         <!-- ============================================================================================== Services  -->
-        {% for message in messages %}
-        <div class="alert alert-success" id="success_message">
-            <strong>{{ message }}</strong>
-        </div>
-        {% endfor %}
         <!-- Error -->
         <section id="Services" class="large-div">
             <div class="slider-con container">                        
@@ -560,7 +562,7 @@
                                         <div class="row">
                                             
                                             <!-- Grid column -->
-                                            <div class="col-md-4 mx-auto">
+                                            <div class="col-md-4">
                                                 
                                                 <!-- Content -->
                                                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
@@ -576,7 +578,7 @@
                                                 <hr class="clearfix w-100 d-md-none">
                                                 
                                                 <!-- Grid column -->
-                                                <div class="col-sm-4 col-md-2">
+                                                <div class="col-sm-4 col-md-2 mx-auto">
                                                     
                                                     <!-- Links -->
                                                     <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
@@ -612,7 +614,7 @@
                                                 <!-- Grid column -->
                                                 
                                                 <!-- Grid column -->
-                                                <div class="col-sm-4 col-md-2">
+                                                <div class="col-sm-4 col-md-2 mx-auto">
                                                     
                                                     <!-- Links -->
                                                     <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
@@ -636,7 +638,7 @@
                                                 <!-- Grid column -->
                                                 
                                                 <!-- Grid column -->
-                                                <div class="col-sm-4 col-md-2">
+                                                <div class="col-sm-4 col-md-2 mx-auto">
                                                     
                                                     <!-- Links -->
                                                     <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
@@ -876,6 +878,13 @@
                                             }
                                         });
                                     }
+                                </script>
+                                <script>
+                                    $(document).ready(function () {
+                                        setTimeout(function() {
+                                            document.getElementById('success_message').style.display = "none";
+                                        }, 2000);
+                                    });
                                 </script>
                                 
                             </body>
