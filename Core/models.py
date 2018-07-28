@@ -5,14 +5,14 @@ import uuid
 
 from django.core.exceptions import ValidationError
 from django.db import models
-# from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
 
 
 
-## DO NOT DELETE THIS FUNCTION
-## If you think that this function is outright useless because it is never called,
-## stop right there. You delete this and all the migrations will FAIL!
+# ## DO NOT DELETE THIS FUNCTION
+# ## If you think that this function is outright useless because it is never called,
+# ## stop right there. You delete this and all the migrations will FAIL!
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 
@@ -47,12 +47,7 @@ class Event(models.Model):
     active = models.BooleanField(default=False, validators=[event_validator, ])
     pic_path = models.FileField(upload_to=events_upload_location, null=True,
                                 default=None)
-    small_pic_path = models.FileField(upload_to=events_upload_location, null=True,
-                                default=None)
 
-
-    def __str__(self):
-        return "{} | {}".format(self.name, self.timestamp.date())
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=255)
@@ -183,6 +178,9 @@ class Registration(models.Model):
 
 
 
+    def __str__(self):
+        return "{} | {}".format(self.name, self.timestamp.date())
+
 
 class Gender(models.Model):
     name = models.CharField(max_length=255)
@@ -206,7 +204,7 @@ class ContactInfo(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=80, blank=False, null=False)
     author = models.CharField(max_length=30,blank=False,null=False)
-    # content = RichTextUploadingField()
+    content = RichTextUploadingField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def get_absolute_url(self):
@@ -215,4 +213,3 @@ class Blog(models.Model):
 
     def __str__(self):
         return "{} | {}".format(self.title, self.author)
-

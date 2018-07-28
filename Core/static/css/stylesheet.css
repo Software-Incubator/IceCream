@@ -20,6 +20,10 @@ h1 {
     font-weight: 700;
     text-transform: uppercase;
 }
+.justify-text {
+    text-align: justify;
+    text-justify: inter-word;
+}
 ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 10px;
@@ -53,7 +57,7 @@ h1 {
     z-index:10000;
     position: fixed;
     top: 25px;
-    right: 25px;
+    left: 25px;
     width: 50px;
     height: 50px;
     display: block;
@@ -103,7 +107,7 @@ h1 {
 
 .sub-menu li {
     display: block;
-    float: right;
+    float: left;
     clear: both;
     height: auto;
     margin-right: -160px;
@@ -160,7 +164,7 @@ h1 {
 
 .oppenned span:nth-child(3) { transform: rotate(-45deg) translateY(-5px) translateX(2px); border: none; }
 
-.oppenned li { margin-right: 168px; }
+.oppenned li { margin-left: 150px; }
 
 
 /**************************  Register Buttor **************************/
@@ -171,7 +175,7 @@ h1 {
     position: absolute;
     top: 32px;
     padding: .5rem 1.14rem !important; 
-    right: 70px;
+    right: 20px;
     cursor: pointer;
     font-weight: 800;
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
@@ -232,7 +236,6 @@ h1 {
 .redlit2{
     position: relative;
     margin-top:-20px;
-    color: #fff;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
 }
@@ -367,7 +370,7 @@ h1 {
     font-weight: bold;
     text-align: center;
 }
-/********************** services secction ************/
+/********************** What we do secction ************/
 
 .slider-con {
     margin-bottom: -150px;
@@ -834,7 +837,7 @@ h1 {
     margin: 5px auto;
 }
 .contact_button {
-    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(40deg,#45cafc,#303f9f) !important;
 }
 
 /************ FOOTER  *****************/

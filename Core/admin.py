@@ -1,6 +1,8 @@
 from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
-from .models import Technology, Member, Designation, Project, ContactUs, Registration, Branch, Gender, Year, ContactInfo, Blog, Event
+from .models import Technology, Member, Designation, Project, ContactUs, \
+ Registration, Branch, Gender, Year, ContactInfo, Blog, Event
+from .forms import RegistrationForm
 
 
 class RegistrationAdmin(ImportExportActionModelAdmin):
@@ -9,6 +11,7 @@ class RegistrationAdmin(ImportExportActionModelAdmin):
     'name', 'student_number', 'branch', 'year', 'event', 'fee_paid')
     search_fields = ('student_number', 'name')
     list_filter = ('event','fee_paid')
+    form = RegistrationForm
 
 
 class EventAdmin(admin.ModelAdmin):

@@ -25,12 +25,11 @@
     <!--HTML-->
     <!-- Image and text -->
     <div class="topnav">
-        <a style="font-weight:700;" class="active" href="{% url 'home' %}">Software Incubator</a>
+        <img src="../static/images/silogo-back.png" alt="">
+        <a style="font-weight:700;" class="active" href="{% url 'home' %}">Home</a>
     </div>
     <div class="container-fluid" id="main_container">
         <!-- <button type="button" class="portfolio_button" data-toggle="modal" data-target="#centralModalLg">Take a look</button> -->
-        
-        
         <!-- Central Modal Large -->
         {% if messages %}
         <div class="modal fade show" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block;" aria-hidden="true">
@@ -52,8 +51,10 @@
                             <!-- Card deck -->
                             <div class="text-center row">
                                 <h4 class="text-center  w-100">
+                                    <!-- console.log({{messages}}) -->
                                     {% for message in messages %}
-                                    <span style="color: green">{{ message }}</span>
+                                    <!-- console.log({{message}}) -->
+                                        <span style="color: green">{{ message }}</span>
                                     {% endfor %}
                                 </h4>
                             </div>
@@ -66,19 +67,18 @@
         {% endif %}
         
         <div class="container-fluid mx-auto mt-lg-5" id="second_container">
-            <div class="row ">
-                <div class="col-lg-4 col-12 poster_image d-none d-md-block d-lg-block"> <!--poster_image large and med screen-->
+            <div class="row mb-4">
+                <div class="col-lg-4 col-12 poster_image "> <!--poster_image large and med screen-->
                     <img class="card-img z-depth-2" src="{{ event.pic_path.url }}" alt="Card image cap">
                 </div>
                 <div class="col-lg-8 col-12 student_details z-depth-1"> <!--inputs_values-->
-                    <div class="row">
-                        <div class=" col-12 poster_image_small d-lg-none d-sm-block d-md-none mx-auto"> <!--poster_image small screen-->
-                            <img class="img-fluid z-depth-1 " src="{{ event.small_pic_path.url }}" alt="poster banner image">
+                    <!-- <div class="row">
+                        <div class=" col-12 poster_image_small d-lg-none d-sm-block d-md-none mx-auto">
+                            <img class="img-fluid z-depth-1 " src="{{ event.pic_path.url }}" alt="poster banner image">
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Material form register -->
-                    
-                    
+                    <div class="container">
                     <form method="post" name="form">
                         {% csrf_token %}
                         <p class="h4 text-center my-4 mb-4 blue-text register_text" style="font-weight:700">REGISTER</p>
@@ -113,7 +113,7 @@
                         <!--choose Branch-->
                         <div class="md-form">
                             <div class="row p-1">
-                                <div class="col-4 p-1 ">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                     <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
                                         <option value="1" disabled selected>Branch</option>
                                         <option  value="2">CSE</option>
@@ -130,7 +130,7 @@
                                     <span style="color: red">{{ form.branch.errors }}</span>
                                 </div>
                                 <!--choose year-->
-                                <div class="col-4 p-1">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
                                     <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
                                         <option value="1" disabled selected>Year</option>
                                         <option value="2">I</option>
@@ -142,7 +142,7 @@
                                     <span style="color: red">{{ form.year.errors }}</span>
                                 </div>
                                 <!--choose gender-->
-                                <div class="col-4 p-1 ">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
                                     <!-- <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
                                         <option value="1" disabled selected>Gender</option>
                                         <option  value="2">Female</option>
@@ -165,11 +165,11 @@
                         </div>
                         <!--button-->
                         <center style="color: red" id="already_exit">{{ alert }}</center>
-                        <div class="text-center mt-4">
+                        <div class="text-center py-4">
                             <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
                         </div>
                     </form>
-                    
+                    </div>
                     
                     
                     
@@ -179,7 +179,6 @@
         </div>
     </div>
     <!-- Footer -->
-    <div class="container-fluid"></div>
     <footer class="page-footer font-small pt-4">
                                     
             <!-- Footer Links -->
@@ -454,15 +453,17 @@
             }, 3500);
         });
     </script>
-    <script>
-        console.log(1);
-        $(document).ready(function () {
-            console.log(2);
-            setTimeout(function() {
-                document.getElementById('centralModalLg').style.display = "none";
-            }, 4000);
-            });
-    </script> 
+    {% if messages %}
+        <script>
+            console.log(1);
+            $(document).ready(function () {
+                console.log(2);
+                setTimeout(function() {
+                    document.getElementById('centralModalLg').style.display = "none";
+                }, 4000);
+                });
+        </script>
+    {% endif %}
 </body>
 
 </html>

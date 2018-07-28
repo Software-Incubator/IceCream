@@ -4,7 +4,16 @@ body
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif !important;
 }
-
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 #main_container
 {
   background-color: white;
@@ -98,11 +107,15 @@ list-style: none;
   right: 20%;
 }
 
-@media (max-width:475px)
+@media (max-width:992px)
 {
   .student_details
   {
-    margin-top: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem
+  }
+  .poster_image {
+    margin-top: 1rem;
   }
 
 }
@@ -134,17 +147,20 @@ list-style: none;
   text-decoration: none;
   font-size: 17px;
 }
-
 .topnav a:hover {
   background-color: #fff;
   color: black;
 }
-
 .success-modal {
   margin:0;
   width: 45%;
   display: block;
   margin: 5px auto;
+}
+.topnav img {
+  float: left;
+  padding: 14px 16px;
+  max-width: 55px;
 }
 @media(max-width: 576px) {
   .contactus-modal {

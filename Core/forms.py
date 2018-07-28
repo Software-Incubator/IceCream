@@ -1,6 +1,9 @@
 from django import forms
 
-from .models import ContactUs, Registration, Branch, Year, Gender
+from .models import ContactUs, Registration, Branch, Year, Gender, Event
+
+from django.forms import ValidationError
+
 
 
 class ContactUsForm(forms.ModelForm):
@@ -63,9 +66,17 @@ class ContactUsForm(forms.ModelForm):
 
 
 class RegistrationForm(forms.ModelForm):
+    
     class Meta:
         model = Registration
         exclude = ['event', 'fee_paid']
+
+    def clean(self):
+        student_number = self.cleaned_data['student_number']
+        event = Event.objects.filter(active=True).first()
+        if Registration.objects.get(student_number=student_number, event=event):
+            raise ValidationError("Already Registered")
+        return student_number
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -165,3 +176,4 @@ class RegistrationForm(forms.ModelForm):
                 'type': 'checkbox'}
             )
         )
+    

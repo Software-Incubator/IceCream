@@ -5,7 +5,7 @@ from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 
 class IndexView(View):
@@ -71,15 +71,19 @@ class SaveContactView(View):
         contact = request.GET['contact']
         message = request.GET['message']
         subject = request.GET['subject']
-        d = dict()
-        con = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
-        if con:
-            d['done']=1
-        else:
-            d['done']=0
-        d['message']='Request successfully registered.'
-        x = json.dumps(d)
-        return HttpResponse(x)
+        data_to_frontend = dict()
+        contact_us=None
+        try:
+            contact_us = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
+        except:
+            data_to_frontend['done']=0
+            data_to_frontend['message']='Request failed due to internal error.'
+
+        if contact_us:
+            data_to_frontend['done']=1
+            data_to_frontend['message']='Request successfully registered.'
+
+        return JsonResponse(data_to_frontend)
 
 
 class RegistrationView(FormView):
@@ -90,28 +94,18 @@ class RegistrationView(FormView):
     form_class = RegistrationForm
     
     event = Event.objects.filter(active=True).first()
-    # event=''
 
     def post(self, request, *args, **kwargs):
         form = RegistrationForm(request.POST)
-        print(((dict(request.POST))['student_number'])[0])
         if form.is_valid():
-            try:
-                Registration.objects.get(student_number=((dict(request.POST))['student_number'])[0], event=self.event)
-                print("1")
-                alert='Already Registered!!'
-                return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
-            except: 
-                form.save()
-                print("2")
-                messages.add_message(request, messages.SUCCESS,
+            print(dict(form.errors))
+            form.save()
+            messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
-                return redirect(reverse_lazy('registration'))
-                # return render(request, 'registration.html', {'form': form, 'event': self.event, 'messages':messages})
+            return redirect(reverse_lazy('registration'))
         else:
-            # form=self.form_class()
-            # form=RegistrationForm()
-            return render(request, 'registration.html', {'form': form, 'event': self.event})
+            alert = "Already Registered!!"
+            return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -135,8 +129,6 @@ class BlogDetailView(View):
     template_name = "blog_detail.html"
 
     def get(self,request,pk, *args,**kwargs):
-        # print(pk)
-        # print(Blog.objects.first().id)
         blog = get_object_or_404(Blog,pk=pk)
         context = {
             'blog':blog
