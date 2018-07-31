@@ -31,40 +31,50 @@
                 <h1>Our blogs</h1>
             </div>
             <div class="text-center col-sm-12 col-md-12 col-lg-12 my-2">
-                <h4>Total Blogs: 5</h4>
+                <h4>Total Blogs: {{ blogs.count }}</h4>
             </div>
+            
+            
+            
+            {% autoescape off %} {% for blog in blogs %}
             <div class="blog-card">
-                    <div class="meta">
-                      <div class="photo" style="background-image: url(https://lh4.googleusercontent.com/QQR_fIDH5ANG3ZjMCu6JX0QvF_B4do4Ap7iwPMYuumWrV6Mou0hSWkORKbREr9CPUo0qsj1TlEPEJUAzLX9p672AZ2w4fRdJ-cQRysl289dXt3bhCcHeik31-6muaKxCMWE_RyM)"></div>
-                      <ul class="details">
-                        <li class="author">John Doe</li>
-                        <li class="date">Aug. 24, 2015</li>
-                      </ul>
-                    </div>
-                    <div class="description">
-                      <h1>Learning to Code</h1>
-                      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                      <p class="read-more">
-                        <a href="#">Read More</a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="blog-card alt">
-                    <div class="meta">
-                      <div class="photo" style="background-image: url(https://storage.googleapis.com/170318/codepen/blog-cards/image-2.jpg)"></div>
-                      <ul class="details">
+                <div class="meta">
+                    <!-- <div class="photo" style="background-image: url(https://lh4.googleusercontent.com/QQR_fIDH5ANG3ZjMCu6JX0QvF_B4do4Ap7iwPMYuumWrV6Mou0hSWkORKbREr9CPUo0qsj1TlEPEJUAzLX9p672AZ2w4fRdJ-cQRysl289dXt3bhCcHeik31-6muaKxCMWE_RyM)"></div> -->
+                    <ul class="details">
+                        <li class="author">{{ blog.author }}</li>
+                        <li class="date">{{ blog.timestamp|timesince }}</li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h1>{{ blog.title }}</h1>
+                    {{ blog.content }}
+                    <p class="read-more">
+                        <h2 id="{{ blog.id }}" align="right"><a href="{{ blog.get_absolute_url }}" style="color: blue">Read More...</a></h2>
+                    </p>
+                </div>
+            </div>
+            <hr> {% endfor %} {% endautoescape %}
+            
+            <!-- <div class="blog_text">{{ blog.content|safe }}</div> -->
+            <!-- <h2 id="{{ blog.id }}"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2> -->
+            
+            
+            <!-- <div class="blog-card alt">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(https://storage.googleapis.com/170318/codepen/blog-cards/image-2.jpg)"></div>
+                    <ul class="details">
                         <li class="author">Jane Doe</li>
                         <li class="date">July. 15, 2015</li>
-                      </ul>
-                    </div>
-                    <div class="description">
-                      <h1>Mastering the Language</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sitLorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                      <p class="read-more">
+                    </ul>
+                </div>
+                <div class="description">
+                    <h1>Mastering the Language</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sitLorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                    <p class="read-more">
                         <a href="#">Read More</a>
-                      </p>
-                    </div>
-                  </div>
+                    </p>
+                </div>
+            </div> -->
         </div>
     </div>
     <footer class="page-footer font-small pt-4">

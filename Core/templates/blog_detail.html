@@ -25,6 +25,8 @@
         <img src="../static/images/silogo-back.png" alt="">
         <a style="font-weight:700;" class="active" href="{% url 'home' %}">Home</a>
     </div>
+    
+    
     <div class="container">
         <div class="row">
             <div class="text-center col-sm-12 col-md-12 col-lg-12 my-4">
@@ -32,21 +34,17 @@
             </div>
         </div>
     </div>
-    <div class="parallax"><div class="parallax-text"><h1>Google Brain</h1></div></div>
+    <div class="parallax"><div class="parallax-text"><h1>{{ blog.title }}</h1></div></div>
     <div style="background-color: #f1f1f1;">
         <div class="container"> 
             <div class="blogdetail-container my-5">
-                by jdhasjkdg on sgdasgd
+                by {{ blog.author }} on {{ blog.timestamp|timesince }}
                 <br>
-                <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                    
-                <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#{{ request.uri }}" target="_blank"><i class="fa fa-facebook-square" style="font-size:20px;color:#4467b2"></i></a>
+                <a href="http://www.twitter.com/share?url={{ request.uri }}"><i class="fa fa-twitter" style="font-size:20px;color:#1da1f2"></i></a>
+                
                 <br><br>
-
-                Scroll Up and Down this page to see the parallax scrolling effect.
-                This div is just here to enable scrolling.
-                Tip: Try to remove the background-attachment property to remove the scrolling effect.
+                {{ blog.content|safe }}
             </div>
         </div>
     </div>

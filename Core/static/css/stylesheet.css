@@ -49,8 +49,8 @@ h1 {
     position: fixed;
     max-height:40%;
     top: 50% !important;
-   left: 50% !important;
-   transform: translate(-50%, -50%);
+    left: 50% !important;
+    transform: translate(-50%, -50%);
 }
 /*************************** navbar *****************************/
 .open {
@@ -185,24 +185,24 @@ h1 {
 }
 @keyframes shake {
     10%, 70% {
-      transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
     }
     
     20%, 60% {
-      transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
     }
-  
+    
     30%, 50%{
-      transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
     }
-  
+    
     40% {
-      transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
     }
     100% {
         transform: translate3d(0, 0, 0);
     }
-  }
+}
 
 /********************** Alert *******************/
 
@@ -875,4 +875,14 @@ h1 {
         height: 30px;
         transition: all .5s ease;
     }
+}
+
+/******* media query for recaptcha *****/
+@media(max-height: 575px){ 
+    #rc-imageselect, .g-recaptcha {
+        transform:scale(0.75);
+        -webkit-transform:scale(0.75);
+        transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+    } 
 }

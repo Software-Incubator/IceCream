@@ -66,18 +66,34 @@ class IndexView(View):
 class SaveContactView(View):
 
     def get(self, request):
+        data_to_frontend = dict()
+        contact_us=None
         name = request.GET['name']
         email = request.GET['email']
         contact = request.GET['contact']
         message = request.GET['message']
         subject = request.GET['subject']
-        data_to_frontend = dict()
-        contact_us=None
-        try:
-            contact_us = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
-        except:
+        if name == '':
             data_to_frontend['done']=0
-            data_to_frontend['message']='Request failed due to internal error.'
+            data_to_frontend['message']='Name cannot be empty..'
+        elif email == '':
+            data_to_frontend['done']=0
+            data_to_frontend['message']='Email cannot be empty..'
+        elif contact == '':
+            data_to_frontend['done']=0
+            data_to_frontend['message']='contact cannot be empty..'
+        elif message == '':
+            data_to_frontend['done']=0
+            data_to_frontend['message']='message cannot be empty..'
+        elif subject == '':
+            data_to_frontend['done']=0
+            data_to_frontend['message']='subject cannot be empty..'
+        else:
+            try:
+                contact_us = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
+            except:
+                data_to_frontend['done']=0
+                data_to_frontend['message']='Request failed due to internal error.'
 
         if contact_us:
             data_to_frontend['done']=1
@@ -96,15 +112,16 @@ class RegistrationView(FormView):
     event = Event.objects.filter(active=True).first()
 
     def post(self, request, *args, **kwargs):
+        alert = ''
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            print(dict(form.errors))
             form.save()
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
             return redirect(reverse_lazy('registration'))
         else:
-            alert = "Already Registered!!"
+            if '__all__' in dict(form.errors):
+                alert = dict(form.errors)['__all__']
             return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
 
     def get(self, request, *args, **kwargs):
@@ -122,6 +139,8 @@ class BlogView(View):
 
     def get(self, request, *args, **kwargs):
         blogs = Blog.objects.all()
+        for blog in blogs:
+            print(blog)
         return render(request, self.template_name, context={'blogs': blogs})
 
 

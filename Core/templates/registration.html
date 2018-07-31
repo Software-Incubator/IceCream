@@ -54,7 +54,7 @@
                                     <!-- console.log({{messages}}) -->
                                     {% for message in messages %}
                                     <!-- console.log({{message}}) -->
-                                        <span style="color: green">{{ message }}</span>
+                                    <span style="color: green">{{ message }}</span>
                                     {% endfor %}
                                 </h4>
                             </div>
@@ -78,97 +78,102 @@
                         </div>
                     </div> -->
                     <!-- Material form register -->
+                    <p class="h4 text-center my-4 mb-4 blue-text register_text" style="font-weight:700">REGISTER</p>
                     <div class="container">
-                    <form method="post" name="form">
-                        {% csrf_token %}
-                        <p class="h4 text-center my-4 mb-4 blue-text register_text" style="font-weight:700">REGISTER</p>
-                        <!-- name -->
-                        <div class="md-form">
-                            <i class="fa fa-user prefix grey-text"></i>
-                            <input type="text" id="Name" name="name" class="form-control">
-                            <label for="name">Name</label>
-                            <span style="color: red">{{ form.name.errors }}</span>
-                        </div>
-                        <!-- email -->
-                        <div class="md-form">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="Email" name="email" class="form-control">
-                            <label for="email">Email</label>
-                            <span style="color: red">{{ form.email.errors }}</span>
-                        </div>
-                        <!-- contact -->
-                        <div class="md-form">
-                            <i class="fa fa-mobile prefix grey-text"></i>
-                            <input type="text" id="Contact" name="contact" class="form-control">
-                            <label for="contact">Contact Number</label>
-                            <span style="color: red">{{ form.contact.errors }}</span>
-                        </div>
-                        <!-- student no. -->
-                        <div class="md-form">
-                            <i class="fa fa-id-badge prefix grey-text"></i>
-                            <input type="text" id="Student" name="student_number" class="form-control">
-                            <label for="student">Student no.</label>
-                            <span style="color: red">{{ form.student_number.errors }}</span>
-                        </div>
-                        <!--choose Branch-->
-                        <div class="md-form">
-                            <div class="row p-1">
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
-                                    <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
-                                        <option value="1" disabled selected>Branch</option>
-                                        <option  value="2">CSE</option>
-                                        <option value="3">IT</option>
-                                        <option value="4">ECE</option>
-                                        <option value="5" >EN</option>
-                                        <option value="6" >EI</option>
-                                        <option value="7" >CE</option>
-                                        <option value="8" >ME</option>
-                                        <option value="9" >MCA</option>
-                                    </select> -->
-                                    {{ form.branch.label }}
-                                    <div class="hoverable"> {{ form.branch }}</div>
-                                    <span style="color: red">{{ form.branch.errors }}</span>
-                                </div>
-                                <!--choose year-->
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                    <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
-                                        <option value="1" disabled selected>Year</option>
-                                        <option value="2">I</option>
-                                        <option value="3">II</option>
-                                        <option value="4">III</option>
-                                    </select> -->
-                                    {{ form.year.label }}
-                                    <div class="hoverable"> {{ form.year }}</div>
-                                    <span style="color: red">{{ form.year.errors }}</span>
-                                </div>
-                                <!--choose gender-->
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                    <!-- <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
-                                        <option value="1" disabled selected>Gender</option>
-                                        <option  value="2">Female</option>
-                                        <option value="3">Male</option>
-                                    </select> -->
-                                    {{ form.gender.label }}
-                                    <div class="hoverable"> {{ form.gender }}</div>
-                                    <span style="color: red">{{ form.gender.errors }}</span>
+                        <form name="form" id="contact-form" method="POST">
+                            {% csrf_token %}
+                            <!-- name -->
+                            <div id="register-form" name="form" class="md-form">
+                                <i class="fa fa-user prefix grey-text"></i>
+                                <input type="text" id="Name" name="name" class="form-control">
+                                <label for="name">Name</label>
+                                <span style="color: red">{{ form.name.errors }}</span>
+                            </div>
+                            <!-- email -->
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="email" id="Email" name="email" class="form-control">
+                                <label for="email">Email</label>
+                                <span style="color: red">{{ form.email.errors }}</span>
+                            </div>
+                            <!-- contact -->
+                            <div class="md-form">
+                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <input type="text" id="Contact" name="contact" class="form-control">
+                                <label for="contact">Contact Number</label>
+                                <span style="color: red">{{ form.contact.errors }}</span>
+                            </div>
+                            <!-- student no. -->
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="Student" name="student_number" class="form-control">
+                                <label for="student">Student no.</label>
+                                <span style="color: red">{{ form.student_number.errors }}</span>
+                            </div>
+                            <!--choose Branch-->
+                            <div class="md-form">
+                                <div class="row p-1">
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
+                                            <option value="1" disabled selected>Branch</option>
+                                            <option  value="2">CSE</option>
+                                            <option value="3">IT</option>
+                                            <option value="4">ECE</option>
+                                            <option value="5" >EN</option>
+                                            <option value="6" >EI</option>
+                                            <option value="7" >CE</option>
+                                            <option value="8" >ME</option>
+                                            <option value="9" >MCA</option>
+                                        </select> -->
+                                        {{ form.branch.label }}
+                                        <div class="hoverable">{{ form.branch }}</div>
+                                        <span style="color: red">{{ form.branch.errors }}</span>
+                                    </div>
+                                    <!--choose year-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
+                                            <option value="1" disabled selected>Year</option>
+                                            <option value="2">I</option>
+                                            <option value="3">II</option>
+                                            <option value="4">III</option>
+                                        </select> -->
+                                        {{ form.year.label }}
+                                        <div class="hoverable">{{ form.year }}</div>
+                                        <span style="color: red">{{ form.year.errors }}</span>
+                                    </div>
+                                    <!--choose gender-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        <!-- <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
+                                            <option value="1" disabled selected>Gender</option>
+                                            <option  value="2">Female</option>
+                                            <option value="3">Male</option>
+                                        </select> -->
+                                        {{ form.gender.label }}
+                                        <div class="hoverable">{{ form.gender }}</div>
+                                        <span style="color: red">{{ form.gender.errors }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <!-- Material checked -->
-                            
-                            <div class="toggle toggle--knob form-check">
-                                <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
-                                <label class="toggle--btn" for="IsHosteler">Hosteler</label>
+                            <div class="col-lg-12">
+                                <!-- Material checked -->
+                                
+                                <div class="toggle toggle--knob form-check">
+                                    <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
+                                    <label class="toggle--btn" for="IsHosteler">Hosteler</label>
+                                </div>
+                                <span style="color: red">{{ form.hosteler.errors }}</span>
                             </div>
-                            <span style="color: red">{{ form.hosteler.errors }}</span>
-                        </div>
-                        <!--button-->
-                        <center style="color: red" id="already_exit">{{ alert }}</center>
-                        <div class="text-center py-4">
-                            <button class="btn btn-outline-info" type="submit">Submit<i class="fa fa-paper-plane-o ml-2"></i></button>
-                        </div>
-                    </form>
+                            <div class="col-md-12">
+                                <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                            </div>
+                            <!--button-->
+                            {{alert}}
+                            <center style="color: red" id="already_exit">{{ alert }}</center>
+                            <div class="text-center text-danger" id="status"></div>
+                            <div class="text-center py-4">
+                                <a class="btn btn-primary" onclick="validateForm()">Submit<i class="fa fa-paper-plane-o ml-2"></i></a>
+                            </div>
+                        </form>
                     </div>
                     
                     
@@ -180,162 +185,162 @@
     </div>
     <!-- Footer -->
     <footer class="page-footer font-small pt-4">
-                                    
-            <!-- Footer Links -->
-            <div class="footer-container container text-center text-md-left">
+        
+        <!-- Footer Links -->
+        <div class="footer-container container text-center text-md-left">
+            
+            <!-- Grid row -->
+            <div class="row">
                 
-                <!-- Grid row -->
-                <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-4">
                     
-                    <!-- Grid column -->
-                    <div class="col-md-4">
-                        
-                        <!-- Content -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
-                        <p>WE BELIEVE IN</p>
-                        <p>Redefine Limitations</p>
-                        <p>Innovating Insanely!</p>
-                        <p>Learning Technologies.</p>
-                        <p>Sharing Intelligence!
-                            
-                        </div>
-                        <!-- Grid column -->
-                        
-                        <hr class="clearfix w-100 d-md-none">
-                        
-                        <!-- Grid column -->
-                        <div class="col-sm-4 col-md-2 mx-auto">
-                            
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
-                            
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="http://akgec.in/">AKGEC</a>
-                                </li>
-                                <li>
-                                    <a href="http://akgec-scrolls.com/">Scrolls</a>
-                                </li>
-                                <li>
-                                    <a href="http://techtrishna.in/directme">DirectMe</a>
-                                </li>
-                                <li>
-                                    <a href="http://bytepad.silive.in/">Bytepad</a>
-                                </li>
-                                <li>
-                                    <a href="http://resume.silive.in/">Resume Builder</a>
-                                </li>
-                                <li>
-                                    <a href="http://akgec.in/bdc">Blood Donation Camp</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Grid column -->
-                        
-                        <!-- Grid column -->
-                        <div class="col-sm-4 col-md-2 mx-auto">
-                            
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-                            
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a>Mobile Development</a>
-                                </li>
-                                <li>
-                                    <a>Website Development</a>
-                                </li>
-                                <li>
-                                    <a >Desktop Development</a>
-                                </li>
-                                <li>
-                                    <a>Web And Graphic Designing</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Grid column -->
-                        
-                        <!-- Grid column -->
-                        <div class="col-sm-4 col-md-2 mx-auto">
-                            
-                            <!-- Links -->
-                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
-                            
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="http://akgec.in/">AKGEC</a>
-                                </li>
-                                <li>
-                                    <a href="http://4thpointer.com/">4th Pointer</a>
-                                </li>
-                                <li>
-                                    <a href="http://india.ni.com/">National Instrument</a>
-                                </li>
-                                <li>
-                                    <a href="http://tifac-core-akgec.org/">TIFAC</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.kuka.com/">KUKA</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.akgec-bosch.org/">Rexroth</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                                </li>
-                                <li>
-                                    <a href="http://gmaindia.org/">GMA</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.digitalnet.com/">Brain Soft</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Grid column -->
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
+                    <p>WE BELIEVE IN</p>
+                    <p>Redefine Limitations</p>
+                    <p>Innovating Insanely!</p>
+                    <p>Learning Technologies.</p>
+                    <p>Sharing Intelligence!
                         
                     </div>
-                    <!-- Grid row -->
+                    <!-- Grid column -->
+                    
+                    <hr class="clearfix w-100 d-md-none">
+                    
+                    <!-- Grid column -->
+                    <div class="col-sm-4 col-md-2 mx-auto">
+                        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
+                        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="http://akgec.in/">AKGEC</a>
+                            </li>
+                            <li>
+                                <a href="http://akgec-scrolls.com/">Scrolls</a>
+                            </li>
+                            <li>
+                                <a href="http://techtrishna.in/directme">DirectMe</a>
+                            </li>
+                            <li>
+                                <a href="http://bytepad.silive.in/">Bytepad</a>
+                            </li>
+                            <li>
+                                <a href="http://resume.silive.in/">Resume Builder</a>
+                            </li>
+                            <li>
+                                <a href="http://akgec.in/bdc">Blood Donation Camp</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <!-- Grid column -->
+                    
+                    <!-- Grid column -->
+                    <div class="col-sm-4 col-md-2 mx-auto">
+                        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+                        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a>Mobile Development</a>
+                            </li>
+                            <li>
+                                <a>Website Development</a>
+                            </li>
+                            <li>
+                                <a >Desktop Development</a>
+                            </li>
+                            <li>
+                                <a>Web And Graphic Designing</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <!-- Grid column -->
+                    
+                    <!-- Grid column -->
+                    <div class="col-sm-4 col-md-2 mx-auto">
+                        
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
+                        
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="http://akgec.in/">AKGEC</a>
+                            </li>
+                            <li>
+                                <a href="http://4thpointer.com/">4th Pointer</a>
+                            </li>
+                            <li>
+                                <a href="http://india.ni.com/">National Instrument</a>
+                            </li>
+                            <li>
+                                <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                            </li>
+                            <li>
+                                <a href="http://www.kuka.com/">KUKA</a>
+                            </li>
+                            <li>
+                                <a href="http://www.akgec-bosch.org/">Rexroth</a>
+                            </li>
+                            <li>
+                                <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                            </li>
+                            <li>
+                                <a href="http://gmaindia.org/">GMA</a>
+                            </li>
+                            <li>
+                                <a href="http://www.digitalnet.com/">Brain Soft</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <!-- Grid column -->
                     
                 </div>
-                <!-- Footer Links -->
+                <!-- Grid row -->
                 
-                <hr>
-                
-                <!-- Social buttons -->
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
-                            <i class="fa fa-facebook"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
-                            <i class="fa fa-twitter"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
-                            <i class="fa fa-github"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
-                            <i class="fa fa-youtube-play"> </i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- Social buttons -->
-                
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                    <a href="https://silive.in">Software Incubator</a>
-                </div>
-                <!-- Copyright -->
-                
-            </footer>   
+            </div>
+            <!-- Footer Links -->
+            
+            <hr>
+            
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
+                        <i class="fa fa-facebook"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
+                        <i class="fa fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
+                        <i class="fa fa-github"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
+                        <i class="fa fa-youtube-play"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+            
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="https://silive.in">Software Incubator</a>
+            </div>
+            <!-- Copyright -->
+            
+        </footer>   
     </div>
     <!-- SCRIPTS -->
     <!-- JQuery -->
@@ -348,6 +353,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
     <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- User js -->
     
     <script>
@@ -444,7 +450,77 @@
         });*/
         
     </script>
+    
     <script>
+        function validateForm() {
+            console.log('dsfa');
+            var name =  document.getElementById('Name').value;
+            if (name == "") {
+                document.getElementById('status').innerHTML = "Name cannot be empty";
+                return false;
+            }
+            var email =  document.getElementById('Email').value;
+            if (email == "") {
+                document.getElementById('status').innerHTML = "Email cannot be empty";
+                return false;
+            } else {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if(!re.test(email)){
+                    document.getElementById('status').innerHTML = "Email format invalid";
+                    return false;
+                }
+            }
+            var Contact =  document.getElementById('Contact').value;
+            if (Contact == "") {
+                document.getElementById('status').innerHTML = "Contact cannot be empty";
+                return false;
+            }
+            else {
+                var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
+                if(!re.test(Contact)){
+                    document.getElementById('status').innerHTML = "Contact number format invalid";
+                    return false;
+                }
+            }
+            var Student =  document.getElementById('Student').value;
+            if (Student == "") {
+                document.getElementById('status').innerHTML = "Student number cannot be empty";
+                return false;
+            }
+            else {
+                var re = /^[0-9]{7}[dD]?$/;
+                if(!re.test(Student)){
+                    document.getElementById('status').innerHTML = "Student number format invalid";
+                    return false;
+                }
+            }
+            var Branch = document.getElementById('Branch');
+            if (Branch.value == "") {
+                document.getElementById('status').innerHTML = "Branch cannot be empty";
+                return false;
+            }
+            var Year = document.getElementById('Year');
+            if (Year.value == "") {
+                document.getElementById('status').innerHTML = "Year cannot be empty";
+                return false;
+            }
+            var Gender = document.getElementById('Gender');
+            if (Gender.value == "") {
+                document.getElementById('status').innerHTML = "Gender cannot be empty";
+                return false;
+            }
+            var v = grecaptcha.getResponse();
+            if(v.length == 0)
+            {
+                document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
+                return false;
+            }
+            document.getElementById('status').innerHTML = "Sending...";
+            document.getElementById('contact-form').submit();
+        }
+    </script>
+    
+    <!-- <script>
         console.log(1);
         $(document).ready(function () {
             console.log(2);
@@ -452,17 +528,17 @@
                 document.getElementById('already_exit').style.display = "none";
             }, 3500);
         });
-    </script>
+    </script> -->
     {% if messages %}
-        <script>
-            console.log(1);
-            $(document).ready(function () {
-                console.log(2);
-                setTimeout(function() {
-                    document.getElementById('centralModalLg').style.display = "none";
-                }, 4000);
-                });
-        </script>
+    <script>
+        console.log(1);
+        $(document).ready(function () {
+            console.log(2);
+            setTimeout(function() {
+                document.getElementById('centralModalLg').style.display = "none";
+            }, 4000);
+        });
+    </script>
     {% endif %}
 </body>
 

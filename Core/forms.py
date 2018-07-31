@@ -71,13 +71,6 @@ class RegistrationForm(forms.ModelForm):
         model = Registration
         exclude = ['event', 'fee_paid']
 
-    def clean(self):
-        student_number = self.cleaned_data['student_number']
-        event = Event.objects.filter(active=True).first()
-        if Registration.objects.get(student_number=student_number, event=event):
-            raise ValidationError("Already Registered")
-        return student_number
-
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
 
@@ -176,4 +169,27 @@ class RegistrationForm(forms.ModelForm):
                 'type': 'checkbox'}
             )
         )
-    
+
+    def clean(self):
+        register = None
+        email_exist = None
+        student_number = self.cleaned_data['student_number']
+        email = self.cleaned_data['email']
+        student_number = int(student_number)
+        event = Event.objects.filter(active=True).first()
+        try:
+            register = Registration.objects.filter(student_number=student_number, event=event)
+        except:
+            return student_number
+
+        try:
+            email_exist = Registration.objects.filter(email=email, event=event)
+        except:
+            return email
+
+        if register and email_exist:
+            raise ValidationError("Student number and email already Registered")
+        elif register:
+            raise ValidationError("Student number already Registered")
+        elif email_exist:
+            raise ValidationError("Email already Registered")
