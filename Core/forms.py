@@ -171,14 +171,14 @@ class RegistrationForm(forms.ModelForm):
         )
 
     def clean(self):
-        register = None
+        registered = None
         email_exist = None
         student_number = self.cleaned_data['student_number']
         email = self.cleaned_data['email']
         student_number = int(student_number)
         event = Event.objects.filter(active=True).first()
         try:
-            register = Registration.objects.filter(student_number=student_number, event=event)
+            registered = Registration.objects.filter(student_number=student_number, event=event)
         except:
             return student_number
 
@@ -187,9 +187,9 @@ class RegistrationForm(forms.ModelForm):
         except:
             return email
 
-        if register and email_exist:
+        if registered and email_exist:
             raise ValidationError("Student number and email already Registered")
-        elif register:
+        elif registered:
             raise ValidationError("Student number already Registered")
         elif email_exist:
             raise ValidationError("Email already Registered")

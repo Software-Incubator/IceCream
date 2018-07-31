@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>SOFTWARE INCUBATOR</title>
-    <link rel="icon" href="../static/images/silogo.ico">
+    <link rel="icon" href="/static/images/silogo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -10,42 +10,46 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css"> 
-    <link rel="stylesheet" href="../static/css/stylesheet_blog.css">   
+    <link rel="stylesheet" type="text/css" href="/static/css/stylesheet.css"> 
+    <link rel="stylesheet" type="text/css" href="/static/css/stylesheet_blog.css">
     <!-- Google FOnt -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <style>
+        .blog-cont > p > img {
+            display: block;
+            margin: 0 auto; 
+            width:auto !important;
+            height:auto !important;
+            width: 50% !important;
+        }
+    </style>
 </head>
 
 <body>
     <!-- ================================================================================================== Loader -->
     
-    <div id="loader"><img class="loader-img" src="../static/images/loader.svg"></div>
+    <div id="loader"><img class="loader-img" src="/static/images/loader.svg"></div>
     <div class="topnav">
-        <img src="../static/images/silogo-back.png" alt="">
+        <img src="/static/images/silogo-back.png" alt="">
         <a style="font-weight:700;" class="active" href="{% url 'home' %}">Home</a>
     </div>
     
     
     <div class="container">
         <div class="row">
-            <div class="text-center col-sm-12 col-md-12 col-lg-12 my-4">
-                <h1>Our blogs</h1>
+            <div class="bg-white text-center col-sm-12 col-md-12 col-lg-12 my-4">
+                <h1>{{ blog.title }}</h1>
+                <h3>By {{ blog.author }}</h3>
+                <h5>on {{ blog.timestamp|timesince }}</h5>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#{{ request.uri }}" target="_blank"><i class="fa fa-facebook-square mx-2" style="font-size:2rem;color:#4467b2"></i></a>
+                <a href="http://www.twitter.com/share?url={{ request.uri }}"><i class="fa fa-twitter mx-2" style="font-size:2rem;color:#1da1f2"></i></a>
             </div>
         </div>
     </div>
-    <div class="parallax"><div class="parallax-text"><h1>{{ blog.title }}</h1></div></div>
-    <div style="background-color: #f1f1f1;">
-        <div class="container"> 
-            <div class="blogdetail-container my-5">
-                by {{ blog.author }} on {{ blog.timestamp|timesince }}
-                <br>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=#{{ request.uri }}" target="_blank"><i class="fa fa-facebook-square" style="font-size:20px;color:#4467b2"></i></a>
-                <a href="http://www.twitter.com/share?url={{ request.uri }}"><i class="fa fa-twitter" style="font-size:20px;color:#1da1f2"></i></a>
-                
-                <br><br>
-                {{ blog.content|safe }}
-            </div>
+    <div class="blogbg container-fluid">
+        <div class="container blog-cont" style="padding:50px;background-color: #f5f5f5;">
+            {{ blog.content|safe }}
+            
         </div>
     </div>
     <footer class="page-footer font-small pt-4">
@@ -65,7 +69,7 @@
                     <p>Redefine Limitations</p>
                     <p>Innovating Insanely!</p>
                     <p>Learning Technologies.</p>
-                    <p>Sharing Intelligence!
+                    <p>Sharing Intelligence!</p>
                         
                     </div>
                     <!-- Grid column -->

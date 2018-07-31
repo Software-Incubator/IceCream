@@ -15,6 +15,27 @@
     <!-- Google FOnt -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
+    <style>
+        p {
+            display: none;
+        }
+        p:first-child {
+            display: block;
+        }
+        p:nth-child(2){
+            display: block;
+            position: relative;
+            margin: 1rem 0 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        .blog > div > p > img {
+            display:none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,33 +48,29 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="text-center col-sm-12 col-md-12 col-lg-12 my-4">
+            <div class="bg-white text-center col-sm-12 col-md-12 col-lg-12 my-4">
                 <h1>Our blogs</h1>
             </div>
             <div class="text-center col-sm-12 col-md-12 col-lg-12 my-2">
                 <h4>Total Blogs: {{ blogs.count }}</h4>
             </div>
-            
-            
-            
+        </div>
+    </div>
+    <div style="padding:5% !important;" class="blogsbg container-fluid">
+        <div class="row justify-content-center">
             {% autoescape off %} {% for blog in blogs %}
-            <div class="blog-card">
-                <div class="meta">
-                    <!-- <div class="photo" style="background-image: url(https://lh4.googleusercontent.com/QQR_fIDH5ANG3ZjMCu6JX0QvF_B4do4Ap7iwPMYuumWrV6Mou0hSWkORKbREr9CPUo0qsj1TlEPEJUAzLX9p672AZ2w4fRdJ-cQRysl289dXt3bhCcHeik31-6muaKxCMWE_RyM)"></div> -->
-                    <ul class="details">
-                        <li class="author">{{ blog.author }}</li>
-                        <li class="date">{{ blog.timestamp|timesince }}</li>
-                    </ul>
-                </div>
-                <div class="description">
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="blog container p-4 mb-3">
                     <h1>{{ blog.title }}</h1>
-                    {{ blog.content }}
-                    <p class="read-more">
-                        <h2 id="{{ blog.id }}" align="right"><a href="{{ blog.get_absolute_url }}" style="color: blue">Read More...</a></h2>
-                    </p>
+                    <h3>- By {{ blog.author }}</h3>
+                    <h5>on {{ blog.timestamp|timesince }}</h5>
+                    <div>
+                        {{ blog.content }}
+                    </div>
+                    <h3 id="{{ blog.id }}" align="right"><a href="{{ blog.get_absolute_url }}" style="color: #505050">Read More...</a></h3>
                 </div>
             </div>
-            <hr> {% endfor %} {% endautoescape %}
+            {% endfor %} {% endautoescape %}
             
             <!-- <div class="blog_text">{{ blog.content|safe }}</div> -->
             <!-- <h2 id="{{ blog.id }}"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2> -->
@@ -94,7 +111,7 @@
                     <p>Redefine Limitations</p>
                     <p>Innovating Insanely!</p>
                     <p>Learning Technologies.</p>
-                    <p>Sharing Intelligence!
+                    <p>Sharing Intelligence!</p>
                         
                     </div>
                     <!-- Grid column -->

@@ -74,30 +74,30 @@ class SaveContactView(View):
         message = request.GET['message']
         subject = request.GET['subject']
         if name == '':
-            data_to_frontend['done']=0
-            data_to_frontend['message']='Name cannot be empty..'
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'Name cannot be empty..'
         elif email == '':
-            data_to_frontend['done']=0
-            data_to_frontend['message']='Email cannot be empty..'
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'Email cannot be empty..'
         elif contact == '':
-            data_to_frontend['done']=0
-            data_to_frontend['message']='contact cannot be empty..'
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'contact cannot be empty..'
         elif message == '':
-            data_to_frontend['done']=0
-            data_to_frontend['message']='message cannot be empty..'
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'message cannot be empty..'
         elif subject == '':
-            data_to_frontend['done']=0
-            data_to_frontend['message']='subject cannot be empty..'
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'subject cannot be empty..'
         else:
             try:
                 contact_us = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
             except:
-                data_to_frontend['done']=0
-                data_to_frontend['message']='Request failed due to internal error.'
+                data_to_frontend['done'] = 0
+                data_to_frontend['message'] = 'Request failed due to internal error.'
 
         if contact_us:
-            data_to_frontend['done']=1
-            data_to_frontend['message']='Request successfully registered.'
+            data_to_frontend['done'] = 1
+            data_to_frontend['message'] = 'Request successfully registered.'
 
         return JsonResponse(data_to_frontend)
 
@@ -139,8 +139,6 @@ class BlogView(View):
 
     def get(self, request, *args, **kwargs):
         blogs = Blog.objects.all()
-        for blog in blogs:
-            print(blog)
         return render(request, self.template_name, context={'blogs': blogs})
 
 
