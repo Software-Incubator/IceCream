@@ -48,6 +48,9 @@ class Event(models.Model):
     pic_path = models.FileField(upload_to=events_upload_location, null=True,
                                 default=None)
 
+    def __str__(self):
+        return self.name
+
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=255)
@@ -153,7 +156,7 @@ def student_number_validator(value):
 
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     contact = models.CharField(max_length=10, unique=False , null=False)
     student_number = models.CharField(max_length=8)
     branch = models.ForeignKey('Branch')
@@ -167,7 +170,6 @@ class Registration(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.event = Event.objects.filter(active=True).first()
-
         super(Registration, self).save()
 
     def __str__(self):
@@ -175,7 +177,6 @@ class Registration(models.Model):
 
     class Meta:
         unique_together = ('student_number', 'event')
-
 
 
     def __str__(self):
@@ -213,3 +214,4 @@ class Blog(models.Model):
 
     def __str__(self):
         return "{} | {}".format(self.title, self.author)
+

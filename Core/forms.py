@@ -3,6 +3,7 @@ from django import forms
 from .models import ContactUs, Registration, Branch, Year, Gender, Event
 
 from django.forms import ValidationError
+from django.core.exceptions import ValidationError
 
 
 
@@ -171,25 +172,17 @@ class RegistrationForm(forms.ModelForm):
         )
 
     def clean(self):
-        registered = None
-        email_exist = None
-        student_number = self.cleaned_data['student_number']
-        email = self.cleaned_data['email']
-        student_number = int(student_number)
+        cleaned_data = super(RegistrationForm, self).clean()
+        student_number = cleaned_data['student_number']
+        email = cleaned_data['email']
         event = Event.objects.filter(active=True).first()
-        try:
-            registered = Registration.objects.filter(student_number=student_number, event=event)
-        except:
-            return student_number
+        
+        if Registration.objects.filter(email=email, event=event, student_number=student_number).exists():
+            raise ValidationError('Registration with this student number and email already exist.')
+        elif Registration.objects.filter(student_number=student_number, event=event).exists():
+            raise ValidationError('Registration with this student number already exist.')
+        elif Registration.objects.filter(email=email, event=event).exists():
+            raise ValidationError('Registration with this email already exist.')
 
-        try:
-            email_exist = Registration.objects.filter(email=email, event=event)
-        except:
-            return email
+        return cleaned_data
 
-        if registered and email_exist:
-            raise ValidationError("Student number and email already Registered")
-        elif registered:
-            raise ValidationError("Student number already Registered")
-        elif email_exist:
-            raise ValidationError("Email already Registered")

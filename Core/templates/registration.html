@@ -167,7 +167,6 @@
                                 <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
                             </div>
                             <!--button-->
-                            {{alert}}
                             <center style="color: red" id="already_exit">{{ alert }}</center>
                             <div class="text-center text-danger" id="status"></div>
                             <div class="text-center py-4">
@@ -456,66 +455,66 @@
             console.log('dsfa');
             var name =  document.getElementById('Name').value;
             if (name == "") {
-                document.getElementById('status').innerHTML = "Name cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Name cannot be empty";
                 return false;
             }
             var email =  document.getElementById('Email').value;
             if (email == "") {
-                document.getElementById('status').innerHTML = "Email cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Email cannot be empty";
                 return false;
             } else {
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if(!re.test(email)){
-                    document.getElementById('status').innerHTML = "Email format invalid";
+                    document.getElementById('already_exit').innerHTML = "Email format invalid";
                     return false;
                 }
             }
             var Contact =  document.getElementById('Contact').value;
             if (Contact == "") {
-                document.getElementById('status').innerHTML = "Contact cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Contact cannot be empty";
                 return false;
             }
             else {
                 var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
                 if(!re.test(Contact)){
-                    document.getElementById('status').innerHTML = "Contact number format invalid";
+                    document.getElementById('already_exit').innerHTML = "Contact number format invalid";
                     return false;
                 }
             }
             var Student =  document.getElementById('Student').value;
             if (Student == "") {
-                document.getElementById('status').innerHTML = "Student number cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Student number cannot be empty";
                 return false;
             }
             else {
                 var re = /^[0-9]{7}[dD]?$/;
                 if(!re.test(Student)){
-                    document.getElementById('status').innerHTML = "Student number format invalid";
+                    document.getElementById('already_exit').innerHTML = "Student number format invalid";
                     return false;
                 }
             }
             var Branch = document.getElementById('Branch');
             if (Branch.value == "") {
-                document.getElementById('status').innerHTML = "Branch cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
                 return false;
             }
             var Year = document.getElementById('Year');
             if (Year.value == "") {
-                document.getElementById('status').innerHTML = "Year cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Year cannot be empty";
                 return false;
             }
             var Gender = document.getElementById('Gender');
             if (Gender.value == "") {
-                document.getElementById('status').innerHTML = "Gender cannot be empty";
+                document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
                 return false;
             }
-            var v = grecaptcha.getResponse();
-            if(v.length == 0)
-            {
-                document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
-                return false;
-            }
-            document.getElementById('status').innerHTML = "Sending...";
+            // var v = grecaptcha.getResponse();
+            // if(v.length == 0)
+            // {
+            //     document.getElementById('already_exit').innerHTML="You can't leave Captcha Code empty";
+            //     return false;
+            // }
+            document.getElementById('already_exit').innerHTML = "Sending...";
             document.getElementById('contact-form').submit();
         }
     </script>
