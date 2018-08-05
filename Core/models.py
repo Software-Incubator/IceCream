@@ -10,9 +10,11 @@ from django.core.urlresolvers import reverse
 
 
 
-# ## DO NOT DELETE THIS FUNCTION
-# ## If you think that this function is outright useless because it is never called,
-# ## stop right there. You delete this and all the migrations will FAIL!
+# DO NOT DELETE THIS FUNCTION
+# If you think that this function is outright useless because it is never called,
+# stop right there. You delete this and all the migrations will FAIL!
+
+
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 

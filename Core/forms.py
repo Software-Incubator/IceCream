@@ -3,8 +3,6 @@ from django import forms
 from .models import ContactUs, Registration, Branch, Year, Gender, Event
 
 from django.forms import ValidationError
-from django.core.exceptions import ValidationError
-
 
 
 class ContactUsForm(forms.ModelForm):
