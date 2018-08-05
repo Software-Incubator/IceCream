@@ -508,12 +508,12 @@
                 document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
                 return false;
             }
-            // var v = grecaptcha.getResponse();
-            // if(v.length == 0)
-            // {
-            //     document.getElementById('already_exit').innerHTML="You can't leave Captcha Code empty";
-            //     return false;
-            // }
+            var v = grecaptcha.getResponse();
+            if(v.length == 0)
+            {
+                document.getElementById('already_exit').innerHTML="You can't leave Captcha Code empty";
+                return false;
+            }
             document.getElementById('already_exit').innerHTML = "Sending...";
             document.getElementById('contact-form').submit();
         }
