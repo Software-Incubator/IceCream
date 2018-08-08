@@ -373,6 +373,7 @@
                                                 </div>
                                                 <div class="back">
                                                     <div class="inner2">
+                                                        {{ member.technology.all.first.name }}
                                                         <p>{{ member.designation.name }}</p>
                                                         <div class="text-cent">
                                                             <a href="{{ member.facebook }}" target="_blank"><i class="text-white fa fa-facebook fa-lg" aria-hidden="true"></i></a>
@@ -481,19 +482,21 @@
                                                             <div class="row">
                                                                 
                                                                 <!--Grid column-->
-                                                                <div class="col-md-12">
+                                                                <div class="col-lg-6 col-md-6 col-sm-12">
                                                                     <div class="md-form mb-0">
                                                                         <input type="text" id="name" name="name" class="form-control">
                                                                         <label for="name" class="">Your name</label>
+                                                                        <span id="name_error" style="color:red;"></span>
                                                                     </div>
                                                                 </div>
                                                                 <!--Grid column-->
                                                                 
                                                                 <!--Grid column-->
-                                                                <div class="col-md-12">
+                                                                <div class="col-lg-6 col-md-6 col-sm-12">
                                                                     <div class="md-form mb-0">
                                                                         <input type="text" id="email" name="email" class="form-control">
                                                                         <label for="email" class="">Your email</label>
+                                                                        <span id="email_error" style="color:red;"></span>
                                                                     </div>
                                                                 </div>
                                                                 <!--Grid column-->
@@ -503,19 +506,18 @@
                                                             
                                                             <!--Grid row-->
                                                             <div class="row">
-                                                                <div class="col-md-12">
+                                                                <div class="col-lg-6 col-md-6 col-sm-12">
                                                                     <div class="md-form mb-0">
                                                                         <input type="text" id="subject" name="subject" class="form-control">
                                                                         <label for="subject" class="">Subject</label>
+                                                                        <span id="subject_error" style="color:red;"></span>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <!--Grid row-->
-                                                            <div class="row">
-                                                                <div class="col-md-12">
+                                                                <div class="col-lg-6 col-md-6 col-sm-12">
                                                                     <div class="md-form mb-0">
                                                                         <input type="text" id="contact" name="contact" class="form-control">
                                                                         <label for="contact" class="">Contact Number</label>
+                                                                        <span id="contact_error" style="color:red;"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -529,6 +531,7 @@
                                                                     <div class="md-form">
                                                                         <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                                                         <label for="message">Your message</label>
+                                                                        <span id="message_error" style="color:red;"></span>
                                                                     </div> 
                                                                 </div>
                                                             </div>
@@ -536,6 +539,7 @@
                                                                 <!--Grid column-->
                                                                 <div class="col-md-12">
                                                                     <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                                                                    <span id="captcha_error" style="color:red;"></span>
                                                                 </div>
                                                             </div>
                                                             <!--Grid row-->
@@ -750,48 +754,55 @@
                                     </script>
                                     <script>
                                         function validateForm() {
+                                            document.getElementById('name_error').innerHTML = "";
+                                            document.getElementById('email_error').innerHTML = "";
+                                            document.getElementById('subject_error').innerHTML = "";
+                                            document.getElementById('contact_error').innerHTML = "";
+                                            document.getElementById('message_error').innerHTML = "";
+                                            document.getElementById('captcha_error').innerHTML = "";
+
                                             var name =  document.getElementById('name').value;
                                             if (name == "") {
-                                                document.getElementById('status').innerHTML = "Name cannot be empty";
+                                                document.getElementById('name_error').innerHTML = "Cannot be empty";
                                                 return false;
                                             }
                                             var email =  document.getElementById('email').value;
                                             if (email == "") {
-                                                document.getElementById('status').innerHTML = "Email cannot be empty";
+                                                document.getElementById('email_error').innerHTML = "Cannot be empty";
                                                 return false;
                                             } else {
                                                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                                                 if(!re.test(email)){
-                                                    document.getElementById('status').innerHTML = "Email format invalid";
+                                                    document.getElementById('email_error').innerHTML = "Invalid";
                                                     return false;
                                                 }
                                             }
                                             var subject =  document.getElementById('subject').value;
                                             if (subject == "") {
-                                                document.getElementById('status').innerHTML = "Subject cannot be empty";
+                                                document.getElementById('subject_error').innerHTML = "Cannot be empty";
                                                 return false;
                                             }
                                             var contact =  document.getElementById('contact').value;
                                             if (contact == "") {
-                                                document.getElementById('status').innerHTML = "Contact number cannot be empty";
+                                                document.getElementById('contact_error').innerHTML = "Cannot be empty";
                                                 return false;
                                             } 
                                             else {
                                                 var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
                                                 if(!re.test(contact)){
-                                                    document.getElementById('status').innerHTML = "Contact number format invalid";
+                                                    document.getElementById('contact_error').innerHTML = "Invalid";
                                                     return false;
                                                 }
                                             }
                                             var message =  document.getElementById('message').value;
                                             if (message == "") {
-                                                document.getElementById('status').innerHTML = "Message cannot be empty";
+                                                document.getElementById('message_error').innerHTML = "Cannot be empty";
                                                 return false;
                                             }
                                             var v = grecaptcha.getResponse();
                                             if(v.length == 0)
                                             {
-                                                document.getElementById('status').innerHTML="You can't leave Captcha Code empty";
+                                                document.getElementById('captcha_error').innerHTML="Cannot be empty";
                                                 return false;
                                             }
                                             document.getElementById('status').innerHTML = "Sending...";
@@ -822,7 +833,7 @@
                                                         document.getElementById('status').classList = "text-center";
                                                         setTimeout(function() {
                                                             document.getElementById('centralModalLg2').style.display = "none";
-                                                            document.querySelector('.modal-backdrop').classList = "modal-backdrop fade";
+                                                            document.querySelector('.modal-backdrop').style.display = "none";
                                                         }, 2000);
                                                     }
                                                     else if(data['done'] == 0){

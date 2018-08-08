@@ -83,17 +83,18 @@
                         <form name="form" id="contact-form" method="POST">
                             {% csrf_token %}
                             <!-- name -->
-                            <div id="register-form" name="form" class="md-form">
+                            <div id="register-form" name="form" class="md-form mb-0">
                                 <i class="fa fa-user prefix grey-text"></i>
                                 <input type="text" id="Name" name="name" class="form-control">
                                 <label for="name">Name</label>
-                                <span style="color: red">{{ form.name.errors }}</span>
+                                <span id="name_err" class='validationerror'>Invalid Name </span>
                             </div>
                             <!-- email -->
                             <div class="md-form">
                                 <i class="fa fa-envelope prefix grey-text"></i>
                                 <input type="email" id="Email" name="email" class="form-control">
                                 <label for="email">Email</label>
+                                <span id="email_err" class='validationerror'>Invalid Email </span>
                                 <span style="color: red">{{ form.email.errors }}</span>
                             </div>
                             <!-- contact -->
@@ -101,6 +102,7 @@
                                 <i class="fa fa-mobile prefix grey-text"></i>
                                 <input type="text" id="Contact" name="contact" class="form-control">
                                 <label for="contact">Contact Number</label>
+                                <span id="contactno_err" class='validationerror'>Invalid Contact No </span>
                                 <span style="color: red">{{ form.contact.errors }}</span>
                             </div>
                             <!-- student no. -->
@@ -108,6 +110,7 @@
                                 <i class="fa fa-id-badge prefix grey-text"></i>
                                 <input type="text" id="Student" name="student_number" class="form-control">
                                 <label for="student">Student no.</label>
+                                <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
                                 <span style="color: red">{{ form.student_number.errors }}</span>
                             </div>
                             <!--choose Branch-->
@@ -370,20 +373,19 @@
         }
         
         $(document).ready(function () {
+            $(".validationerror").hide();
             $("#Name").focusout(function (event) {
                 if (event.charCode!=0) {
                     var regex = new RegExp("^[a-zA-Z ]+$");
                     if (!regex.test($(this).val())) {
-                        $( "#Name" ).after( "<span class='validationerror'>Invalid Name </span>" );
+                        $( "#name_err" ).show();
                     }
                 }
             });
             
-            $("#Name").focusin(function () {
+            $("#Name").focusin(function (event) {
                 if (event.charCode!=0) {
-                    $("#Name").siblings("span").each(function () {
-                        $(this).remove()
-                    });
+                    $( "#name_err" ).hide();
                 }
             });
             
@@ -391,16 +393,14 @@
                 if (event.charCode!=0) {
                     var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
                     if (!regex.test($("#Email").val())) {
-                        $( "#Email" ).after( "<span class='validationerror'>Invalid Email</span>" );
+                        $( "#email_err" ).show();
                     }
                 }
             });
             
-            $("#Email").focusin(function () {
+            $("#Email").focusin(function (event) {
                 if (event.charCode!=0) {
-                    $("#Email").siblings("span").each(function () {
-                        $(this).remove()
-                    });
+                    $( "#email_err" ).hide();
                 }
             });
             
@@ -409,16 +409,14 @@
                 if (event.charCode!=0) {
                     var regex = new RegExp("^[0-9]{10}$");
                     if (!regex.test($("#Contact").val())) {
-                        $( "#Contact" ).after( "<span class='validationerror'>Invalid Mobile Number </span>" );
+                        $( "#contactno_err" ).show();
                     }
                 }
             });
             
-            $("#Contact").focusin(function () {
+            $("#Contact").focusin(function (event) {
                 if (event.charCode!=0) {
-                    $("#Contact").siblings("span").each(function () {
-                        $(this).remove()
-                    });
+                    $( "#contactno_err" ).hide();
                 }
             });
             
@@ -427,16 +425,14 @@
                 if (event.charCode!=0) {
                     var regex = new RegExp("^[0-9]{7}[dD]?$");
                     if (!regex.test($("#Student").val())) {
-                        $( "#Student" ).after( "<span class='validationerror'>Invalid Student Number </span>" );
+                        $( "#studentno_err" ).show();
                     }
                 }
             });
             
-            $("#Student").focusin(function () {
+            $("#Student").focusin(function (event) {
                 if (event.charCode!=0) {
-                    $("#Student").siblings("span").each(function () {
-                        $(this).remove()
-                    });
+                    $( "#studentno_err" ).hide();
                 }
             });
             
@@ -447,12 +443,10 @@
         /*$(document).ready(function () {
             $("#Year").val("");
         });*/
-        
     </script>
     
     <script>
         function validateForm() {
-            console.log('dsfa');
             var name =  document.getElementById('Name').value;
             if (name == "") {
                 document.getElementById('already_exit').innerHTML = "Name cannot be empty";

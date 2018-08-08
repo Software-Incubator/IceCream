@@ -171,8 +171,15 @@ class RegistrationForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
-        student_number = cleaned_data['student_number']
-        email = cleaned_data['email']
+        try:
+            student_number = cleaned_data['student_number']
+        except KeyError:
+            raise ValidationError("")
+        
+        try:
+            email = cleaned_data['email']
+        except KeyError:
+            raise ValidationError("")
         event = Event.objects.filter(active=True).first()
         
         if Registration.objects.filter(email=email, event=event, student_number=student_number).exists():
