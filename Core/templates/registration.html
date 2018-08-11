@@ -117,40 +117,18 @@
                             <div class="md-form">
                                 <div class="row p-1">
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
-                                        <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Branch" name="branch" onchange="validateBranch()" >
-                                            <option value="1" disabled selected>Branch</option>
-                                            <option  value="2">CSE</option>
-                                            <option value="3">IT</option>
-                                            <option value="4">ECE</option>
-                                            <option value="5" >EN</option>
-                                            <option value="6" >EI</option>
-                                            <option value="7" >CE</option>
-                                            <option value="8" >ME</option>
-                                            <option value="9" >MCA</option>
-                                        </select> -->
                                         {{ form.branch.label }}
                                         <div class="hoverable">{{ form.branch }}</div>
                                         <span style="color: red">{{ form.branch.errors }}</span>
                                     </div>
                                     <!--choose year-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                        <!-- <select class="form-control hoverable grey-text" data-val="true" data-val-required="*" id="Year" name="year" >
-                                            <option value="1" disabled selected>Year</option>
-                                            <option value="2">I</option>
-                                            <option value="3">II</option>
-                                            <option value="4">III</option>
-                                        </select> -->
                                         {{ form.year.label }}
                                         <div class="hoverable">{{ form.year }}</div>
                                         <span style="color: red">{{ form.year.errors }}</span>
                                     </div>
                                     <!--choose gender-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                        <!-- <select class="form-control hoverable grey-text " data-val="true" data-val-required="*" id="Gender" name="gender" >
-                                            <option value="1" disabled selected>Gender</option>
-                                            <option  value="2">Female</option>
-                                            <option value="3">Male</option>
-                                        </select> -->
                                         {{ form.gender.label }}
                                         <div class="hoverable">{{ form.gender }}</div>
                                         <span style="color: red">{{ form.gender.errors }}</span>

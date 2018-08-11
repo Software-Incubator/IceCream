@@ -370,6 +370,13 @@ h1 {
     font-weight: bold;
     text-align: center;
 }
+.matter {
+    display: inline-block;
+    color: #3b95ed;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
 /********************** What we do secction ************/
 
 .slider-con {
