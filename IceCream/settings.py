@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Core',
     'ckeditor',
-    'import_export'
+    'import_export',
+    'snowpenguin.django.recaptcha2',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -85,8 +86,6 @@ DATABASES = {
     }
 }
 
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -130,3 +129,6 @@ MEDIA_ROOT = os.path.join('/home/si', "Assets/IceCream/media")
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_FILENAME_GENERATOR = 'Core.utils.get_filename'
+
+RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']

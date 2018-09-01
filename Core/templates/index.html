@@ -1,3 +1,4 @@
+{% load recaptcha2 %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
     <!-- Google FOnt -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
+    {% recaptcha_init %}
 </head>
 
 <body>
@@ -543,8 +545,8 @@
                                                             </div>
                                                             <div class="row">
                                                                 <!--Grid column-->
-                                                                <div class="col-md-12">
-                                                                    <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                                                                <div class="col-md-12" style="overflow: hidden;">
+                                                                    {{ contact_form.captcha }}
                                                                     <span id="captcha_error" style="color:red;"></span>
                                                                 </div>
                                                             </div>

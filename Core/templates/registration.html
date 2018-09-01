@@ -1,3 +1,4 @@
+{% load recaptcha2 %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
     <link href="../static/css/stylesheet_register.css" rel="stylesheet">
-    
-    
+    {% recaptcha_init %}
 </head>
 
 <body>
@@ -144,8 +144,8 @@
                                 </div>
                                 <span style="color: red">{{ form.hosteler.errors }}</span>
                             </div>
-                            <div class="col-md-12">
-                                <div class="g-recaptcha" data-sitekey="6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G"></div>
+                            <div class="col-md-12" style="overflow: hidden;">
+                                {{ form.captcha }}
                             </div>
                             <!--button-->
                             <center style="color: red" id="already_exit">{{ alert }}</center>
