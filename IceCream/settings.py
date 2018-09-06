@@ -77,21 +77,15 @@ WSGI_APPLICATION = 'IceCream.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ['DB_NAME'],
-#         'USER': os.environ['DB_USER'],
-#         'PASSWORD': os.environ['DB_PASSWORD']
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'new_db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD']
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -137,8 +131,5 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_FILENAME_GENERATOR = 'Core.utils.get_filename'
 
-# RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
-# RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
-
-RECAPTCHA_PRIVATE_KEY = '6Lf7TGYUAAAAAKfDka3YHrDeyE7Euft-F2eSpoHp'
-RECAPTCHA_PUBLIC_KEY = '6Lf7TGYUAAAAABWJ07QfbIUSnw8hihM3FHwBHK2G'
+RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
