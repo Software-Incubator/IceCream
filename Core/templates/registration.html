@@ -1,10 +1,11 @@
+{% load staticfiles %}
 {% load recaptcha2 %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="../static/images/silogo.ico">
+    <link rel="icon" href="{% static 'images/silogo.ico' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Registration Page</title>
@@ -17,15 +18,20 @@
     <!-- Google FOnt -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
-    <link href="../static/css/stylesheet_register.css" rel="stylesheet">
+    <link href="{% static 'css/stylesheet_register.css' %}" rel="stylesheet">
     {% recaptcha_init %}
+    <style>
+    .page-footer {
+        background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
+    }
+    </style>
 </head>
 
 <body>
     <!--HTML-->
     <!-- Image and text -->
     <div class="topnav">
-        <img src="../static/images/silogo-back.png" alt="">
+        <img src="{% static 'images/silogo-back.png' %}" alt="">
         <a style="font-weight:700;" class="active" href="{% url 'home' %}">Home</a>
     </div>
     <div class="container-fluid" id="main_container">
@@ -102,7 +108,7 @@
                                 <i class="fa fa-mobile prefix grey-text"></i>
                                 <input type="text" id="Contact" name="contact" class="form-control">
                                 <label for="contact">Contact Number</label>
-                                <span id="contactno_err" class='validationerror'>Invalid Contact No </span>
+                                <span id="contactno_err" class='validationerror'>Invalid Contact Number </span>
                                 <span style="color: red">{{ form.contact.errors }}</span>
                             </div>
                             <!-- student no. -->
@@ -178,339 +184,341 @@
                     <!-- Content -->
                     <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
                     <p>WE BELIEVE IN</p>
-                    <p>Redefine Limitations</p>
+                    <p>Redefining Limitations</p>
                     <p>Innovating Insanely</p>
                     <p>Learning Technologies</p>
                     <p>Sharing Intelligence</p>
-                        
-                    </div>
-                    <!-- Grid column -->
-                    
-                    <hr class="clearfix w-100 d-md-none">
-                    
-                    <!-- Grid column -->
-                    <div class="col-sm-4 col-md-2 mx-auto">
-                        
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
-                        
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="http://akgec.in/">AKGEC</a>
-                            </li>
-                            <li>
-                                <a href="http://akgec-scrolls.com/">Scrolls</a>
-                            </li>
-                            <li>
-                                <a href="http://techtrishna.in/directme">DirectMe</a>
-                            </li>
-                            <li>
-                                <a href="http://bytepad.silive.in/">Bytepad</a>
-                            </li>
-                            <li>
-                                <a href="http://resume.silive.in/">Resume Builder</a>
-                            </li>
-                            <li>
-                                <a href="http://akgec.in/bdc">Blood Donation Camp</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- Grid column -->
-                    
-                    <!-- Grid column -->
-                    <div class="col-sm-4 col-md-2 mx-auto">
-                        
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
-                        
-                        <ul class="list-unstyled">
-                            <li>
-                                <a>Mobile Development</a>
-                            </li>
-                            <li>
-                                <a>Website Development</a>
-                            </li>
-                            <li>
-                                <a >Desktop Development</a>
-                            </li>
-                            <li>
-                                <a>Web And Graphic Designing</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- Grid column -->
-                    
-                    <!-- Grid column -->
-                    <div class="col-sm-4 col-md-2 mx-auto">
-                        
-                        <!-- Links -->
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
-                        
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="http://akgec.in/">AKGEC</a>
-                            </li>
-                            <li>
-                                <a href="http://4thpointer.com/">4th Pointer</a>
-                            </li>
-                            <li>
-                                <a href="http://india.ni.com/">National Instrument</a>
-                            </li>
-                            <li>
-                                <a href="http://tifac-core-akgec.org/">TIFAC</a>
-                            </li>
-                            <li>
-                                <a href="http://www.kuka.com/">KUKA</a>
-                            </li>
-                            <li>
-                                <a href="http://www.akgec-bosch.org/">Rexroth</a>
-                            </li>
-                            <li>
-                                <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                            </li>
-                            <li>
-                                <a href="http://gmaindia.org/">GMA</a>
-                            </li>
-                            <li>
-                                <a href="http://www.digitalnet.com/">Brain Soft</a>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- Grid column -->
                     
                 </div>
-                <!-- Grid row -->
+                <!-- Grid column -->
+                
+                <hr class="clearfix w-100 d-md-none">
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-md-2 mx-auto">
+                    
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://akgec.in/">AKGEC</a>
+                        </li>
+                        <li>
+                            <a href="http://akgec-scrolls.com/">Scrolls</a>
+                        </li>
+                        <li>
+                            <a href="http://techtrishna.in/directme">DirectMe</a>
+                        </li>
+                        <li>
+                            <a href="http://bytepad.silive.in/">Bytepad</a>
+                        </li>
+                        <li>
+                            <a href="http://resume.silive.in/">Resume Builder</a>
+                        </li>
+                        <li>
+                            <a href="http://akgec.in/bdc">Blood Donation Camp</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-md-2 mx-auto">
+                    
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <a>Mobile Development</a>
+                        </li>
+                        <li>
+                            <a>Website Development</a>
+                        </li>
+                        <li>
+                            <a >Desktop Development</a>
+                        </li>
+                        <li>
+                            <a>Web And Graphic Designing</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-md-2 mx-auto">
+                    
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://akgec.in/">AKGEC</a>
+                        </li>
+                        <li>
+                            <a href="http://4thpointer.com/">4th Pointer</a>
+                        </li>
+                        <li>
+                            <a href="http://india.ni.com/">National Instrument</a>
+                        </li>
+                        <li>
+                            <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                        </li>
+                        <li>
+                            <a href="http://www.kuka.com/">KUKA</a>
+                        </li>
+                        <li>
+                            <a href="http://www.akgec-bosch.org/">Rexroth</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                        </li>
+                        <li>
+                            <a href="http://gmaindia.org/">GMA</a>
+                        </li>
+                        <li>
+                            <a href="http://www.digitalnet.com/">Brain Soft</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- Grid column -->
                 
             </div>
-            <!-- Footer Links -->
+            <!-- Grid row -->
             
-            <hr>
-            
-            <!-- Social buttons -->
-            <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
-                        <i class="fa fa-facebook"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
-                        <i class="fa fa-twitter"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
-                        <i class="fa fa-github"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
-                        <i class="fa fa-youtube-play"> </i>
-                    </a>
-                </li>
-            </ul>
-            <!-- Social buttons -->
-            
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2018 Copyright:
-                <a href="https://silive.in">Software Incubator</a>
-            </div>
-            <!-- Copyright -->
-            
-        </footer>   
-    </div>
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
-    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <!-- User js -->
-    
-    <script>
+        </div>
+        <!-- Footer Links -->
         
-        //validations
-        function validateBranch () {
-            console.log("Branch Changed");
-            
-            if ($("#Branch").val() == "MCA") {
-                $("#Year").val("1");
-            }
-            else  {
-                $("#Year").val("2");
-            }
+        <hr>
+        
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
+                    <i class="fa fa-facebook"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
+                    <i class="fa fa-twitter"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
+                    <i class="fa fa-github"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
+                    <i class="fa fa-youtube-play"> </i>
+                </a>
+            </li>
+        </ul>
+        <!-- Social buttons -->
+        
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://silive.in">Software Incubator</a>
+        </div>
+        <!-- Copyright -->
+        
+    </footer>   
+</div>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- User js -->
+
+<script>
+    
+    //validations
+    function validateBranch () {
+        
+        if ($("#Branch").val() == "MCA") {
+            $("#Year").val("1");
         }
+        else  {
+            $("#Year").val("2");
+        }
+    }
+    
+    $(document).ready(function () {
+        $(".validationerror").hide();
+        $("#Name").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                if (!regex.test($(this).val())) {
+                    $( "#name_err" ).show();
+                }
+            }
+        });
         
-        $(document).ready(function () {
-            $(".validationerror").hide();
-            $("#Name").focusout(function (event) {
-                if (event.charCode!=0) {
-                    var regex = new RegExp("^[a-zA-Z ]+$");
-                    if (!regex.test($(this).val())) {
-                        $( "#name_err" ).show();
-                    }
+        $("#Name").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#name_err" ).hide();
+            }
+        });
+        
+        $("#Email").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+                if (!regex.test($("#Email").val())) {
+                    $( "#email_err" ).show();
                 }
-            });
-            
-            $("#Name").focusin(function (event) {
-                if (event.charCode!=0) {
-                    $( "#name_err" ).hide();
-                }
-            });
-            
-            $("#Email").focusout(function (event) {
-                if (event.charCode!=0) {
-                    var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
-                    if (!regex.test($("#Email").val())) {
-                        $( "#email_err" ).show();
-                    }
-                }
-            });
-            
-            $("#Email").focusin(function (event) {
-                if (event.charCode!=0) {
-                    $( "#email_err" ).hide();
-                }
-            });
-            
-            
-            $("#Contact").focusout(function (event) {
-                if (event.charCode!=0) {
-                    var regex = new RegExp("^[0-9]{10}$");
-                    if (!regex.test($("#Contact").val())) {
-                        $( "#contactno_err" ).show();
-                    }
-                }
-            });
-            
-            $("#Contact").focusin(function (event) {
-                if (event.charCode!=0) {
-                    $( "#contactno_err" ).hide();
-                }
-            });
-            
-            
-            $("#Student").focusout(function (event) {
-                if (event.charCode!=0) {
-                    var regex = new RegExp("^[0-9]{7}[dD]?$");
-                    if (!regex.test($("#Student").val())) {
-                        $( "#studentno_err" ).show();
-                    }
-                }
-            });
-            
-            $("#Student").focusin(function (event) {
-                if (event.charCode!=0) {
-                    $( "#studentno_err" ).hide();
-                }
-            });
-            
-            
+            }
+        });
+        
+        $("#Email").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#email_err" ).hide();
+            }
         });
         
         
-        /*$(document).ready(function () {
-            $("#Year").val("");
-        });*/
-    </script>
+        $("#Contact").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[0-9]{10}$");
+                if (!regex.test($("#Contact").val())) {
+                    $( "#contactno_err" ).show();
+                }
+            }
+        });
+        
+        $("#Contact").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#contactno_err" ).hide();
+            }
+        });
+        
+        
+        $("#Student").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[1-2][0-9]{6}[dD]?$");
+                if (!regex.test($("#Student").val())) {
+                    $( "#studentno_err" ).show();
+                }
+            }
+        });
+        
+        $("#Student").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#studentno_err" ).hide();
+            }
+        });
+        
+        
+    });
     
-    <script>
-        function validateForm() {
-            var name =  document.getElementById('Name').value;
-            if (name == "") {
-                document.getElementById('already_exit').innerHTML = "Name cannot be empty";
+</script>
+
+<script>
+    function validateForm() {
+        var name =  document.getElementById('Name').value;
+        if (name == "") {
+            document.getElementById('already_exit').innerHTML = "Name cannot be empty";
+            return false;
+        }
+        var email =  document.getElementById('Email').value;
+        if (email == "") {
+            document.getElementById('already_exit').innerHTML = "Email cannot be empty";
+            return false;
+        } else {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(email)){
+                document.getElementById('already_exit').innerHTML = "Email format invalid";
                 return false;
             }
-            var email =  document.getElementById('Email').value;
-            if (email == "") {
-                document.getElementById('already_exit').innerHTML = "Email cannot be empty";
-                return false;
-            } else {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if(!re.test(email)){
-                    document.getElementById('already_exit').innerHTML = "Email format invalid";
-                    return false;
-                }
-            }
-            var Contact =  document.getElementById('Contact').value;
-            if (Contact == "") {
-                document.getElementById('already_exit').innerHTML = "Contact cannot be empty";
+        }
+        var Contact =  document.getElementById('Contact').value;
+        if (Contact == "") {
+            document.getElementById('already_exit').innerHTML = "Contact cannot be empty";
+            return false;
+        }
+        else {
+            var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
+            if(!re.test(Contact)){
+                document.getElementById('already_exit').innerHTML = "Contact number format invalid";
                 return false;
             }
-            else {
-                var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
-                if(!re.test(Contact)){
-                    document.getElementById('already_exit').innerHTML = "Contact number format invalid";
-                    return false;
-                }
-            }
-            var Student =  document.getElementById('Student').value;
-            if (Student == "") {
-                document.getElementById('already_exit').innerHTML = "Student number cannot be empty";
-                return false;
-            }
-            else {
-                var re = /^[0-9]{7}[dD]?$/;
-                if(!re.test(Student)){
-                    document.getElementById('already_exit').innerHTML = "Student number format invalid";
-                    return false;
-                }
-            }
-            var Branch = document.getElementById('Branch');
-            if (Branch.value == "") {
-                document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
-                return false;
-            }
-            var Year = document.getElementById('Year');
-            if (Year.value == "") {
-                document.getElementById('already_exit').innerHTML = "Year cannot be empty";
-                return false;
-            }
-            var Gender = document.getElementById('Gender');
-            if (Gender.value == "") {
-                document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
-                return false;
-            }
-            var v = grecaptcha.getResponse();
-            if(v.length == 0)
+        }
+        var Student =  document.getElementById('Student').value;
+        if (Student == "") {
+            document.getElementById('already_exit').innerHTML = "Student number cannot be empty";
+            return false;
+        }
+        else {
+            var obj = new Date();
+            var year = obj.getFullYear();
+            var i;
+            var false_i;
+            var end = "";
+            var start = "";
+            for (i = year; i > (year-4); --i)
             {
-                document.getElementById('already_exit').innerHTML="You can't leave Captcha Code empty";
+                false_i = i;
+                end = end + String(false_i % 10)
+                false_i = false_i - 5;
+                false_i = false_i/10;
+                false_i = false_i.toFixed(0);
+                start += String(false_i % 10);
+            }
+            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$";
+            var re = new RegExp(regex_string);
+            if(!re.test(Student)){
+                document.getElementById('already_exit').innerHTML = "Student number format invalid";
                 return false;
             }
-            document.getElementById('already_exit').innerHTML = "Sending...";
-            document.getElementById('contact-form').submit();
         }
-    </script>
-    
-    <!-- <script>
-        console.log(1);
-        $(document).ready(function () {
-            console.log(2);
-            setTimeout(function() {
-                document.getElementById('already_exit').style.display = "none";
-            }, 3500);
-        });
-    </script> -->
-    {% if messages %}
-    <script>
-        console.log(1);
-        $(document).ready(function () {
-            console.log(2);
-            setTimeout(function() {
-                document.getElementById('centralModalLg').style.display = "none";
-            }, 4000);
-        });
-    </script>
-    {% endif %}
+        var Branch = document.getElementById('Branch');
+        if (Branch.value == "") {
+            document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
+            return false;
+        }
+        var Year = document.getElementById('Year');
+        if (Year.value == "") {
+            document.getElementById('already_exit').innerHTML = "Year cannot be empty";
+            return false;
+        }
+        var Gender = document.getElementById('Gender');
+        if (Gender.value == "") {
+            document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
+            return false;
+        }
+        var v = grecaptcha.getResponse();
+        if(v.length == 0)
+        {
+            document.getElementById('already_exit').innerHTML="You can't leave Captcha Code empty";
+            return false;
+        }
+        document.getElementById('already_exit').innerHTML = "Sending...";
+        document.getElementById('contact-form').submit();
+    }
+</script>
+
+{% if messages %}
+<script>
+    console.log(1);
+    $(document).ready(function () {
+        console.log(2);
+        setTimeout(function() {
+            document.getElementById('centralModalLg').style.display = "none";
+        }, 4000);
+    });
+</script>
+{% endif %}
 </body>
 
 </html>

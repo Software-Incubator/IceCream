@@ -389,7 +389,6 @@ h1 {
 }
 
 .slider-wrapper {
-    background: url(../images/servicesbg.svg);
     padding: 20px 0 0 0; 
     white-space: nowrap;
     overflow: hidden;
@@ -817,7 +816,7 @@ h1 {
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
-    transform: scale(1.2);;
+    transform: scale(1.2);
 }
 
 /************* MAP ***********************/
@@ -860,10 +859,6 @@ h1 {
     width: inherit;
     text-align: center;
     color: #fff;
-}
-
-.page-footer {
-    background: #1d1d1de7 url(../images/footer.svg) repeat;
 }
 
 /**************** Media queries  ***********/

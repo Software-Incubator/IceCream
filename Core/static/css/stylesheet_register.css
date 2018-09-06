@@ -128,10 +128,6 @@ list-style: none;
     color: #fff;
 }
 
-.page-footer {
-    background: #1d1d1de7 url(../images/footer.svg) repeat;
-}
-
 /***** navbar ***/
 .topnav {
   font-family: 'Montserrat', sans-serif !important;

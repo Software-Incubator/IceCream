@@ -6,7 +6,8 @@ from django.forms import ValidationError
 
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
-
+import datetime
+import re
 
 class ContactUsForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
@@ -183,6 +184,22 @@ class RegistrationForm(forms.ModelForm):
             student_number = cleaned_data['student_number']
         except KeyError:
             raise ValidationError("")
+        
+        year = datetime.date.today().year
+        end = ''
+        start = ''
+
+        for i in range(year, year-4, -1):
+            end += str(i % 10)
+            i = int(i/10)
+            start += str(i % 10)
+
+        regex = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$"
+        pattern = re.compile(regex)
+
+        if student_number:
+            if not pattern.match(str(student_number)):
+                raise ValidationError("Invalid Student Number")
 
         try:
             email = cleaned_data['email']

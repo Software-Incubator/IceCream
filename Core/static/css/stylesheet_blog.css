@@ -53,9 +53,6 @@ body {
 
 /******** blogs **********/
 
-.blogsbg, .blogbg{
-  background: #ffffffd3 url(../images/blogbg.jpg) repeat;
-}
 .blog {
   background-color: #fafafa;
   box-shadow: 5px 5px 50px #949393;

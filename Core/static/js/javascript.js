@@ -3,7 +3,7 @@ $("#loader").fadeOut("fast");  //Fade out the #loader div
 });
 $(document).ready(function(){
 	
-	/*************** mavbar ******/
+	/*************** navbar ******/
 	$(document).delegate('.open', 'click', function(event){
 		$(this).addClass('oppenned');
 		event.stopPropagation();
@@ -46,7 +46,7 @@ $(document).ready(function(){
 	var slideStart;
 	
 	function startSlide() {
-		slideStart = setInterval(slideShow, 5000);
+		slideStart = setInterval(slideShow, 16000);
 	};
 	function slideShow() {
 		
