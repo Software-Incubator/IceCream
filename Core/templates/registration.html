@@ -1,401 +1,524 @@
+{% load staticfiles %}
+{% load recaptcha2 %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Registration | Software Incubator</title>
-    {% load staticfiles %}
-    <link rel="icon" href="{% static 'images/silogo.ico' %}">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+    <link rel="icon" href="{% static 'images/silogo.ico' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registration Page</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet"
-          href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="https://use.fontawesome.com/16cc13ce3b.js"></script>
-
-    <!-- User Stylesheet -->
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'css/stylesheet.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
-
-    <!--Google Map-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTPWN__X_moAy4Nty0TgEJKMkynbw-n6U&callback=initMap"
-            async defer></script>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,400,900"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-          rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Karla:400,700,400italic'
-          rel='stylesheet' type='text/css'>
-
-    <!-- User JavaScript -->
-    <script src="{% static 'js/javascript.js' %}"></script>
-    <script src="{% static 'js/year_validation.js' %}"></script>
-
-    <style type="text/css">
-        .footer-line {
-            margin-top: 0;
-            border-top: 1px solid #808080;
-        }
-
-        .reg-img {
-            padding: 40px 15px;
-        }
-
-        .navbar-other {
-            margin-bottom: 0;
-            border-bottom: none;
-            text-transform: uppercase;
-            background-color: rgba(17, 174, 244, 1);
-        }
-
-        .navbar-other .navbar-brand {
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .navbar-other .navbar-brand:focus {
-            outline: 0;
-        }
-
-        .navbar-other .navbar-brand .navbar-toggle {
-            padding: 4px 6px;
-            font-size: 30px;
-            color: #000;
-        }
-
-        .navbar-other .navbar-brand .navbar-toggle:focus,
-        .navbar-other .navbar-brand .navbar-toggle:active {
-            outline: 0;
-        }
-
-        .navbar-other a {
-            color: #fff;
-        }
-
-        .navbar-other .nav li a {
-            -webkit-transition: background .3s ease-in-out;
-            -moz-transition: background .3s ease-in-out;
-            transition: background .3s ease-in-out;
-        }
-
-        .navbar-other .nav li a:hover {
-            outline: 0;
-            color: #11aef5;
-            background-color: #fff;
-        }
-
-        .navbar-other .nav li a:focus,
-        .navbar-other .nav li a:active {
-            outline: 0;
-            background-color: transparent;
-        }
-
-        .navbar-other .nav li.active {
-            outline: 0;
-        }
-
-        .navbar-other .nav li.active a {
-            background-color: #fff;
-            color: #11aef5;
-        }
-
-        .navbar-other .nav li.active a:hover {
-            color: #11aef5;
-        }
-
-        @media (min-width: 768px) {
-            .navbar-other {
-                border-bottom: 0;
-                letter-spacing: 1px;
-                background: rgba(17, 174, 244, 1);
-                -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
-                -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
-                transition: background .5s ease-in-out, padding .5s ease-in-out;
-            }
-
-            .navbar-other.top-nav-collapse {
-                padding: 0;
-                background-color: rgba(17, 174, 244, 1);
-                color: #000;
-            }
-
-            .navbar-other.top-nav-collapse .nav li a:hover {
-                outline: 0;
-                color: #11aef5;
-                background-color: rgba(255, 255, 255, 1);
-            }
-        }
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">   
+    <!-- Google FOnt -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
+    rel="stylesheet">
+    <link href="{% static 'css/stylesheet_register.css' %}" rel="stylesheet">
+    {% recaptcha_init %}
+    <style>
+    .page-footer {
+        background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
+    }
     </style>
 </head>
-<body id="page-top" data-spy="scroll" style="overflow-x:hidden;"
-      data-target=".navbar-fixed-top">
-<script>$(function () {
 
-    var $body = $(document);
-    $body.bind('scroll', function () {
-        // "Disable" the horizontal scroll.
-        if ($body.scrollLeft() !== 0) {
-            $body.scrollLeft(0);
-        }
-    });
-
-});
-</script>
-
-<!-- ================================================================================================== Wrapper -->
-
-<div id="wrapper">
-
-    <!-- ===================================================================================================== Navigation Bar -->
-    <!-- Navigation Ends -->
-
-
-    <div class="navigation">
-
-        <nav class="navbar navbar-other " role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand page-scroll" href="http://silive.in">
-  							<span>
-  								Software Incubator
-  							</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </div><!-- Navigation Ends -->
-
-    <!-- Registration Forms -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <h1>Registration</h1>
-                <form method="post" action="">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        <fieldset class="form-group">
-                            {{ field.label_tag }}
-                            {{ field }}
-                            {% for error in field.errors %}
-                                <span class="validationerror">{{ error }}</span>
-                            {% endfor %}
-                        </fieldset>
-                    {% endfor %}
-
-                    <button type="submit"
-                            class="form-control btn-primary button fill">Submit
-                    </button>
-                </form>
-            </div>
-            <div class="col-lg-7 reg-img">
-                <img src="{{ event.pic_path.url }}"
-                     width="100%" class="img-responsive">
-            </div>
-        </div>
+<body>
+    <!--HTML-->
+    <!-- Image and text -->
+    <div class="topnav">
+        <img src="{% static 'images/silogo-back.png' %}" alt="">
+        <a style="font-weight:700;" class="active" href="{% url 'home' %}">Home</a>
     </div>
-
-    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footor  -->
-
-    <section class="container-fluid " style="background-color: #252525;">
-        <div class="container footer">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h2>Featured Websites</h2>
-                            <hr style="margin-top: 0; border-top: 1px solid #808080;">
-                            <button type="button"
-                                    class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://akgec.in/">AKGEC</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://techtrishna.in/">TechTrishna</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://akgec-scrolls.com/">Scrolls</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://techtrishna.in/directme">DirectMe</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://bytepad.silive.in">Bytepad</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://resume.silive.in">Resume
-                                    Builder</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://techtrishna.in/photoweb">Photoweb</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://akgec.in/bdc">Blood
-                                    Donation Camp</a>
-                            </button>
-                        </div>
-                        <div class="col-sm-4">
-                            <h2>Services</h2>
-                            <hr style="margin-top: 0; border-top: 1px solid #808080;">
-                            <button type="button" class="u-btn btn-primary">
-                                Mobile Development
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                Website Development
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                Desktop Development
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                Web and Graphic Designing
-                            </button>
-                        </div>
-                        <div class="col-sm-4">
-                            <h2>Clients</h2>
-                            <hr style="margin-top: 0; border-top: 1px solid #808080;">
-                            <button type="button" class="btn u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://akgec.in/">AKGEC</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://4thpointer.com/">4th
-                                    Pointer</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://india.ni.com/">
-                                    National Instrument</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://tifac-core-akgec.org/">TIFAC</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://www.kuka.com/">KUKA</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://www.akgec-bosch.org/">
-                                    Rexroth</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://www.gmaindia.org/"> GMA</a>
-                            </button>
-                            <button type="button" class="u-btn btn-primary">
-                                <a target="_blank"
-                                   style="color: #fff;text-decoration: none;"
-                                   href="http://www.digitalnet.com/">Brain
-                                    Soft</a>
-                            </button>
+    <div class="container-fluid" id="main_container">
+        <!-- <button type="button" class="portfolio_button" data-toggle="modal" data-target="#centralModalLg">Take a look</button> -->
+        <!-- Central Modal Large -->
+        {% if messages %}
+        <div class="modal fade show" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block;" aria-hidden="true">
+            <div class="success-modal modal-dialog modal-lg" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <h3 class="text-center modal-title w-100" id="myModalLabel">
+                            <strong style="color: green">Thank You!</strong>
+                        </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="container">
+                            <!-- Card deck -->
+                            <div class="text-center row">
+                                <h4 class="text-center  w-100">
+                                    <!-- console.log({{messages}}) -->
+                                    {% for message in messages %}
+                                    <!-- console.log({{message}}) -->
+                                    <span style="color: green">{{ message }}</span>
+                                    {% endfor %}
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!--/.Content-->
             </div>
         </div>
-
-    </section>
-    <div class="container-fluid"
-         style="background-color: #424242; padding: 0;">
-        <div class="row social-icon">
-            <div style="font-size: 40px;text-align: center;">
-                <h6 style="color: #fff; margin-top: 30px;">Connect Socially
-                    with Software Incubator</h6>
-                <a href="https://www.facebook.com/RedefiningLimitations"
-                   target="_blank"><span
-                        class="fa fa-facebook-square"></span></a>
-                <a href="https://twitter.com/si_akgec" target="_blank"><span
-                        class="fa fa-twitter-square"></span></a>
-                <a href="https://github.com/Software-Incubator" target="_blank"><span
-                        class="fa fa-github-square"></span></a>
-                <!--<a href=""><span
-                    class="fa fa-linkedin-square"></span></a>-->
-                <a href="https://www.youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw"
-                   target="_blank"><span
-                        class="fa fa-youtube-play"></span></a>
-
+        {% endif %}
+        
+        <div class="container-fluid mx-auto mt-lg-5" id="second_container">
+            <div class="row mb-4">
+                <div class="col-lg-4 col-12 poster_image "> <!--poster_image large and med screen-->
+                    <img class="card-img z-depth-2" src="{{ event.pic_path.url }}" alt="Card image cap">
+                </div>
+                <div class="col-lg-8 col-12 student_details z-depth-1"> <!--inputs_values-->
+                    <!-- <div class="row">
+                        <div class=" col-12 poster_image_small d-lg-none d-sm-block d-md-none mx-auto">
+                            <img class="img-fluid z-depth-1 " src="{{ event.pic_path.url }}" alt="poster banner image">
+                        </div>
+                    </div> -->
+                    <!-- Material form register -->
+                    <p class="h4 text-center my-4 mb-4 blue-text register_text" style="font-weight:700">REGISTER</p>
+                    <div class="container">
+                        <form name="form" id="contact-form" method="POST">
+                            {% csrf_token %}
+                            <!-- name -->
+                            <div id="register-form" name="form" class="md-form mb-0">
+                                <i class="fa fa-user prefix grey-text"></i>
+                                <input type="text" id="Name" name="name" class="form-control">
+                                <label for="name">Name</label>
+                                <span id="name_err" class='validationerror'>Invalid Name </span>
+                            </div>
+                            <!-- email -->
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="email" id="Email" name="email" class="form-control">
+                                <label for="email">Email</label>
+                                <span id="email_err" class='validationerror'>Invalid Email </span>
+                                <span style="color: red">{{ form.email.errors }}</span>
+                            </div>
+                            <!-- contact -->
+                            <div class="md-form">
+                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <input type="text" id="Contact" name="contact" class="form-control">
+                                <label for="contact">Contact Number</label>
+                                <span id="contactno_err" class='validationerror'>Invalid Contact Number </span>
+                                <span style="color: red">{{ form.contact.errors }}</span>
+                            </div>
+                            <!-- student no. -->
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="Student" name="student_number" class="form-control">
+                                <label for="student">Student no.</label>
+                                <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
+                                <span style="color: red">{{ form.student_number.errors }}</span>
+                            </div>
+                            <!--choose Branch-->
+                            <div class="md-form">
+                                <div class="row p-1">
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.branch.label }}
+                                        <div class="hoverable">{{ form.branch }}</div>
+                                        <span style="color: red">{{ form.branch.errors }}</span>
+                                    </div>
+                                    <!--choose year-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.year.label }}
+                                        <div class="hoverable">{{ form.year }}</div>
+                                        <span style="color: red">{{ form.year.errors }}</span>
+                                    </div>
+                                    <!--choose gender-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.gender.label }}
+                                        <div class="hoverable">{{ form.gender }}</div>
+                                        <span style="color: red">{{ form.gender.errors }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <!-- Material checked -->
+                                
+                                <div class="toggle toggle--knob form-check">
+                                    <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
+                                    <label class="toggle--btn" for="IsHosteler">Hosteler</label>
+                                </div>
+                                <span style="color: red">{{ form.hosteler.errors }}</span>
+                            </div>
+                            <div class="col-md-12" style="overflow: hidden;">
+                                {{ form.captcha }}
+                            </div>
+                            <!--button-->
+                            <center style="color: red" id="already_exit">{{ alert }}</center>
+                            <div class="text-center text-danger" id="status"></div>
+                            <div class="text-center py-4">
+                                <a class="btn btn-primary" onclick="validateForm()">Submit<i class="fa fa-paper-plane-o ml-2"></i></a>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    
+                    
+                    <!-- Material form register -->
+                </div>
             </div>
         </div>
     </div>
-    <!-- =================================================================================== -->
-
-    <!-- ================================================================================== -->
-
-
-    <div class="container-fluid" id="footor-bottom">
-        <div class="row">
-            <div class="col-sm-12" style="padding:25px 25px 25px 90px;">
-                <p>
-    				<span style="  color: #808080; font-size: 12px;">
-    					Copyright <span
-                            class="glyphicon glyphicon-copyright-mark"></span> 2016 Software Incubator</span>
-                </p>
+    <!-- Footer -->
+    <footer class="page-footer font-small pt-4">
+        
+        <!-- Footer Links -->
+        <div class="footer-container container text-center text-md-left">
+            
+            <!-- Grid row -->
+            <div class="row">
+                
+                <!-- Grid column -->
+                <div class="col-md-4">
+                    
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Software Incubator</h5>
+                    <p>WE BELIEVE IN</p>
+                    <p>Redefining Limitations</p>
+                    <p>Innovating Insanely</p>
+                    <p>Learning Technologies</p>
+                    <p>Sharing Intelligence</p>
+                    
+                </div>
+                <!-- Grid column -->
+                
+                <hr class="clearfix w-100 d-md-none">
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-md-2 mx-auto">
+                    
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Featured Websites</h5>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://akgec.in/">AKGEC</a>
+                        </li>
+                        <li>
+                            <a href="http://akgec-scrolls.com/">Scrolls</a>
+                        </li>
+                        <li>
+                            <a href="http://techtrishna.in/directme">DirectMe</a>
+                        </li>
+                        <li>
+                            <a href="http://bytepad.silive.in/">Bytepad</a>
+                        </li>
+                        <li>
+                            <a href="http://resume.silive.in/">Resume Builder</a>
+                        </li>
+                        <li>
+                            <a href="http://akgec.in/bdc">Blood Donation Camp</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-md-2 mx-auto">
+                    
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Services</h5>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <a>Mobile Development</a>
+                        </li>
+                        <li>
+                            <a>Website Development</a>
+                        </li>
+                        <li>
+                            <a >Desktop Development</a>
+                        </li>
+                        <li>
+                            <a>Web And Graphic Designing</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- Grid column -->
+                
+                <!-- Grid column -->
+                <div class="col-sm-4 col-md-2 mx-auto">
+                    
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Clients</h5>
+                    
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://akgec.in/">AKGEC</a>
+                        </li>
+                        <li>
+                            <a href="http://4thpointer.com/">4th Pointer</a>
+                        </li>
+                        <li>
+                            <a href="http://india.ni.com/">National Instrument</a>
+                        </li>
+                        <li>
+                            <a href="http://tifac-core-akgec.org/">TIFAC</a>
+                        </li>
+                        <li>
+                            <a href="http://www.kuka.com/">KUKA</a>
+                        </li>
+                        <li>
+                            <a href="http://www.akgec-bosch.org/">Rexroth</a>
+                        </li>
+                        <li>
+                            <a href="http://www.nbaind.org/views/Home.aspx#sthash.rtirIcbx.dpbs">NBA</a>
+                        </li>
+                        <li>
+                            <a href="http://gmaindia.org/">GMA</a>
+                        </li>
+                        <li>
+                            <a href="http://www.digitalnet.com/">Brain Soft</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- Grid column -->
+                
             </div>
+            <!-- Grid row -->
+            
         </div>
-    </div>
-
-
+        <!-- Footer Links -->
+        
+        <hr>
+        
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a target="_blank" href="https://facebook.com/RedefiningLimitations" class="btn-floating btn-fb mx-1">
+                    <i class="fa fa-facebook"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://twitter.com/si_akgec" class="btn-floating btn-tw mx-1">
+                    <i class="fa fa-twitter"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://github.com/Software-Incubator" class="btn-floating btn-gplus mx-1">
+                    <i class="fa fa-github"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a target="_blank" href="https://youtube.com/channel/UCamqzGM8e8nzsdi1bsoyaKw" class="btn-floating btn-li mx-1">
+                    <i class="fa fa-youtube-play"> </i>
+                </a>
+            </li>
+        </ul>
+        <!-- Social buttons -->
+        
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://silive.in">Software Incubator</a>
+        </div>
+        <!-- Copyright -->
+        
+    </footer>   
 </div>
-{#Google Analytics#}
+<!-- SCRIPTS -->
+<!-- JQuery -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- User js -->
+
 <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-81678175-1', 'auto');
-    ga('send', 'pageview');
-
+    
+    //validations
+    function validateBranch () {
+        
+        if ($("#Branch").val() == "MCA") {
+            $("#Year").val("1");
+        }
+        else  {
+            $("#Year").val("2");
+        }
+    }
+    
+    $(document).ready(function () {
+        $(".validationerror").hide();
+        $("#Name").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                if (!regex.test($(this).val())) {
+                    $( "#name_err" ).show();
+                }
+            }
+        });
+        
+        $("#Name").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#name_err" ).hide();
+            }
+        });
+        
+        $("#Email").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+                if (!regex.test($("#Email").val())) {
+                    $( "#email_err" ).show();
+                }
+            }
+        });
+        
+        $("#Email").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#email_err" ).hide();
+            }
+        });
+        
+        
+        $("#Contact").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[0-9]{10}$");
+                if (!regex.test($("#Contact").val())) {
+                    $( "#contactno_err" ).show();
+                }
+            }
+        });
+        
+        $("#Contact").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#contactno_err" ).hide();
+            }
+        });
+        
+        
+        $("#Student").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[1-2][0-9]{6}[dD]?$");
+                if (!regex.test($("#Student").val())) {
+                    $( "#studentno_err" ).show();
+                }
+            }
+        });
+        
+        $("#Student").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#studentno_err" ).hide();
+            }
+        });
+        
+        
+    });
+    
 </script>
 
-<!-- Wrapper End -->
+<script>
+    function validateForm() {
+        var name =  document.getElementById('Name').value;
+        if (name == "") {
+            document.getElementById('already_exit').innerHTML = "Name cannot be empty";
+            return false;
+        }
+        var email =  document.getElementById('Email').value;
+        if (email == "") {
+            document.getElementById('already_exit').innerHTML = "Email cannot be empty";
+            return false;
+        } else {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(email)){
+                document.getElementById('already_exit').innerHTML = "Email format invalid";
+                return false;
+            }
+        }
+        var Contact =  document.getElementById('Contact').value;
+        if (Contact == "") {
+            document.getElementById('already_exit').innerHTML = "Contact cannot be empty";
+            return false;
+        }
+        else {
+            var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
+            if(!re.test(Contact)){
+                document.getElementById('already_exit').innerHTML = "Contact number format invalid";
+                return false;
+            }
+        }
+        var Student =  document.getElementById('Student').value;
+        if (Student == "") {
+            document.getElementById('already_exit').innerHTML = "Student number cannot be empty";
+            return false;
+        }
+        else {
+            var obj = new Date();
+            var year = obj.getFullYear();
+            var i;
+            var false_i;
+            var end = "";
+            var start = "";
+            for (i = year; i > (year-4); --i)
+            {
+                false_i = i;
+                end = end + String(false_i % 10)
+                false_i = false_i - 5;
+                false_i = false_i/10;
+                false_i = false_i.toFixed(0);
+                start += String(false_i % 10);
+            }
+            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$";
+            var re = new RegExp(regex_string);
+            if(!re.test(Student)){
+                document.getElementById('already_exit').innerHTML = "Student number format invalid";
+                return false;
+            }
+        }
+        var Branch = document.getElementById('Branch');
+        if (Branch.value == "") {
+            document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
+            return false;
+        }
+        var Year = document.getElementById('Year');
+        if (Year.value == "") {
+            document.getElementById('already_exit').innerHTML = "Year cannot be empty";
+            return false;
+        }
+        var Gender = document.getElementById('Gender');
+        if (Gender.value == "") {
+            document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
+            return false;
+        }
+        var v = grecaptcha.getResponse();
+        if(v.length == 0)
+        {
+            document.getElementById('already_exit').innerHTML="You can't leave Captcha Code empty";
+            return false;
+        }
+        document.getElementById('already_exit').innerHTML = "Sending...";
+        document.getElementById('contact-form').submit();
+    }
+</script>
+
+{% if messages %}
+<script>
+    console.log(1);
+    $(document).ready(function () {
+        console.log(2);
+        setTimeout(function() {
+            document.getElementById('centralModalLg').style.display = "none";
+        }, 4000);
+    });
+</script>
+{% endif %}
 </body>
+
 </html>

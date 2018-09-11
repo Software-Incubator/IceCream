@@ -10,9 +10,11 @@ from django.core.urlresolvers import reverse
 
 
 
-## DO NOT DELETE THIS FUNCTION
-## If you think that this function is outright useless because it is never called,
-## stop right there. You delete this and all the migrations will FAIL!
+# DO NOT DELETE THIS FUNCTION
+# If you think that this function is outright useless because it is never called,
+# stop right there. You delete this and all the migrations will FAIL!
+
+
 def upload_location(instance, filename):
     return '%s/%s' % (instance.id, filename)
 
@@ -32,6 +34,25 @@ def events_upload_location(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('uploads/events', filename)
+
+
+def event_validator(value):
+    if value is True and Event.objects.filter(active=True).count() >= 1:
+        raise ValidationError(
+            'More than one events cannot be active at a given time'
+        )
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=255, blank=False, null=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False, validators=[event_validator, ])
+    pic_path = models.FileField(upload_to=events_upload_location, null=True,
+                                default=None)
+
+    def __str__(self):
+        return self.name
+
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=255)
@@ -137,7 +158,7 @@ def student_number_validator(value):
 
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     contact = models.CharField(max_length=10, unique=False , null=False)
     student_number = models.CharField(max_length=8)
     branch = models.ForeignKey('Branch')
@@ -151,7 +172,6 @@ class Registration(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.event = Event.objects.filter(active=True).first()
-
         super(Registration, self).save()
 
     def __str__(self):
@@ -159,21 +179,6 @@ class Registration(models.Model):
 
     class Meta:
         unique_together = ('student_number', 'event')
-
-
-def event_validator(value):
-    if value is True and Event.objects.filter(active=True).count() >= 1:
-        raise ValidationError(
-            'More than one events cannot be active at a given time'
-        )
-
-
-class Event(models.Model):
-    name = models.CharField(max_length=255, blank=False, null=False)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False, validators=[event_validator, ])
-    pic_path = models.FileField(upload_to=events_upload_location, null=True,
-                                default=None)
 
 
     def __str__(self):

@@ -1,11 +1,11 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member, ContactInfo
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ContactUsForm, RegistrationForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
-from .models import Event, Blog
-
+import json
+from django.http import HttpResponse, JsonResponse
 
 
 class IndexView(View):
@@ -13,22 +13,7 @@ class IndexView(View):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
-        return render(request, 'index.html', context=context)
-
-    def post(self, request):
-        form_data = request.POST
-        contact_form = ContactUsForm(form_data)
-        context = self.get_context_data()
-        is_form_valid = contact_form.is_valid()
-        if is_form_valid:
-            contact_form.save()
-            message = 'Message submitted successfully!'
-            messages.add_message(request, messages.SUCCESS, message=message)
-            return redirect('/', context)
-        messages.add_message(request, messages.INFO,
-                             'Some fields in the form were missing!')
-        context['contact_form'] = contact_form
-        return redirect('/', context)
+        return render(request, 'index.html',context)
 
     def get_context_data(self, **kwargs):
         projects = Project.objects.order_by('-completion_year')
@@ -40,7 +25,7 @@ class IndexView(View):
         i = 0
         if len(projects) > 3:
             project_lists = [projects[i * 3: i * 3 + 3] for i in
-                             range(len(projects) / 3)]
+                             range(int(len(projects) / 3))]
             project_lists.append(projects[i * 3 + 3:])
         else:
             project_lists = [projects, ]
@@ -49,7 +34,7 @@ class IndexView(View):
         i = 0
         members = Member.objects.filter(is_alumni=False).order_by('batch','name')
         if len(members) > 6:
-            members_lists = [members[i * 6: i * 6 + 6] for i in range(len(members) / 6)]
+            members_lists = [members[i * 6: i * 6 + 6] for i in range(int(len(members) / 6))]
             members_lists.append(members[i * 6 + 6:])
         else:
             members_lists = [members, ]
@@ -75,10 +60,46 @@ class IndexView(View):
         context['contact_form'] = contact_form
         context['event'] = event
         context['contact_info'] = contact_info
-
-        print(contact_info[0].contact_number)
-
         return context
+
+
+class SaveContactView(View):
+
+    def get(self, request):
+        data_to_frontend = dict()
+        contact_us=None
+        name = request.GET['name']
+        email = request.GET['email']
+        contact = request.GET['contact']
+        message = request.GET['message']
+        subject = request.GET['subject']
+        if name == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'Name cannot be empty..'
+        elif email == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'Email cannot be empty..'
+        elif contact == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'contact cannot be empty..'
+        elif message == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'message cannot be empty..'
+        elif subject == '':
+            data_to_frontend['done'] = 0
+            data_to_frontend['message'] = 'subject cannot be empty..'
+        else:
+            try:
+                contact_us = ContactUs.objects.create(name=name, contact=contact, email=email, subject=subject, message=message)
+            except:
+                data_to_frontend['done'] = 0
+                data_to_frontend['message'] = 'Request failed due to internal error.'
+
+        if contact_us:
+            data_to_frontend['done'] = 1
+            data_to_frontend['message'] = 'Request successfully registered.'
+
+        return JsonResponse(data_to_frontend)
 
 
 class RegistrationView(FormView):
@@ -87,20 +108,24 @@ class RegistrationView(FormView):
     success_url = reverse_lazy('home')
 
     form_class = RegistrationForm
-
+    
     event = Event.objects.filter(active=True).first()
 
     def post(self, request, *args, **kwargs):
+        alert = ''
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
-            return redirect(reverse_lazy('home'))
-        return render(request, 'registration.html', {'form': form, 'event': self.event})
+            return redirect(reverse_lazy('registration'))
+        else:
+            if '__all__' in dict(form.errors):
+                alert = dict(form.errors)['__all__']
+            return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
 
     def get(self, request, *args, **kwargs):
-        form = RegistrationForm()
+        form = self.form_class()
 
         context = {
             'form': form,
@@ -121,11 +146,13 @@ class BlogDetailView(View):
     template_name = "blog_detail.html"
 
     def get(self,request,pk, *args,**kwargs):
-        # print(pk)
-        # print(Blog.objects.first().id)
         blog = get_object_or_404(Blog,pk=pk)
         context = {
             'blog':blog
         }
         
         return render(request, self.template_name, context=context)
+
+
+def view404(request):
+    return render(request, '404.html')

@@ -1,12 +1,20 @@
 from django import forms
 
-from .models import ContactUs, Registration, Branch, Year, Gender
+from .models import ContactUs, Registration, Branch, Year, Gender, Event
 
+from django.forms import ValidationError
+
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+import datetime
+import re
 
 class ContactUsForm(forms.ModelForm):
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+
     class Meta:
         model = ContactUs
-        fields = ['name', 'contact', 'email', 'subject', 'message']
+        fields = ['name', 'contact', 'email', 'subject', 'message','captcha']
 
     name = forms.CharField(
         max_length=225, required=True,
@@ -63,9 +71,12 @@ class ContactUsForm(forms.ModelForm):
 
 
 class RegistrationForm(forms.ModelForm):
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    
     class Meta:
         model = Registration
-        exclude = ['event', 'fee_paid']
+        fields = ['name', 'contact', 'email', 'student_number', 'branch','year','gender','hosteler','captcha']
+        # exclude = ['event', 'fee_paid']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -165,3 +176,44 @@ class RegistrationForm(forms.ModelForm):
                 'type': 'checkbox'}
             )
         )
+
+    def clean(self):
+        cleaned_data = super(RegistrationForm, self).clean()
+
+        try:
+            student_number = cleaned_data['student_number']
+        except KeyError:
+            raise ValidationError("")
+        
+        year = datetime.date.today().year
+        end = ''
+        start = ''
+
+        for i in range(year, year-4, -1):
+            end += str(i % 10)
+            i = int(i/10)
+            start += str(i % 10)
+
+        regex = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$"
+        pattern = re.compile(regex)
+
+        if student_number:
+            if not pattern.match(str(student_number)):
+                raise ValidationError("Invalid Student Number")
+
+        try:
+            email = cleaned_data['email']
+        except KeyError:
+            raise ValidationError("")
+
+        event = Event.objects.filter(active=True).first()
+
+        if Registration.objects.filter(email=email, event=event, student_number=student_number).exists():
+            raise ValidationError('Registration with this student number and email already exist.')
+        elif Registration.objects.filter(student_number=student_number, event=event).exists():
+            raise ValidationError('Registration with this student number already exist.')
+        elif Registration.objects.filter(email=email, event=event).exists():
+            raise ValidationError('Registration with this email already exist.')
+
+        return cleaned_data
+
