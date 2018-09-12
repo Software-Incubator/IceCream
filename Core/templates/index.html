@@ -19,12 +19,12 @@
     rel="stylesheet">
     {% recaptcha_init %}
     <style>
-    .page-footer {
-        background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
-    }
-    .slider-wrapper {
-    background: url("{% static 'images/servicesbg.svg' %}");
-    }
+        .page-footer {
+            background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
+        }
+        .slider-wrapper {
+            background: url("{% static 'images/servicesbg.svg' %}");
+        }
     </style>
 </head>
 
@@ -53,13 +53,17 @@
         </span> 
         <span class="cls"></span> 
     </div>
-    
-    {% if event %}
-    <div class="register_button">
-        <a style="text-decoration: none; color:#fff;" href="/register">Register</a>
+
+    <div id="registration" class="register_button" href="/register" onclick="redirect()">
+        Register
     </div>
-    {% endif %}
+
+    <!-- {% if event %}
+
+    {% endif %} -->
     
+    <!-- <a style="text-decoration: none; color:#fff;" href="/register">Register</a> -->
+
     <!-- =========================================================================== Landing Page -->
     <div class="container-fluid">
         <!-- {% if message %}
@@ -255,8 +259,7 @@
                             <div class="container">
                                 <!-- Card deck -->
                                 <div class="row">
-                                    {% for pro_row in projects %}
-                                    {% for pro in pro_row %}
+                                    {% for pro in projects %}
                                     <div class="col-sm-12 col-md-6 col-lg-4 card mb-4 p-0">
                                         <!--Card image-->
                                         <div class="view overlay">
@@ -277,7 +280,6 @@
                                         </div>
                                         
                                     </div>
-                                    {% endfor %}
                                     {% endfor %}
                                     <!-- Card -->
                                     <!-- Card deck -->
@@ -420,10 +422,10 @@
                                         <h1 style="color: #4398ea">SI Alumni</h1>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                    
+                                        
                                         {% for alumnus in alumni %}  
                                         <div class="alumini_pics_container">  
-                                            <img data-toggle="tooltip" data-placement="top" title="{{ alumnus.name }}|{{ alumnus.batch }}" class="alumini_pics lazy" data-src="{{ alumnus.pic_path.url }}" alt="{{ alumnus.name }}">
+                                            <img data-toggle="tooltip" data-placement="top" title="{{ alumnus.name }}|{{ alumnus.batch }}" class="alumini_pics lazy" data-src="{{ alumnus.pic_path.url }}">
                                         </div>
                                         {% endfor %}
                                         
@@ -914,6 +916,19 @@
                                                 }
                                             });
                                         }
+
+                                        function redirect()
+                                        {
+                                            if({{event}} == null)
+                                            {
+                                                console.log("1a");
+                                            }
+                                            else
+                                            {
+                                                console.log("2a");
+                                            }
+                                        }
                                     </script>
                                 </body>
                                 </html>
+                                
