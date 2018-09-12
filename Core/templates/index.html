@@ -420,13 +420,13 @@
                                         <h1 style="color: #4398ea">SI Alumni</h1>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        {% for alumni_list in alumni %}
-                                        {% for alumnus in alumni_list.0 %}  
+                    
+                                        {% for alumnus in alumni %}  
                                         <div class="alumini_pics_container">  
                                             <img data-toggle="tooltip" data-placement="top" title="{{ alumnus.name }}|{{ alumnus.batch }}" class="alumini_pics lazy" data-src="{{ alumnus.pic_path.url }}" alt="{{ alumnus.name }}">
                                         </div>
                                         {% endfor %}
-                                        {% endfor %}
+                                        
                                         
                                     </div>
                                 </div>
