@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,11 +30,10 @@
 			<div class="content-si">
 				<div class="container">
 					<div data-tilt id="scene" class="row justify-content-center">       
-							<div class="text-center col-sm-10 col-md-7 col-lg-3 col-xl-3">
-									<h1 style="color:#0094ff;font-size:10rem;">404</h1>
-									<h1 style="color:#000;font-size:2.5rem;">Page Not Found</h1>
-								</div>
-						
+						<div class="text-center col-sm-10 col-md-7 col-lg-3 col-xl-3">
+							<h1 style="color:#0094ff;font-size:10rem;">{{ error_code }}</h1>
+							<h1 style="color:#000;font-size:2.5rem;">{{ error_message }}</h1>
+						</div>
 					</div>
 					<br><br><br><br><br><br>
 				</div>

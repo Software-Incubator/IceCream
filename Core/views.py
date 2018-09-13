@@ -16,21 +16,14 @@ class IndexView(View):
         return render(request, 'index.html',context)
 
     def get_context_data(self, **kwargs):
+
+        # getting all the projects
         projects = Project.objects.order_by('-completion_year')
 
         context = kwargs
         event = Event.objects.filter(active=True).first()
         contact_form = ContactUsForm()
         contact_info = ContactInfo.objects.filter(active=True)
-
-        # make projects list for Portfolio section
-        i = 0
-        if len(projects) > 3:
-            project_lists = [projects[i * 3: i * 3 + 3] for i in
-                             range(int(len(projects) / 3))]
-            project_lists.append(projects[i * 3 + 3:])
-        else:
-            project_lists = [projects, ]
 
         # make members list for Member section
         i = 0
@@ -41,26 +34,12 @@ class IndexView(View):
         else:
             members_lists = [members, ]
 
-        i = 0
         alumni = Member.objects.filter(is_alumni=True).order_by('-batch')
-        if len(alumni) > 12:
-            alumni_lists = [alumni[i * 12: i * 12 + 12] for i in range(len(alumni) / 12)]
-            alumni_lists.append(alumni[i * 12 + 12:])
-        else:
-            alumni_lists = [alumni, ]
-
-        i = 0
-        if len(alumni_lists) > 2:
-            nested_alumni_lists = [alumni_lists[i * 2: i * 2 + 2] for
-                                   i in range(len(alumni_lists) / 2)]
-            nested_alumni_lists.append(alumni_lists[i * 2 + 2:])
-        else:
-            nested_alumni_lists = [alumni_lists, ]
 
         # context['projects'] = project_lists
         context['projects'] = projects
         context['members'] = members_lists
-        context['alumni'] = nested_alumni_lists
+        context['alumni'] = alumni
         context['contact_form'] = contact_form
         context['event'] = event
         context['contact_info'] = contact_info
@@ -71,7 +50,7 @@ class SaveContactView(View):
 
     def get(self, request):
         data_to_frontend = dict()
-        contact_us=None
+        contact_us = None
         name = request.GET['name']
         email = request.GET['email']
         contact = request.GET['contact']
@@ -129,8 +108,8 @@ class RegistrationView(FormView):
             return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
 
     def get(self, request, *args, **kwargs):
+
         if self.event:
-            print("1")
             form = self.form_class()
 
             context = {
@@ -139,8 +118,9 @@ class RegistrationView(FormView):
             }
             return render(request, 'registration.html', context)
         else:
-            print("2")
-            return redirect('home')
+            messages.add_message(request, messages.SUCCESS,
+                                 "No event active at present")
+            return redirect(reverse_lazy('home'))
 
 
 class BlogView(View):
@@ -164,4 +144,11 @@ class BlogDetailView(View):
 
 
 def view404(request):
-    return render(request, '404.html')
+    error_code = 404
+    error_message = 'Page Not Found'
+    return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
+
+def view500(request):
+    error_code = 500
+    error_message = 'Internal Server Error'
+    return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
