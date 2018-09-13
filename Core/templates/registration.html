@@ -57,9 +57,7 @@
                             <!-- Card deck -->
                             <div class="text-center row">
                                 <h4 class="text-center  w-100">
-                                    <!-- console.log({{messages}}) -->
                                     {% for message in messages %}
-                                    <!-- console.log({{message}}) -->
                                     <span style="color: green">{{ message }}</span>
                                     {% endfor %}
                                 </h4>
@@ -510,9 +508,7 @@
 
 {% if messages %}
 <script>
-    console.log(1);
     $(document).ready(function () {
-        console.log(2);
         setTimeout(function() {
             document.getElementById('centralModalLg').style.display = "none";
         }, 4000);

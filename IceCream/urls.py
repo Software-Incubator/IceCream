@@ -17,7 +17,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
-# from Core.views import Contact_Form
+# from Core import views
+from Core.views import view404, view500
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 
@@ -34,4 +35,5 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-handler404 = 'Core.views.view404'
+handler404 = view404
+handler500 = view500

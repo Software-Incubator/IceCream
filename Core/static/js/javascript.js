@@ -271,6 +271,16 @@ $(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip()
 	});
 	
+
+	/*********Modal Lazy loading *************/
+
+	$('#centralModalLg').on("show.bs.modal", function () {
+		$('.lazy_load').each(function(){
+			var img = $(this);
+			img.attr('src', img.data('sc'));
+		});
+	}); 
+
 	/*************  Lazy Loading **************/
 	
 	registerListener('load', setLazy);

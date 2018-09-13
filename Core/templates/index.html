@@ -19,12 +19,12 @@
     rel="stylesheet">
     {% recaptcha_init %}
     <style>
-    .page-footer {
-        background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
-    }
-    .slider-wrapper {
-    background: url("{% static 'images/servicesbg.svg' %}");
-    }
+        .page-footer {
+            background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
+        }
+        .slider-wrapper {
+            background: url("{% static 'images/servicesbg.svg' %}");
+        }
     </style>
 </head>
 
@@ -35,7 +35,53 @@
     
     
     <!-- ================================================================================================== Wrapper -->
+    <!-- Event not active modal -->
     
+    <!-- This modal will be shown on requesting through url for registration page and no event is active -->
+    {% if messages %}
+        <div class="modal fade show" id="no_event_modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block; z-index: 100000;" aria-hidden="true">
+            <div class="success-modal modal-dialog" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container">
+                            <!-- Card deck -->
+                            <div class="text-center row">
+                                <h4 class="text-center  w-100">
+                                    <img style="width:100%;" src="{% static 'images/noeve.svg' %}" alt="">
+                                    {% for message in messages %}
+                                        <span style="color: #0094ff; font-weight: 700;">{{message}}</span>
+                                    {% endfor %}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- This modal will be shown on register button and no event is active -->
+    <div class="modal fade show" id="no_event_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:none; z-index: 100000;" aria-hidden="true">
+        <div class="success-modal modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <!-- Card deck -->
+                        <div class="text-center row">
+                            <h4 class="text-center  w-100">
+                                <img style="width:100%;" src="{% static 'images/noeve.svg' %}" alt="">
+                                <span style="color: #0094ff; font-weight: 700;">No event active at present</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
     
     
     <!-- ===================================================================================================== Navigation Bar -->
@@ -54,11 +100,11 @@
         <span class="cls"></span> 
     </div>
     
-    {% if event %}
-    <div class="register_button">
-        <a style="text-decoration: none; color:#fff;" href="/register">Register</a>
+    <div id="registration-link" class="register_button" href="{% url "registration" %}" onclick="redirect()">
+        Register
     </div>
-    {% endif %}
+    
+    <!-- <a style="text-decoration: none; color:#fff;" href="/register">Register</a> -->
     
     <!-- =========================================================================== Landing Page -->
     <div class="container-fluid">
@@ -255,12 +301,11 @@
                             <div class="container">
                                 <!-- Card deck -->
                                 <div class="row">
-                                    {% for pro_row in projects %}
-                                    {% for pro in pro_row %}
+                                    {% for pro in projects %}
                                     <div class="col-sm-12 col-md-6 col-lg-4 card mb-4 p-0">
                                         <!--Card image-->
                                         <div class="view overlay">
-                                            <img class="card-img-top lazy" data-src="{{ pro.image_path.url }}" alt="Card image cap">
+                                            <img class="lazy_load card-img-top" data-sc="{{ pro.image_path.url }}" alt="Card image cap">
                                             <a href="#!">
                                                 <div class="mask rgba-white-slight"></div>
                                             </a>
@@ -277,7 +322,6 @@
                                         </div>
                                         
                                     </div>
-                                    {% endfor %}
                                     {% endfor %}
                                     <!-- Card -->
                                     <!-- Card deck -->
@@ -385,7 +429,7 @@
                                             <div class="cont">
                                                 <div class="front" style="background-image: url({{ member.pic_path.url }});">
                                                     <div class="inner">
-                                                        <p>{{ member.name }}</p>
+                                                        <p class="mem_name">{{ member.name }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="back">
@@ -420,12 +464,11 @@
                                         <h1 style="color: #4398ea">SI Alumni</h1>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        {% for alumni_list in alumni %}
-                                        {% for alumnus in alumni_list.0 %}  
+                                        
+                                        {% for alumnus in alumni %}  
                                         <div class="alumini_pics_container">  
-                                            <img data-toggle="tooltip" data-placement="top" title="{{ alumnus.name }}|{{ alumnus.batch }}" class="alumini_pics lazy" data-src="{{ alumnus.pic_path.url }}" alt="{{ alumnus.name }}">
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiCQ0BMzclNgCNAAADtElEQVQ4yy2UQa4cVRAEM7Pqdc/8sb8lkBAX4cyciwUbCwS2h5npfq8qWdh5gdhEJH//eXWwLF5HxFyv9VqzyNm3/HR9u9hzdYcUbhuEQXLO50zk50egTH0YKYAgxJSxRYZ9HNW2VL1qtb3n2MhuY9XZ+ef5zqGPMRSKgPcWZy0bgyIgAd2vOQsAxWxwzuecPjs/Sbrl+3bbxxCNiB21nvMs8jVDYoYBA43yLJ7d/533mv2oHLHrGnuOIXVJkEiMfsxXJVPB9ogta8HE2cdhP9a9Xk3k6h0GKQFAW3R3A2/Dnt1oh+3VbcC2y0lSTH51bji8VbWbpAijepV9GYDmYzW+jwC6GqsL3d3yO7J8+uZZ58wkjS6ANLojMrLKwVXHWjZePishBN7UXYjf2NjQJsSMCJKAbZIQ4dWi3Q2WZ99rZ7Dx7xJezqcv+HttVQ6OkEgoAHZXixk3dbdFgAgObnqsZx9eLkjYnBh81nPN6oIJAK6etSp1GVuGxNnLQeGoZw/u2GDoBWDin3rUq+ayQYo02oAkkeQ+LmOPXY1g8k1iYqKdVxyAn2jf1n6mhkPt7tSIjMgu0gZTxjmTZTOcJOj8SQDxERPl+8LrWiO7RWAf25WsRVZVzT6LOBuwdwllKW969kZyAjhajdUeoogcCreEMKKG2kPGdPvZRwc25h/rnUJ5MrUTOJsIhrdN4erutapr1vJqQqAPw9PgvfMDPvKvTiUSyY2pLS5j2xSKLnfbvXr1WaBIFk/TgafhpA8/sPtTjGjMBq4JdnevSUo2KYaGyiYhC8Tppz8jb2z8oktcUvxWwJVkdxEggyRpiKmSLBgGcPbmC26dUio0YlMjISxXMwmjWzREiAS2JFZFk0PVrypfmRFvQSVPi2T1fd1yJHDMs66IpPhdFwOkeIniotg+nJcYmSLcRriQMuaadT/LweubgrRZIEyywotGCI7KSwSHyNBRqZ3B5ftx1pclvpsElYBC1c0igNECUA5lcEhsBweR1WS1CRCDEqBwu2yblEAb2LKbnpVb7gm2gYyLV511dLfdXVw1T5LBoEkbIOw2GUI38zIMQAxRsPiqs2jgqkb1nNIIKgbD1T+SNcDMiCSPNYvYch9E+1nPflPw6BT5nffjxUTTMcKA3W3kt+MoYuhYInlWexPxWl/9a24ZinC73QBYyy2BILr7rBSTe0j2LHs1aXxZxKZgUAJ6VQGRMEACijVXzQJyz+AIYxYcbA1MbwALZTIGULNbItoEpOgCASD4Pxdy1py3lddMAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA5LTEzVDAxOjUxOjU1LTA0OjAws/fQ0wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wOS0xM1QwMTo1MTo1NS0wNDowMMKqaG8AAAAASUVORK5CYII=" data-toggle="tooltip" data-placement="top" title="{{ alumnus.name }}|{{ alumnus.batch }}" class="alumini_pics lazy" data-src="{{ alumnus.pic_path.url }}">
                                         </div>
-                                        {% endfor %}
                                         {% endfor %}
                                         
                                     </div>
@@ -914,6 +957,29 @@
                                                 }
                                             });
                                         }
+                                        
+                                        function redirect()
+                                        {
+                                            {% if event %}
+                                                var href = event.currentTarget.getAttribute('href');
+                                                window.location=href;
+                                            {% else %}
+                                                document.getElementById("no_event_modal").style.display = "block";
+                                                setTimeout(function() {
+                                                    document.getElementById('no_event_modal').style.display = "none";
+                                                }, 2500);
+                                            {% endif %}
+                                        }
+
+                                        window.onload = function() 
+                                        {
+                                            {% if messages %}
+                                                setTimeout(function() {
+                                                    document.getElementById('no_event_modal1').style.display = "none";
+                                                }, 2500);
+                                            {% endif %}
+                                        }
                                     </script>
                                 </body>
                                 </html>
+                                

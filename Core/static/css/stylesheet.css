@@ -350,8 +350,8 @@ h1 {
     max-width: 100%; 
 }
 .logo-image{
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
+    -webkit-filter: drop-shadow(2px 2px 5px rgba(56, 56, 56, 0.49));
+    filter: drop-shadow(2px 2px 5px rgba(56, 56, 56, 0.49));
 }
 /***************  Type Js ***********************/
 
@@ -438,7 +438,7 @@ h1 {
 }
 .caption h3 {
     font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .slide-active .caption {
@@ -676,6 +676,8 @@ h1 {
     background-color: transparent;
 }
 */
+
+
 .cont {
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -791,7 +793,7 @@ h1 {
 .front .inner span {
     color: rgba(255, 255, 255, 0.7);
     font-family: 'Montserrat';
-    font-weight: 300;
+    font-weight: 700;
 }
 
 
