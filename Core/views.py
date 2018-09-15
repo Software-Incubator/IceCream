@@ -108,7 +108,6 @@ class RegistrationView(FormView):
             return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
 
     def get(self, request, *args, **kwargs):
-
         if self.event:
             form = self.form_class()
 

@@ -52,7 +52,9 @@ body {
 }
 
 /******** blogs **********/
-
+.title {
+    font-size: 1.5rem;
+}
 .blog {
   background-color: #fafafa;
   box-shadow: 5px 5px 50px #949393;
@@ -62,6 +64,12 @@ body {
 .blog:hover {
   transform: scale(1.05);
     box-shadow: 0 0 30px #949393;
+}
+
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 1rem;
+    }
 }
 /* .blog > div > p > img {
   width:auto !important;

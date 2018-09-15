@@ -72,7 +72,7 @@
             {% autoescape off %} {% for blog in blogs %}
             <div class="col-sm-12 col-md-8 col-lg-8">
                 <div class="blog container p-4 mb-3">
-                    <h1>{{ blog.title }}</h1>
+                    <h1 class="title">{{ blog.title }}</h1>
                     <h3>- By {{ blog.author }}</h3>
                     <h5>on {{ blog.timestamp|timesince }}</h5>
                     <div>
