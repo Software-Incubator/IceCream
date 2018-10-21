@@ -1,11 +1,17 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactUsForm, RegistrationForm
-from django.contrib import messages
-from django.core.urlresolvers import reverse_lazy
-import json
 from django.http import HttpResponse, JsonResponse
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.core.urlresolvers import reverse_lazy
+from django.template.loader import render_to_string
+
+from .forms import ContactUsForm, RegistrationForm
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration
+from IceCream.settings import RECEIVER_EMAIL, EMAIL_HOST_USER
+
+import json
+
 
 
 class IndexView(View):
@@ -81,6 +87,19 @@ class SaveContactView(View):
         if contact_us:
             data_to_frontend['done'] = 1
             data_to_frontend['message'] = 'Request successfully registered.'
+            subject = subject
+            message_to_show = name + 'has registered'
+            details = render_to_string('email_template.html', {
+                'name': name,
+                'email': email,
+                'contact': contact,
+                'message': message,
+                'subject': subject,
+            })
+            
+            from_mail = EMAIL_HOST_USER
+            to_mail = (RECEIVER_EMAIL,)
+            send_mail(subject, message_to_show, from_mail, to_mail, html_message=details, fail_silently=False)
 
         return JsonResponse(data_to_frontend)
 

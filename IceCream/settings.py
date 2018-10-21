@@ -133,3 +133,13 @@ CKEDITOR_FILENAME_GENERATOR = 'Core.utils.get_filename'
 
 RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
 RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ['SENDER_EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+RECEIVER_EMAIL = os.environ['RECEIVER_EMAIL']
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = os.environ['SENDER_EMAIL']
