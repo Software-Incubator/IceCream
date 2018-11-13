@@ -22,8 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'et5csce+0jh4-8!u2s#5n!d!6nvnrs*0uw^)mgfd+(@m1wr&oz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -79,10 +77,8 @@ WSGI_APPLICATION = 'IceCream.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD']
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(os.path.dirname(BASE_DIR), 'db.sqlite3'),
     }
 }
 
@@ -122,10 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join('/home/si', 'Assets/IceCream/static')
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join('/home/si', "Assets/IceCream/media")
+MEDIA_URL = '/media/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
@@ -133,3 +126,13 @@ CKEDITOR_FILENAME_GENERATOR = 'Core.utils.get_filename'
 
 RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
 RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ['SENDER_EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+RECEIVER_EMAIL = os.environ['RECEIVER_EMAIL']
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = os.environ['SENDER_EMAIL']

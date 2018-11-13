@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Silive</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body style="margin: 0px;">
+    <div style="width: 100%;background-image: linear-gradient(180deg,#eefaff,#fff);">
+        <div class="jumbotron" style="padding-top: 5px;padding-bottom: 20px;">
+            <h4 style="font-family: 'Lato', sans-serif;margin: 0px;padding: 5px 10px;font-size: 24px;">Contact Us Registration</h4>
+        </div>
+        <div class="container" style="padding: 5px;">
+            <div class="row">
+                <div class="col-sm-4 text-md-left">
+                    {% autoescape off %}
+                        <ul class="list-group list-group-flush">
+                            Hey Admin,<br>
+                            A person has registered himself in the contact us section of <a href="http://silive.in/">silive.in</a>
+                            with following details:-<br>
+                            <li class="list-group-item"><b>Name</b>  -- {{ name }}</li>
+                            <li class="list-group-item"><b>Email</b>  -- {{ email }}</li> 
+                            <li class="list-group-item"><b>Contact Number</b>  -- {{ contact }}</li>
+                            <li class="list-group-item"><b>Subject</b>  -- {{ subject }}</li>
+                            <li class="list-group-item"><b>Message</b>  -- {{ message }}</li>
+                        </ul>
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

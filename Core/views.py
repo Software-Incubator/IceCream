@@ -1,11 +1,19 @@
 from django.views.generic import View, FormView, CreateView
-from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ContactUsForm, RegistrationForm
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.template.loader import render_to_string
+from django.core.mail import send_mail, EmailMessage
+from email.mime.image import MIMEImage
+
+from .forms import ContactUsForm, RegistrationForm
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, \
+ EmailContent, EmailAttachment
+from IceCream.settings.base import RECEIVER_EMAIL, EMAIL_HOST_USER
+
 import json
-from django.http import HttpResponse, JsonResponse
+
 
 
 class IndexView(View):
@@ -81,6 +89,19 @@ class SaveContactView(View):
         if contact_us:
             data_to_frontend['done'] = 1
             data_to_frontend['message'] = 'Request successfully registered.'
+            subject = subject
+            message_to_show = name + 'has registered'
+            details = render_to_string('email_template.html', {
+                'name': name,
+                'email': email,
+                'contact': contact,
+                'message': message,
+                'subject': subject,
+            })
+            
+            from_mail = EMAIL_HOST_USER
+            to_mail = (RECEIVER_EMAIL,)
+            send_mail(subject, message_to_show, from_mail, to_mail, html_message=details, fail_silently=False)
 
         return JsonResponse(data_to_frontend)
 
@@ -97,8 +118,44 @@ class RegistrationView(FormView):
     def post(self, request, *args, **kwargs):
         alert = ''
         form = RegistrationForm(request.POST)
+
         if form.is_valid():
+            event_receiver_email = form.cleaned_data['email']
             form.save()
+
+            allowed = False
+
+            try:
+                allowed = (EmailContent.objects.get(event=self.event)).mail_allowed
+            except EmailContent.DoesNotExist:
+                pass
+
+            if allowed:
+                content = EmailContent.objects.get(event=self.event)
+                all_files = EmailAttachment.objects.filter(event=self.event)
+
+                subject = content.subject
+                message = render_to_string('event_email_template.html', {
+                    'content': content,
+                    'event': self.event,
+                })
+
+                from_mail = EMAIL_HOST_USER
+                to_mail = [event_receiver_email]
+
+                mail = EmailMessage(subject, message, from_mail, to_mail)
+                mail.content_subtype = "html"
+                mail.mixed_subtype = 'related'
+
+                image_sub_type = (str(self.event.pic_path).split('.'))[-1]
+                event_image = MIMEImage(self.event.pic_path.read(), _subtype=image_sub_type)
+                event_image.add_header('Content-ID', '<{}>'.format(self.event.pic_path))
+                mail.attach(event_image)
+
+                for single_file in all_files:
+                    mail.attach(single_file.name,single_file.files.read())
+
+                mail.send()
             messages.add_message(request, messages.SUCCESS,
                                  "Successfully registered.")
             return redirect(reverse_lazy('registration'))
@@ -151,3 +208,4 @@ def view500(request):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
+    
