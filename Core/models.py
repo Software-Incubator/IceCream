@@ -5,6 +5,7 @@ import uuid
 
 from django.core.exceptions import ValidationError
 from django.db import models
+from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
 
@@ -217,3 +218,23 @@ class Blog(models.Model):
     def __str__(self):
         return "{} | {}".format(self.title, self.author)
 
+
+class EmailContent(models.Model):
+    event = models.ForeignKey('Event')
+    mail_allowed = models.BooleanField(default=False)
+    subject = models.CharField(max_length=100)
+    text = RichTextField()
+
+    def __str__(self):
+        return self.event.name
+
+
+class EmailAttachment(models.Model):
+    event = models.ForeignKey('Event')
+    files = models.FileField(upload_to=events_upload_location, null=True,
+                                default=None)
+    name = models.CharField(max_length=80, blank=False)
+
+    def __str__(self):
+        return self.event.name + "  " + self.name
+        
