@@ -175,7 +175,7 @@ class RegistrationView(FormView):
             return render(request, 'registration.html', context)
         else:
             messages.add_message(request, messages.SUCCESS,
-                                 "No event active at present")
+                                 "Registrations stopped")
             return redirect(reverse_lazy('home'))
 
 

@@ -75,7 +75,11 @@ class RegistrationForm(forms.ModelForm):
     
     class Meta:
         model = Registration
-        fields = ['name', 'contact', 'email', 'student_number', 'branch','year','gender','hosteler','captcha']
+        fields = ['name', 'contact', 'email', 'student_number', 
+                  'codechef_handle', 'university_rollno', 'codechef_team_name', 'branch', 
+                  'year','gender','hosteler', 'second_name', 'second_email', 'second_contact', 
+                  'second_student_number', 'second_branch', 'second_year', 'second_gender', 
+                  'second_hosteler', 'second_codechef_handle', 'second_university_rollno', 'captcha']
         # exclude = ['event', 'fee_paid']
 
     def __init__(self, *args, **kwargs):
@@ -180,8 +184,27 @@ class RegistrationForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
 
+        university_roll_no = None
+        team_name = None
+        codechef_name = None
+
         try:
             student_number = cleaned_data['student_number']
+        except KeyError:
+            raise ValidationError("")
+        
+        try:
+            university_roll_no = cleaned_data['university_rollno']
+        except KeyError:
+            raise ValidationError("")
+
+        try:
+            team_name = cleaned_data['codechef_team_name']
+        except KeyError:
+            raise ValidationError("")
+
+        try:
+            codechef_name = cleaned_data['codechef_handle']
         except KeyError:
             raise ValidationError("")
         
@@ -189,17 +212,23 @@ class RegistrationForm(forms.ModelForm):
         end = ''
         start = ''
 
-        for i in range(year, year-4, -1):
+        for i in range(year, year-5, -1):
             end += str(i % 10)
             i = int(i/10)
             start += str(i % 10)
 
-        regex = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$"
-        pattern = re.compile(regex)
+        regex_student = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
+        regex_university = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$"
+        pattern_student = re.compile(regex_student)
+        pattern_university = re.compile(regex_university)
 
         if student_number:
-            if not pattern.match(str(student_number)):
+            if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
+        
+        if university_roll_no:
+            if not pattern_university.match(str(university_roll_no)):
+                raise ValidationError("Invalid University Roll Number")
 
         try:
             email = cleaned_data['email']
@@ -214,6 +243,15 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError('Registration with this student number already exist.')
         elif Registration.objects.filter(email=email, event=event).exists():
             raise ValidationError('Registration with this email already exist.')
+        
+
+        if team_name:
+            if Registration.objects.filter(codechef_team_name=team_name).exists():
+                raise ValidationError("Team cannot have more than two members")
+
+        if codechef_name:
+            if Registration.objects.filter(codechef_handle=codechef_name).exists():
+                raise ValidationError("Already registered handle")
 
         return cleaned_data
 

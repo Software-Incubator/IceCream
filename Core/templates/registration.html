@@ -86,6 +86,15 @@
                     <div class="container">
                         <form name="form" id="contact-form" method="POST">
                             {% csrf_token %}
+                            <!-- team name -->
+                            <div class="md-form">
+                                <i class="fa fa-users prefix grey-text"></i>
+                                <input type="text" id="Codechef_team_name" name="codechef_team_name" class="form-control">
+                                <label for="codechef_team_name">Team Name</label>
+                                <span id="team_name_err" class='validationerror'>Invalid Name </span>
+                                <span style="color: red">{{ form.codechef_team_name.errors }}</span>
+                            </div>
+                            <span>Member 1 details </span>
                             <!-- name -->
                             <div id="register-form" name="form" class="md-form mb-0">
                                 <i class="fa fa-user prefix grey-text"></i>
@@ -117,6 +126,22 @@
                                 <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
                                 <span style="color: red">{{ form.student_number.errors }}</span>
                             </div>
+                            <!-- university rollno -->
+                            <div class="md-form">
+                                <i class="fa fa-university prefix grey-text"></i>
+                                <input type="text" id="University_rollno" name="university_rollno" class="form-control">
+                                <label for="university_rollno">University Roll No.</label>
+                                <span id="university_err" class='validationerror'>Invalid University Roll Number </span>
+                                <span style="color: red">{{ form.university_rollno.errors }}</span>
+                            </div>
+                            <!-- codechef handle -->
+                            <div class="md-form mb-0">
+                                <i class="fa fa-code prefix grey-text" ></i>
+                                <input type="text" id="Codechef_handle" name="codechef_handle" class="form-control">
+                                <label for="codechef_handle">Codechef Handle</label>
+                                <span id="codechef_err" class='validationerror'>Invalid Name </span>
+                                <span class='validationerror'>{{ form.codechef_handle.errors }}</span>
+                            </div>
                             <!--choose Branch-->
                             <div class="md-form">
                                 <div class="row p-1">
@@ -147,6 +172,85 @@
                                     <label class="toggle--btn" for="IsHosteler">Hosteler</label>
                                 </div>
                                 <span style="color: red">{{ form.hosteler.errors }}</span>
+                            </div>
+                            <span>Member 2 details</span>
+                            <!-- second name -->
+                            <div id="register-form" name="form" class="md-form mb-0">
+                                <i class="fa fa-user prefix grey-text"></i>
+                                <input type="text" id="SName" name="second_name" class="form-control">
+                                <label for="name">Name</label>
+                                <span id="Sname_err" class='validationerror'>Invalid Name </span>
+                            </div>
+                            <!-- second email -->
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="email" id="SEmail" name="second_email" class="form-control">
+                                <label for="email">Email</label>
+                                <span id="Semail_err" class='validationerror'>Invalid Email </span>
+                                <span style="color: red">{{ form.second_email.errors }}</span>
+                            </div>
+                            <!-- second contact -->
+                            <div class="md-form">
+                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <input type="text" id="SContact" name="second_contact" class="form-control">
+                                <label for="contact">Contact Number</label>
+                                <span id="Scontactno_err" class='validationerror'>Invalid Contact Number </span>
+                                <span style="color: red">{{ form.second_contact.errors }}</span>
+                            </div>
+                            <!-- second student no. -->
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="SStudent" name="second_student_number" class="form-control">
+                                <label for="student">Student no.</label>
+                                <span id="Sstudentno_err" class='validationerror'>Invalid Student Number </span>
+                                <span style="color: red">{{ form.second_student_number.errors }}</span>
+                            </div>
+                            <!-- second university rollno -->
+                            <div class="md-form">
+                                <i class="fa fa-university prefix grey-text"></i>
+                                <input type="text" id="SUniversity_rollno" name="second_university_rollno" class="form-control">
+                                <label for="university_rollno">University Roll No.</label>
+                                <span id="Suniversity_err" class='validationerror'>Invalid University Roll Number </span>
+                                <span style="color: red">{{ form.second_university_rollno.errors }}</span>
+                            </div>
+                            <!-- second codechef handle -->
+                            <div class="md-form mb-0">
+                                <i class="fa fa-code prefix grey-text" ></i>
+                                <input type="text" id="SCodechef_handle" name="second_codechef_handle" class="form-control">
+                                <label for="codechef_handle">Codechef Handle</label>
+                                <span id="Scodechef_err" class='validationerror'>Invalid Name </span>
+                                <span class='validationerror'>{{ form.second_codechef_handle.errors }}</span>
+                            </div>
+                            <!--second choose Branch-->
+                            <div class="md-form">
+                                <div class="row p-1">
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.branch.label }}
+                                        <div class="hoverable">{{ form.second_branch }}</div>
+                                        <span style="color: red">{{ form.second_branch.errors }}</span>
+                                    </div>
+                                    <!--second choose year-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.year.label }}
+                                        <div class="hoverable">{{ form.second_year }}</div>
+                                        <span style="color: red">{{ form.second_year.errors }}</span>
+                                    </div>
+                                    <!--second choose gender-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.second_gender.label }}
+                                        <div class="hoverable">{{ form.second_gender }}</div>
+                                        <span style="color: red">{{ form.gender.errors }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <!-- second Material checked -->
+                                
+                                <div class="toggle toggle--knob form-check">
+                                    <input type="checkbox" class="form-check-input"   id="SIsHosteler" class="toggle--checkbox" name="second_hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
+                                    <label class="toggle--btn" for="IsHosteler">Hosteler</label>
+                                </div>
+                                <span style="color: red">{{ form.second_hosteler.errors }}</span>
                             </div>
                             <div class="col-md-12" style="overflow: hidden;">
                                 {{ form.captcha }}
@@ -415,6 +519,156 @@
             }
         });
         
+        $("#University_rollno").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[0-9]{10}$");
+                if (!regex.test($("#University_rollno").val())) {
+                    $( "#university_err" ).show();
+                }
+            }
+        });
+        
+        $("#University_rollno").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#university_err" ).hide();
+            }
+        });
+        
+        $("#Codechef_handle").focusout(function (event) {
+            if (event.charCode!=0) {
+                // var regex = new RegExp("^[a-zA-Z ]+$");
+                if (!$(this).val()) {
+                    $( "#codechef_err" ).show();
+                }
+            }
+        });
+        
+        $("#Codechef_handle").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#codechef_err" ).hide();
+            }
+        });
+        
+        $("#Codechef_team_name").focusout(function (event) {
+            if (event.charCode!=0) {
+                if (!$(this).val()) {
+                    $( "#team_name_err" ).show();
+                }
+            }
+        });
+        
+        $("#Codechef_team_name").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#team_name_err" ).hide();
+            }
+        });
+        
+        $("#SName").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                if (!regex.test($(this).val())) {
+                    $( "#Sname_err" ).show();
+                }
+            }
+        });
+        
+        $("#SName").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Sname_err" ).hide();
+            }
+        });
+        
+        $("#SEmail").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+                if (!regex.test($("#SEmail").val())) {
+                    $( "#Semail_err" ).show();
+                }
+            }
+        });
+        
+        $("#SEmail").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Semail_err" ).hide();
+            }
+        });
+        
+        
+        $("#SContact").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[0-9]{10}$");
+                if (!regex.test($("#SContact").val())) {
+                    $( "#Scontactno_err" ).show();
+                }
+            }
+        });
+        
+        $("#SContact").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Scontactno_err" ).hide();
+            }
+        });
+        
+        
+        $("#SStudent").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[1-2][0-9]{6}[dD]?$");
+                if (!regex.test($("#SStudent").val())) {
+                    $( "#Sstudentno_err" ).show();
+                }
+            }
+        });
+        
+        $("#SStudent").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Sstudentno_err" ).hide();
+            }
+        });
+        
+        $("#SUniversity_rollno").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[0-9]{10}$");
+                if (!regex.test($("#SUniversity_rollno").val())) {
+                    $( "#Suniversity_err" ).show();
+                }
+            }
+        });
+        
+        $("#SUniversity_rollno").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Suniversity_err" ).hide();
+            }
+        });
+        
+        $("#SCodechef_handle").focusout(function (event) {
+            if (event.charCode!=0) {
+                if (!$(this).val()) {
+                    $( "#Scodechef_err" ).show();
+                }
+            }
+        });
+        
+        $("#SCodechef_handle").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Scodechef_err" ).hide();
+            }
+        });
+        
+        $("#SCodechef_team_name").focusout(function (event) {
+            // var field_value = $(this).val();
+            
+            if (event.charCode!=0) {
+                if (!$(this).val()) {
+                    $( "#Steam_name_err" ).show();
+                }
+            }
+        });
+        
+        $("#SCodechef_team_name").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#Steam_name_err" ).hide();
+            }
+        });
         
     });
     
@@ -424,35 +678,35 @@
     function validateForm() {
         var name =  document.getElementById('Name').value;
         if (name == "") {
-            document.getElementById('already_exit').innerHTML = "Name cannot be empty";
+            document.getElementById('name_err').innerHTML = "Name cannot be empty";
             return false;
         }
         var email =  document.getElementById('Email').value;
         if (email == "") {
-            document.getElementById('already_exit').innerHTML = "Email cannot be empty";
+            document.getElementById('email_err').innerHTML = "Email cannot be empty";
             return false;
         } else {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if(!re.test(email)){
-                document.getElementById('already_exit').innerHTML = "Email format invalid";
+                document.getElementById('email_err').innerHTML = "Email format invalid";
                 return false;
             }
         }
         var Contact =  document.getElementById('Contact').value;
         if (Contact == "") {
-            document.getElementById('already_exit').innerHTML = "Contact cannot be empty";
+            document.getElementById('contactno_err').innerHTML = "Contact cannot be empty";
             return false;
         }
         else {
             var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
             if(!re.test(Contact)){
-                document.getElementById('already_exit').innerHTML = "Contact number format invalid";
+                document.getElementById('contactno_err').innerHTML = "Contact number format invalid";
                 return false;
             }
         }
         var Student =  document.getElementById('Student').value;
         if (Student == "") {
-            document.getElementById('already_exit').innerHTML = "Student number cannot be empty";
+            document.getElementById('studentno_err').innerHTML = "Student number cannot be empty";
             return false;
         }
         else {
@@ -462,7 +716,7 @@
             var false_i;
             var end = "";
             var start = "";
-            for (i = year; i > (year-4); --i)
+            for (i = year; i > (year-5); --i)
             {
                 false_i = i;
                 end = end + String(false_i % 10)
@@ -471,12 +725,50 @@
                 false_i = false_i.toFixed(0);
                 start += String(false_i % 10);
             }
-            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$";
+            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
-                document.getElementById('already_exit').innerHTML = "Student number format invalid";
+                document.getElementById('studentno_err').innerHTML = "Student number format invalid";
                 return false;
             }
+        }
+        var University =  document.getElementById('University_rollno').value;
+        if (University == "") {
+            document.getElementById('university_err').innerHTML = "University roll number cannot be empty";
+            return false;
+        }
+        else {
+            var obj = new Date();
+            var year = obj.getFullYear();
+            var i;
+            var false_i;
+            var end = "";
+            var start = "";
+            for (i = year; i > (year-5); --i)
+            {
+                false_i = i;
+                end = end + String(false_i % 10)
+                false_i = false_i - 5;
+                false_i = false_i/10;
+                false_i = false_i.toFixed(0);
+                start += String(false_i % 10);
+            }
+            regex_string = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$";
+            var re = new RegExp(regex_string);
+            if(!re.test(University)){
+                document.getElementById('university_err').innerHTML = "University roll number format invalid";
+                return false;
+            }
+        }
+        var codechef =  document.getElementById('Codechef_handle').value;
+        if (codechef == "") {
+            document.getElementById('codechef_err').innerHTML = "cannot be empty";
+            return false;
+        }
+        var team =  document.getElementById('Codechef_team_name').value;
+        if (team == "") {
+            document.getElementById('team_name_err').innerHTML = "Name cannot be empty";
+            return false;
         }
         var Branch = document.getElementById('Branch');
         if (Branch.value == "") {
@@ -493,6 +785,98 @@
             document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
             return false;
         }
+        
+        var Sname =  document.getElementById('SName').value;
+        if (Sname == "") {
+            document.getElementById('Sname_err').innerHTML = "Name cannot be empty";
+            return false;
+        }
+        var Semail =  document.getElementById('SEmail').value;
+        if (Semail == "") {
+            document.getElementById('Semail_err').innerHTML = "Email cannot be empty";
+            return false;
+        } else {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(Semail)){
+                document.getElementById('already_exit').innerHTML = "Email format invalid";
+                return false;
+            }
+        }
+        var SContact =  document.getElementById('SContact').value;
+        if (SContact == "") {
+            document.getElementById('Scontactno_err').innerHTML = "Contact cannot be empty";
+            return false;
+        }
+        else {
+            var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
+            if(!re.test(SContact)){
+                document.getElementById('Scontactno_err').innerHTML = "Contact number format invalid";
+                return false;
+            }
+        }
+        var SStudent =  document.getElementById('SStudent').value;
+        if (SStudent == "") {
+            document.getElementById('Sstudentno_err').innerHTML = "Student number cannot be empty";
+            return false;
+        }
+        else {
+            var obj = new Date();
+            var year = obj.getFullYear();
+            var i;
+            var false_i;
+            var end = "";
+            var start = "";
+            for (i = year; i > (year-5); --i)
+            {
+                false_i = i;
+                end = end + String(false_i % 10)
+                false_i = false_i - 5;
+                false_i = false_i/10;
+                false_i = false_i.toFixed(0);
+                start += String(false_i % 10);
+            }
+            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$";
+            var re = new RegExp(regex_string);
+            if(!re.test(SStudent)){
+                document.getElementById('Sstudentno_err').innerHTML = "Student number format invalid";
+                return false;
+            }
+        }
+        var SUniversity =  document.getElementById('SUniversity_rollno').value;
+        if (SUniversity == "") {
+            document.getElementById('Suniversity_err').innerHTML = "University roll number cannot be empty";
+            return false;
+        }
+        else {
+            var obj = new Date();
+            var year = obj.getFullYear();
+            var i;
+            var false_i;
+            var end = "";
+            var start = "";
+            for (i = year; i > (year-5); --i)
+            {
+                false_i = i;
+                end = end + String(false_i % 10)
+                false_i = false_i - 5;
+                false_i = false_i/10;
+                false_i = false_i.toFixed(0);
+                start += String(false_i % 10);
+            }
+            regex_string = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$";
+            var re = new RegExp(regex_string);
+            if(!re.test(SUniversity)){
+                document.getElementById('Suniversity_err').innerHTML = "University roll number format invalid";
+                return false;
+            }
+        }
+        var Scodechef =  document.getElementById('SCodechef_handle').value;
+        if (Scodechef == "") {
+            document.getElementById('Scodechef_err').innerHTML = "cannot be empty";
+            return false;
+        }
+        
+        
         var v = grecaptcha.getResponse();
         if(v.length == 0)
         {

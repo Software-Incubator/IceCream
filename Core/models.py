@@ -169,6 +169,20 @@ class Registration(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event')
     fee_paid = models.BooleanField(default=False)
+    codechef_handle = models.CharField(max_length=100, blank=True)
+    university_rollno = models.CharField(max_length=10, blank=False)
+    codechef_team_name = models.CharField(max_length=100, blank=True)
+
+    second_name = models.CharField(max_length=225, null=False, default='1')
+    second_email = models.EmailField(default='1@gmail.com')
+    second_contact = models.CharField(max_length=10, unique=False , null=False, default='1')
+    second_student_number = models.CharField(max_length=8, default='1')
+    second_branch = models.ForeignKey('Branch', related_name='second_branch', default='1')
+    second_year = models.ForeignKey('Year', related_name='second_year', default='1')
+    second_gender = models.ForeignKey('Gender', related_name='second_gender', default='1')
+    second_hosteler = models.BooleanField(default=False)
+    second_codechef_handle = models.CharField(max_length=100, blank=True, default='1')
+    second_university_rollno = models.CharField(max_length=10, blank=False, default='1')
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
