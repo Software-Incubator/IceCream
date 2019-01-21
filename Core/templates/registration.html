@@ -117,6 +117,30 @@
                                 <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
                                 <span style="color: red">{{ form.student_number.errors }}</span>
                             </div>
+                            <!-- university rollno -->
+                            <div class="md-form">
+                                <i class="fa fa-university prefix grey-text"></i>
+                                <input type="text" id="University_rollno" name="university_rollno" class="form-control">
+                                <label for="university_rollno">University Roll No.</label>
+                                <span id="university_err" class='validationerror'>Invalid University Roll Number </span>
+                                <span style="color: red">{{ form.university_rollno.errors }}</span>
+                            </div>
+                            <!-- codechef handle -->
+                            <div class="md-form mb-0">
+                                <i class="fa fa-code prefix grey-text" ></i>
+                                <input type="text" id="Codechef_handle" name="codechef_handle" class="form-control">
+                                <label for="codechef_handle">Codechef Handle</label>
+                                <span id="codechef_err" class='validationerror'>Invalid Name </span>
+                                <span class='validationerror'>{{ form.codechef_handle.errors }}</span>
+                            </div>
+                            <!-- team name -->
+                            <div class="md-form">
+                                <i class="fa fa-users prefix grey-text"></i>
+                                <input type="text" id="Codechef_team_name" name="codechef_team_name" class="form-control">
+                                <label for="codechef_team_name">Codechef Team Name</label>
+                                <span id="team_name_err" class='validationerror'>Invalid Name </span>
+                                <span style="color: red">{{ form.codechef_team_name.errors }}</span>
+                            </div>
                             <!--choose Branch-->
                             <div class="md-form">
                                 <div class="row p-1">
@@ -414,6 +438,51 @@
                 $( "#studentno_err" ).hide();
             }
         });
+
+        $("#University_rollno").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[0-9]{10}$");
+                if (!regex.test($("#University_rollno").val())) {
+                    $( "#university_err" ).show();
+                }
+            }
+        });
+        
+        $("#University_rollno").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#university_err" ).hide();
+            }
+        });
+
+        $("#Codechef_handle").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                if (!regex.test($(this).val())) {
+                    $( "#codechef_err" ).show();
+                }
+            }
+        });
+        
+        $("#Codechef_handle").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#codechef_err" ).hide();
+            }
+        });
+
+        $("#Codechef_team_name").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[a-zA-Z ]+$");
+                if (!regex.test($(this).val())) {
+                    $( "#team_name_err" ).show();
+                }
+            }
+        });
+        
+        $("#Codechef_team_name").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#team_name_err" ).hide();
+            }
+        });
         
         
     });
@@ -462,7 +531,7 @@
             var false_i;
             var end = "";
             var start = "";
-            for (i = year; i > (year-4); --i)
+            for (i = year; i > (year-5); --i)
             {
                 false_i = i;
                 end = end + String(false_i % 10)
@@ -471,12 +540,50 @@
                 false_i = false_i.toFixed(0);
                 start += String(false_i % 10);
             }
-            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-1][0-9][0-9][-]?[mdlMDL]?$";
+            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
                 document.getElementById('already_exit').innerHTML = "Student number format invalid";
                 return false;
             }
+        }
+        var University =  document.getElementById('University_rollno').value;
+        if (University == "") {
+            document.getElementById('already_exit').innerHTML = "University roll number cannot be empty";
+            return false;
+        }
+        else {
+            var obj = new Date();
+            var year = obj.getFullYear();
+            var i;
+            var false_i;
+            var end = "";
+            var start = "";
+            for (i = year; i > (year-5); --i)
+            {
+                false_i = i;
+                end = end + String(false_i % 10)
+                false_i = false_i - 5;
+                false_i = false_i/10;
+                false_i = false_i.toFixed(0);
+                start += String(false_i % 10);
+            }
+            regex_string = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$";
+            var re = new RegExp(regex_string);
+            if(!re.test(University)){
+                document.getElementById('already_exit').innerHTML = "University roll number format invalid";
+                return false;
+            }
+        }
+        var codechef =  document.getElementById('Codechef_handle').value;
+        if (codechef == "") {
+            document.getElementById('codechef_err').innerHTML = "cannot be empty";
+            return false;
+        }
+        var team =  document.getElementById('Codechef_team_name').value;
+        if (team == "") {
+            document.getElementById('team_name_err').innerHTML = "Name cannot be empty";
+            return false;
         }
         var Branch = document.getElementById('Branch');
         if (Branch.value == "") {

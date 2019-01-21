@@ -169,6 +169,9 @@ class Registration(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event')
     fee_paid = models.BooleanField(default=False)
+    codechef_handle = models.CharField(max_length=100, blank=True)
+    university_rollno = models.CharField(max_length=10, blank=False)
+    codechef_team_name = models.CharField(max_length=100, blank=True)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
