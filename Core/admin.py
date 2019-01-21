@@ -9,7 +9,7 @@ from .forms import RegistrationForm
 class RegistrationAdmin(ImportExportActionModelAdmin):
     readonly_fields = ('timestamp',)
     list_display = (
-    'name', 'student_number', 'branch', 'year', 'event', 'fee_paid')
+    'name', 'student_number', 'branch', 'year', 'event', 'fee_paid', 'codechef_handle', 'university_rollno', 'codechef_team_name')
     search_fields = ('student_number', 'name')
     list_filter = ('event','fee_paid')
     form = RegistrationForm
