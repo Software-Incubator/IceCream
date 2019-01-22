@@ -77,7 +77,9 @@ class RegistrationForm(forms.ModelForm):
         model = Registration
         fields = ['name', 'contact', 'email', 'student_number', 
                   'codechef_handle', 'university_rollno', 'codechef_team_name', 'branch', 
-                  'year','gender','hosteler','captcha']
+                  'year','gender','hosteler', 'second_name', 'second_email', 'second_contact', 
+                  'second_student_number', 'second_branch', 'second_year', 'second_gender', 
+                  'second_hosteler', 'second_codechef_handle', 'second_university_rollno', 'captcha']
         # exclude = ['event', 'fee_paid']
 
     def __init__(self, *args, **kwargs):
@@ -244,7 +246,7 @@ class RegistrationForm(forms.ModelForm):
         
 
         if team_name:
-            if len(Registration.objects.all().filter(codechef_team_name=team_name)) > 2:
+            if Registration.objects.filter(codechef_team_name=team_name).exists():
                 raise ValidationError("Team cannot have more than two members")
 
         if codechef_name:
