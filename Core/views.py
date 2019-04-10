@@ -153,7 +153,8 @@ class RegistrationView(FormView):
                 mail.attach(event_image)
 
                 for single_file in all_files:
-                    mail.attach(single_file.name,single_file.files.read())
+                    mail.attach(filename=single_file.name,
+                                content=single_file.files.read())
 
                 mail.send()
             messages.add_message(request, messages.SUCCESS,
