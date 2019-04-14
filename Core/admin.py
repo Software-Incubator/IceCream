@@ -13,7 +13,6 @@ class RegistrationAdmin(ImportExportActionModelAdmin):
 	    'event','fee_paid')
     search_fields = ('student_number', 'name')
     list_filter = ('event','fee_paid')
-    form = RegistrationForm
 
 
 class EventAdmin(admin.ModelAdmin):
