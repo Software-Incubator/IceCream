@@ -8,6 +8,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
+from .validators import validate_file_extension
 
 
 
@@ -247,7 +248,7 @@ class EmailAttachment(models.Model):
     event = models.ForeignKey('Event')
     files = models.FileField(upload_to=events_upload_location, null=True,
                                 default=None)
-    name = models.CharField(max_length=80, blank=False)
+    name = models.CharField(max_length=80, blank=False, validators=[validate_file_extension])
 
     def __str__(self):
         return self.event.name + "  " + self.name
