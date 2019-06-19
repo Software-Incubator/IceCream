@@ -7,13 +7,12 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from email.mime.image import MIMEImage
 
-from .forms import ContactUsForm, RegistrationForm
+from .forms import RegistrationForm, ContactUsForm
 from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, \
  EmailContent, EmailAttachment
 from IceCream.settings.base import RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
-
 
 
 class IndexView(View):
@@ -35,7 +34,7 @@ class IndexView(View):
 
         # make members list for Member section
         i = 0
-        members = Member.objects.filter(is_alumni=False).order_by('batch','name')
+        members = Member.objects.filter(is_alumni=False).order_by('batch', 'name')
         if len(members) > 6:
             members_lists = [members[i * 6: i * 6 + 6] for i in range(int(len(members) / 6))]
             members_lists.append(members[i * 6 + 6:])
@@ -98,7 +97,7 @@ class SaveContactView(View):
                 'message': message,
                 'subject': subject,
             })
-            
+
             from_mail = EMAIL_HOST_USER
             to_mail = (RECEIVER_EMAIL,)
             send_mail(subject, message_to_show, from_mail, to_mail, html_message=details, fail_silently=False)
@@ -112,7 +111,7 @@ class RegistrationView(FormView):
     success_url = reverse_lazy('home')
 
     form_class = RegistrationForm
-    
+
     event = Event.objects.filter(active=True).first()
 
     def post(self, request, *args, **kwargs):
@@ -196,7 +195,7 @@ class BlogDetailView(View):
         context = {
             'blog':blog
         }
-        
+
         return render(request, self.template_name, context=context)
 
 
@@ -209,4 +208,4 @@ def view500(request):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
-    
+
