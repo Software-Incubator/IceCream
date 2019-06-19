@@ -10,8 +10,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.urlresolvers import reverse
 from .validators import validate_file_extension
 
-
-
 # DO NOT DELETE THIS FUNCTION
 # If you think that this function is outright useless because it is never called,
 # stop right there. You delete this and all the migrations will FAIL!
@@ -31,6 +29,7 @@ def projects_upload_location(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join('uploads/projects', filename)
+
 
 def events_upload_location(instance, filename):
     ext = filename.split('.')[-1]
@@ -252,4 +251,3 @@ class EmailAttachment(models.Model):
 
     def __str__(self):
         return self.event.name + "  " + self.name
-        

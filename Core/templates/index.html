@@ -39,7 +39,8 @@
     </head>
     
     <body>
-        <!-- ================================================================================================== Loader -->
+
+    <!-- ================================================================================================== Loader -->
         
         <div id="loader"><img class="loader-img" src="{% static 'images/loader.svg' %}"></div>
         
@@ -997,6 +998,14 @@
                                                 {% endif %}
                                             }
                                         </script>
+                                        <script type="application/ld+json">
+                                        {   "@context" : "http://schema.org",
+                                            "@type" : "Organization",
+                                            "name" : "Software Incubator",
+                                            "url" : "https://silive.in",
+                                            "logo": "https://silive.in/static/images/si_logo.jpg" }
+                                        </script>
+
                                     </body>
                                     </html>
                                     

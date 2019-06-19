@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf import settings
 from django.contrib import admin
-# from Core import views
+from Core import views
 from Core.views import view404, view500
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
