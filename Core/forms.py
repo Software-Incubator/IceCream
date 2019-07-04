@@ -9,6 +9,7 @@ from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 import datetime
 import re
 
+
 class ContactUsForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
@@ -72,10 +73,10 @@ class ContactUsForm(forms.ModelForm):
 
 class RegistrationForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
-    
+
     class Meta:
         model = Registration
-        fields = ['name', 'contact', 'email', 'student_number', 
+        fields = ['name', 'contact', 'email', 'student_number',
                   'branch', 'year','gender','hosteler', 'captcha']
         # exclude = ['event', 'fee_paid']
 
@@ -204,7 +205,7 @@ class RegistrationForm(forms.ModelForm):
         #     codechef_name = cleaned_data['codechef_handle']
         # except KeyError:
         #     raise ValidationError("")
-        
+
         year = datetime.date.today().year
         end = ''
         start = ''
@@ -222,7 +223,7 @@ class RegistrationForm(forms.ModelForm):
         if student_number:
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
-        
+
         # if university_roll_no:
         #     if not pattern_university.match(str(university_roll_no)):
         #         raise ValidationError("Invalid University Roll Number")
@@ -240,7 +241,7 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError('Registration with this student number already exist.')
         elif Registration.objects.filter(email=email, event=event).exists():
             raise ValidationError('Registration with this email already exist.')
-        
+
 
         # if team_name:
         #     if Registration.objects.filter(codechef_team_name=team_name).exists():
