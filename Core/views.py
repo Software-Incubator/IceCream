@@ -204,6 +204,7 @@ def view404(request):
     error_message = 'Page Not Found'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
 
+
 def view500(request):
     error_code = 500
     error_message = 'Internal Server Error'
