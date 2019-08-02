@@ -190,13 +190,19 @@ class BlogView(View):
 class BlogDetailView(View):
     template_name = "blog_detail.html"
 
-    def get(self,request,pk, *args,**kwargs):
+    def get(self, request, pk, *args,**kwargs):
         blog = get_object_or_404(Blog,pk=pk)
         context = {
             'blog':blog
         }
 
         return render(request, self.template_name, context=context)
+
+class FeedbackView(View):
+    template_name = "feedback.html"
+
+    def get(self, request, *args,**kwargs):
+        return render(request, self.template_name)
 
 
 def view404(request):
