@@ -1,4 +1,4 @@
-from .views import IndexView, RegistrationView, BlogView, BlogDetailView, SaveContactView, FeedbackView
+from .views import IndexView, RegistrationView, BlogView, BlogDetailView, SaveContactView, FeedbackView, AlumniRegistrationView
 from django.conf.urls import url
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^blogs', BlogView.as_view(), name='blog'),
     url(r'^blogs/(?P<pk>\d+)/detail', BlogDetailView.as_view(), name='blog_detail'),
     url(r'^feedback', FeedbackView.as_view(), name='feedback'),
+    url(r'^alumni', AlumniRegistrationView.as_view(), name='alumni_registration'),
 ]

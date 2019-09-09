@@ -1,0 +1,296 @@
+{% load staticfiles %}
+{% load recaptcha2 %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/silogo.ico' %}">
+
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="{% static 'css/invitation.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="text/html" href="sweetalert2.min.css">
+    {% recaptcha_init %}
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 res_grid">
+            <img class="svg_pic" src="{% static 'images/def.svg' %}">
+        </div>
+        <div class="col-md-6 col-sm-12">
+   <div id="wrapper">
+            <div class="form-content">
+                <div class="logo_heading"><img class="si_logo" src="{% static 'images/head_silogo.svg' %}">
+                <span class="form-heading">ALUMNI MEET</span></div>
+                <form method="POST" id="alumni-form">
+                    {% csrf_token %}
+                    <div class="input-group">
+                      <i class="fas fa-user" ></i>
+                        <span id="name_err" class='validationerror'> </span>
+                        <input  id="Name" maxlength="225" name="name"  placeholder="Enter Name" type="text" autocomplete="off">
+
+                        <span class="bar"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-calendar"></i>
+                        <span id="batch_err" class='validationerror'></span>
+                     <input id="id_batch" maxlength="4" name="batch" type="text" autocomplete="off" placeholder="Pass out year">
+                        <span class="bar"></span>
+                    </div>
+
+
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <span id="contactno_err" class='validationerror'></span>
+                        <input  id="Contact" name="contact_no" onblur="" placeholder="Enter Contact No." type="text" autocomplete="off">
+                        <span class="bar"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa fa-calendar-plus calndr" aria-hidden="true"></i>
+                        <select class="dropdown" id="id_date" name="date">
+                            <option value="" selected="selected" disabled>Preferred Date</option>
+                         <option value="22 September(Sunday)">22 September(Sunday)</option>
+                         <option value="29 September(Sunday)">29 September(Sunday)</option>
+                         <option value="2  October(Sunday)">2 October(Sunday)</option>
+                        </select>
+                        <span style="margin:32px 0 0 0px;" id="date_err" class='validationerror'></span>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-comments"></i>
+                       <input id="id_message" maxlength="500" name="message" placeholder="Your best wishes" type="text" autocomplete="off">
+                        <span class="bar"></span>
+                    </div>
+                    <div class="input-group captcha">
+                   {{ form.captcha }}
+                    <span  id="captcha_err" style="color: red">{{ form.captcha.errors }}</span>
+
+                    </div>
+<!--                    <div class="confirmation">-->
+<!--                        Are you interested?-->
+<!--                    </div>-->
+                    <div class="input-group" >
+                        <button  value='1' name="confirm" onclick="return validateForm()" >
+                            <h2 style="margin-bottom:0rem;">Accept</h2>
+                        </button>
+<!--                       <button value='0'  name="confirm" onclick="return validateForm(this.value)"  >-->
+<!--                        <i class="fa fa-thumbs-down fa-0.5x"></i>-->
+<!--                       </button>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script>
+$(document).ready(function () {
+        $("#name_err").hide();
+        $("#Name").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^[a-zA-Z ]{2,40}$");
+                if (!regex.test($(this).val())) {
+                    document.getElementById('name_err').innerHTML = "Invalid Name";
+                    $( "#name_err" ).show();
+
+                }
+            }
+            if ( $(this).val() == "") {
+                    document.getElementById('name_err').innerHTML = "Name cannot be empty";
+                    $( "#name_err" ).show();
+
+                }
+         });
+         $("#Name").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#name_err" ).hide();
+                document.getElementById('name_err').innerHTML == "";
+
+            }
+        });
+
+
+             $("#Contact").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
+                if (!regex.test($("#Contact").val())) {
+                    document.getElementById('contactno_err').innerHTML = "Invalid Contact Number";
+                    $( "#contactno_err" ).show();
+
+                }
+            }
+            if ( $(this).val() == "") {
+                    document.getElementById('contactno_err').innerHTML = "Contact cannot be empty";
+                    $( "#contactno_err" ).show();
+
+                }
+        });
+
+        $("#Contact").attr('maxlength', 10);
+
+        $("#Contact").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#contactno_err" ).hide();
+                document.getElementById('contactno_err').innerHTML == "";
+
+            }
+        });
+        $("#id_batch").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp("^20[01]([0-9]{1})$");
+                if (!regex.test($("#id_batch").val())) {
+                    document.getElementById('batch_err').innerHTML = "Invalid Passout Year";
+                    $( "#batch_err" ).show();
+
+                }
+            }
+            if ( $(this).val() == "") {
+                    document.getElementById('batch_err').innerHTML = "Pass out year cannot be empty";
+                    $( "#batch_err" ).show();
+
+                }
+        });
+        $("#id_batch").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#batch_err" ).hide();
+                document.getElementById('batch_err').innerHTML == "";
+
+            }
+        });
+        $("#id_date").focusout(function (event) {
+
+            if ( $(this).val() == null) {
+                    document.getElementById('date_err').innerHTML = "Choose date";
+                    $( "#date_err" ).show();
+
+                }
+        });
+       $("#id_date").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#date_err" ).hide();
+                document.getElementById('date_err').innerHTML == "";
+
+            }
+        });
+
+
+        });
+
+</script>
+<script>
+    function validateForm(value) {
+        document.getElementById('captcha_err').innerHTML = "";
+         document.getElementById('date_err').innerHTML = "";
+        var name =  document.getElementById('Name').value;
+        if (name == "") {
+            document.getElementById('name_err').innerHTML = "Name cannot be empty"
+            $( "#name_err" ).show();
+            return false;
+        }
+        else {
+        var regex = new RegExp("^[a-zA-Z ]{2,40}$");
+                if (!regex.test(name)) {
+                    document.getElementById('name_err').innerHTML = "Invalid Name";
+                    $( "#name_err" ).show();
+                    return false
+                }
+        }
+
+           var batch =  document.getElementById('id_batch').value;
+        if (batch == "") {
+            document.getElementById('batch_err').innerHTML = "Passout year cannot be empty"
+            $( "#batch_err" ).show();
+            return false;
+        }
+        else {
+        var regex = new RegExp("^20[01]([0-9]{1})$");
+                if (!regex.test(batch)) {
+                    document.getElementById('name_err').innerHTML = "Invalid Passout year";
+                    $( "#batch_err" ).show();
+                    return false
+                }
+        }
+
+        var Contact =  document.getElementById('Contact').value;
+        if (Contact == "") {
+            document.getElementById('contactno_err').innerHTML = "Contact cannot be empty";
+
+            return false;
+        }
+        else {
+            var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
+            if(!re.test(Contact)){
+                document.getElementById('contactno_err').innerHTML = "Contact number format invalid";
+
+                return false;
+            }
+        }
+
+
+
+        var date = $("#id_date");
+        console.log(date.val())
+        if (date.val() == null)
+        { console.log("working")
+          document.getElementById('date_err').innerHTML = "Choose the date";
+          console.log(document.getElementById('date_err').innerHTML)
+          return false;
+        }
+        var v = grecaptcha.getResponse();
+        if(v.length == 0)
+        {
+            document.getElementById('captcha_err').innerHTML="Cannot be empty";
+            return false;
+        }
+
+
+$('#alumni-form').on('submit', function(event){
+
+    event.preventDefault();
+            Swal.fire({
+        title: 'Registered!',
+        type: 'success',
+        showCancelButton: false,
+        showConfirmButton: false,
+        timer:60000,
+
+       });
+       this.submit();
+});
+        }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
