@@ -6,10 +6,11 @@ from django.core.urlresolvers import reverse_lazy
 from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from email.mime.image import MIMEImage
+from django.core.urlresolvers import reverse_lazy
 
-from .forms import RegistrationForm, ContactUsForm
+from .forms import RegistrationForm, ContactUsForm, RegistrationAlumni
 from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, \
- EmailContent, EmailAttachment
+ EmailContent, EmailAttachment, AlumniRegistration
 from IceCream.settings.base import RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
@@ -203,6 +204,24 @@ class FeedbackView(View):
 
     def get(self, request, *args,**kwargs):
         return render(request, self.template_name)
+
+
+class AlumniRegistrationView(View):
+    template_name = "alumni-registration.html"
+
+    def post(self,request,*args,**kwargs):
+        form = RegistrationAlumni(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            return render(request,self.template_name,{'form':form,'message':"error"})
+
+    def get(self,request,*args,**kwargs):
+        form = RegistrationAlumni()
+        return render(request,self.template_name,{'form':form})
+
+
 
 
 def view404(request):
