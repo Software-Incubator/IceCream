@@ -1,6 +1,8 @@
 from django import forms
+from django.core.urlresolvers import reverse_lazy
 
-from .models import ContactUs, Registration, Branch, Year, Gender, Event
+from .models import ContactUs, Registration, Branch, Year, Gender, Event,AlumniRegistration
+from django.core.validators import RegexValidator
 
 from django.forms import ValidationError
 
@@ -252,4 +254,47 @@ class RegistrationForm(forms.ModelForm):
         #         raise ValidationError("Already registered handle")
 
         return cleaned_data
+
+
+class RegistrationAlumni(forms.ModelForm):
+
+    phone_regex = RegexValidator(regex=r"^[56789]\d{9}$")
+    contact_no = forms.CharField(validators=[phone_regex], max_length=10, required=False)
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+
+    class Meta:
+        model = AlumniRegistration
+        fields = ['name', 'batch', 'contact_no', 'message','date','captcha']
+
+
+    def __init__(self, *args, **kwargs):
+        super(RegistrationAlumni, self).__init__(*args, **kwargs)
+
+        self.fields['name'] = forms.CharField(
+            max_length=225, required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'name',
+                       'class': 'form-control',
+                       'id': 'Name',
+                       'placeholder': 'Enter Name',
+                       'onblur': ''}
+            )
+        )
+        self.fields['contact_no'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'contact',
+                       'class': 'form-control',
+                       'id': 'Contact',
+                       'placeholder': 'Enter Contact No.',
+                       'onblur': ''
+                       }
+            )
+        )
+
+
+
+
 
