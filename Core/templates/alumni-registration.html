@@ -156,7 +156,9 @@ $(document).ready(function () {
         });
         $("#id_batch").focusout(function (event) {
             if (event.charCode!=0) {
+
                 var regex = new RegExp("^2009|201[0-9]$");
+
                 if (!regex.test($("#id_batch").val())) {
                     document.getElementById('batch_err').innerHTML = "Invalid Passout Year";
                     $( "#batch_err" ).show();
@@ -222,7 +224,9 @@ $(document).ready(function () {
             return false;
         }
         else {
+
                 var regex = new RegExp("^2009|201[0-9]$");
+
                 if (!regex.test(batch)) {
                     document.getElementById('name_err').innerHTML = "Invalid Passout year";
                     $( "#batch_err" ).show();
