@@ -36,7 +36,8 @@ body{
     position: absolute;
  margin: -20% 0% 0% 46%;
  width: 15%;
- transform: translate(-50%,-50%)
+ transform: translate(-50%,-50%);
+
  }
 .form-content {
     height: 85%;
@@ -234,8 +235,10 @@ left:3%;
         margin: -100% auto;
     }
     .si_logo{
-        margin: -16% 0% 0% 44%;
-        position:fixed;
+        padding: 10px 0% 0% 10px;
+        position:absolute;
+        transform: translate(-50%,-50%);
+
     }
     .confirmation{
         margin: 4rem 2rem 0rem 2rem;
