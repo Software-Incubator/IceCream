@@ -257,7 +257,7 @@ class AlumniRegistration(models.Model):
     choice = (
          ('22 September(Sunday)','22 September(Sunday)'),
          ('29 September(Sunday)','29 September(Sunday)'),
-         ('2  October(Sunday)','2 October(Sunday)'),
+         ('2  October(Wednesday)','2 October(Wednesday)'),
      )
     name = models.CharField(max_length=200)
     batch = models.CharField(max_length=4)
