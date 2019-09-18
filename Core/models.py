@@ -7,9 +7,9 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
 from .validators import validate_file_extension
-
+from django.core.validators import RegexValidator
 # DO NOT DELETE THIS FUNCTION
 # If you think that this function is outright useless because it is never called,
 # stop right there. You delete this and all the migrations will FAIL!
@@ -92,7 +92,7 @@ class Technology(models.Model):
 
 class Member(models.Model):
     name = models.CharField(max_length=225, null=False, blank=False)
-    designation = models.ForeignKey(to=Designation, null=True)
+    designation = models.ForeignKey(to=Designation, null=True,on_delete= models.CASCADE)
     technology = models.ManyToManyField(to=Technology)
     presently_at = models.CharField(max_length=225, null=False, blank=True)
     is_alumni = models.BooleanField(default=False)
@@ -162,12 +162,12 @@ class Registration(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=10, unique=False , null=False)
     student_number = models.CharField(max_length=8)
-    branch = models.ForeignKey('Branch')
-    year = models.ForeignKey('Year')
-    gender = models.ForeignKey('Gender')
+    branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
+    year = models.ForeignKey('Year',on_delete=models.CASCADE)
+    gender = models.ForeignKey('Gender',on_delete=models.CASCADE)
     hosteler = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
-    event = models.ForeignKey('Event')
+    event = models.ForeignKey('Event',on_delete=models.CASCADE)
     fee_paid = models.BooleanField(default=False)
     # codechef_handle = models.CharField(max_length=100, blank=True)
     # university_rollno = models.CharField(max_length=10, blank=False)
@@ -234,7 +234,7 @@ class Blog(models.Model):
 
 
 class EmailContent(models.Model):
-    event = models.ForeignKey('Event')
+    event = models.ForeignKey('Event',on_delete=models.CASCADE)
     mail_allowed = models.BooleanField(default=False)
     subject = models.CharField(max_length=100)
     text = RichTextField()
@@ -244,10 +244,31 @@ class EmailContent(models.Model):
 
 
 class EmailAttachment(models.Model):
-    event = models.ForeignKey('Event')
+    event = models.ForeignKey('Event',on_delete=models.CASCADE)
     files = models.FileField(upload_to=events_upload_location, null=True,
                                 default=None)
     name = models.CharField(max_length=80, blank=False, validators=[validate_file_extension])
 
     def __str__(self):
         return self.event.name + "  " + self.name
+
+
+class AlumniRegistration(models.Model):
+    choice = (
+         ('22 September(Sunday)','22 September(Sunday)'),
+         ('29 September(Sunday)','29 September(Sunday)'),
+         ('2  October(Wednesday)','2 October(Wednesday)'),
+     )
+    name = models.CharField(max_length=200)
+    batch = models.CharField(max_length=4)
+    phone_regex = RegexValidator(regex=r"^[56789]\d{9}$")
+    contact_no = models.CharField(validators=[phone_regex], max_length=10, blank=True, null=True)
+    message = models.CharField(max_length=500,blank=True,null=True)
+    date = models.CharField(max_length=200,choices=choice,blank=True,null=True)
+
+    def __str__(self):
+        return self.name
+
+
+
+

@@ -2,8 +2,8 @@ from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
 from .models import Technology, Member, Designation, Project, ContactUs, \
  Registration, Branch, Gender, Year, ContactInfo, Blog, Event, EmailContent, \
- EmailAttachment
-from .forms import RegistrationForm
+ EmailAttachment, AlumniRegistration
+# from .forms import RegistrationForm
 
 
 class RegistrationAdmin(ImportExportActionModelAdmin):
@@ -40,3 +40,7 @@ admin.site.register(ContactInfo)
 admin.site.register(Blog)
 admin.site.register(EmailAttachment)
 admin.site.register(EmailContent)
+admin.site.register(AlumniRegistration)
+
+
+
