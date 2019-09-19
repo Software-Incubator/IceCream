@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alumni Profile</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div class="container ">
+  	<div class="row">
+  			<div style="" class="col-md-6 col-sm-12 ">
+  				<div class="quote">
+  			<h1 style="text-align: center; font-size: 8rem;align-content: center; line-height: 0.5;padding: 0% 0% 0% 0%;font-family: 'Catamaran', sans-serif; ">"</h1>
+        <img class="object2" src=""{% static 'images/def3.svg' %}"">
+		<p class="quote_content" style="font-family: Montserrat,sans-serif; font-size:40px;font-weight:bold; line-height: 1.5;
+		padding: 0% 0% 0% 0%;margin: 0% 0% 0% 0%;">
+			LOVE-PEACE-CODE
+		</p>
+
+       <h1 style="text-align: center; font-size: 8rem; align-content: center;  line-height: 1.5;padding: 0% 0% 0% 0%;font-family: 'Catamaran', sans-serif;">"</h1>
+ </div>
+	</div>
+	<div class="col-md-6 col-sm-12">
+  <div class="content" id="MOT">
+	<div class="box">
+        <img class="object img-fluid" src="{% static 'def_alumni.svg' %}">
+        <div class="front_card">
+			<div class="bg-hello front_img_content"></div>
+			<div class="hello">
+				<h1 class="name" style=" padding: 2% 0% 0% 0%;margin: 0% 0% 0% 0%;">Simranpreet kaur</h1>
+				<h1 class="domain" style="font-family: 'Nunito Sans';">2017-2021</h1>
+				<button class="btnOpen" onclick="OpenMOT()">To know more</button>
+			</div>
+		</div>
+		<div class="team">
+			<button class="btnClose" onclick="CloseMOT()">&times;</button>
+			<div class="data-for-thumbnail">
+				<div class="bg-header cp-big">
+					<div class="title">
+						<img class="silogo" src="{% static 'images/silogo_alumni.png' %}">
+						<div class="si">
+						<h2 class="software">SOFTWARE</h2>
+						<h2 class="incubator">INCUBATOR</h2>
+						</div>
+					</div>
+				</div>
+				<div class="strip" style=""></div>
+				<div class="about">
+					<h2>Testimonial</h2>
+					<p style="color:#7b7b7b;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam </p>
+					<h2 style="line-height: 2;">Contact me</h2>
+					<i class="fas fa-envelope"></i><span style="line-height: 2; color:#7b7b7b;">mk@gmail.com</span>
+					<br>
+					<i class="fas fa-phone"></i><span style="line-height: 2; color:#7b7b7b;">987654321</span>
+				</div>
+				<div class="center">
+					<div id="social-test">
+					<ul class="social">
+					  <li><a href="https://facebook.com/colorlib"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					  <li><a href="https://twitter.com/colorlib"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					  <li><a href="https://github.com/puikinsh"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+					</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+
+	function OpenMOT()
+	{document.getElementById("MOT").classList.add("rotate-box")}
+
+function CloseMOT()
+	{document.getElementById("MOT").classList.remove("rotate-box")}
+
+var slideIndex = 1;
+    showSlides(slideIndex);
+function showSlides(n){
+   var i;
+   var slides = document.getElementsByClassName("data-for-thumbnail");
+   if(n > slides.length){slideIndex = 1}
+   if(n < 1){slideIndex = slides.length}
+   for(i = 0; i < slides.length; i++){
+       slides[i].style.display = "none"
+   }
+   slides[slideIndex-1].style.display = "block"
+}
+
+var carousel = document.querySelector(".people");
+var cellCount = 8;
+var selectedIndex = 0;
+function getCarousel(){
+   var angle = selectedIndex / cellCount * -360;
+   carousel.style.transform = "rotateY(" + angle + "deg)"
+}
+
+function prev(n){
+   showSlides(slideIndex += n);
+   selectedIndex--;
+   getCarousel()
+}
+
+function next(n){
+   showSlides(slideIndex += n);
+   selectedIndex++;
+   getCarousel()
+}
+
+</script>
+</html>
+
