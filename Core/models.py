@@ -10,6 +10,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # from django.core.urlresolvers import reverse
 from .validators import validate_file_extension
 from django.core.validators import RegexValidator
+from django.template.defaultfilters import slugify
 # DO NOT DELETE THIS FUNCTION
 # If you think that this function is outright useless because it is never called,
 # stop right there. You delete this and all the migrations will FAIL!
@@ -102,6 +103,16 @@ class Member(models.Model):
     facebook = models.CharField(max_length=225, null=True, default=None)
     github = models.CharField(max_length=225, null=True, default=None)
     linkedin = models.CharField(max_length=225, null=True, default=None)
+ 
+    testimonial = models.TextField(max_length=500, null=True, blank=True, default=None)
+    message = models.TextField(max_length=500, null=True, default='LOVE-PEACE-CODE')
+    email = models.EmailField(max_length=225, null=True, blank=True, default=None)
+    phone = models.CharField(max_length=10, null=True, blank=True, default=None)
+    slug = models.SlugField(max_length=255, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+            self.slug = slugify(self.name)
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name + " | " + str(
@@ -268,7 +279,3 @@ class AlumniRegistration(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-

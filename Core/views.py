@@ -222,6 +222,15 @@ class AlumniRegistrationView(View):
         return render(request,self.template_name,{'form':form})
 
 
+class AlumniView(View):
+    template_name = "alumni_profile.html"
+
+    def get(self, request, slug, batch, *args, **kwargs):
+        alumni = get_object_or_404(Member, slug__iexact=slug, batch=batch, is_alumni=True)
+        context = {
+            'alumnus': alumni
+        }
+        return render(request, self.template_name, context)
 
 
 def view404(request):

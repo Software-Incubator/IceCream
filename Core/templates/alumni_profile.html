@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +15,7 @@
 <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
@@ -23,18 +24,18 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
-<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/alumni_profile.css' %}">
 </head>
 <body>
   <div class="container ">
   	<div class="row">
-  			<div style="" class="col-md-6 col-sm-12 ">
+  			<div class="col-md-6 col-sm-12 ">
   				<div class="quote">
-  			<h1 style="text-align: center; font-size: 8rem;align-content: center; line-height: 0.5;padding: 0% 0% 0% 0%;font-family: 'Catamaran', sans-serif; ">"</h1>
-        <img class="object2" src=""{% static 'images/def3.svg' %}"">
+  			<h1 style="transform: scale(-1,1); text-align: center; font-size: 8rem;align-content: center; line-height: 0.5;padding: 0% 0% 0% 0%;font-family: 'Catamaran', sans-serif; ">"</h1>
+        <img class="object2" src="{% static 'images/para_shadow.svg' %}">
 		<p class="quote_content" style="font-family: Montserrat,sans-serif; font-size:40px;font-weight:bold; line-height: 1.5;
 		padding: 0% 0% 0% 0%;margin: 0% 0% 0% 0%;">
-			LOVE-PEACE-CODE
+			{{ alumnus.message }}
 		</p>
 
        <h1 style="text-align: center; font-size: 8rem; align-content: center;  line-height: 1.5;padding: 0% 0% 0% 0%;font-family: 'Catamaran', sans-serif;">"</h1>
@@ -43,43 +44,44 @@
 	<div class="col-md-6 col-sm-12">
   <div class="content" id="MOT">
 	<div class="box">
-        <img class="object img-fluid" src="{% static 'def_alumni.svg' %}">
+        <img class="object img-fluid" src="{% static 'images/pic_shadow.svg' %}">
         <div class="front_card">
-			<div class="bg-hello front_img_content"></div>
+			<div class="bg-hello front_img_content">
+				<img class="img-fluid" src="{{ alumnus.pic_path.url }}">
+			</div>
 			<div class="hello">
-				<h1 class="name" style=" padding: 2% 0% 0% 0%;margin: 0% 0% 0% 0%;">Simranpreet kaur</h1>
-				<h1 class="domain" style="font-family: 'Nunito Sans';">2017-2021</h1>
+				<h1 class="name">{{ alumnus.name }}</h1>
+				<h1 class="domain" style="font-family: 'Nunito Sans';">{{ alumnus.batch|add:"-4" }}-{{alumnus.batch}}</h1>
 				<button class="btnOpen" onclick="OpenMOT()">To know more</button>
 			</div>
-		</div>
+		</div>	
 		<div class="team">
 			<button class="btnClose" onclick="CloseMOT()">&times;</button>
 			<div class="data-for-thumbnail">
 				<div class="bg-header cp-big">
 					<div class="title">
-						<img class="silogo" src="{% static 'images/silogo_alumni.png' %}">
+						<img class="silogo" src="{% static 'images/silogo_rename.png' %}">
 						<div class="si">
 						<h2 class="software">SOFTWARE</h2>
 						<h2 class="incubator">INCUBATOR</h2>
 						</div>
 					</div>
 				</div>
-				<div class="strip" style=""></div>
+				<div class="strip"></div>
 				<div class="about">
 					<h2>Testimonial</h2>
-					<p style="color:#7b7b7b;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam </p>
+					<p style="color:#7b7b7b;height:140px; overflow-x: auto;overflow-x:hidden;">{{ alumnus.testimonial }}</p>
 					<h2 style="line-height: 2;">Contact me</h2>
-					<i class="fas fa-envelope"></i><span style="line-height: 2; color:#7b7b7b;">mk@gmail.com</span>
+					<i class="fas fa-envelope"></i><span style="line-height: 2; color:#7b7b7b;">{{ alumnus.email }}</span>
 					<br>
-					<i class="fas fa-phone"></i><span style="line-height: 2; color:#7b7b7b;">987654321</span>
+					<i class="fas fa-phone"></i><span style="line-height: 2; color:#7b7b7b;">{{ alumnus.phone }}</span>
 				</div>
 				<div class="center">
 					<div id="social-test">
 					<ul class="social">
-					  <li><a href="https://facebook.com/colorlib"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-					  <li><a href="https://twitter.com/colorlib"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-					  <li><a href="https://github.com/puikinsh"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+						<li><a href="{{ alumnus.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="{{ alumnus.linkedin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+						<li><a href="{{ alumnus.github }}"><i class="fa fa-github" aria-hidden="true"></i></a></li>
 					</ul>
 					</div>
 				</div>
@@ -89,10 +91,17 @@
 	</div>
 </div>
 </div>
+<!-- <footer>
+	<div class="footer">
+    <div class="footer_box  align-items-center" style="width: 100%; background-color:#000; color:#fff;">
+        <p style="">Designed & Developed by <a href="http://silive.in/" target="_blank"><u>Software Incubator</u></a></p>
+    </div>
+</div>
+</footer> -->
 </div>
 </body>
 <script type="text/javascript">
-
+	
 	function OpenMOT()
 	{document.getElementById("MOT").classList.add("rotate-box")}
 

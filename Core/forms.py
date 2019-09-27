@@ -293,8 +293,3 @@ class RegistrationAlumni(forms.ModelForm):
                        }
             )
         )
-
-
-
-
-
