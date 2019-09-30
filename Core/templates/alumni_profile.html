@@ -32,7 +32,7 @@
   			<div class="col-md-6 col-sm-12 ">
   				<div class="quote">
   			<h1 style="transform: scale(-1,1); text-align: center; font-size: 8rem;align-content: center; line-height: 0.5;padding: 0% 0% 0% 0%;font-family: 'Catamaran', sans-serif; ">"</h1>
-        <img class="object2" src="{% static 'images/para_shadow.svg' %}">
+			  <img class="object2" src="{% static 'images/para_shadow.svg' %}">
 		<p class="quote_content" style="font-family: Montserrat,sans-serif; font-size:40px;font-weight:bold; line-height: 1.5;
 		padding: 0% 0% 0% 0%;margin: 0% 0% 0% 0%;">
 			{{ alumnus.message }}
@@ -46,8 +46,7 @@
 	<div class="box">
         <img class="object img-fluid" src="{% static 'images/pic_shadow.svg' %}">
         <div class="front_card">
-			<div class="bg-hello front_img_content">
-				<img class="img-fluid" src="{{ alumnus.pic_path.url }}">
+			<div class="pro_img" style="background: url({{ alumnus.pic_path.url }}); background-repeat: no-repeat; background-size:cover; height: 50vh; padding:1%;">
 			</div>
 			<div class="hello">
 				<h1 class="name">{{ alumnus.name }}</h1>
@@ -70,8 +69,10 @@
 				<div class="strip"></div>
 				<div class="about">
 					<h2>Testimonial</h2>
-					<p style="color:#7b7b7b;height:140px; overflow-x: auto;overflow-x:hidden;">{{ alumnus.testimonial }}</p>
-					<h2 style="line-height: 2;">Contact me</h2>
+					<p style="color:#7b7b7b;  height: 165px; 
+                overflow-x: hidden; 
+                overflow-x: auto; 
+                text-align:justify;">{{ alumnus.testimonial }}</p>
 					<i class="fas fa-envelope"></i><span style="line-height: 2; color:#7b7b7b;">{{ alumnus.email }}</span>
 					<br>
 					<i class="fas fa-phone"></i><span style="line-height: 2; color:#7b7b7b;">{{ alumnus.phone }}</span>
@@ -91,13 +92,6 @@
 	</div>
 </div>
 </div>
-<!-- <footer>
-	<div class="footer">
-    <div class="footer_box  align-items-center" style="width: 100%; background-color:#000; color:#fff;">
-        <p style="">Designed & Developed by <a href="http://silive.in/" target="_blank"><u>Software Incubator</u></a></p>
-    </div>
-</div>
-</footer> -->
 </div>
 </body>
 <script type="text/javascript">
@@ -143,4 +137,3 @@ function next(n){
 
 </script>
 </html>
-

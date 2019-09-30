@@ -4,8 +4,7 @@
 
 
 body
-	{background-image:;
-     background-size: cover;
+	{background-size: cover;
      background-attachment: fixed;
      background-repeat: no-repeat;
      overflow-x: hidden;
@@ -50,10 +49,8 @@ p,.tooltips
 	}
 
 .container {
-	/*position: absolute;*/
     width: 100%;
     padding: 3% 0% 0% 0%;
-   /* margin: 0% 0% 0% 0% !important;*/
 }
 
 
@@ -64,7 +61,7 @@ p,.tooltips
 }
 
 .front_img_content{
-	height: auto;
+	height:53vh;
 	width: auto;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -134,15 +131,13 @@ p,.tooltips
 .hello{
 	width:100% ;
 	display:block;
-	position:relative;
-
 	}
 
 .bg-hello
 	{background-size:cover;border-radius:10px 10px 0 0}
 
 .hello
-	{
+	{   background: #fff;
 		text-align:center;
 		border-radius:0 0 10px 10px;
 	}
@@ -154,13 +149,11 @@ p,.tooltips
 }
 
 .domain{
-	position:;
 	margin-top:0rem;
 	text-align: center;
 }
 
 .btnOpen{
-	/*background:linear-gradient(45deg,#3f5efb,#fc466b);*/
 	background: linear-gradient(40deg,#45cafc,#303f9f);
 	margin:rem 0 0 0;
 	padding:14px;
@@ -281,16 +274,17 @@ font-size: 22px;
 
 
 .about{
-	margin:-15px 0 0 0;
+	margin:0 0 0 0;
 	background:white;
 	width:100%;
 	padding:0px 16px 8px 16px;
-	top:190px;
+	top:175px;
 	display:block;
 	position:absolute;
+
 	}
 
-.about p{color:#b6b6b6}
+.about p{color:#b6b6b6;}
 
 .tooltips{
 	background:#fff;
@@ -401,9 +395,6 @@ font-size: 22px;
 
 @media (max-width: 420px) {
 	.row{
-		/*position: absolute;
-		width: 150% !important;
-		height: 200% !important;*/
 		padding: 0% 0% 0% 0%;
 		margin: 0% 0% 0% 0%;
 	}
@@ -448,6 +439,9 @@ font-size: 22px;
 	padding: 0% 0% 0% 0%;
 	margin: -15% 0% 0% 0%;
 }
+.pro_img{
+	height: 42vh !important;
+}
 }
 
 @media(min-width: 768px){
@@ -455,9 +449,3 @@ font-size: 22px;
 	left: -3rem;
 }
 }
-
-/*@media(min-width: 1440px){
-	.quote{
-		margin:10% 0 0 -30%;
-	}
-}*/
