@@ -41,6 +41,3 @@ admin.site.register(Blog)
 admin.site.register(EmailAttachment)
 admin.site.register(EmailContent)
 admin.site.register(AlumniRegistration)
-
-
-
