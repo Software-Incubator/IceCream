@@ -206,20 +206,20 @@ class FeedbackView(View):
         return render(request, self.template_name)
 
 
-class AlumniRegistrationView(View):
-    template_name = "alumni-registration.html"
+# class AlumniRegistrationView(View):
+#     template_name = "alumni-registration.html"
 
-    def post(self,request,*args,**kwargs):
-        form = RegistrationAlumni(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            return render(request,self.template_name,{'form':form,'message':"error"})
+#     def post(self,request,*args,**kwargs):
+#         form = RegistrationAlumni(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#         else:
+#             return render(request,self.template_name,{'form':form,'message':"error"})
 
-    def get(self,request,*args,**kwargs):
-        form = RegistrationAlumni()
-        return render(request,self.template_name,{'form':form})
+#     def get(self,request,*args,**kwargs):
+#         form = RegistrationAlumni()
+#         return render(request,self.template_name,{'form':form})
 
 
 class AlumniView(View):
