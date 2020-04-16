@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from email.mime.image import MIMEImage
-from django.core.urlresolvers import reverse_lazy
+# from django.core.urlresolvers import reverse_lazy
 
 from .forms import RegistrationForm, ContactUsForm, RegistrationAlumni
 from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, \
@@ -243,4 +243,3 @@ def view500(request):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
-
