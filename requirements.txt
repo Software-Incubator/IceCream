@@ -16,7 +16,7 @@ olefile==0.44
 openpyxl==2.5.1
 Pillow==4.2.1
 psycopg2==2.6.2
-PyYAML==3.12
+PyYAML==5.1
 requests==2.19.1
 tablib==0.12.1
 unicodecsv==0.14.1
