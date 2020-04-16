@@ -243,4 +243,3 @@ def view500(request):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
-

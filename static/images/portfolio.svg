@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 366 537" style="enable-background:new 0 0 366 537;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#383838;}
+	.st1{fill:#2D2D2D;}
+	.st2{fill:#D3B39B;}
+	.st3{opacity:0.2;}
+	.st4{fill:#0A0A0A;}
+	.st5{fill:#E1BFA3;}
+	.st6{opacity:0.1;enable-background:new    ;}
+	.st7{opacity:6.000000e-02;}
+	.st8{opacity:8.000000e-02;}
+	.st9{opacity:0.1;}
+	.st10{fill:#CE9A74;}
+	.st11{fill:#6B5947;}
+	.st12{fill:#3D332D;}
+	.st13{fill:#917B6A;}
+	.st14{fill:#FFFFFF;stroke:#333333;stroke-width:0.5;stroke-miterlimit:10;}
+	.st15{fill:#FFFFFF;stroke:#333333;stroke-width:0.4182;stroke-miterlimit:10;}
+	.st16{fill:#3F95E9;}
+	.st17{fill:#040404;}
+	.st18{fill:#515151;}
+	.st19{fill:#353535;}
+	.st20{fill:#BCBCBC;}
+	.st21{opacity:0.14;}
+	.st22{fill:#E6B99B;}
+	.st23{fill:#212121;}
+	.st24{fill:#2B2B2B;}
+	.st25{fill:#EAEAEA;}
+	.st26{fill:#898989;}
+	.st27{fill:#C1C2C7;}
+	.st28{fill:#FFFFFF;}
+	.st29{fill:none;}
+	.st30{fill:#333333;}
+	.st31{fill:#777070;}
+	#sobrancelhas {
+  transform: translateY(-9px);
+  animation: sobrancelhas 5s linear infinite;
+}
+
+@keyframes sobrancelhas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#nariz {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: nariz 5s linear infinite;
+}
+
+@keyframes nariz {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#boca {
+  transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  animation: boca 5s linear infinite;
+}
+
+@keyframes boca {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#olhos {
+  transform: translateX(-2px);
+  -moz-transform: translateX(-2px);
+  -ms-transform: translateX(-2px);
+  animation: olhos 2s linear infinite;
+}
+
+@keyframes olhos {
+  0% {
+    transform: translateX(-2);
+    -ms-transform: translateX(-2);
+    -moz-transform: translateX(-2);
+  }
+
+  25% {
+    transform: translateX(2px);
+    -moz-transform: translateX(2px);
+    -ms-transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-2px);
+    -ms-transform: translateX(-2px);
+    -moz-transform: translateX(-2px);
+  }
+
+  100% {
+    transform: translateX(2);
+    -ms-transform: translateX(2);
+    -moz-transform: translateX(2);
+  }
+}
+
+#notebook {
+  transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  animation: notebook 6s linear infinite;
+}
+
+@keyframes notebook {
+  0% {
+    transform: translateY(-4);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(4);
+  }
+}
+
+#pernas {
+  transform: translateY(-9px);
+  animation: pernas 6s infinite;
+}
+
+@keyframes pernas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#pe {
+  animation: pe 6s infinite;
+}
+
+@keyframes pe {
+  0% {
+    transform: rotateX(2deg);
+    -ms-transform: rotateX(2deg);
+    -moz-transform: rotateX(2deg);
+  }
+
+  25% {
+  }
+
+  75% {
+  }
+
+  100% {
+  }
+}
+
+#camisas {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: camisas 6s infinite;
+}
+
+@keyframes camisas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#camisacostas {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: camisacostas 6s infinite;
+}
+
+@keyframes camisacostas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#cabeca {
+  transform: translateY(-9px);
+  -ms-transform: translateY(-9px);
+  -moz-transform: translateY(-9px);
+  animation: cabeca 6s infinite;
+}
+
+@keyframes cabeca {
+  0% {
+    transform: translateY(-8);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(8);
+  }
+}
+
+#macae {
+  opacity: 1;
+  animation: macae 2s linear;
+}
+
+@keyframes macae {
+  0% {
+    opacity: 0.2;
+  }
+
+  25% {
+  }
+
+  75% {
+  }
+
+  100% {
+  }
+}
+
+#luzmacae {
+  animation: luzmacae 5s;
+}
+
+@keyframes luzmacae {
+  0% {
+    opacity: 0.2;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+#orelhas {
+  animation: orelhas 6s linear infinite;
+}
+
+@keyframes orelhas {
+  0% {
+    transform: translateY(-10);
+    -ms-transform: translateY(-10);
+    -moz-transform: translateY(-10);
+  }
+
+  25% {
+    transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10);
+    -moz-transform: translateY(10);
+    -ms-transform: translateY(10);
+  }
+}
+
+#sombras {
+  animation: sombras 6.1s linear infinite;
+}
+
+@keyframes sombras {
+  0% {
+    transform: scale(0.96);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.96);
+  }
+}
+
+.aviso {
+  background: #fff;
+  color: #fc6103;
+  text-align: center;
+  padding: 2px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  font-size: 9px;
+}
+</style>
+<g id="camisacostas">
+	<path class="st0" d="M214.7,275.5c-8.3,0-23.5-7.9-25-13c-0.3-1.1,0.1-2.1,1.2-2.8c2.9-1.8,7.9-2.8,15-2.8c8.2,0,16.5,1.3,17.5,1.5
+		c0,0.8-0.4,6-3.4,14.4C219.3,274.6,217.6,275.5,214.7,275.5L214.7,275.5z"/>
+	<path class="st1" d="M205.8,257c8,0,16,1.2,17.4,1.4c-0.1,1.1-0.5,6.1-3.4,14.2c-0.6,1.7-2.3,2.6-5.2,2.6
+		c-8.3,0-23.4-7.8-24.9-12.9c-0.3-1.1,0.1-2,1.1-2.6C193.8,257.9,198.8,257,205.8,257 M205.8,256.8c-5.8,0-11.7,0.6-15,2.8
+		c-6.8,4.2,13.5,16,23.9,16c2.7,0,4.7-0.8,5.4-2.7c3.4-9.3,3.4-14.5,3.4-14.5S214.7,256.8,205.8,256.8L205.8,256.8z"/>
+</g>
+<g id="antebracos">
+	<path class="st2" d="M264.5,310.6c0,0,3.3,23.5,0,27.7c-3.3,4.2-14.5,0-16-5.8c-1.5-5.8-1.5-5.8-1.5-5.8s-0.2-6.8,2.9-9.2
+		c3.1-2.4,3.4-2.7,3.4-2.7L264.5,310.6z"/>
+	<path class="st2" d="M149.5,310.6c0,0-3.3,23.5,0,27.7c3.3,4.2,14.5,0,16-5.8c1.5-5.8,1.5-5.8,1.5-5.8s0.2-6.8-2.9-9.2
+		c-3.1-2.4-3.4-2.7-3.4-2.7L149.5,310.6z"/>
+</g>
+<g id="sombras" class="st3">
+	<path class="st4" d="M88.5,495.1c0-1.2,1.9-1.8,5.4-2.8c6.2-1.8,17.3-4,32-5.3c22.5-2,53.4-2,87.4-3.3c19.6-0.7,41.2,1,58.8,1.9
+		c39.1,1.9,65.9,5.2,65.9,9.6s-26.9,8.2-66.4,10.1c-7.3,0.4-16.1-0.5-24.2-0.3c-11.1,0.3-21.9,1.6-34.1,1.6c-4.2,0-8.4,0-12.6-0.1
+		c-9.2-0.1-18.1-0.3-26.6-0.5C124.3,504.4,88.5,500.1,88.5,495.1z"/>
+</g>
+<g id="cabeca">
+	<g id="pescoco">
+		<rect x="192.5" y="237.5" class="st5" width="27" height="47"/>
+	</g>
+	<path class="st6" d="M191.4,262.5c-0.1,4.6,25.5,9.1,29.6-0.5c0,0-1,6.9-2.8,8.3c-1.8,1.3-12,8.5-12,8.5s-12.8-2.9-14.1-7.2
+		C190.8,267.3,191.4,262.5,191.4,262.5z"/>
+	<g id="orelhas">
+		<g>
+			<g>
+				<path class="st5" d="M265.5,203.7L265.5,203.7c0-5.3-4-9.2-8.6-9.2h-11.5l-6.2,18.6c0,0.2,9.4,0.4,9.5,0.4h8.2
+					C261.5,213.5,265.5,208.9,265.5,203.7z"/>
+			</g>
+			<g class="st7">
+				<path d="M253,198.8c0,0,1-0.5,2.6-0.5c0.8,0,1.9,0.1,2.9,0.8c0.5,0.3,1,0.8,1.3,1.4c0.1,0.3,0.3,0.6,0.3,0.9
+					c0.1,0.2,0.1,0.5,0.2,0.8c0.2,1.1,0.2,2.2-0.1,3.3c-0.1,0.5-0.3,1-0.6,1.5c-0.2,0.5-0.6,0.8-0.9,1.1c-0.7,0.6-1.5,0.7-2,0.6
+					c-0.5,0-0.7-0.1-0.7-0.1s1.2-0.2,1.9-1.3c0.7-1.1,0.8-3,0.5-4.8c0-0.2-0.1-0.5-0.1-0.7s-0.1-0.4-0.2-0.5
+					c-0.2-0.3-0.3-0.6-0.6-0.9c-0.5-0.5-1.3-0.8-2-1.1C254.1,198.9,253,198.8,253,198.8z"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<path class="st5" d="M145.5,203.7L145.5,203.7c0-5.3,4-9.2,8.7-9.2h11.5l6.2,18.6c0,0.2-9.4,0.4-9.5,0.4h-8.2
+					C149.5,213.5,145.5,208.9,145.5,203.7z"/>
+			</g>
+			<g class="st8">
+				<path d="M157.3,198.8c0,0-1.1,0.2-2.5,0.6c-0.7,0.2-1.5,0.6-2,1.1c-0.3,0.2-0.4,0.6-0.6,0.9c0,0.2-0.1,0.3-0.2,0.5
+					c0,0.3-0.1,0.5-0.1,0.7c-0.3,1.8-0.2,3.8,0.5,4.8c0.7,1.1,2,1.2,1.9,1.3c0,0-0.2,0.1-0.7,0.1s-1.3-0.1-2-0.6
+					c-0.4-0.3-0.7-0.7-0.9-1.1c-0.3-0.4-0.5-0.9-0.6-1.5c-0.3-1.1-0.2-2.2-0.1-3.3c0-0.3,0.1-0.5,0.2-0.8s0.2-0.6,0.3-0.9
+					c0.3-0.6,0.8-1.1,1.3-1.4c1-0.7,2-0.8,2.9-0.8C156.3,198.3,157.3,198.8,157.3,198.8z"/>
+			</g>
+		</g>
+	</g>
+	<g class="st9">
+		<path d="M191.6,246.7l27.9,1.1v2.2c0,0-20,6-27,3.4v-5.6L191.6,246.7z"/>
+	</g>
+	<g id="queixo">
+		<path class="st5" d="M160.8,205.3c0-24.9,20.2,6.3,45.1,6.3s45.1-31.2,45.1-6.3s-20.2,45.1-45.1,45.1S160.8,230.2,160.8,205.3z"/>
+	</g>
+	<g id="face">
+		<path class="st5" d="M250.5,198.9c0,15.3-12.4,27.6-27.6,27.6h-33.7c-15.3,0-27.6-12.4-27.6-27.6v-33.8
+			c0-15.3,12.4-27.6,27.6-27.6h33.7c15.3,0,27.6,12.4,27.6,27.6V198.9z"/>
+	</g>
+	<g id="sombratesta" class="st9">
+		<path d="M238.8,156.7c0,0-35.1,17.4-63.8,2.1c0,0-10.7,12.6-11.3,13.1c-0.7,0.5-3.6,1.1-3.6,1.1l-2.1-8.8l9.1-11.3l4-1.1l41.2,3.2
+			l26.3,0.2L238.8,156.7z"/>
+	</g>
+	<g id="boca">
+		<path class="st10" d="M214.2,221.5c0,0,0.7,0.6,0.8,2.1c0,0.7-0.1,1.5-0.6,2.3c-0.2,0.4-0.5,0.8-0.9,1.1s-0.8,0.5-1.3,0.8
+			c-0.3,0.1-0.9,0.3-1.4,0.3s-1-0.1-1.4-0.2c-0.9-0.3-1.6-0.8-2-1.3c-0.9-1.1-0.7-2.1-0.8-2.1c0,0,0.1,0.2,0.4,0.4
+			c0.2,0.3,0.6,0.6,1.1,0.8c0.5,0.3,1,0.4,1.6,0.5c0.3,0,0.6,0,0.9,0s0.5-0.1,0.9-0.2c0.2-0.1,0.5-0.2,0.8-0.4
+			c0.2-0.2,0.5-0.4,0.7-0.6c0.4-0.4,0.7-1,0.9-1.5c0.2-0.5,0.3-1,0.3-1.3C214.2,221.8,214.2,221.5,214.2,221.5z"/>
+	</g>
+	<g id="cabelo">
+		<g id="lados">
+			<g>
+				<path class="st11" d="M171.4,157c0,0-5.9,10-9,13.8c0,0,3.9,26.7-1.7,32.6c0,0-0.8-2.4-2.6-5.4c-1.8-3.1-6.5-37.2-4.7-42.3
+					s6.1-13.8,12-12.8C171.4,144,171.4,157,171.4,157z"/>
+			</g>
+			<g>
+				<path class="st11" d="M251,204.4l0.1,0.1c0,0,6.8-27.6,6-36.6s-3.3-18.7-5.1-21.7c-1.8-3.1-10.7-5.6-12-2.8s-6.1,9-6.1,9
+					s12.5,12,13,14.8c0.4,2.1,0.5,15.3-0.1,24.2C246.4,196.2,247.9,200.9,251,204.4z"/>
+			</g>
+			<g>
+				<path class="st12" d="M171.2,155.4c0,0-5.6,11.5-9.6,14c0,0,7.8-12.3,8-14c0.2-1.8,0.2-1.8,0.2-1.8L171.2,155.4z"/>
+			</g>
+			<g>
+				<path class="st12" d="M160.8,203.5c0,0-3.2-13.9-3.2-15.6c0-1.8,0.2-4.9,0.2-4.9s-1.8,8.3,0,14.2L160.8,203.5z"/>
+			</g>
+			<g>
+				<path class="st12" d="M249,184.8c0,0-0.2,11,1.4,14.5l0.5-2.7L249,184.8z"/>
+			</g>
+		</g>
+		<g id="franja">
+			<g>
+				<path class="st11" d="M159.9,149.6c0,0,33.5,22.5,72.7,7.7c0,0,17.4-1.8,22.3-11.8c0,0-6.1,1-7.2,1c-1,0,4.6-6.7,4.9-16.9
+					c0.3-10.2-3.3-13.6-3.3-13.6s-5.9,10-10.5,11c0,0,2.6-8.7,2.3-13.3s0-6.1,0-6.1s-8.2,12-36.8,13.8c-28.7,1.8-39.1,3.1-43.2,7.7
+					c-4.1,4.6-4.1,12.8-3.3,15.6S159.9,149.6,159.9,149.6z"/>
+			</g>
+			<g>
+				<path class="st12" d="M160.6,145.9c0.2-1.2-2.6-8.1,1.2-11.7c3.8-3.6,15.3-6.9,23.5-7.2c8.1-0.2,29.2-1.7,34.2-3.4
+					c5-1.7,7.4-3.8,7.4-3.8s-2.6,6.9-37.8,10.3C153.9,133.4,160.6,145.9,160.6,145.9z"/>
+			</g>
+			<g>
+				<path class="st12" d="M241.7,127.7c0,0-8,7-26,9.3c-18,2.2-24.6,4.9-24.6,4.9s32.5-3.5,34.6-3.7
+					C227.8,138.1,238.6,137.9,241.7,127.7z"/>
+			</g>
+			<g>
+				<path class="st12" d="M170.7,147.8c0,0,12,2.9,15.3,2.6c3.4-0.2,9.1-2.2,9.1-2.2S190.1,155.9,170.7,147.8z"/>
+			</g>
+			<g>
+				<path class="st12" d="M241,107.6c0,0-5.2,12.9-6.7,14.1c-1.4,1.2-4.5,3.8-4.5,3.8s7.7-2.9,9.8-9.1L241,107.6z"/>
+			</g>
+			<g>
+				<path class="st12" d="M237.7,156.4c0,0,15.1-5.8,17.1-10.9c0,0-19.7,11-22.3,11.8L237.7,156.4z"/>
+			</g>
+		</g>
+	</g>
+	<g id="sobrancelhas">
+		<g>
+			<path class="st12" d="M171.6,182c0,0,16.8-9.6,14.2-12.2C183.2,167.2,171.6,182,171.6,182z"/>
+		</g>
+		<g>
+			<path class="st12" d="M238.5,181.5c0,0-16.8-9.6-14.2-12.2C226.9,166.8,238.5,181.5,238.5,181.5z"/>
+		</g>
+	</g>
+	<g id="nariz">
+		<path class="st13" d="M202.1,176.2c0,0-0.1,0.8-0.3,2.2c-0.2,1.4-0.5,3.4-0.8,5.8c-0.4,2.4-0.7,5.2-1.2,8.1c-0.5,3-1,6.1-1.5,9.3
+			s-1,6.3-1.4,9.3c-0.1,0.7-0.2,1.5-0.3,2.2c-0.1,0.7-0.1,1.5-0.1,1.9c0.1,0.4,0.6,0.8,1.1,1.2c0.5,0.3,1.1,0.6,1.6,0.8
+			c2.2,0.8,4.2,1.3,5.5,1.6c1.4,0.3,2.2,0.5,2.2,0.5s-0.8,0-2.2-0.2s-3.4-0.3-5.8-1.1c-0.6-0.2-1.2-0.4-1.8-0.7
+			c-0.6-0.3-1.3-0.7-1.7-1.7c-0.2-1-0.1-1.6,0-2.4c0.1-0.7,0.1-1.5,0.2-2.2c0.4-3,0.8-6.2,1.3-9.4c0.6-3.2,1.1-6.3,1.6-9.3
+			c0.6-3,1.2-5.7,1.6-8.1c0.5-2.4,1-4.3,1.3-5.7C201.9,177,202.1,176.2,202.1,176.2z"/>
+	</g>
+	<g id="olhos">
+		<circle class="st12" cx="185.4" cy="204" r="2.4"/>
+		<circle class="st12" cx="223.9" cy="204" r="2.4"/>
+	</g>
+	<circle class="st14" cx="75.7" cy="98.6" r="66.7"/>
+	<circle class="st15" cx="122.2" cy="139.7" r="15.3"/>
+	<circle class="st14" cx="137.5" cy="152" r="8.3"/>
+	<path class="st16" d="M33.1,112.6c0,3,1.7,5.6,4.7,5.6c5.6,0,9.3-1.6,14.1-3.9c5.3-2.4,9.5-4.9,14.4-7.9c1.3-0.7,2.9-1.5,3.1-2.5
+		c-2.2,0.2-13.4,5.4-18.6,2.7c-6.1-2.9,5.7-17.4,7.4-19.7l4.1-4.9c0.6-0.7,1-0.8,1.7-1.5c8-7.9,32.6-27.7,43.7-21.8
+		c0.7,0.3,1.1,0.7,1.7,1.1c0.7,0.6,1,1.1,1.8,1.4c1.7-3.2,2.7-10.5-3.9-10.5c-8.2,0-18.2,5.9-25.1,9.5c-3,1.5-7.8,4.5-10.5,6.4
+		c-4.2,2.7-12.9,9.4-16.5,12.9c-0.8,0.8-1.4,1.4-2.2,2.1c-0.8,0.6-1.4,1.3-2.2,2.1c-0.8,0.8-1.1,1.4-1.9,2.2
+		C43.8,90.9,33.1,105.2,33.1,112.6L33.1,112.6z"/>
+	<path class="st17" d="M78.1,98.9c0.7,0.3,0.9,0,1.7-0.2l5.6-2.3c2.3-0.8,11.1-3.5,13.6-0.7c3.2,3.5-0.7,10.9-2.5,13.5l-4.3,5.1
+		c-1,1-1.4,1.7-3.1,3.3l-6.7,5.9c-0.6,0.5-1.1,1-1.7,1.5c-6.3,5.1-19,14.1-26.1,18.4c-1.3,0.8-7.2,4.3-7.8,5c2.4,0,8.9-3.7,11.1-4.8
+		c5.7-2.9,15.4-8.1,20.7-11.5c1.7-1.1,3.2-1.9,4.9-3.1c1.7-1.1,3.2-2.2,4.8-3.3c3.1-2.2,6.1-4.7,9-7.1c0.5-0.3,0.6-0.6,1-0.9
+		c5.5-4.7,10.5-9.8,14.3-16c2.1-3.3,7.8-15.4,0.6-17.9c-5.7-2.1-16.3,3.5-20.2,5.8L85.3,94C84.1,94.8,78.7,98.1,78.1,98.9L78.1,98.9
+		z"/>
+	<path class="st17" d="M105.2,72.7c0,3,3.1,5.3,5.7,6.1c9.6,2.9,18.4-5.6,10.6-10.6C115.7,64.4,105.2,67,105.2,72.7L105.2,72.7z"/>
+</g>
+<g id="camisas">
+	<path class="st18" d="M224.9,263.8c0,0,35.4,13.8,38.3,40.9l-11,11.5c0,0-0.5,67.7,1.9,71.6c0,0-20.1,12.2-33.3,15.1
+		s-40-2.2-43.1-3.6c-3.1-1.4-15.3-10.8-15.3-10.8s2.6-9.8,2.4-13.9s0.5-27.5,0.2-31.8c-0.2-4.3-1.2-19.9-1.2-19.9l-15.3-14.4
+		c0,0,7.6-41.2,38.7-42.3c0,0,13,15.5,15.6,15.5s3.1,6.2,3.1,6.2s3.1-6.3,11-15.2C224.9,263.8,224.9,263.8,224.9,263.8z"/>
+	<g>
+		<polygon class="st19" points="149.8,309.6 147.2,313.5 164,327.6 164.8,325.8 164.2,322.2 		"/>
+	</g>
+	<g>
+		<polygon class="st19" points="252.1,316.1 262.5,305.3 266.3,312.2 252.1,324.8 		"/>
+	</g>
+	<g id="gola">
+		<g>
+			<path class="st18" d="M196,278.8l-0.2-8.2l7.7,0.8l1.9,1.4c0,0,2.3,4.6,2.1,8.8c-0.2,4.1-4.6,5-4.6,5L196,278.8z"/>
+		</g>
+		<g>
+			<path class="st18" d="M208.8,271c0,0-5.4,15.2-5.6,23.3l0.5,6.4l8.9,0.2l-1-8.8c0,0,6.7-11,7.7-12
+				C220.3,279.2,217.1,268.5,208.8,271z"/>
+		</g>
+		<g>
+			<g>
+				<g>
+					<path class="st18" d="M196.7,285.7c-4.3-4.1-12.4-18.1-12.5-18.2c0.4-2.1,5.6-7,6.5-7.7c0,0,0,0.1,0.1,0.2
+						c0.5,0.8,2.8,2.8,3.5,3c0.7,0.1,10.6,6.3,11.4,7.1c0.6,0.6,0.8,4.1,0.9,6c-0.3-0.8-1-2.1-1.2-2.8c-0.2-0.5-0.7-0.8-1.6-0.8
+						c-1,0-2.5,0.3-4.5,1c-2.8,1-2.7,7.5-2.7,10.7C196.7,284.8,196.7,285.4,196.7,285.7z"/>
+					<path class="st1" d="M190.6,259.9C190.7,259.9,190.7,259.9,190.6,259.9c0.5,0.9,2.8,2.9,3.6,3.1c0.7,0.1,10.6,6.3,11.4,7.1
+						c0.4,0.4,0.7,3.1,0.8,5.3c-0.3-0.7-0.7-1.7-0.9-2.2c-0.2-0.6-0.8-0.9-1.7-0.9c-1,0-2.6,0.3-4.5,1c-2.9,1-2.8,7.4-2.8,10.8
+						c0,0.4,0,0.9,0,1.2c-4.1-4.1-11.5-16.7-12.2-17.9C184.9,265.4,189.5,260.8,190.6,259.9 M190.8,259.5c-0.3,0-6.2,5.7-6.7,8
+						c0,0,8.3,14.4,12.6,18.3l0,0c0.4,0-0.9-11,2.7-12.3c2-0.7,3.4-1,4.4-1c0.9,0,1.3,0.2,1.5,0.7c0.3,1,1.4,3.4,1.4,3.4
+						s-0.2-5.9-1-6.7c-0.8-0.8-10.7-7-11.5-7.2C193.5,262.6,190.6,260,190.8,259.5L190.8,259.5L190.8,259.5z"/>
+				</g>
+			</g>
+		</g>
+		<g>
+			<path class="st19" d="M216.5,280.6c0,0-5.2-4.5-6.8-4.2c-1.6,0.3-4.2,5.5-4.5,6.2c-0.2,0.7-1,18.7-0.4,20.6l-0.7-0.1
+				c0,0,0.6-20.3,0.6-21c0.1-0.7,2-5.5,2-5.5l2.1-5.6C208.8,271,216.1,266.8,216.5,280.6z"/>
+		</g>
+		<g>
+			<circle class="st20" cx="208.6" cy="283.2" r="2.2"/>
+		</g>
+		<g>
+			<circle class="st20" cx="208.7" cy="291.3" r="2"/>
+		</g>
+		<g>
+			<g>
+				<g>
+					<path class="st18" d="M216.7,288.1c0.2-2.4,0.7-12.4-2.8-16.2c-0.9-0.9-1.9-1.4-3.1-1.4c-0.4,0-0.8,0.1-1.2,0.2
+						c2.5-1.7,11.3-8,12.6-10.6l1.4-1.7c0.5,0.2,3.5,1.6,7.3,8.3L216.7,288.1z"/>
+					<path class="st1" d="M223.6,258.6c0.7,0.3,3.5,1.9,7.1,8.1l-13.9,20.9c0.2-3,0.4-12.2-2.8-15.8c-0.9-1-2-1.5-3.2-1.5
+						c-0.2,0-0.5,0-0.7,0c3-2.1,10.8-7.8,12.2-10.3L223.6,258.6 M223.5,258.3l-1.4,1.8c-1.6,3-13.2,11-13.2,11
+						c0.7-0.2,1.4-0.4,1.9-0.4c7.4,0,5.7,17.9,5.7,17.9l14.5-21.9C226.7,259.2,223.5,258.3,223.5,258.3L223.5,258.3z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g class="st21">
+		<path d="M165.9,377c0,0-0.7,5.3-1.4,6.9c-0.7,1.7,24.4,11.5,24.4,11.5L165.9,377z"/>
+	</g>
+</g>
+<g>
+	<path class="st22" d="M130.6,351"/>
+</g>
+<path class="st2" d="M153.2,334.2c0,0,6.5-6.7,15.8,1c9.2,7.7,2.2,12-4.1,12.7c-6.3,0.7-6.3,0.7-6.3,0.7s-4.2-0.9-7.3-2.2
+	c-1.9-0.8-3.1-2.7-3.1-4.7l0.1-7L153.2,334.2z"/>
+<path class="st5" d="M260.3,334.2c0,0-6.5-6.7-15.8,1c-9.2,7.7-2.2,12,4.1,12.7c6.3,0.7,6.3,0.7,6.3,0.7s3.6-1,6.5-2.2
+	c2.3-0.9,3.8-3.1,3.8-5.6v-5.5L260.3,334.2z"/>
+<g id="maos">
+	<path id="esquerda" class="st5" d="M259.1,351.9c0,0,8.2-4,5.2-10.6s-15.5-14.6-18-13.8c-2.5,0.8-16.7,14-16.5,15.4
+		s4.6,0.8,5.6,0.4c1-0.4-0.2,0,4.4,3C244.3,349.3,255.1,353.4,259.1,351.9z"/>
+	<path id="direita" class="st5" d="M153.3,340.3c0,0,10.5-9,13-10.2c2.5-1.2,10.6-1.8,12.8-4.6c2.3-2.8,1.7,4-2.5,7
+		c0,0,8.3,10.5,8.9,13.2c0.7,2.7-4.4,0-4.4,0s-12.3,5.4-13.5,4.8c-1.2-0.6-3,0-3,0s-3.7,1-6-3s-2.3-4-2.3-4L153.3,340.3z"/>
+</g>
+<g id="pernas">
+	<g>
+		<path class="st23" d="M102.7,392.3c0,0-1.9-11.2,8-15c9.9-3.8,37,3.2,64.8,18.5s69.9-5.1,98-14.7s45.9-10.1,49.3,0.9
+			c0,0-24.7,39.3-45.5,40.6c-20.8,1.3-48.2-1-48.2-1l-31.9,0.6c0,0-24.3,8.6-28.7,8.3C164,430.2,107.8,414.3,102.7,392.3z"/>
+	</g>
+	<g>
+		<path class="st24" d="M178.2,422.1c0,0,20.3-12,21.9-11.5c1.6,0.5,6.9,5.9,9.1,6.9s1.6,3.7,1.6,3.7l-3,9.3l-22.3-1.9L178.2,422.1z
+			"/>
+	</g>
+	<g>
+		<polygon class="st5" points="221.9,430.1 201.3,431 206.9,420 224.6,419.6 223.7,431.2 		"/>
+	</g>
+	<g>
+		<polygon class="st25" points="206,418.9 214.3,419.7 213,431.5 202.4,429.3 		"/>
+	</g>
+	<g id="notebook">
+		<g>
+			<g>
+				<path class="st26" d="M299.5,384.1c0,1.9-1.5,3.4-3.4,3.4H120.9c-1.9,0-3.4-1.5-3.4-3.4v-1.3c0-1.9,1.5-3.4,3.4-3.4h175.3
+					c1.9,0,3.4,1.5,3.4,3.4v1.3H299.5z"/>
+			</g>
+			<g>
+				<path class="st27" d="M299.5,378.7c0,3.8-3,6.8-6.8,6.8H124.3c-3.8,0-6.8-3-6.8-6.8V275.3c0-3.8,3-6.8,6.8-6.8h168.4
+					c3.8,0,6.8,3,6.8,6.8V378.7z"/>
+			</g>
+		</g>
+		<g id="macae">
+			<path class="st28" d="M212.4,317.3c0.9-1.1,1.6-2.7,1.4-4.3c-1.4,0.1-3,0.9-4,2.1c-0.9,1-1.6,2.6-1.4,4.2
+				C209.9,319.3,211.5,318.5,212.4,317.3"/>
+			<path class="st28" d="M215.8,327.4c0-3.4,2.8-5.1,2.9-5.2c-1.6-2.3-4.1-2.6-4.9-2.7c-2.1-0.2-4.1,1.2-5.2,1.2
+				c-1.1,0-2.7-1.2-4.5-1.2c-2.3,0-4.4,1.3-5.6,3.4c-2.4,4.1-0.6,10.3,1.7,13.6c1.1,1.6,2.5,3.5,4.3,3.4c1.7-0.1,2.4-1.1,4.4-1.1
+				c2.1,0,2.7,1.1,4.5,1.1c1.8,0,3-1.7,4.1-3.3c1.3-1.9,1.8-3.8,1.9-3.9C219.4,332.8,215.9,331.5,215.8,327.4"/>
+		</g>
+		<radialgradient  cx="121.6441" cy="239.6875" gradientunits="userSpaceOnUse" id="luzmacae_1_" r="17.2316">
+			<stop  offset="0" style="stop-color:#FFFFFF;"></stop>
+			<stop  offset="0.9458" style="stop-color:#FFFFFF;stop-opacity:0;"></stop>
+		</radialgradient>
+		<path id="luzmacae" class="st29" d="M225.7,328.7c0,2.9-0.7,5.7-2,8.1c-2.9,5.4-8.6,9.1-15.2,9.1c-9.5,0-17.2-7.7-17.2-17.2
+			s7.7-17.2,17.2-17.2c7.3,0,13.5,4.5,16,10.9c0.7,1.7,1.1,3.5,1.2,5.4l0.2,0.3v0.3L225.7,328.7z"/>
+	</g>
+	<g class="st9">
+		<polygon points="222.8,430 219.4,430.2 221.8,419.6 223,419.5 		"/>
+	</g>
+	<g>
+		<path class="st30" d="M222.7,415.9l-1,27.8c0,0,55.2-2.9,87.4-33.8s2.2-37,2.2-37s-10.2-0.6-10.2,1.3
+			C301.2,376,278.9,408.9,222.7,415.9z"/>
+	</g>
+	<g>
+		<path class="st5" d="M216.3,438.5c0,0,24.9-2.1,25.4-1.6s3.8,8.9,3.8,8.9l-34,1.4c0,0,1.1-5.3,1.8-6.5
+			C213.9,439.5,216.3,438.5,216.3,438.5z"/>
+	</g>
+	<g>
+		<path class="st30" d="M217.9,450c0.9-0.2-1.6-23.3-1.6-23.3s-68.3-5.1-98.3-45.6l0,0c-1.5-2.9-6.7-5.8-9.3-3.9l-2.3,1
+			c-8.7,6.3-7.5,19.3-1.7,28.4c3.1,4.8,7.6,10.1,14.3,15.3C140.4,438.5,175.8,457.7,217.9,450z"/>
+	</g>
+	<g class="st9">
+		<polygon points="237.4,446.3 232.7,446.4 233.8,437 236.4,440.4 		"/>
+	</g>
+	<g>
+		<polygon class="st25" points="244.2,447.6 236.4,446.8 233.4,436.8 242.8,436.3 		"/>
+	</g>
+	<g id="pe">
+		<g>
+			<path class="st24" d="M237.9,436c-0.7-0.5,12.3-10.4,13.4-10.2c1.1,0.2,11.6,9.4,12.8,9.4c1.1,0,27.8,8.5,25.2,16.4l-25.5-0.6
+				l-19.9-1.1C243.8,449.9,242.3,439.7,237.9,436z"/>
+		</g>
+		<g>
+			
+				<rect x="245.9" y="445.5" transform="matrix(0.1612 -0.9869 0.9869 0.1612 -231.0345 621.0681)" class="st31" width="7.9" height="1.9"/>
+		</g>
+		<g>
+			
+				<rect x="249.5" y="445.7" transform="matrix(0.1884 -0.9821 0.9821 0.1884 -233.079 611.3119)" class="st31" width="7.6" height="1.9"/>
+		</g>
+		<g>
+			
+				<rect x="252.8" y="446.4" transform="matrix(4.594376e-02 -0.9989 0.9989 4.594376e-02 -202.3418 682.8026)" class="st31" width="7" height="1.9"/>
+		</g>
+		<g>
+			
+				<rect x="256.6" y="446.7" transform="matrix(0.1308 -0.9914 0.9914 0.1308 -218.1207 646.479)" class="st31" width="6.1" height="1.9"/>
+		</g>
+	</g>
+	<g>
+		<path class="st22" d="M220,431.9"/>
+	</g>
+</g>
+</svg>

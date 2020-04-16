@@ -173,6 +173,15 @@
                                 </div>
                                 <span style="color: red">{{ form.hosteler.errors }}</span>
                             </div>
+
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="github_username" name="github_username" class="form-control">
+                                <label for="github_username">Github Username</label>
+                                <span id="github_username_err" class='validationerror'>Invalid Github Username</span>
+                                <span style="color: red">{{ form.github_username.errors }}</span>
+                            </div>
+
                             <!-- <span>Member 2 details</span> -->
                             <!-- second name
                             <div id="register-form" name="form" class="md-form mb-0">
@@ -525,6 +534,22 @@
             }
         });
         
+        $("#github_username").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i);
+                if (!regex.test($("#github_username").val())) {
+                    document.getElementById('github_username').innerHTML = "Invalid Github Username";
+                    $( "#github_username_err" ).show();
+                }
+            }
+        });
+
+        $("#github_username").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#github_username_err" ).hide();
+            }
+        });
+
         // $("#University_rollno").focusout(function (event) {
         //     if (event.charCode!=0) {
         //         var regex = new RegExp("^[0-9]{10}$");
@@ -715,6 +740,21 @@
                 return false;
             }
         }
+
+        var Github= document.getElementById('github_username').value;
+        if(Github==""){
+            document.getElementById('github_username_err').innerHTML="Github Username cannot be empty";
+            document.getElementById('github_username_err').style.display="block";
+        }
+        else{
+            var re = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/;
+            if(!re.test(Github)){
+                document.getElementById('github_username_err').innerHTML="Github Username format invalid";
+                document.getElementById('github_username_err').style.display="block";
+                return false;
+            }
+        }
+
         var Student =  document.getElementById('Student').value;
         if (Student == "") {
             document.getElementById('studentno_err').innerHTML = "Student number cannot be empty";
@@ -723,12 +763,12 @@
         }
         else {
             var obj = new Date();
-            var year = obj.getFullYear();
+            var year = obj.getFullYear()-1;
             var i;
             var false_i;
             var end = "";
             var start = "";
-            for (i = year; i > (year-5); --i)
+            for (i = year; i > (year-4); --i)
             {
                 false_i = i;
                 end = end + String(false_i % 10)
@@ -737,13 +777,15 @@
                 false_i = false_i.toFixed(0);
                 start += String(false_i % 10);
             }
-            regex_string = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$";
+            // start=1111 , end=9876
+            regex_string = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
                 document.getElementById('studentno_err').innerHTML = "Student number format invalid";
                 document.getElementById('studentno_err').style.display = "block";
                 return false;
             }
+            
         }
         // var University =  document.getElementById('University_rollno').value;
         // if (University == "") {
@@ -791,7 +833,6 @@
         var Year = document.getElementById('Year');
         if (Year.value == "") {
             document.getElementById('already_exit').innerHTML = "Year cannot be empty";
-
             return false;
         }
         var Gender = document.getElementById('Gender');
