@@ -11,7 +11,6 @@ from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 import datetime
 import re
 
-
 class ContactUsForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
@@ -52,7 +51,7 @@ class ContactUsForm(forms.ModelForm):
         )
     )
     subject = forms.CharField(
-        225, required=True,
+        max_length=225, required=True,
         widget=forms.TextInput(
             attrs={'type': 'text',
                    'name': 'subject',
@@ -79,8 +78,8 @@ class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Registration
         fields = ['name', 'contact', 'email', 'student_number',
-                  'branch', 'year','gender','hosteler', 'captcha']
-        # exclude = ['event', 'fee_paid']
+                  'branch', 'year','gender','github_username', 'captcha']
+        exclude = ['event', 'fee_paid']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -168,18 +167,27 @@ class RegistrationForm(forms.ModelForm):
                        'name': 'Gender',
                        'type': 'radio'})
         )
-
-        self.fields['hosteler'] = forms.BooleanField(
-            required=False,
-            widget=forms.CheckboxInput(
-            attrs={
-                'data-val': 'true',
-                'data-val-required': 'the hosteler field is required',
-                'id': 'IsHosteler',
-                'name': 'IsHosteler',
-                'type': 'checkbox'}
-            )
+        self.fields['github_username'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'class': 'form-control',
+                       'id': 'gthub_username',
+                       'name': 'github_username',
+                       'placeholder': 'Enter github username'
+                       })
         )
+        # self.fields['hosteler'] = forms.BooleanField(
+        #     required=False,
+        #     widget=forms.CheckboxInput(
+        #     attrs={
+        #         'data-val': 'true',
+        #         'data-val-required': 'the hosteler field is required',
+        #         'id': 'IsHosteler',
+        #         'name': 'IsHosteler',
+        #         'type': 'checkbox'}
+        #     )
+        # )
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
@@ -192,7 +200,11 @@ class RegistrationForm(forms.ModelForm):
             student_number = cleaned_data['student_number']
         except KeyError:
             raise ValidationError("")
-
+        
+        try:
+            github_username = cleaned_data['github_username']
+        except KeyError:
+            raise ValidationError("")
         # try:
         #     university_roll_no = cleaned_data['university_rollno']
         # except KeyError:
@@ -208,16 +220,18 @@ class RegistrationForm(forms.ModelForm):
         # except KeyError:
         #     raise ValidationError("")
 
-        year = datetime.date.today().year
+        year = datetime.date.today().year-1
         end = ''
         start = ''
 
-        for i in range(year, year-5, -1):
+        for i in range(year, year-4, -1):
             end += str(i % 10)
             i = int(i/10)
             start += str(i % 10)
 
-        regex_student = "^["+start+"]["+end+"](12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
+        # start=1111 , end=9876    
+
+        regex_student = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
         # regex_university = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$"
         pattern_student = re.compile(regex_student)
         # pattern_university = re.compile(regex_university)
@@ -225,6 +239,13 @@ class RegistrationForm(forms.ModelForm):
         if student_number:
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
+
+        regex_github = "^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$"
+        pattern_github = re.compile(regex_github)
+
+        if github_username:
+            if not pattern_github.match(github_username):
+                raise ValidationError("Invalid Github Username")
 
         # if university_roll_no:
         #     if not pattern_university.match(str(university_roll_no)):
