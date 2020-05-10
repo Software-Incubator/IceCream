@@ -141,7 +141,7 @@ class Project(models.Model):
 
 
 class Branch(models.Model):
-    name = models.CharField(max_length=3, null=False)
+    name = models.CharField(max_length=5, null=False)
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -183,8 +183,8 @@ class Registration(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
     fee_paid = models.BooleanField(default=False)
-    github_regex=RegexValidator(regex=r"^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$")
-    github_username=models.CharField(validators=[github_regex],max_length=39,default="",blank=True,null=True)
+    #github_regex=RegexValidator(regex=r"/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i")
+    github_username=models.CharField(max_length=39,default="",blank=True,null=True)
     # codechef_handle = models.CharField(max_length=100, blank=True)
     # university_rollno = models.CharField(max_length=10, blank=False)
     # codechef_team_name = models.CharField(max_length=100, blank=True)

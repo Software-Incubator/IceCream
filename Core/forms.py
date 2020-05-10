@@ -131,7 +131,7 @@ class RegistrationForm(forms.ModelForm):
         )
 
         self.fields['branch'] = forms.ModelChoiceField(
-            queryset=Branch.objects.filter(active=True),
+            queryset=Branch.objects.filter(active=True).order_by('name'),
             required=True,
             widget=forms.Select(
                 # choices=BRANCH_CHOICES,
@@ -172,7 +172,7 @@ class RegistrationForm(forms.ModelForm):
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'class': 'form-control',
-                       'id': 'gthub_username',
+                       'id': 'github_username',
                        'name': 'github_username',
                        'placeholder': 'Enter github username'
                        })
@@ -230,8 +230,8 @@ class RegistrationForm(forms.ModelForm):
             start += str(i % 10)
 
         # start=1111 , end=9876    
-
-        regex_student = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
+        regex_student = "^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](d|D|)[-]?[mdlMDL]?$";    
+        #regex_student = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
         # regex_university = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$"
         pattern_student = re.compile(regex_student)
         # pattern_university = re.compile(regex_university)
@@ -240,11 +240,11 @@ class RegistrationForm(forms.ModelForm):
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
 
-        regex_github = "^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$"
+        regex_github = "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
         pattern_github = re.compile(regex_github)
 
         if github_username:
-            if not pattern_github.match(github_username):
+            if not pattern_github.match(str(github_username)):
                 raise ValidationError("Invalid Github Username")
 
         # if university_roll_no:

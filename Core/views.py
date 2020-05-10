@@ -139,18 +139,19 @@ class RegistrationView(FormView):
                     'content': content,
                     'event': self.event,
                 })
-
+                
                 from_mail = EMAIL_HOST_USER
+                
                 to_mail = [event_receiver_email]
 
                 mail = EmailMessage(subject, message, from_mail, to_mail)
                 mail.content_subtype = "html"
                 mail.mixed_subtype = 'related'
 
-                image_sub_type = (str(self.event.pic_path).split('.'))[-1]
-                event_image = MIMEImage(self.event.pic_path.read(), _subtype=image_sub_type)
-                event_image.add_header('Content-ID', '<{}>'.format(self.event.pic_path))
-                mail.attach(event_image)
+               # image_sub_type = (str(self.event.pic_path).split('.'))[-1]
+               # event_image = MIMEImage(self.event.pic_path.read(), _subtype=image_sub_type)
+               # event_image.add_header('Content-ID', '<{}>'.format(self.event.pic_path))
+               # mail.attach(event_image)
 
                 for single_file in all_files:
                     mail.attach(filename=single_file.name,
@@ -158,7 +159,7 @@ class RegistrationView(FormView):
 
                 mail.send()
             messages.add_message(request, messages.SUCCESS,
-                                 "Successfully registered.")
+                                 "Please check your email")
             return redirect(reverse_lazy('registration'))
         else:
             if '__all__' in dict(form.errors):

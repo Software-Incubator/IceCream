@@ -39,7 +39,7 @@
         <!-- Central Modal Large -->
         {% if messages %}
         <div class="modal fade show" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display:block;" aria-hidden="true">
-            <div class="success-modal modal-dialog modal-lg" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <!--Content-->
                 <div class="modal-content">
                     <!--Header-->
@@ -164,44 +164,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                           <!-- <div class="col-lg-12"> -->
                                 <!-- Material checked -->
                                 
-                                <!-- <div class="toggle toggle--knob form-check">
+                                 <!-- <div class="toggle toggle--knob form-check">
                                     <input type="checkbox" class="form-check-input"   id="IsHosteler" class="toggle--checkbox" name="hosteler" data-val="true" data-val-required="this field is required" type="checkbox">
                                     <label class="toggle--btn" for="IsHosteler">Hosteler</label>
                                 </div>
-                                <span style="color: red">{{ form.hosteler.errors }}</span> -->
-                            </div>
+                                <span style="color: red">{{ form.hosteler.errors }}</span> --> 
+                            <!-- </div> -->
 
                             <div class="md-form">
-                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <i class="fa fa-github prefix grey-text"></i>
                                 <input type="text" id="github_username" name="github_username" class="form-control">
                                 <label for="github_username">Github Username</label>
                                 <span id="github_username_err" class='validationerror'>Invalid Github Username</span>
                                 <span style="color: red">{{ form.github_username.errors }}</span>
                             </div>
-
-
-                            <div class="md-form">
-                                <i class="fa fa-id-badge prefix grey-text"></i>
-                                <input type="text" id="github_username" name="github_username" class="form-control">
-                                <label for="github_username">Github Username</label>
-                                <span id="github_username_err" class='validationerror'>Invalid Github Username</span>
-                                <span style="color: red">{{ form.github_username.errors }}</span>
-
-                            </div>
-
-
-                            <div class="md-form">
-                                <i class="fa fa-id-badge prefix grey-text"></i>
-                                <input type="text" id="github_username" name="github_username" class="form-control">
-                                <label for="github_username">Github Username</label>
-                                <span id="github_username_err" class='validationerror'>Invalid Github Username</span>
-                                <span style="color: red">{{ form.github_username.errors }}</span>
-
-                            </div>
-
 
                             <!-- <span>Member 2 details</span> -->
                             <!-- second name
@@ -462,8 +441,7 @@
 </div>
 <!-- SCRIPTS -->
 <!-- JQuery -->
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
@@ -477,15 +455,16 @@
 <script>
     
     //validations
-    function validateBranch () {
+    //function validateBranch () {
         
-        if ($("#Branch").val() == "MCA") {
-            $("#Year").val("1");
-        }
-        else  {
-            $("#Year").val("2");
-        }
-    }
+    //    if ($("#Branch").val() == "MCA") {
+    //        $("#Year").val("1");
+     
+    //    }
+    //    else  {
+    //        $("#Year").val("2");
+    //    }
+    //}
     
     $(document).ready(function () {
         $(".validationerror").hide();
@@ -507,7 +486,7 @@
         
         $("#Email").focusout(function (event) {
             if (event.charCode!=0) {
-                var regex = new RegExp("^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+                var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
                 if (!regex.test($("#Email").val())) {
                     document.getElementById('email_err').innerHTML = "Invalid Email Id";
                     $( "#email_err" ).show();
@@ -523,31 +502,33 @@
         
         $("#Contact").focusout(function (event) {
             if (event.charCode!=0) {
-                var regex = new RegExp("^[0-9]{10}$");
+                var regex = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
                 if (!regex.test($("#Contact").val())) {
                     document.getElementById('contactno_err').innerHTML = "Invalid Contact Number";
                     $( "#contactno_err" ).show();
                 }
             }
         });
-        
+        $("#Contact").attr('maxlength','10');
+                
         $("#Contact").focusin(function (event) {
             if (event.charCode!=0) {
                 $( "#contactno_err" ).hide();
             }
         });
-        $("#Contact").attrs('maxlength','10');
         
         $("#Student").focusout(function (event) {
             if (event.charCode!=0) {
-                var regex = new RegExp("^[1-2][0-9]{6}[dD]?$");
+                var regex = new RegExp("^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](d|D|)[-]?[mdlMDL]?$");
+                
                 if (!regex.test($("#Student").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
                     $( "#studentno_err" ).show();
                 }
             }
         });
-        
+        $("#Student").attr('maxlength','8');
+                
         $("#Student").focusin(function (event) {
             if (event.charCode!=0) {
                 $( "#studentno_err" ).hide();
@@ -753,8 +734,8 @@
             return false;
         }
         else {
-            var re = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/;
-            if(!re.test(Contact)){
+                var re = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
+                if(!re.test(Contact)){
                 document.getElementById('contactno_err').innerHTML = "Contact number format invalid";
                 document.getElementById('contactno_err').style.display = "block";
                 return false;
@@ -768,7 +749,7 @@
             return false;
         }
         else{
-            var re = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/;
+            var re = new RegExp(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i);
             if(!re.test(Github)){
                 document.getElementById('github_username_err').innerHTML="Github Username format invalid";
                 document.getElementById('github_username_err').style.display="block";
@@ -799,7 +780,7 @@
                 start += String(false_i % 10);
             }
             // start=1111 , end=9876
-            regex_string = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$";
+            regex_string = "^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](d|D|)[-]?[mdlMDL]?$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
                 document.getElementById('studentno_err').innerHTML = "Student number format invalid";
