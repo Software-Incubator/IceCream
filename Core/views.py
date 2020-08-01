@@ -120,7 +120,7 @@ class RegistrationView(FormView):
         form = RegistrationForm(request.POST)
 
         if form.is_valid():
-            event_receiver_email = form.cleaned_data['email']
+            event_receiver_email = form.cleaned_data['college_email']
             form.save()
 
             allowed = False

@@ -105,18 +105,26 @@
                             <!-- email -->
                             <div class="md-form">
                                 <i class="fa fa-envelope prefix grey-text"></i>
-                                <input type="email" id="Email" name="email" class="form-control">
-                                <label for="email">Email</label>
+                                <input type="email" id="Email" name="college_email" class="form-control">
+                                <label for="email">College Email</label>
                                 <span id="email_err" class='validationerror'>Invalid Email </span>
-                                <span style="color: red">{{ form.email.errors }}</span>
+                                <span style="color: red">{{ form.college_email.errors }}</span>
                             </div>
                             <!-- contact -->
                             <div class="md-form">
-                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <i class="fa fa-whatsapp prefix grey-text"></i>
                                 <input type="text" id="Contact" name="contact" class="form-control">
                                 <label for="contact">Contact Number</label>
                                 <span id="contactno_err" class='validationerror'>Invalid Contact Number </span>
                                 <span style="color: red">{{ form.contact.errors }}</span>
+                            </div>
+                             <!-- whatsapp_no -->
+                            <div class="md-form">
+                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <input type="text" id="Whatsapp" name="whatsapp_no" class="form-control">
+                                <label for="whatsappno">Whatsapp Number</label>
+                                <span id="whatsappno_err" class='validationerror'>Invalid Whatsapp Number </span>
+                                <span style="color: red">{{ form.whatsapp_no.errors }}</span>
                             </div>
                             <!-- student no. -->
                             <div class="md-form">
@@ -125,6 +133,25 @@
                                 <label for="student">Student no.</label>
                                 <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
                                 <span style="color: red">{{ form.student_number.errors }}</span>
+                            </div>
+                            <!--skills-->
+                            <div class="md-form">
+                                <i class="fa fa-cogs prefix grey-text"></i>
+                                <input type="text" id="Skills"name="skills" class="form-control">
+                                <label for="skills">Skills (C,C++,Python,Java,etc.)</label>
+                                <!-- <span id="skills_err" class='validationerror'>Skills cannot be empty </span>
+                                <span style="color: red">{{ form.skills.errors }}</span> -->
+                            </div>
+                            <!-- <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                {{ form.domain.label }}
+                                <div class="hoverable">{{ form.domain }}</div>
+                                <span style="color: red">{{ form.doain.errors }}</span>
+                            </div> -->
+                            <div class="md-form">
+                                <i class="fa fa-user-plus prefix grey-text"></i>
+                                <input type="text" id="Other_handles" name="other_handles" class="form-control">
+                                <label for="other_handles">Handles(Github,Behance,etc.)</label>
                             </div>
                             <!-- university rollno
                             <div class="md-form">
@@ -142,7 +169,7 @@
                                 <span id="codechef_err" class='validationerror'>Invalid Name </span>
                                 <span class='validationerror'>{{ form.codechef_handle.errors }}</span>
                             </div> -->
-                            <!--choose Branch-->
+                            <!-- choose Branch -->
                             <div class="md-form">
                                 <div class="row p-1">
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
@@ -151,10 +178,15 @@
                                         <span style="color: red">{{ form.branch.errors }}</span>
                                     </div>
                                     <!--choose year-->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
                                         {{ form.year.label }}
                                         <div class="hoverable">{{ form.year }}</div>
                                         <span style="color: red">{{ form.year.errors }}</span>
+                                    </div> -->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.domain.label }}
+                                        <div class="hoverable">{{ form.domain }}</div>
+                                        <span style="color: red">{{ form.domain.errors }}</span>
                                     </div>
                                     <!--choose gender-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
@@ -174,13 +206,13 @@
                                 <span style="color: red">{{ form.hosteler.errors }}</span> --> 
                             <!-- </div> -->
 
-                            <div class="md-form">
+                            <!-- <div class="md-form">
                                 <i class="fa fa-github prefix grey-text"></i>
                                 <input type="text" id="github_username" name="github_username" class="form-control">
                                 <label for="github_username">Github Username</label>
                                 <span id="github_username_err" class='validationerror'>Invalid Github Username</span>
                                 <span style="color: red">{{ form.github_username.errors }}</span>
-                            </div>
+                            </div> -->
 
                             <!-- <span>Member 2 details</span> -->
                             <!-- second name
@@ -274,12 +306,9 @@
                             </div>
                         </form>
                     </div>
-                    
-                    
-                    
                     <!-- Material form register -->
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
     <!-- Footer  -->
@@ -486,7 +515,8 @@
         
         $("#Email").focusout(function (event) {
             if (event.charCode!=0) {
-                var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+                // var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+                var regex = new RegExp(/^[a-zA-Z ]+(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]@(\akgec.ac.in)$/);
                 if (!regex.test($("#Email").val())) {
                     document.getElementById('email_err').innerHTML = "Invalid Email Id";
                     $( "#email_err" ).show();
@@ -516,11 +546,27 @@
                 $( "#contactno_err" ).hide();
             }
         });
+
+        $("#Whatsapp").focusout(function (event) {
+            if (event.charCode!=0) {
+                var regex = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
+                if (!regex.test($("#Whatsapp").val())) {
+                    document.getElementById('whatsappno_err').innerHTML = "Invalid Whatsapp Number";
+                    $( "#whatsappno_err" ).show();
+                }
+            }
+        });
+        $("#Whatsapp").attr('maxlength','10');
+                
+        $("#Whatsapp").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#whatsappno_err" ).hide();
+            }
+        });
         
         $("#Student").focusout(function (event) {
             if (event.charCode!=0) {
-                var regex = new RegExp("^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](d|D|)[-]?[mdlMDL]?$");
-                
+                var regex = new RegExp("^(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$");
                 if (!regex.test($("#Student").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
                     $( "#studentno_err" ).show();
@@ -533,23 +579,36 @@
             if (event.charCode!=0) {
                 $( "#studentno_err" ).hide();
             }
-        });
-        
-        $("#github_username").focusout(function (event) {
-            if (event.charCode!=0) {
-                var regex = new RegExp(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i);
-                if (!regex.test($("#github_username").val())) {
-                    document.getElementById('github_username').innerHTML = "Invalid Github Username";
-                    $( "#github_username_err" ).show();
-                }
-            }
-        });
+        });  
+        // $("#skills").focusout(function (event) {
+        //     if (event.charCode!=0) {
+        //         var regex = new RegExp("(.|\s)*\S(.|\s)*");
+        //         if (regex.test($(this).val())) {
+        //         document.getElementById('skills_err').innerHTML = "Skills cannot be empty";
+        //         $( "#skills_err" ).show();
+        //         }
+        //     }
+        // });
+        // $("#skills").focusin(function (event) {
+        //     if (event.charCode!=0) {
+        //         $( "#skills_err" ).hide();
+        //     }
+        // });
+        // $("#github_username").focusout(function (event) {
+        //     if (event.charCode!=0) {
+        //         var regex = new RegExp(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i);
+        //         if (!regex.test($("#github_username").val())) {
+        //             document.getElementById('github_username').innerHTML = "Invalid Github Username";
+        //             $( "#github_username_err" ).show();
+        //         }
+        //     }
+        // });
 
-        $("#github_username").focusin(function (event) {
-            if (event.charCode!=0) {
-                $( "#github_username_err" ).hide();
-            }
-        });
+        // $("#github_username").focusin(function (event) {
+        //     if (event.charCode!=0) {
+        //         $( "#github_username_err" ).hide();
+        //     }
+        // });
 
         // $("#University_rollno").focusout(function (event) {
         //     if (event.charCode!=0) {
@@ -600,7 +659,7 @@
         //         var regex = new RegExp("^[a-zA-Z ]+$");
         //         if (!regex.test($(this).val())) {
         //             $( "#Sname_err" ).show();
-        //         }
+        //         }ritikgupta0912@gmail.com
         //     }
         // });
         
@@ -719,8 +778,10 @@
             document.getElementById('email_err').innerHTML = "Email cannot be empty";
             document.getElementById('email_err').style.display = "block";
             return false;
-        } else {
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        } 
+        else {
+            // var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var re=/^[a-zA-Z ]+(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]@(\akgec.ac.in)$/;
             if(!re.test(email)){
                 document.getElementById('email_err').innerHTML = "Email format invalid";
                 document.getElementById('email_err').style.display = "block";
@@ -741,21 +802,41 @@
                 return false;
             }
         }
-
-        var Github= document.getElementById('github_username').value;
-        if(Github==""){
-            document.getElementById('github_username_err').innerHTML="Github Username cannot be empty";
-            document.getElementById('github_username_err').style.display="block";
+        var Whatsappno =  document.getElementById('Whatsapp').value;
+        if (Whatsappno == "") {
+            document.getElementById('whatsappno_err').innerHTML = "Whatsapp number cannot be empty";
+            document.getElementById('whatsappno_err').style.display = "block";
             return false;
         }
-        else{
-            var re = new RegExp(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i);
-            if(!re.test(Github)){
-                document.getElementById('github_username_err').innerHTML="Github Username format invalid";
-                document.getElementById('github_username_err').style.display="block";
+        else {
+                var re = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
+                if(!re.test(Whatsappno)){
+                document.getElementById('whatsappno_err').innerHTML = "Whatsapp number format invalid";
+                document.getElementById('whatsappno_err').style.display = "block";
                 return false;
             }
         }
+        // var skills =  document.getElementById('skills').value;
+        // if (skills == "") {
+        //     document.getElementById('skills_err').innerHTML = "skills cannot be empty";
+        //     document.getElementById('skills_err').style.display = "block";
+        //     return false;
+        // }
+        // }
+        // var Github= document.getElementById('github_username').value;
+        // if(Github==""){
+        //     document.getElementById('github_username_err').innerHTML="Github Username cannot be empty";
+        //     document.getElementById('github_username_err').style.display="block";
+        //     return false;
+        // }
+        // else{
+        //     var re = new RegExp(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i);
+        //     if(!re.test(Github)){
+        //         document.getElementById('github_username_err').innerHTML="Github Username format invalid";
+        //         document.getElementById('github_username_err').style.display="block";
+        //         return false;
+        //     }
+        // }
 
         var Student =  document.getElementById('Student').value;
         if (Student == "") {
@@ -780,14 +861,13 @@
                 start += String(false_i % 10);
             }
             // start=1111 , end=9876
-            regex_string = "^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](d|D|)[-]?[mdlMDL]?$";
+            regex_string = "^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
                 document.getElementById('studentno_err').innerHTML = "Student number format invalid";
                 document.getElementById('studentno_err').style.display = "block";
                 return false;
             }
-            
         }
         // var University =  document.getElementById('University_rollno').value;
         // if (University == "") {
@@ -832,17 +912,21 @@
             document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
             return false;
         }
-        var Year = document.getElementById('Year');
-        if (Year.value == "") {
-            document.getElementById('already_exit').innerHTML = "Year cannot be empty";
-            return false;
-        }
+        // var Year = document.getElementById('Year');
+        // if (Year.value == "") {
+        //     document.getElementById('already_exit').innerHTML = "Year cannot be empty";
+        //     return false;
+        // }
         var Gender = document.getElementById('Gender');
         if (Gender.value == "") {
             document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
             return false;
         }
-        
+        var Domain = document.getElementById('Domain');
+        if (Domain.value == "") {
+            document.getElementById('already_exit').innerHTML = "Domain cannot be empty";
+            return false;
+        }
         // var Sname =  document.getElementById('SName').value;
         // if (Sname == "") {
         //     document.getElementById('Sname_err').innerHTML = "Name cannot be empty";

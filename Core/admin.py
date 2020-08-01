@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
 from .models import Technology, Member, Designation, Project, ContactUs, \
- Registration, Branch, Gender, Year, ContactInfo, Blog, Event, EmailContent, \
+ Registration, Branch, Gender, Year,Domain, ContactInfo, Blog, Event, EmailContent, \
  EmailAttachment, AlumniRegistration
 # from .forms import RegistrationForm
 
@@ -9,9 +9,9 @@ from .models import Technology, Member, Designation, Project, ContactUs, \
 class RegistrationAdmin(ImportExportActionModelAdmin):
     readonly_fields = ('timestamp',)
     list_display = (
-            'name', 'email', 'branch', 'year', 'student_number', 'event', 'fee_paid')
-    search_fields = ('student_numbzer', 'name')
-    list_filter = ('event', 'fee_paid')
+            'name', 'college_email', 'branch', 'student_number', 'event',)
+    search_fields = ('student_number', 'name')
+    list_filter = ('event',)
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -35,6 +35,7 @@ admin.site.register(Registration, RegistrationAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Branch, BranchAdmin)
 admin.site.register(Gender)
+admin.site.register(Domain)
 admin.site.register(Year, YearAdmin)
 admin.site.register(ContactInfo)
 admin.site.register(Blog)
