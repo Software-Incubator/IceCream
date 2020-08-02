@@ -173,18 +173,22 @@ def student_number_validator(value):
 
 class Registration(models.Model):
     name = models.CharField(max_length=225, null=False)
-    email = models.EmailField()
+    college_email = models.EmailField()
     contact = models.CharField(max_length=10, unique=False , null=False)
+    whatsapp_no= models.CharField(max_length=10, unique=False , null=False)
     student_number = models.CharField(max_length=8)
     branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
-    year = models.ForeignKey('Year',on_delete=models.CASCADE)
+    # year = models.ForeignKey('Year',on_delete=models.CASCADE)
     gender = models.ForeignKey('Gender',on_delete=models.CASCADE)
-    hosteler = models.BooleanField(default=False)
+    # hosteler = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
-    fee_paid = models.BooleanField(default=False)
+    # fee_paid = models.BooleanField(default=False)
+    skills = models.CharField(max_length=500, blank=True)
+    other_handles = models.CharField(max_length=500, blank=True)
     #github_regex=RegexValidator(regex=r"/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i")
-    github_username=models.CharField(max_length=39,default="",blank=True,null=True)
+    domain=models.ForeignKey('Domain',on_delete=models.CASCADE)
+    # github_username=models.CharField(max_length=39,default="",blank=True,null=True)
     # codechef_handle = models.CharField(max_length=100, blank=True)
     # university_rollno = models.CharField(max_length=10, blank=False)
     # codechef_team_name = models.CharField(max_length=100, blank=True)
@@ -215,6 +219,11 @@ class Registration(models.Model):
     def __str__(self):
         return "{} | {}".format(self.name, self.timestamp.date())
 
+class Domain(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Gender(models.Model):
     name = models.CharField(max_length=255)

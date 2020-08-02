@@ -1,11 +1,8 @@
 from django import forms
 from django.core.urlresolvers import reverse_lazy
-
-from .models import ContactUs, Registration, Branch, Year, Gender, Event,AlumniRegistration
+from .models import ContactUs, Registration, Branch, Year, Gender, Event,AlumniRegistration,Domain
 from django.core.validators import RegexValidator
-
 from django.forms import ValidationError
-
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 import datetime
@@ -71,15 +68,14 @@ class ContactUsForm(forms.ModelForm):
         ),
     )
 
-
 class RegistrationForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
     class Meta:
         model = Registration
-        fields = ['name', 'contact', 'email', 'student_number',
-                  'branch', 'year','gender','github_username', 'captcha']
-        exclude = ['event', 'fee_paid']
+        fields = ['name', 'contact','whatsapp_no','college_email', 'student_number','skills','other_handles',
+                  'branch','gender','domain','captcha']
+        exclude = ['event']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -95,18 +91,38 @@ class RegistrationForm(forms.ModelForm):
                        'onblur': ''}
             )
         )
-
-        self.fields['email'] = forms.EmailField(
+        self.fields['college_email'] = forms.EmailField(
             max_length=50, required=True,
             widget=forms.EmailInput(
                 attrs={'type': 'email',
-                       'name': 'email',
                        'class': 'form-control',
                        'id': 'Email',
-                       'placeholder': 'Enter Email'}
+                       'placeholder': 'Enter Email',
+                       'onblur': ''}
             )
         )
-
+        self.fields['other_handles'] = forms.CharField(
+            max_length=500,required=False,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'other_handles',
+                       'class': 'form-control',
+                       'id': 'Other_handles',
+                       'onblur': ''
+                       }
+            )
+        )
+        self.fields['skills'] = forms.CharField(
+            max_length=500,required=False,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'skills',
+                       'class': 'form-control',
+                       'id': 'Skills',
+                       'onblur': ''
+                       }
+            )
+        )
         self.fields['contact'] = forms.CharField(
             required=True,
             widget=forms.TextInput(
@@ -115,6 +131,17 @@ class RegistrationForm(forms.ModelForm):
                        'class': 'form-control',
                        'id': 'Contact',
                        'placeholder': 'Enter Contact No.',
+                       'onblur': ''
+                       }
+            )
+        )
+        self.fields['whatsapp_no'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'class': 'form-control',
+                       'id': 'Whatsapp',
+                       'placeholder': 'Enter Whatsapp No.',
                        'onblur': ''
                        }
             )
@@ -140,21 +167,34 @@ class RegistrationForm(forms.ModelForm):
                        'data-val-required': '*',
                        'id': 'Branch',
                        'name': 'Branch',
-                       'onchange': 'validateBranch()'}
+                       }
             )
         )
 
-        self.fields['year'] = forms.ModelChoiceField(
-            queryset=Year.objects.filter(active=True),
+        self.fields['domain'] = forms.ModelChoiceField(
+            queryset=Domain.objects.all(),
             required=True,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
-                       'id': 'Year',
-                       'name': 'Year'},
-            ),
+                       'id': 'Domain',
+                       'name': 'Domain',
+                       'type': 'radio'}
+            
+            )
         )
+        # self.fields['year'] = forms.ModelChoiceField(
+        #     queryset=Year.objects.filter(active=True),
+        #     required=True,
+        #     widget=forms.Select(
+        #         attrs={'class': 'form-control',
+        #                'data-val': 'true',
+        #                'data-val-required': '*',
+        #                'id': 'Year',
+        #                'name': 'Year'},
+        #     ),
+        # )
 
         self.fields['gender'] = forms.ModelChoiceField(
             queryset=Gender.objects.all(),
@@ -167,16 +207,16 @@ class RegistrationForm(forms.ModelForm):
                        'name': 'Gender',
                        'type': 'radio'})
         )
-        self.fields['github_username'] = forms.CharField(
-            required=True,
-            widget=forms.TextInput(
-                attrs={'type': 'text',
-                       'class': 'form-control',
-                       'id': 'github_username',
-                       'name': 'github_username',
-                       'placeholder': 'Enter github username'
-                       })
-        )
+        # self.fields['github_username'] = forms.CharField(
+        #     required=True,
+        #     widget=forms.TextInput(
+        #         attrs={'type': 'text',
+        #                'class': 'form-control',
+        #                'id': 'github_username',
+        #                'name': 'github_username',
+        #                'placeholder': 'Enter github username'
+        #                })
+        # )
         # self.fields['hosteler'] = forms.BooleanField(
         #     required=False,
         #     widget=forms.CheckboxInput(
@@ -202,7 +242,17 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError("")
         
         try:
-            github_username = cleaned_data['github_username']
+            college_email = cleaned_data['college_email']
+        except KeyError:
+            raise ValidationError("")
+
+        try:
+            contact = cleaned_data['contact']
+        except KeyError:
+            raise ValidationError("")
+
+        try:
+            whatsapp_no = cleaned_data['whatsapp_no']
         except KeyError:
             raise ValidationError("")
         # try:
@@ -230,7 +280,7 @@ class RegistrationForm(forms.ModelForm):
             start += str(i % 10)
 
         # start=1111 , end=9876    
-        regex_student = "^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](d|D|)[-]?[mdlMDL]?$";    
+        regex_student = "^(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";    
         #regex_student = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
         # regex_university = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$"
         pattern_student = re.compile(regex_student)
@@ -240,30 +290,51 @@ class RegistrationForm(forms.ModelForm):
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
 
-        regex_github = "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
-        pattern_github = re.compile(regex_github)
+        # regex_github = "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
+        # pattern_github = re.compile(regex_github)
 
-        if github_username:
-            if not pattern_github.match(str(github_username)):
-                raise ValidationError("Invalid Github Username")
+        # if github_username:
+        #     if not pattern_github.match(str(github_username)):
+        #         raise ValidationError("Invalid Github Username")
+
+        regex_college_email= "^[a-zA-Z]+(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](\@akgec\.ac\.in)$"
+        pattern_college_email= re.compile(regex_college_email)
+
+        if college_email:
+            if not pattern_college_email.match(str(college_email)):
+                raise ValidationError("Invalid College Email")
+
+        regex_contact= "^[56789]\d{9}$"
+        pattern_contact=re.compile(regex_contact)
+
+        if contact:
+            if not pattern_contact.match(str(contact)):
+                raise ValidationError("Invalid contact")
+
+        regex_whatsapp_no= "^[56789]\d{9}$"
+        pattern_whatsapp_no=re.compile(regex_whatsapp_no)
+
+        if whatsapp_no:
+            if not pattern_contact.match(str(whatsapp_no)):
+                raise ValidationError("Invalid whatsapp_no")
 
         # if university_roll_no:
         #     if not pattern_university.match(str(university_roll_no)):
         #         raise ValidationError("Invalid University Roll Number")
 
-        try:
-            email = cleaned_data['email']
-        except KeyError:
-            raise ValidationError("")
 
         event = Event.objects.filter(active=True).first()
 
-        if Registration.objects.filter(email=email, event=event, student_number=student_number).exists():
+        if Registration.objects.filter(college_email=college_email, event=event, student_number=student_number).exists():
             raise ValidationError('Registration with this student number and email already exist.')
         elif Registration.objects.filter(student_number=student_number, event=event).exists():
             raise ValidationError('Registration with this student number already exist.')
-        elif Registration.objects.filter(email=email, event=event).exists():
+        elif Registration.objects.filter(college_email=college_email, event=event).exists():
             raise ValidationError('Registration with this email already exist.')
+        elif Registration.objects.filter(contact=contact, event=event).exists():
+            raise ValidationError('Registration with this contact already exist.')
+        elif Registration.objects.filter(whatsapp_no=whatsapp_no, event=event).exists():
+            raise ValidationError('Registration with this whatsapp no already exist.')
 
 
         # if team_name:
