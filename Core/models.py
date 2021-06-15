@@ -14,6 +14,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from .validators import validate_file_extension
 from django.core.validators import RegexValidator
 from django.template.defaultfilters import slugify
+from django.utils.translation import gettext_lazy as _
 # DO NOT DELETE THIS FUNCTION
 # If you think that this function is outright useless because it is never called,
 # stop right there. You delete this and all the migrations will FAIL!
@@ -152,7 +153,12 @@ class Branch(models.Model):
 
 
 class Year(models.Model):
-    value = models.IntegerField()
+    class year_choices(models.IntegerChoices):
+        First = 1 , _('1st year')
+        Second = 2, _('2nd year')
+        Third = 3, _('3rd year')
+        Forth = 4,_('4th year')
+    value = models.IntegerField(choices=year_choices.choices)
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -170,24 +176,36 @@ def student_number_validator(value):
             'Student number already registered!'
         )
 
-
 class Registration(models.Model):
-    name = models.CharField(max_length=225, null=False)
+    
+    experience_choices = [
+        ('no','No Experience'),
+        ('beginner',"Beginner"),
+        ('intermediate','Intermediate'),
+        ('expert','Expert')
+    ]
+    name = models.CharField(max_length=100, null=False)
     college_email = models.EmailField()
     contact = models.CharField(max_length=10, unique=False , null=False)
     whatsapp_no= models.CharField(max_length=10, unique=False , null=False)
-    student_number = models.CharField(max_length=8)
+    student_number = models.CharField(max_length=7)
     branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
-    # year = models.ForeignKey('Year',on_delete=models.CASCADE)
-    gender = models.ForeignKey('Gender',on_delete=models.CASCADE)
-    # hosteler = models.BooleanField(default=False)
+    year = models.ForeignKey('Year',default=1,on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
+    experience = models.CharField(choices=experience_choices,max_length=20,null=False,blank=False)
+    account_handles = models.CharField(max_length=500, blank=True)
+    about_yourself = models.TextField(max_length=500, blank=True)
+    why_attend = models.TextField(max_length=500, blank=True)
+    design_tools = models.TextField(max_length=500,default="",blank=True)
+    insta_improvement = models.TextField(blank=False,null=False)
+    # gender = models.ForeignKey('Gender',on_delete=models.CASCADE)
+    # hosteler = models.BooleanField(default=False)
     # fee_paid = models.BooleanField(default=False)
-    skills = models.CharField(max_length=500, blank=True)
-    other_handles = models.CharField(max_length=500, blank=True)
+    # skills = models.CharField(max_length=500, blank=True)
+    # other_handles = models.CharField(max_length=500, blank=True)
     #github_regex=RegexValidator(regex=r"/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i")
-    domain=models.ForeignKey('Domain',on_delete=models.CASCADE)
+    # domain=models.ForeignKey('Domain',on_delete=models.CASCADE)
     # github_username=models.CharField(max_length=39,default="",blank=True,null=True)
     # codechef_handle = models.CharField(max_length=100, blank=True)
     # university_rollno = models.CharField(max_length=10, blank=False)

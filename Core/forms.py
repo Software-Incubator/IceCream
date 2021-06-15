@@ -1,13 +1,14 @@
 from django import forms
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from .models import ContactUs, Registration, Branch, Year, Gender, Event,AlumniRegistration,Domain
 from django.core.validators import RegexValidator
 from django.forms import ValidationError
 from snowpenguin.django.recaptcha2.fields import ReCaptchaField
 from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from django.core.validators import URLValidator 
 import datetime
 import re
-
+validate_url = URLValidator()
 class ContactUsForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
@@ -69,19 +70,20 @@ class ContactUsForm(forms.ModelForm):
     )
 
 class RegistrationForm(forms.ModelForm):
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    # captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
     class Meta:
         model = Registration
-        fields = ['name', 'contact','whatsapp_no','college_email', 'student_number','skills','other_handles',
-                  'branch','gender','domain','captcha']
+        fields = ['name', 'contact','whatsapp_no','college_email', 'student_number','branch','year',
+                    'account_handles','experience','about_yourself','why_attend',
+                        'design_tools','insta_improvement']#,'captcha']
         exclude = ['event']
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
 
         self.fields['name'] = forms.CharField(
-            max_length=225, required=True,
+            max_length=80, required=True,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'name': 'name',
@@ -97,28 +99,17 @@ class RegistrationForm(forms.ModelForm):
                 attrs={'type': 'email',
                        'class': 'form-control',
                        'id': 'Email',
-                       'placeholder': 'Enter Email',
+                       'placeholder': 'Enter AKGEC provided Email',
                        'onblur': ''}
             )
         )
-        self.fields['other_handles'] = forms.CharField(
+        self.fields['account_handles'] = forms.CharField(
             max_length=500,required=False,
             widget=forms.TextInput(
                 attrs={'type': 'text',
-                       'name': 'other_handles',
+                       'name': 'account_handles',
                        'class': 'form-control',
-                       'id': 'Other_handles',
-                       'onblur': ''
-                       }
-            )
-        )
-        self.fields['skills'] = forms.CharField(
-            max_length=500,required=False,
-            widget=forms.TextInput(
-                attrs={'type': 'text',
-                       'name': 'skills',
-                       'class': 'form-control',
-                       'id': 'Skills',
+                       'id': 'account_handles',
                        'onblur': ''
                        }
             )
@@ -159,6 +150,7 @@ class RegistrationForm(forms.ModelForm):
 
         self.fields['branch'] = forms.ModelChoiceField(
             queryset=Branch.objects.filter(active=True).order_by('name'),
+            initial=Branch.objects.filter(active=True).order_by('name').first(),
             required=True,
             widget=forms.Select(
                 # choices=BRANCH_CHOICES,
@@ -170,43 +162,92 @@ class RegistrationForm(forms.ModelForm):
                        }
             )
         )
-
-        self.fields['domain'] = forms.ModelChoiceField(
-            queryset=Domain.objects.all(),
+        self.fields['experience'] = forms.ChoiceField(
+            choices=Registration.experience_choices,
+            label = 'Experience',
             required=True,
             widget=forms.Select(
+                # choices=BRANCH_CHOICES,
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
-                       'id': 'Domain',
-                       'name': 'Domain',
-                       'type': 'radio'}
-            
+                       'id': 'Experience',
+                       'name': 'Experience',
+                       }
             )
         )
-        # self.fields['year'] = forms.ModelChoiceField(
-        #     queryset=Year.objects.filter(active=True),
+        self.fields['insta_improvement'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'insta_improvement',
+                       'class': 'form-control',
+                       'id': 'insta_improvement',
+                       'onblur': ''
+                       }
+            )
+        )
+        self.fields['about_yourself'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'about_yourself',
+                       'class': 'form-control',
+                       'id': 'about_yourself',
+                       'onblur': ''
+                       }
+            )
+        )
+        # self.fields['domain'] = forms.ModelChoiceField(
+        #     queryset=Domain.objects.all(),
         #     required=True,
         #     widget=forms.Select(
         #         attrs={'class': 'form-control',
         #                'data-val': 'true',
         #                'data-val-required': '*',
-        #                'id': 'Year',
-        #                'name': 'Year'},
-        #     ),
+        #                'id': 'Domain',
+        #                'name': 'Domain',
+        #                'type': 'radio'}
+            
+        #     )
         # )
-
-        self.fields['gender'] = forms.ModelChoiceField(
-            queryset=Gender.objects.all(),
+        self.fields['year'] = forms.ModelChoiceField(
+            queryset=Year.objects.filter(active=True),
+            initial=Year.objects.filter(active=True).first(),
             required=True,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
-                       'id': 'Gender',
-                       'name': 'Gender',
-                       'type': 'radio'})
+                       'id': 'Year',
+                       'name': 'Year'},
+            ),
         )
+        self.fields['design_tools'] = forms.CharField(
+            required=False,
+            initial="",
+            label = "Names of designing tools you are familiar with(if any)?",
+            widget=forms.CheckboxInput(
+            attrs={
+                'data-val': 'true',
+                'data-val-required': '*',
+                'id': 'design_tools',
+                'name': 'design_tools',
+                'type': 'text'
+                }
+            )
+        )
+        # self.fields['gender'] = forms.ModelChoiceField(
+        #     queryset=Gender.objects.all(),
+        #     required=True,
+        #     widget=forms.Select(
+        #         attrs={'class': 'form-control',
+        #                'data-val': 'true',
+        #                'data-val-required': '*',
+        #                'id': 'Gender',
+        #                'name': 'Gender',
+        #                'type': 'radio'})
+        # )
         # self.fields['github_username'] = forms.CharField(
         #     required=True,
         #     widget=forms.TextInput(
@@ -226,6 +267,17 @@ class RegistrationForm(forms.ModelForm):
         #         'id': 'IsHosteler',
         #         'name': 'IsHosteler',
         #         'type': 'checkbox'}
+        #     )
+        # )
+        # self.fields['skills'] = forms.CharField(
+        #     max_length=500,required=False,
+        #     widget=forms.TextInput(
+        #         attrs={'type': 'text',
+        #                'name': 'skills',
+        #                'class': 'form-control',
+        #                'id': 'Skills',
+        #                'onblur': ''
+        #                }
         #     )
         # )
 
@@ -255,6 +307,18 @@ class RegistrationForm(forms.ModelForm):
             whatsapp_no = cleaned_data['whatsapp_no']
         except KeyError:
             raise ValidationError("")
+        account_handles = cleaned_data.get('account_handles',None)
+
+        if account_handles:
+            account_handles = account_handles.split(',')
+            for ah in account_handles:
+                ah = ah.lstrip()
+                ah = ah.rstrip()
+                try:
+                    validate_url(ah)
+                except:
+                    raise ValidationError(f'Handles : {ah} is not a valid URL')
+
         # try:
         #     university_roll_no = cleaned_data['university_rollno']
         # except KeyError:
@@ -280,7 +344,7 @@ class RegistrationForm(forms.ModelForm):
             start += str(i % 10)
 
         # start=1111 , end=9876    
-        regex_student = "^(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";    
+        regex_student = "^(17|18|19|20)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";    
         #regex_student = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
         # regex_university = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$"
         pattern_student = re.compile(regex_student)
@@ -334,7 +398,7 @@ class RegistrationForm(forms.ModelForm):
         elif Registration.objects.filter(contact=contact, event=event).exists():
             raise ValidationError('Registration with this contact already exist.')
         elif Registration.objects.filter(whatsapp_no=whatsapp_no, event=event).exists():
-            raise ValidationError('Registration with this whatsapp no already exist.')
+            raise ValidationError('Registration with this whatsapp no. already exist.')
 
 
         # if team_name:

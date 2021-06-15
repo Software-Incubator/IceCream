@@ -2,7 +2,7 @@ from django.views.generic import View, FormView, CreateView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMessage
 from email.mime.image import MIMEImage
@@ -162,6 +162,7 @@ class RegistrationView(FormView):
                                  "Please check your email")
             return redirect(reverse_lazy('registration'))
         else:
+            print(form.errors)
             if '__all__' in dict(form.errors):
                 alert = dict(form.errors)['__all__']
             return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})
@@ -234,7 +235,7 @@ class AlumniView(View):
         return render(request, self.template_name, context)
 
 
-def view404(request):
+def view404(request, exception):
     error_code = 404
     error_message = 'Page Not Found'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})

@@ -1,5 +1,5 @@
-{% load staticfiles %}
-{% load recaptcha2 %}
+{% load static %}
+<!-- {% load recaptcha2 %} -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
     <link href="{% static 'css/stylesheet_register.css' %}" rel="stylesheet">
-    {% recaptcha_init %}
+    <!-- {% recaptcha_init %} -->
     <style>
         .page-footer {
             background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
@@ -108,23 +108,23 @@
                                 <input type="email" id="Email" name="college_email" class="form-control">
                                 <label for="email">College Email</label>
                                 <span id="email_err" class='validationerror'>Invalid Email </span>
-                                <span style="color: red">{{ form.college_email.errors }}</span>
+                                <span style="color: red" class='validationerror'>{{ form.college_email.errors }}</span>
                             </div>
                             <!-- contact -->
                             <div class="md-form">
-                                <i class="fa fa-whatsapp prefix grey-text"></i>
+                                <i class="fa fa-mobile prefix grey-text"></i>
                                 <input type="text" id="Contact" name="contact" class="form-control">
                                 <label for="contact">Contact Number</label>
                                 <span id="contactno_err" class='validationerror'>Invalid Contact Number </span>
-                                <span style="color: red">{{ form.contact.errors }}</span>
+                                <span style="color: red" class='validationerror'>{{ form.contact.errors }}</span>
                             </div>
                              <!-- whatsapp_no -->
                             <div class="md-form">
-                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <i class="fa fa-whatsapp prefix grey-text"></i>
                                 <input type="text" id="Whatsapp" name="whatsapp_no" class="form-control">
                                 <label for="whatsappno">Whatsapp Number</label>
                                 <span id="whatsappno_err" class='validationerror'>Invalid Whatsapp Number </span>
-                                <span style="color: red">{{ form.whatsapp_no.errors }}</span>
+                                <span style="color: red" class='validationerror'>{{ form.whatsapp_no.errors }}</span>
                             </div>
                             <!-- student no. -->
                             <div class="md-form">
@@ -132,26 +132,93 @@
                                 <input type="text" id="Student" name="student_number" class="form-control">
                                 <label for="student">Student no.</label>
                                 <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
-                                <span style="color: red">{{ form.student_number.errors }}</span>
+                                <span style="color: red" class='validationerror'>{{ form.student_number.errors }}</span>
                             </div>
                             <!--skills-->
-                            <div class="md-form">
+                            <!-- <div class="md-form">
                                 <i class="fa fa-cogs prefix grey-text"></i>
                                 <input type="text" id="Skills"name="skills" class="form-control">
                                 <label for="skills">Skills (C,C++,Python,Java,etc.)</label>
-                                <!-- <span id="skills_err" class='validationerror'>Skills cannot be empty </span>
-                                <span style="color: red">{{ form.skills.errors }}</span> -->
-                            </div>
+                                <span id="skills_err" class='validationerror'>Skills cannot be empty </span>
+                                <span style="color: red">{{ form.skills.errors }}</span>
+                            </div> -->
                             <!-- <div class="md-form">
                                 <i class="fa fa-id-badge prefix grey-text"></i>
                                 {{ form.domain.label }}
                                 <div class="hoverable">{{ form.domain }}</div>
                                 <span style="color: red">{{ form.doain.errors }}</span>
                             </div> -->
+                            <!-- Design Account Handles -->
                             <div class="md-form">
                                 <i class="fa fa-user-plus prefix grey-text"></i>
-                                <input type="text" id="Other_handles" name="other_handles" class="form-control">
-                                <label for="other_handles">Handles(Github,Behance,etc.)</label>
+                                <input type="text" id="account_handles" name="account_handles" class="form-control">
+                                <label for="account_handles">Handles(Github,Behance,Figma etc.)</label>
+                                <span id="account_handles_err" class='validationerror'>Invalid Account handles </span>
+                                <span style="color: red" class='validationerror'>{{ form.account_handles.errors }}</span>
+                            </div>
+                            <!-- About yourself -->
+                            <div class="md-form">
+                                <i class="fa fa-user-plus prefix grey-text"></i>
+                                <input type="text" id="about_yourself" name="about_yourself" class="form-control">
+                                <label for="about_yourself">Your hobbies and interests</label>
+                                <span id="about_yourself_err" class='validationerror'></span>
+                                <span style="color: red" class='validationerror'>{{ form.about_yourself.errors }}</span>
+                            </div>
+
+                            <div class="md-form">
+                                <i class="fas fa-question-circle prefix grey-text"></i>
+                                <input type="text" id="why_attend" name="why_attend" class="form-control">
+                                <label for="why_attend">Why do you want to attend the workshop?</label>
+                                <span id="why_attend_err" class='validationerror'></span>
+                                <span style="color: red" class='validationerror'>{{ form.why_attend.errors }}</span>
+                            </div>
+                            <div class="md-form">
+                                <i class="fas fa-edit prefix grey-text"></i>
+                                <input type="text" id="insta_improvement" name="insta_improvement" class="form-control">
+                                <label for="insta_improvement">If you could improve any of the feature of instagram what would it be and how will you do that?</label>
+                                <span id="insta_improvement_err" class='validationerror'></span>
+                                <span style="color: red" class='validationerror'>{{ form.insta_improvement.errors }}</span>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="design_tools" name="design_tools" class="form-control">
+                                <label for="design_tools">Names of designing tools you are familiar with(if any)?</label>
+                                <span id="design_tools_err" class='validationerror'></span>
+                                <span style="color: red" class='validationerror'>{{ form.design_tools.errors }}</span>
+                            </div>
+                            <!-- choose Branch -->
+                            <div class="md-form">
+                                <div class="row p-1">
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.branch.label }}
+                                        <div class="hoverable">{{ form.branch }}</div>
+                                        <span style="color: red" class='validationerror'>{{ form.branch.errors }}</span>
+                                    </div>
+                                    <!--choose year-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.year.label }}
+                                        <div class="hoverable">{{ form.year }}</div>
+                                        <span style="color: red" class='validationerror'>{{ form.year.errors }}</span>
+                                    </div>
+                                    <!--choose experience-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.experience.label }}
+                                        <div class="hoverable">{{ form.experience }}</div>
+                                        <span style="color: red" class='validationerror'>{{ form.experience.errors }}</span>
+                                    </div>
+            
+                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.domain.label }}
+                                        <div class="hoverable">{{ form.domain }}</div>
+                                        <span style="color: red">{{ form.domain.errors }}</span>
+                                    </div> -->
+                                    <!--choose gender-->
+                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
+                                        {{ form.gender.label }}
+                                        <div class="hoverable">{{ form.gender }}</div>
+                                        <span style="color: red">{{ form.gender.errors }}</span>
+                                    </div> -->
+                                </div>
                             </div>
                             <!-- university rollno
                             <div class="md-form">
@@ -169,33 +236,6 @@
                                 <span id="codechef_err" class='validationerror'>Invalid Name </span>
                                 <span class='validationerror'>{{ form.codechef_handle.errors }}</span>
                             </div> -->
-                            <!-- choose Branch -->
-                            <div class="md-form">
-                                <div class="row p-1">
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
-                                        {{ form.branch.label }}
-                                        <div class="hoverable">{{ form.branch }}</div>
-                                        <span style="color: red">{{ form.branch.errors }}</span>
-                                    </div>
-                                    <!--choose year-->
-                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                        {{ form.year.label }}
-                                        <div class="hoverable">{{ form.year }}</div>
-                                        <span style="color: red">{{ form.year.errors }}</span>
-                                    </div> -->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                        {{ form.domain.label }}
-                                        <div class="hoverable">{{ form.domain }}</div>
-                                        <span style="color: red">{{ form.domain.errors }}</span>
-                                    </div>
-                                    <!--choose gender-->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1">
-                                        {{ form.gender.label }}
-                                        <div class="hoverable">{{ form.gender }}</div>
-                                        <span style="color: red">{{ form.gender.errors }}</span>
-                                    </div>
-                                </div>
-                            </div>
                            <!-- <div class="col-lg-12"> -->
                                 <!-- Material checked -->
                                 
@@ -293,10 +333,11 @@
                                 </div>
                                 <span style="color: red">{{ form.second_hosteler.errors }}</span>
                             </div> -->
-                            <div class="col-md-12" style="overflow: hidden;">
+
+                            <!-- <div class="col-md-12" style="overflow: hidden;">
                                 {{ form.captcha }}
-                                <span id="captcha_err" style="color: red">{{ form.captcha.errors }}</span>
-                            </div>
+                                <span id="captcha_err" style="color: red" class='validationerror'>{{ form.captcha.errors }}</span>
+                            </div> -->
                             
                             <!--button-->
                             <center style="color: red" id="already_exit">{{ alert }}</center>
@@ -573,13 +614,28 @@
                 }
             }
         });
-        $("#Student").attr('maxlength','8');
+        $("#Student").attr('maxlength','7');
                 
         $("#Student").focusin(function (event) {
             if (event.charCode!=0) {
                 $( "#studentno_err" ).hide();
             }
-        });  
+        });
+        $("#about_yourself").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#about_yourself_err" ).hide();
+            }
+        });
+        $("#insta_improvement").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#insta_improvement_err" ).hide();
+            }
+        });
+        $("#why_attend").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#why_attend_err" ).hide();
+            }
+        });
         // $("#skills").focusout(function (event) {
         //     if (event.charCode!=0) {
         //         var regex = new RegExp("(.|\s)*\S(.|\s)*");
@@ -816,6 +872,28 @@
                 return false;
             }
         }
+        var why_attend =  document.getElementById('why_attend').value;
+        if (why_attend == "") {
+            document.getElementById('why_attend_err').innerHTML = "This field cannot be empty";
+            document.getElementById('why_attend_err').style.display = "block";
+            console.log('why attend');
+            return false;
+        }
+        var insta_improvement =  document.getElementById('insta_improvement').value;
+        if (insta_improvement == "") {
+            document.getElementById('insta_improvement_err').innerHTML = "This field cannot be empty";
+            document.getElementById('insta_improvement_err').style.display = "block";
+            console.log('insta improvement');
+            return false;
+        }
+        var about_yourself= document.getElementById('about_yourself').value;
+        if (about_yourself == "") {
+            document.getElementById('about_yourself').innerHTML = "This field cannot be empty";
+            document.getElementById('about_yourself_err').style.display = "block";
+            console.log('aboutyouself');
+            return false;
+        }
+        // }
         // var skills =  document.getElementById('skills').value;
         // if (skills == "") {
         //     document.getElementById('skills_err').innerHTML = "skills cannot be empty";
@@ -842,6 +920,7 @@
         if (Student == "") {
             document.getElementById('studentno_err').innerHTML = "Student number cannot be empty";
             document.getElementById('studentno_err').style.display = "block";
+            console.log('student number');
             return false;
         }
         else {
@@ -861,11 +940,12 @@
                 start += String(false_i % 10);
             }
             // start=1111 , end=9876
-            regex_string = "^(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";
+            regex_string = "^(17|18|19|20)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
                 document.getElementById('studentno_err').innerHTML = "Student number format invalid";
                 document.getElementById('studentno_err').style.display = "block";
+                console.log('student number');
                 return false;
             }
         }
@@ -910,23 +990,25 @@
         var Branch = document.getElementById('Branch');
         if (Branch.value == "") {
             document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
+            console.log('branch');
             return false;
         }
+        
         // var Year = document.getElementById('Year');
         // if (Year.value == "") {
         //     document.getElementById('already_exit').innerHTML = "Year cannot be empty";
         //     return false;
         // }
-        var Gender = document.getElementById('Gender');
-        if (Gender.value == "") {
-            document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
-            return false;
-        }
-        var Domain = document.getElementById('Domain');
-        if (Domain.value == "") {
-            document.getElementById('already_exit').innerHTML = "Domain cannot be empty";
-            return false;
-        }
+        // var Gender = document.getElementById('Gender');
+        // if (Gender.value == "") {
+        //     document.getElementById('already_exit').innerHTML = "Gender cannot be empty";
+        //     return false;
+        // }
+        // var Domain = document.getElementById('Domain');
+        // if (Domain.value == "") {
+        //     document.getElementById('already_exit').innerHTML = "Domain cannot be empty";
+        //     return false;
+        // }
         // var Sname =  document.getElementById('SName').value;
         // if (Sname == "") {
         //     document.getElementById('Sname_err').innerHTML = "Name cannot be empty";
@@ -1018,13 +1100,14 @@
         // }
         
         
-        var v = grecaptcha.getResponse();
-        if(v.length == 0)
-        {
-            document.getElementById('captcha_err').innerHTML="You can't leave Captcha Code empty";
-            document.getElementById('captcha_err').style.display = "block";
-            return false;
-        }
+        // var v = grecaptcha.getResponse();
+        // if(v.length == 0)
+        // {
+        //     document.getElementById('captcha_err').innerHTML="You can't leave Captcha Code empty";
+        //     document.getElementById('captcha_err').style.display = "block";
+        //     console.log('captcha');
+        //     return false;
+        // }
         document.getElementById('already_exit').innerHTML = "Sending...";
         document.getElementById('already_exit').style.color = "green";
         document.getElementById('contact-form').submit();
