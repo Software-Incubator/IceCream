@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'IceCream.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(os.path.dirname(BASE_DIR), 'db.sqlite3'),
     }
 }
 
@@ -126,8 +126,8 @@ CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_FILENAME_GENERATOR = 'Core.utils.get_filename'
 
 
-RECAPTCHA_PRIVATE_KEY=os.environ.get('RECAPTCHA_PRIVATE_KEY')
-RECAPTCHA_PUBLIC_KEY=os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY="6Lfh8i4bAAAAAJOYP82JQ-l9UK5U5baVt77LG6Ld"#os.environ.get('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_PUBLIC_KEY="6Lfh8i4bAAAAAJEW7Sl17H-ynqS6DqraaairLDQK"#os.environ.get('RECAPTCHA_PUBLIC_KEY')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

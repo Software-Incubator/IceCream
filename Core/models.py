@@ -11,8 +11,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 #from ckeditor_uploader.fields import RichTextUploadingField
 
-from .validators import validate_file_extension
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator,FileExtensionValidator
 from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 # DO NOT DELETE THIS FUNCTION
@@ -162,7 +161,7 @@ class Year(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.value)
+        return str(self.get_value_display())
 
     class Meta:
         ordering = ['value',]
@@ -187,7 +186,6 @@ class Registration(models.Model):
     name = models.CharField(max_length=100, null=False)
     college_email = models.EmailField()
     contact = models.CharField(max_length=10, unique=False , null=False)
-    whatsapp_no= models.CharField(max_length=10, unique=False , null=False)
     student_number = models.CharField(max_length=7)
     branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
     year = models.ForeignKey('Year',default=1,on_delete=models.CASCADE)
@@ -199,28 +197,7 @@ class Registration(models.Model):
     why_attend = models.TextField(max_length=500, blank=True)
     design_tools = models.TextField(max_length=500,default="",blank=True)
     insta_improvement = models.TextField(blank=False,null=False)
-    # gender = models.ForeignKey('Gender',on_delete=models.CASCADE)
-    # hosteler = models.BooleanField(default=False)
-    # fee_paid = models.BooleanField(default=False)
-    # skills = models.CharField(max_length=500, blank=True)
-    # other_handles = models.CharField(max_length=500, blank=True)
-    #github_regex=RegexValidator(regex=r"/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i")
-    # domain=models.ForeignKey('Domain',on_delete=models.CASCADE)
-    # github_username=models.CharField(max_length=39,default="",blank=True,null=True)
-    # codechef_handle = models.CharField(max_length=100, blank=True)
-    # university_rollno = models.CharField(max_length=10, blank=False)
-    # codechef_team_name = models.CharField(max_length=100, blank=True)
-
-    # second_name = models.CharField(max_length=225, null=False, default='1')
-    # second_email = models.EmailField(default='1@gmail.com')
-    # second_contact = models.CharField(max_length=10, unique=False , null=False, default='1')
-    # second_student_number = models.CharField(max_length=8, default='1')
-    # second_branch = models.ForeignKey('Branch', related_name='second_branch', default='1')
-    # second_year = models.ForeignKey('Year', related_name='second_year', default='1')
-    # second_gender = models.ForeignKey('Gender', related_name='second_gender', default='1')
-    # second_hosteler = models.BooleanField(default=False)
-    # second_codechef_handle = models.CharField(max_length=100, blank=True, default='1')
-    # second_university_rollno = models.CharField(max_length=10, blank=False, default='1')
+    your_work = models.TextField(blank=True,null=True)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -288,9 +265,15 @@ class EmailContent(models.Model):
 
 class EmailAttachment(models.Model):
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
-    files = models.FileField(upload_to=events_upload_location, null=True,
-                                default=None)
-    name = models.CharField(max_length=80, blank=False, validators=[validate_file_extension])
+    files = models.FileField(   
+                                upload_to=events_upload_location, null=True,default=None,
+                                validators=[FileExtensionValidator(['pdf'])]
+                            )
+    name = models.CharField(max_length=80, blank=False)
+    def save(self, *args, **kwargs):
+        if self.name[-4:]!='.pdf':
+            self.name += '.pdf'
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.event.name + "  " + self.name

@@ -108,6 +108,18 @@ list-style: none;
 }
 
 
+.md-form textarea.md-textarea{
+  padding:0 0 !important;
+  padding-bottom:8px !important;
+  padding-top:8px !important;
+}
+
+.md-form .prefix~label {
+  margin-left: 2.6rem;
+}
+
+
+
 @media(max-width:1085px){
   .spacing_long_text_1{
     margin-top:3rem;
@@ -167,11 +179,6 @@ list-style: none;
   max-width: 55px;
 }
 
-.md-form textarea.md-textarea{
-  padding:0 0 !important;
-  padding-bottom:8px !important;
-}
-
 @media(max-width: 767px){
   .spacing_long_text_1{
     margin-top:4rem;
@@ -188,6 +195,7 @@ list-style: none;
   }
   .md-form textarea.md-textarea{
     padding:1.5rem 0 !important;
+    padding-top:0 !important;
   }
 }
 @media(max-height: 575px){ 
@@ -213,6 +221,10 @@ list-style: none;
   }
   .md-form textarea.md-textarea{
     padding:2rem 0 !important;
+    padding-top:0.5rem !important;
+  }
+  .spacing_long_text_5{
+    margin-top:3rem;
   }
 } 
 @media(max-width:400px){
@@ -220,5 +232,6 @@ list-style: none;
     margin-top:2.5rem;
     margin-bottom:2.5rem;
   }
+
 } 
 
