@@ -4,6 +4,7 @@ db.sqlite3
 .vscode/settings.json
 .media/
 work/
-venv
 static
+venv
 .vscode
+environ
