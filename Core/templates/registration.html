@@ -165,27 +165,37 @@
                                 <span style="color: red" class='validationerror'>{{ form.about_yourself.errors }}</span>
                             </div>
 
+                            <div class="spacing_long_text_3"></div>
+
                             <div class="md-form">
                                 <i class="fas fa-question-circle prefix grey-text"></i>
-                                <input type="text" id="why_attend" name="why_attend" class="form-control">
+                                <!-- <i class="fa fa-user-plus prefix grey-text"></i> -->
+                                <input type="text" id="why_attend" name="why_attend" class="form-control"/>
                                 <label for="why_attend">Why do you want to attend the workshop?</label>
                                 <span id="why_attend_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.why_attend.errors }}</span>
                             </div>
+
+                            <div class="spacing_long_text_1"></div>
                             <div class="md-form">
                                 <i class="fas fa-edit prefix grey-text"></i>
-                                <input type="text" id="insta_improvement" name="insta_improvement" class="form-control">
+                                <!-- <i class="fa fa-user-plus prefix grey-text"></i> -->
+                                <textarea type="text" id="insta_improvement" name="insta_improvement" class="form-control md-textarea"></textarea>
                                 <label for="insta_improvement">If you could improve any of the feature of instagram what would it be and how will you do that?</label>
                                 <span id="insta_improvement_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.insta_improvement.errors }}</span>
                             </div>
+
+                            <div class="spacing_long_text_2"></div>
                             <div class="md-form">
                                 <i class="fa fa-id-badge prefix grey-text"></i>
-                                <input type="text" id="design_tools" name="design_tools" class="form-control">
+                                 <!-- <i class="fa fa-user-plus prefix grey-text"></i> -->
+                                <input  type="text" id="design_tools" name="design_tools" class="form-control">
                                 <label for="design_tools">Names of designing tools you are familiar with(if any)?</label>
                                 <span id="design_tools_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.design_tools.errors }}</span>
                             </div>
+                          
                             <!-- choose Branch -->
                             <div class="md-form">
                                 <div class="row p-1">

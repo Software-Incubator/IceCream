@@ -107,6 +107,14 @@ list-style: none;
   right: 20%;
 }
 
+
+@media(max-width:1085px){
+  .spacing_long_text_1{
+    margin-top:3rem;
+  }
+}
+
+
 @media (max-width:992px)
 {
   .student_details
@@ -158,6 +166,14 @@ list-style: none;
   padding: 14px 16px;
   max-width: 55px;
 }
+
+@media(max-width: 767px){
+  .spacing_long_text_1{
+    margin-top:4rem;
+  }
+}
+
+
 @media(max-width: 576px) {
   .contactus-modal {
       margin:0;
@@ -174,3 +190,17 @@ list-style: none;
       -webkit-transform-origin:0 0;
   } 
 }
+
+
+@media(max-width:465px){
+  .spacing_long_text_1{
+    margin-top:6rem;
+  }
+  .spacing_long_text_2{
+    margin-top:4rem;
+  }
+  .spacing_long_text_3{
+    margin-top:3rem;
+  }
+} 
+
