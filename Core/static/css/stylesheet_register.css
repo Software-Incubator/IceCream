@@ -167,6 +167,11 @@ list-style: none;
   max-width: 55px;
 }
 
+.md-form textarea.md-textarea{
+  padding:0 0 !important;
+  padding-bottom:8px !important;
+}
+
 @media(max-width: 767px){
   .spacing_long_text_1{
     margin-top:4rem;
@@ -181,6 +186,9 @@ list-style: none;
       display: block;
       margin: 5px auto;
   }
+  .md-form textarea.md-textarea{
+    padding:1.5rem 0 !important;
+  }
 }
 @media(max-height: 575px){ 
   #rc-imageselect, .g-recaptcha {
@@ -189,6 +197,7 @@ list-style: none;
       transform-origin:0 0;
       -webkit-transform-origin:0 0;
   } 
+  
 }
 
 
@@ -201,6 +210,15 @@ list-style: none;
   }
   .spacing_long_text_3{
     margin-top:3rem;
+  }
+  .md-form textarea.md-textarea{
+    padding:2rem 0 !important;
+  }
+} 
+@media(max-width:400px){
+  .spacing_long_text_4{
+    margin-top:2.5rem;
+    margin-bottom:2.5rem;
   }
 } 
 
