@@ -162,7 +162,6 @@ class RegistrationView(FormView):
                                  "Please check your email")
             return redirect(reverse_lazy('registration'))
         else:
-            print(form.errors)
             if '__all__' in dict(form.errors):
                 alert = dict(form.errors)['__all__']
             return render(request, 'registration.html', {'form': form, 'event': self.event, 'alert':alert})

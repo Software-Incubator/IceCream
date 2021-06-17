@@ -260,28 +260,17 @@ class RegistrationForm(forms.ModelForm):
                 link = link.lstrip()
                 link = link.rstrip()
                 try:
-                    validate_url(ah)
+                    validate_url(link)
                 except:
-                    raise ValidationError(f'Your work : {ah} is not a valid URL')
+                    raise ValidationError(f'Your work : {link} is not a valid URL')
  
-        regex_student = "^(17|18|19|20)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";    
-        #regex_student = "^["+start+"]["+end+"](11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9][-]?[mdlMDL]?$"
-        # regex_university = "^["+start+"]["+end+"][0][2][7](12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$"
+        regex_student = "^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]";    
         pattern_student = re.compile(regex_student)
-        # pattern_university = re.compile(regex_university)
 
         if student_number:
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
-
-        # regex_github = "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
-        # pattern_github = re.compile(regex_github)
-
-        # if github_username:
-        #     if not pattern_github.match(str(github_username)):
-        #         raise ValidationError("Invalid Github Username")
-
-        regex_college_email= "^[a-zA-Z]+(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9](\@akgec\.ac\.in)$"
+        regex_college_email= "^[a-zA-Z]+(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](\@akgec\.ac\.in)$"
         pattern_college_email= re.compile(regex_college_email)
 
         if college_email:
@@ -295,17 +284,6 @@ class RegistrationForm(forms.ModelForm):
             if not pattern_contact.match(str(contact)):
                 raise ValidationError("Invalid contact")
 
-        # regex_whatsapp_no= "^[56789]\d{9}$"
-        # pattern_whatsapp_no=re.compile(regex_whatsapp_no)
-
-        # if whatsapp_no:
-        #     if not pattern_contact.match(str(whatsapp_no)):
-        #         raise ValidationError("Invalid whatsapp_no")
-
-        # if university_roll_no:
-        #     if not pattern_university.match(str(university_roll_no)):
-        #         raise ValidationError("Invalid University Roll Number")
-
 
         event = Event.objects.filter(active=True).first()
 
@@ -317,17 +295,6 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError('Registration with this email already exist.')
         elif Registration.objects.filter(contact=contact, event=event).exists():
             raise ValidationError('Registration with this contact already exist.')
-        # elif Registration.objects.filter(whatsapp_no=whatsapp_no, event=event).exists():
-        #     raise ValidationError('Registration with this whatsapp no. already exist.')
-
-
-        # if team_name:
-        #     if Registration.objects.filter(codechef_team_name=team_name).exists():
-        #         raise ValidationError("Team cannot have more than two members")
-
-        # if codechef_name:
-        #     if Registration.objects.filter(codechef_handle=codechef_name).exists():
-        #         raise ValidationError("Already registered handle")
 
         return cleaned_data
 
