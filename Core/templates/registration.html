@@ -163,6 +163,7 @@
                                 <i class="fas fa-question-circle prefix grey-text"></i>
                                 <input type="text" id="why_attend" name="why_attend" class="form-control"/>
                                 <label for="why_attend">Why do you want to attend the workshop?</label>
+                                <span class="validationErrorSpacing"></span>
                                 <span id="why_attend_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.why_attend.errors }}</span>
                             </div>
@@ -173,6 +174,7 @@
                                  <!--Improvement in instagram-->
                                 <textarea  type="text" id="insta_improvement" name="insta_improvement" class="form-control md-textarea"></textarea>
                                 <label class="textarea_label" for="insta_improvement">If you could improve any of the feature of instagram what would it be and how will you do that?</label>
+                                <span class="validationErrorSpacing"></span>
                                 <span id="insta_improvement_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.insta_improvement.errors }}</span>
                             </div>
@@ -182,6 +184,7 @@
                                 <!--Designing tools-->
                                 <input  type="text" id="design_tools" name="design_tools" class="form-control">
                                 <label for="design_tools">Names of designing tools you are familiar with(if any)?</label>
+                                <span class="validationErrorSpacing"></span>
                                 <span id="design_tools_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.design_tools.errors }}</span>
                             </div>
@@ -463,7 +466,7 @@
         $("#about_yourself").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#about_yourself").val() == '') {
-                    document.getElementById('about_yourself_err').innerHTML = "This field is can't be empty";
+                    document.getElementById('about_yourself_err').innerHTML = "This field can't be empty";
                     $( "#about_yourself_err" ).show();
                 }
             }
@@ -481,7 +484,7 @@
         $("#insta_improvement").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#insta_improvement").val() == '') {
-                    document.getElementById('insta_improvement_err').innerHTML = "This field is can't be empty";
+                    document.getElementById('insta_improvement_err').innerHTML = "This field can't be empty";
                     $( "#insta_improvement_err" ).show();
                 }
             }
@@ -494,7 +497,7 @@
         $("#why_attend").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#why_attend").val() == '') {
-                    document.getElementById('why_attend_err').innerHTML = "This field is can't be empty";
+                    document.getElementById('why_attend_err').innerHTML = "This field can't be empty";
                     $( "#why_attend_err" ).show();
                 }
             }
@@ -595,21 +598,21 @@
         }
         var why_attend =  document.getElementById('why_attend').value;
         if (why_attend == "") {
-            document.getElementById('why_attend_err').innerHTML = "This field cannot be empty";
+            document.getElementById('why_attend_err').innerHTML = "This field can't be empty";
             document.getElementById('why_attend_err').style.display = "block";
             console.log('why attend');
             return false;
         }
         var insta_improvement =  document.getElementById('insta_improvement').value;
         if (insta_improvement == "") {
-            document.getElementById('insta_improvement_err').innerHTML = "This field cannot be empty";
+            document.getElementById('insta_improvement_err').innerHTML = "This field can't be empty";
             document.getElementById('insta_improvement_err').style.display = "block";
             console.log('insta improvement');
             return false;
         }
         var about_yourself= document.getElementById('about_yourself').value;
         if (about_yourself == "") {
-            document.getElementById('about_yourself_err').innerHTML = "This field cannot be empty";
+            document.getElementById('about_yourself_err').innerHTML = "This field can't be empty";
             document.getElementById('about_yourself_err').style.display = "block";
             console.log('aboutyouself');
             return false;
@@ -620,7 +623,7 @@
             for(var i=0;i<handles.length;i++){
                 h = handles[i].trim();
                 if(!(isValidHttpUrl(h))){
-                    document.getElementById('account_handles_err').innerHTML = h + " is not a valid URL";
+                    document.getElementById('account_handles_err').innerHTML = h + " isn't a valid URL";
                     document.getElementById('account_handles_err').style.display = "block";
                     console.log('account handles');
                     return false;

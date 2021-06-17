@@ -118,7 +118,9 @@ list-style: none;
   margin-left: 2.6rem;
 }
 
-
+.validationErrorSpacing{
+  display:none;
+}
 
 @media(max-width:1085px){
   .spacing_long_text_1{
@@ -226,6 +228,10 @@ list-style: none;
   .spacing_long_text_5{
     margin-top:3rem;
   }
+  .validationErrorSpacing{
+    display:block;
+    margin-top:1rem;
+  }
 
 } 
 
@@ -236,6 +242,10 @@ list-style: none;
   }
   .spacing_long_text_5{
     margin-top:5rem;
+  }
+  .validationErrorSpacing{
+    display:block;
+    margin-top:2rem;
   }
 
 } 
