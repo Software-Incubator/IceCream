@@ -124,7 +124,10 @@ list-style: none;
 
 @media(max-width:1085px){
   .spacing_long_text_1{
-    margin-top:3rem;
+    margin-top:1.5rem;
+  }
+  .textarea_label.active{
+    transform: translateY(-100%) !important;
   }
 }
 
@@ -183,7 +186,7 @@ list-style: none;
 
 @media(max-width: 767px){
   .spacing_long_text_1{
-    margin-top:4rem;
+    margin-top:2.5rem;
   }
 }
 
@@ -197,7 +200,7 @@ list-style: none;
   }
   .md-form textarea.md-textarea{
     padding:1.5rem 0 !important;
-    padding-top:0 !important;
+    padding-top:8px !important;
   }
 }
 @media(max-height: 575px){ 
@@ -210,13 +213,22 @@ list-style: none;
   
 }
 
+@media(max-width:559px){
+  .long_text_label_tools{
+    top:-1rem !important;
+  }
+  .long_text_label_tools.active{
+    transform:translateY(-50%) !important;
+  }
+}
 
-@media(max-width:465px){
+
+@media(max-width:468px){
   .spacing_long_text_1{
-    margin-top:6rem;
+    margin-top:3rem;
   }
   .spacing_long_text_2{
-    margin-top:4rem;
+    margin-top:3rem;
   }
   .spacing_long_text_3{
     margin-top:3rem;
@@ -226,27 +238,64 @@ list-style: none;
     padding-top:0.5rem !important;
   }
   .spacing_long_text_5{
-    margin-top:3rem;
+    margin-top:2rem;
   }
   .validationErrorSpacing{
     display:block;
     margin-top:1rem;
   }
+  .long_text_label,.long_text_label_tools{
+    top:-1rem !important;
+  }
 
 } 
 
 @media(max-width:400px){
+
+  .spacing_long_text_1{
+    margin-top:5rem;
+  }
   .spacing_long_text_4{
     margin-top:2.5rem;
     margin-bottom:2.5rem;
   }
   .spacing_long_text_5{
-    margin-top:5rem;
+    margin-top:3rem;
   }
   .validationErrorSpacing{
     display:block;
     margin-top:2rem;
   }
+  .textarea_label{
+    top:-1rem !important;
+  }
+  .textarea_label.active{
+    transform: translateY(-100%) !important;
+  }
+  .long_text_label.active{
+    transform:translateY(-50%) !important;
+  }
 
 } 
 
+@media(max-width:353px){
+  .spacing_long_text_1{
+    margin-top:6.2rem;
+  }
+  .textarea_label{
+    top:-1.9rem !important;
+  }
+  .textarea_label.active{
+    transform: translateY(-90%) !important;
+  }
+  .spacing_long_text_5{
+    margin-top:4rem;
+  }
+  .long_text_label_tools{
+    top:-2rem !important;
+  }
+  .spacing_long_text_2{
+    margin-top:4rem;
+  }
+  
+}

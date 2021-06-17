@@ -20,6 +20,7 @@
     rel="stylesheet">
     <script src="https://kit.fontawesome.com/0963438a4d.js" crossorigin="anonymous"></script>
     <link href="{% static 'css/stylesheet_register.css' %}" rel="stylesheet">
+   
     {% recaptcha_init %}
     <style>
         .page-footer {
@@ -162,8 +163,8 @@
                             <div class="md-form spacing_long_text_3">
                                 <i class="fas fa-question-circle prefix grey-text"></i>
                                 <input type="text" id="why_attend" name="why_attend" class="form-control"/>
-                                <label for="why_attend">Why do you want to attend the workshop?</label>
-                                <span class="validationErrorSpacing"></span>
+                                <label class="long_text_label" for="why_attend">Why do you want to attend the workshop?</label>
+                                <!-- <span class="validationErrorSpacing"></span> -->
                                 <span id="why_attend_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.why_attend.errors }}</span>
                             </div>
@@ -174,7 +175,7 @@
                                  <!--Improvement in instagram-->
                                 <textarea  type="text" id="insta_improvement" name="insta_improvement" class="form-control md-textarea"></textarea>
                                 <label class="textarea_label" for="insta_improvement">If you could improve any of the feature of instagram what would it be and how will you do that?</label>
-                                <span class="validationErrorSpacing"></span>
+                                <!-- <span class="validationErrorSpacing"></span> -->
                                 <span id="insta_improvement_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.insta_improvement.errors }}</span>
                             </div>
@@ -183,7 +184,7 @@
                                 <i class="fas fa-tools prefix grey-text"></i>       
                                 <!--Designing tools-->
                                 <input  type="text" id="design_tools" name="design_tools" class="form-control">
-                                <label for="design_tools">Names of designing tools you are familiar with(if any)?</label>
+                                <label class="long_text_label_tools" for="design_tools">Names of designing tools you are familiar with(if any)?</label>
                                 <span class="validationErrorSpacing"></span>
                                 <span id="design_tools_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.design_tools.errors }}</span>
@@ -192,7 +193,7 @@
                             <div class="md-form spacing_long_text_5">
                                 <i class="fas fa-palette prefix grey-text"></i>
                                 <input type="text" id="your_work" name="your_work" class="form-control">
-                                <label for="your_work">Link to Your Design works(if any)</label>
+                                <label class="long_text_label_link" for="your_work">Link to Your Design works(if any)</label>
                                 <span id="your_work_err" class='validationerror'>Invalid Links</span>
                                 <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
                             </div>
