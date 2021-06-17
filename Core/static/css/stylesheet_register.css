@@ -38,7 +38,7 @@ list-style: none;
   background-color: white;
 }
 
-#Branch,#Year,#Gender
+#Branch,#Year,#Experience
 {
   border:None;
   border-bottom: 1px solid #e0e0e0;
@@ -107,6 +107,31 @@ list-style: none;
   right: 20%;
 }
 
+
+.md-form textarea.md-textarea{
+  padding:0 0 !important;
+  padding-bottom:8px !important;
+  padding-top:8px !important;
+}
+
+.md-form .prefix~label {
+  margin-left: 2.6rem;
+}
+
+.validationErrorSpacing{
+  display:none;
+}
+
+@media(max-width:1085px){
+  .spacing_long_text_1{
+    margin-top:1.5rem;
+  }
+  .textarea_label.active{
+    transform: translateY(-100%) !important;
+  }
+}
+
+
 @media (max-width:992px)
 {
   .student_details
@@ -158,12 +183,24 @@ list-style: none;
   padding: 14px 16px;
   max-width: 55px;
 }
+
+@media(max-width: 767px){
+  .spacing_long_text_1{
+    margin-top:2.5rem;
+  }
+}
+
+
 @media(max-width: 576px) {
   .contactus-modal {
       margin:0;
       width: 85%;
       display: block;
       margin: 5px auto;
+  }
+  .md-form textarea.md-textarea{
+    padding:1.5rem 0 !important;
+    padding-top:8px !important;
   }
 }
 @media(max-height: 575px){ 
@@ -173,4 +210,94 @@ list-style: none;
       transform-origin:0 0;
       -webkit-transform-origin:0 0;
   } 
+}
+
+@media(max-width:559px){
+  .long_text_label_tools{
+    top:-1rem !important;
+  }
+  .long_text_label_tools.active{
+    transform:translateY(-50%) !important;
+  }
+}
+
+
+@media(max-width:468px){
+  .spacing_long_text_1{
+    margin-top:3rem;
+  }
+  .spacing_long_text_2{
+    margin-top:3rem;
+  }
+  .spacing_long_text_3{
+    margin-top:3rem;
+  }
+  .md-form textarea.md-textarea{
+    padding:2rem 0 !important;
+    padding-top:0.5rem !important;
+  }
+  .spacing_long_text_5{
+    margin-top:2rem;
+  }
+  .validationErrorSpacing{
+    display:block;
+    margin-top:1rem;
+  }
+  .long_text_label,.long_text_label_tools{
+    top:-1rem !important;
+  }
+  .g-recaptcha {
+    transform:scale(0.77);
+    transform-origin:0 0;
+  }
+
+} 
+
+@media(max-width:400px){
+
+  .spacing_long_text_1{
+    margin-top:5rem;
+  }
+  .spacing_long_text_4{
+    margin-top:2.5rem;
+    margin-bottom:2.5rem;
+  }
+  .spacing_long_text_5{
+    margin-top:3rem;
+  }
+  .validationErrorSpacing{
+    display:block;
+    margin-top:2rem;
+  }
+  .textarea_label{
+    top:-1rem !important;
+  }
+  .textarea_label.active{
+    transform: translateY(-100%) !important;
+  }
+  .long_text_label.active{
+    transform:translateY(-50%) !important;
+  }
+
+} 
+@media(max-width:353px){
+  .spacing_long_text_1{
+    margin-top:6.2rem;
+  }
+  .textarea_label{
+    top:-1.9rem !important;
+  }
+  .textarea_label.active{
+    transform: translateY(-90%) !important;
+  }
+  .spacing_long_text_5{
+    margin-top:4rem;
+  }
+  .long_text_label_tools{
+    top:-2rem !important;
+  }
+  .spacing_long_text_2{
+    margin-top:4rem;
+  }
+  
 }
