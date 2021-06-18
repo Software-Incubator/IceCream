@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Registration Page</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/5.0/css/font-awesome.min.css">
     <!-- Bootstrap CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -18,6 +16,7 @@
     <!-- Google FOnt -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700"
     rel="stylesheet">
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/0963438a4d.js" crossorigin="anonymous"></script>
     <link href="{% static 'css/stylesheet_register.css' %}" rel="stylesheet">
    
@@ -145,7 +144,7 @@
                             <div class="md-form spacing_long_text_4">
                                 <i class="fa fa-behance prefix grey-text"></i>
                                 <input type="text" id="account_handles" name="account_handles" class="form-control">
-                                <label for="account_handles">Handles(Github,Behance,Figma etc.)</label>
+                                <label for="account_handles">Handles(Behance,Figma etc.)</label>
                                 <span id="account_handles_err" class='validationerror'>Invalid Account handles </span>
                                 <span style="color: red" class='validationerror'>{{ form.account_handles.errors }}</span>
                             </div>
@@ -173,7 +172,7 @@
                             <div class="md-form spacing_long_text_1">
                                 <i class="fas fa-edit prefix grey-text"></i>
                                  <!--Improvement in instagram-->
-                                <textarea  type="text" id="insta_improvement" name="insta_improvement" class="form-control md-textarea"></textarea>
+                                <textarea id="insta_improvement" name="insta_improvement" class="md-textarea form-control"></textarea>
                                 <label class="textarea_label" for="insta_improvement">If you could improve any of the feature of instagram what would it be and how will you do that?</label>
                                 <!-- <span class="validationErrorSpacing"></span> -->
                                 <span id="insta_improvement_err" class='validationerror'></span>
@@ -387,13 +386,9 @@
 
 <script>
     function isValidHttpUrl(string) {
-            let url;
-            try {
-                url = new URL(string);
-            } catch (_) {
-                return false;  
-            }
-            return url.protocol === "http:" || url.protocol === "https:";
+            var regex = new RegExp("^^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$",'i');
+            console.log(regex.test(string));
+            return regex.test(string);
     }
     $(document).ready(function () {
         $(".validationerror").hide();
@@ -416,7 +411,7 @@
         $("#Email").focusout(function (event) {
             if (event.charCode!=0) {
                 // var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-                var regex = new RegExp(/^[a-zA-Z ]+(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]@(\akgec.ac.in)$/);
+                var regex = new RegExp(/^[a-zA-Z]+(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/);
                 if (!regex.test($("#Email").val())) {
                     document.getElementById('email_err').innerHTML = "Invalid Email Id";
                     $( "#email_err" ).show();
@@ -449,7 +444,7 @@
         
         $("#Student").focusout(function (event) {
             if (event.charCode!=0) {
-                var regex = new RegExp("^(18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$");
+                var regex = new RegExp("^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$");
                 if (!regex.test($("#Student").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
                     $( "#studentno_err" ).show();
@@ -481,7 +476,8 @@
         $("#why_attend").attr('maxlength','475');
         $("#account_handles").attr('maxlength','475');
         $("#your_work").attr('maxlength','1000');
-        $("#design_tools").attr('maxlength','1000');
+        $("#design_tools").attr('maxlength','475');
+        $("#insta_improvement").attr('maxlength','1000');
         $("#insta_improvement").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#insta_improvement").val() == '') {
@@ -553,14 +549,10 @@
 
 <script>
     function isValidHttpUrl(string) {
-            let url;
-            try {
-                url = new URL(string);
-            } catch (_) {
-                return false;  
-            }
-            return url.protocol === "http:" || url.protocol === "https:";
-        }
+            var regex = new RegExp("^^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$","i");
+            console.log(regex.test(string));
+            return regex.test(string);
+    }
     function validateForm() {
         var name =  document.getElementById('Name').value;
         if (name == "") {
@@ -576,7 +568,7 @@
         } 
         else {
             // var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var re=/^[a-zA-Z ]+(16|17|18|19)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]@(\akgec.ac.in)$/;
+            var re=/^[a-zA-Z]+(20|17|18|19)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/;
             if(!re.test(email)){
                 document.getElementById('email_err').innerHTML = "Email format invalid";
                 document.getElementById('email_err').style.display = "block";
@@ -601,21 +593,18 @@
         if (why_attend == "") {
             document.getElementById('why_attend_err').innerHTML = "This field can't be empty";
             document.getElementById('why_attend_err').style.display = "block";
-            console.log('why attend');
             return false;
         }
         var insta_improvement =  document.getElementById('insta_improvement').value;
         if (insta_improvement == "") {
             document.getElementById('insta_improvement_err').innerHTML = "This field can't be empty";
             document.getElementById('insta_improvement_err').style.display = "block";
-            console.log('insta improvement');
             return false;
         }
         var about_yourself= document.getElementById('about_yourself').value;
         if (about_yourself == "") {
             document.getElementById('about_yourself_err').innerHTML = "This field can't be empty";
             document.getElementById('about_yourself_err').style.display = "block";
-            console.log('aboutyouself');
             return false;
         }
         var account_handles= document.getElementById('account_handles').value;
@@ -626,7 +615,6 @@
                 if(!(isValidHttpUrl(h))){
                     document.getElementById('account_handles_err').innerHTML = h + " isn't a valid URL";
                     document.getElementById('account_handles_err').style.display = "block";
-                    console.log('account handles');
                     return false;
                 }
             }
@@ -639,7 +627,6 @@
                 if(!(isValidHttpUrl(h))){
                     document.getElementById('your_work_err').innerHTML = h + " is not a valid URL";
                     document.getElementById('your_work_err').style.display = "block";
-                    console.log('your work');
                     return false;
                 }
             }
@@ -649,23 +636,21 @@
         if (Student == "") {
             document.getElementById('studentno_err').innerHTML = "Student number cannot be empty";
             document.getElementById('studentno_err').style.display = "block";
-            console.log('student number');
             return false;
         }
         else {
-            regex_string = "^(17|18|19|20)(11|12|14|10|13|00|31|21|32|40)[0-2][0-9][0-9]$";
+            regex_string = "^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$";
             var re = new RegExp(regex_string);
             if(!re.test(Student)){
                 document.getElementById('studentno_err').innerHTML = "Student number format invalid";
                 document.getElementById('studentno_err').style.display = "block";
-                console.log('student number');
+
                 return false;
             }
         }
         var Branch = document.getElementById('Branch');
         if (Branch.value == "") {
             document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
-            console.log('branch');
             return false;
         }
         
@@ -674,7 +659,6 @@
         {
             document.getElementById('captcha_err').innerHTML="You can't leave Captcha Code empty";
             document.getElementById('captcha_err').style.display = "block";
-            console.log('captcha');
             return false;
         }
         document.getElementById('already_exit').innerHTML = "Sending...";

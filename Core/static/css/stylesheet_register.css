@@ -210,7 +210,6 @@ list-style: none;
       transform-origin:0 0;
       -webkit-transform-origin:0 0;
   } 
-  
 }
 
 @media(max-width:559px){
@@ -247,6 +246,10 @@ list-style: none;
   .long_text_label,.long_text_label_tools{
     top:-1rem !important;
   }
+  .g-recaptcha {
+    transform:scale(0.77);
+    transform-origin:0 0;
+  }
 
 } 
 
@@ -277,7 +280,6 @@ list-style: none;
   }
 
 } 
-
 @media(max-width:353px){
   .spacing_long_text_1{
     margin-top:6.2rem;
