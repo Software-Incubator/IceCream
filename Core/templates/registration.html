@@ -386,13 +386,9 @@
 
 <script>
     function isValidHttpUrl(string) {
-            let url;
-            try {
-                url = new URL(string);
-            } catch (_) {
-                return false;  
-            }
-            return url.protocol === "http:" || url.protocol === "https:";
+            var regex = new RegExp("^^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$",'i');
+            console.log(regex.test(string));
+            return regex.test(string);
     }
     $(document).ready(function () {
         $(".validationerror").hide();
@@ -553,14 +549,10 @@
 
 <script>
     function isValidHttpUrl(string) {
-            let url;
-            try {
-                url = new URL(string);
-            } catch (_) {
-                return false;  
-            }
-            return url.protocol === "http:" || url.protocol === "https:";
-        }
+            var regex = new RegExp("^^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$","i");
+            console.log(regex.test(string));
+            return regex.test(string);
+    }
     function validateForm() {
         var name =  document.getElementById('Name').value;
         if (name == "") {

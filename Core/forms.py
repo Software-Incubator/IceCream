@@ -250,6 +250,8 @@ class RegistrationForm(forms.ModelForm):
             for ah in account_handles:
                 ah = ah.lstrip()
                 ah = ah.rstrip()
+                if ah[:7]!='http://' and ah[:8]!='https://':
+                    ah = 'http://'+ah
                 try:
                     validate_url(ah)
                 except:
@@ -259,6 +261,8 @@ class RegistrationForm(forms.ModelForm):
             for link in your_work:
                 link = link.lstrip()
                 link = link.rstrip()
+                if link[:7]!='http://' and link[:8]!='https://':
+                    link = 'http://'+ link
                 try:
                     validate_url(link)
                 except:
