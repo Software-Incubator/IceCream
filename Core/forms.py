@@ -250,22 +250,24 @@ class RegistrationForm(forms.ModelForm):
             for ah in account_handles:
                 ah = ah.lstrip()
                 ah = ah.rstrip()
-                if ah[:7]!='http://' and ah[:8]!='https://':
+                if (ah[:7]).lower()!='http://' and (ah[:8]).lower()!='https://':
                     ah = 'http://'+ah
                 try:
+                    print(ah)
                     validate_url(ah)
-                except:
+                except ValidationError:
                     raise ValidationError(f'Handles : {ah} is not a valid URL')
         if your_work:
             your_work = your_work.split(',')
             for link in your_work:
                 link = link.lstrip()
                 link = link.rstrip()
-                if link[:7]!='http://' and link[:8]!='https://':
+                if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
                     link = 'http://'+ link
                 try:
+                    print(link)
                     validate_url(link)
-                except:
+                except ValidationError:
                     raise ValidationError(f'Your work : {link} is not a valid URL')
  
         regex_student = "^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]";    
