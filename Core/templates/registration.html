@@ -102,13 +102,13 @@
                                 <span id="email_err" class='validationerror'>Invalid Email </span>
                                 <span style="color: red" class='validationerror'>{{ form.college_email.errors }}</span>
                             </div>
-                            <!-- contact -->
+                            <!-- Phone -->
                             <div class="md-form">
                                 <i class="fa fa-mobile prefix grey-text"></i>
-                                <input type="text" id="Contact" name="contact" class="form-control">
-                                <label for="Contact">Contact Number</label>
-                                <span id="contactno_err" class='validationerror'>Invalid Contact Number </span>
-                                <span style="color: red" class='validationerror'>{{ form.contact.errors }}</span>
+                                <input type="text" id="Phone" name="phone" class="form-control">
+                                <label for="Phone">Phone Number</label>
+                                <span id="phone_err" class='validationerror'>Invalid Phone Number </span>
+                                <span style="color: red" class='validationerror'>{{ form.phone.errors }}</span>
                             </div>
                             <!-- student no. -->
                             <div class="md-form">
@@ -118,8 +118,39 @@
                                 <span id="studentno_err" class='validationerror'>Invalid Student Number </span>
                                 <span style="color: red" class='validationerror'>{{ form.student_number.errors }}</span>
                             </div>
+                            <!-- Roll no. -->
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="Roll_no" name="roll_no" class="form-control">
+                                <label for="Roll_no">Roll no.</label>
+                                <span id="roll_no_err" class='validationerror'>Invalid Roll Number </span>
+                                <span style="color: red" class='validationerror'>{{ form.roll_no.errors }}</span>
+                            </div>
+                            <!-- Skills -->
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="skills" name="skills" class="form-control">
+                                <label for="skills">Skills: HTML, CSS, Java...</label>
+                                <span id="skills_err" class='validationerror'>This field is required</span>
+                                <span style="color: red" class='validationerror'>{{ form.skills.errors }}</span>
+                            </div>
+                            <!-- HackerRank Username -->
+                            <div class="md-form">
+                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <input type="text" id="hacker_rank_username" name="hacker_rank_username" class="form-control">
+                                <label for="hacker_rank_username">HackerRank Username</label>
+                                <span id="hacker_rank_username_err" class='validationerror'>Invalid Username</span>
+                                <span style="color: red" class='validationerror'>{{ form.hacker_rank_username.errors }}</span>
+                            </div>
+                            <!--branch, year, domain, Gender-->
                             <div class="md-form">
                                 <div class="row p-1">
+                                    <!--choose gender-->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.gender.label }}
+                                        <div class="hoverable">{{ form.gender }}</div>
+                                        <span style="color: red" class='validationerror'>{{ form.gender.errors }}</span>
+                                    </div>
                                     <!-- choose Branch -->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.branch.label }}
@@ -132,15 +163,23 @@
                                         <div class="hoverable">{{ form.year }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.year.errors }}</span>
                                     </div>
-                                    <!--choose experience-->
+                                    <!--choose domain-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
-                                        {{ form.experience.label }}
-                                        <div class="hoverable">{{ form.experience }}</div>
-                                        <span style="color: red" class='validationerror'>{{ form.experience.errors }}</span>
+                                        {{ form.domain.label }}
+                                        <div class="hoverable">{{ form.domain }}</div>
+                                        <span style="color: red" class='validationerror'>{{ form.domain.errors }}</span>
                                     </div> 
                                 </div>
                             </div>
-                            <!-- Design Account Handles -->
+                            <!-- Your works -->
+                            <div class="md-form">
+                                <i class="fas fa-palette prefix grey-text"></i>
+                                <input type="text" id="your_work" name="your_work" class="form-control">
+                                <label class="long_text_label_link" for="your_work">Link to Your work or coding profiles (if any)</label>
+                                <span id="your_work_err" class='validationerror'>Invalid Links</span>
+                                <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
+                            </div>
+                            {% comment %} <!-- Design Account Handles -->
                             <div class="md-form spacing_long_text_4">
                                 <i class="fa fa-behance prefix grey-text"></i>
                                 <input type="text" id="account_handles" name="account_handles" class="form-control">
@@ -151,13 +190,11 @@
                             <!-- About yourself -->
                             <div class="md-form">
                                 <i class="fa fa-user-plus prefix grey-text"></i>
-                                <input type="text" id="about_yourself" name="about_yourself" class="form-control">
+                                <input type="text" id="skills" name="about_yourself" class="form-control">
                                 <label for="about_yourself">Your hobbies and interests</label>
                                 <span id="about_yourself_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.about_yourself.errors }}</span>
                             </div>
-
-                           
                             <!--Why attend workshop-->
                             <div class="md-form spacing_long_text_3">
                                 <i class="fas fa-question-circle prefix grey-text"></i>
@@ -166,9 +203,7 @@
                                 <!-- <span class="validationErrorSpacing"></span> -->
                                 <span id="why_attend_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.why_attend.errors }}</span>
-                            </div>
-
-                       
+                            </div> 
                             <div class="md-form spacing_long_text_1">
                                 <i class="fas fa-edit prefix grey-text"></i>
                                  <!--Improvement in instagram-->
@@ -177,8 +212,7 @@
                                 <!-- <span class="validationErrorSpacing"></span> -->
                                 <span id="insta_improvement_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.insta_improvement.errors }}</span>
-                            </div>
-
+                            </div> 
                             <div class="md-form spacing_long_text_2">
                                 <i class="fas fa-tools prefix grey-text"></i>       
                                 <!--Designing tools-->
@@ -188,14 +222,9 @@
                                 <span id="design_tools_err" class='validationerror'></span>
                                 <span style="color: red" class='validationerror'>{{ form.design_tools.errors }}</span>
                             </div>
-                            <!-- Your design works -->
-                            <div class="md-form spacing_long_text_5">
-                                <i class="fas fa-palette prefix grey-text"></i>
-                                <input type="text" id="your_work" name="your_work" class="form-control">
-                                <label class="long_text_label_link" for="your_work">Link to Your Design works(if any)</label>
-                                <span id="your_work_err" class='validationerror'>Invalid Links</span>
-                                <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
-                            </div>
+                             {% endcomment %}
+                            
+                            <!--Captcha-->
                             <div class="col-md-12" style="overflow: hidden;">
                                 {{ form.captcha }}
                                 <span id="captcha_err" style="color: red" class='validationerror'>{{ form.captcha.errors }}</span>
@@ -392,8 +421,14 @@
     }
     $(document).ready(function () {
         $(".validationerror").hide();
+
         $("#Name").focusout(function (event) {
             if (event.charCode!=0) {
+                if($(this).val()==''){
+                    document.getElementById('name_err').innerHTML = "Name can't be blank";
+                    $( "#name_err" ).show();
+                    return;
+                }
                 var regex = new RegExp("^[a-zA-Z ]+$");
                 if (!regex.test($(this).val())) {
                     document.getElementById('name_err').innerHTML = "Invalid Name";
@@ -410,6 +445,11 @@
         
         $("#Email").focusout(function (event) {
             if (event.charCode!=0) {
+                if($(this).val()==''){
+                    document.getElementById('email_err').innerHTML = "Email can't be blank";
+                    $( "#email_err" ).show();
+                    return;
+                }
                 // var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
                 var regex = new RegExp(/^[a-zA-Z]+(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/);
                 if (!regex.test($("#Email").val())) {
@@ -425,25 +465,35 @@
             }
         });
         
-        $("#Contact").focusout(function (event) {
+        $("#Phone").focusout(function (event) {
             if (event.charCode!=0) {
+                if($(this).val()==''){
+                    document.getElementById('phone_err').innerHTML = "Phone can't be blank";
+                    $( "#phone_err" ).show();
+                    return;
+                }
                 var regex = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
-                if (!regex.test($("#Contact").val())) {
-                    document.getElementById('contactno_err').innerHTML = "Invalid Contact Number";
-                    $( "#contactno_err" ).show();
+                if (!regex.test($("#Phone").val())) {
+                    document.getElementById('phone_err').innerHTML = "Invalid Contact Number";
+                    $( "#phone_err" ).show();
                 }
             }
         });
-        $("#Contact").attr('maxlength','10');
+        $("#Phone").attr('maxlength','10');
                 
-        $("#Contact").focusin(function (event) {
+        $("#Phone").focusin(function (event) {
             if (event.charCode!=0) {
-                $( "#contactno_err" ).hide();
+                $( "#phone_err" ).hide();
             }
         });
         
         $("#Student").focusout(function (event) {
             if (event.charCode!=0) {
+                if($(this).val()==''){
+                    document.getElementById('studentno_err').innerHTML = "Student no. can't be blank";
+                    $( "#studentno_err" ).show();
+                    return;
+                }
                 var regex = new RegExp("^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$");
                 if (!regex.test($("#Student").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
@@ -459,24 +509,70 @@
                 $( "#studentno_err" ).hide();
             }
         });
-        $("#about_yourself").focusout(function (event) {
-            if (event.charCode!=0) {
-                if ($("#about_yourself").val() == '') {
-                    document.getElementById('about_yourself_err').innerHTML = "This field can't be empty";
-                    $( "#about_yourself_err" ).show();
+
+        $("#Roll_no").focusout(function (event) {
+            if(event.charCode!=0) {
+                if($(this).val()==''){
+                    document.getElementById('roll_no_err').innerHTML = "Roll no. can't be blank";
+                    $( "#roll_no_err" ).show();
+                    return;
+                }
+                var regex = new RegExp("^(19|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$");
+                if (!regex.test($("#Roll_no").val())) {
+                    document.getElementById('roll_no_err').innerHTML = "Invalid Roll Number";
+                    $( "#roll_no_err" ).show();
                 }
             }
         });
-        $("#about_yourself").focusin(function (event) {
+
+        $("#Roll_no").attr('maxlength','13');
+                
+        $("#Roll_no").focusin(function (event) {
             if (event.charCode!=0) {
-                $( "#about_yourself_err" ).hide();
+                $( "#roll_no_err" ).hide();
             }
         });
-        $("#about_yourself").attr('maxlength','475');
+
+        $("#skills").focusout(function (event) {
+            if (event.charCode!=0) {
+                if ($("#skills").val() == '') {
+                    document.getElementById('skills_err').innerHTML = "This field is required";
+                    $( "#skills_err" ).show();
+                }
+            }
+        });
+        $("#skills").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#skills_err" ).hide();
+            }
+        });
+        $("#skills").attr('maxlength','245');
+        $("#your_work").attr('maxlength','1000');
+        $("#hacker_rank_username").focusout(function (event) {
+            if (event.charCode!=0) {
+                if ($("#hacker_rank_username").val() == '') {
+                    document.getElementById('hacker_rank_username_err').innerHTML = "This field is required";
+                    $( "#hacker_rank_username_err" ).show();
+                    return;
+                }
+                var regex = new RegExp("^[a-zA-Z0-9_-]+$");
+                if (!regex.test($(this).val())) {
+                    document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
+                    $( "#hacker_rank_username_err" ).show();
+                }
+            }
+        });
+        $("#hacker_rank_username").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#hacker_rank_username_err" ).hide();
+            }
+        });
+        $("#skills").attr('maxlength','245');
+/* 
         $("#why_attend").attr('maxlength','475');
         $("#account_handles").attr('maxlength','475');
-        $("#your_work").attr('maxlength','1000');
-        $("#design_tools").attr('maxlength','475');
+        
+       $("#design_tools").attr('maxlength','475');
         $("#insta_improvement").attr('maxlength','1000');
         $("#insta_improvement").focusout(function (event) {
             if (event.charCode!=0) {
@@ -523,6 +619,7 @@
                 $( "#account_handles_err" ).hide();
             }
         });
+*/
         $("#your_work").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#your_work").val() != '') {
@@ -549,46 +646,100 @@
 
 <script>
     function isValidHttpUrl(string) {
-            var regex = new RegExp("^^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$","i");
+            var regex = new RegExp("^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$","i");
             console.log(regex.test(string));
             return regex.test(string);
     }
     function validateForm() {
+        // Name validation
         var name =  document.getElementById('Name').value;
         if (name == "") {
             document.getElementById('name_err').innerHTML = "Name cannot be empty";
             document.getElementById('name_err').style.display = "block";
             return false;
         }
+
+        // College Email Validation
         var email =  document.getElementById('Email').value;
         if (email == "") {
             document.getElementById('email_err').innerHTML = "Email cannot be empty";
             document.getElementById('email_err').style.display = "block";
             return false;
-        } 
-        else {
-            // var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        }else {
+
             var re=/^[a-zA-Z]+(20|17|18|19)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/;
             if(!re.test(email)){
-                document.getElementById('email_err').innerHTML = "Email format invalid";
+                document.getElementById('email_err').innerHTML = "Email is not valid";
                 document.getElementById('email_err').style.display = "block";
                 return false;
             }
         }
-        var Contact =  document.getElementById('Contact').value;
-        if (Contact == "") {
-            document.getElementById('contactno_err').innerHTML = "Contact cannot be empty";
-            document.getElementById('contactno_err').style.display = "block";
+
+        // Student no. validation
+        var student_no =  document.getElementById('Student').value;
+        if (student_no == "") {
+            document.getElementById('studentno_err').innerHTML = "Student number cannot be empty";
+            document.getElementById('studentno_err').style.display = "block";
             return false;
-        }
-        else {
-                var re = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
-                if(!re.test(Contact)){
-                document.getElementById('contactno_err').innerHTML = "Contact number format invalid";
-                document.getElementById('contactno_err').style.display = "block";
+        }else {
+            regex_string = "^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$";
+            var re = new RegExp(regex_string);
+            if(!re.test(student_no)){
+                document.getElementById('studentno_err').innerHTML = "Student number is not valid";
+                document.getElementById('studentno_err').style.display = "block";
+
                 return false;
             }
         }
+
+        // Roll no. validation
+        var roll_no =  document.getElementById('Roll_no').value;
+        if (roll_no == "") {
+            document.getElementById('roll_no_err').innerHTML = "Roll number cannot be empty";
+            document.getElementById('roll_no_err').style.display = "block";
+            return false;
+        }else {
+            regex_string = "^(19|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
+            var re = new RegExp(regex_string);
+            if(!re.test(roll_no)){
+                document.getElementById('studentno_err').innerHTML = "Roll number is not valid";
+                document.getElementById('studentno_err').style.display = "block";
+
+                return false;
+            }
+        }
+
+        // Phone number validation
+        var phone = document.getElementById('Phone').value;
+        if (phone == "") {
+            document.getElementById('phone_err').innerHTML = "Phone cannot be empty";
+            document.getElementById('phone_err').style.display = "block";
+            return false;
+        }else{
+                var re = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
+                if(!re.test(phone)){
+                document.getElementById('phone_err').innerHTML = "Phone number is not valid";
+                document.getElementById('phone_err').style.display = "block";
+                return false;
+            }
+        }
+
+        // Skills Validation
+        var skills= document.getElementById('skills').value;
+        if (skills == "") {
+            document.getElementById('skills_err').innerHTML = "This field can't be empty";
+            document.getElementById('skills_err').style.display = "block";
+            return false;
+        }
+
+        var hacker_rank_username = document.getElementById('hacker_rank_username').value;
+        if (hacker_rank_username == "") {
+            document.getElementById('hacker_rank_username_err').innerHTML = "This field can't be empty";
+            document.getElementById('hacker_rank_username_err').style.display = "block";
+            return false;
+        }
+
+/*
         var why_attend =  document.getElementById('why_attend').value;
         if (why_attend == "") {
             document.getElementById('why_attend_err').innerHTML = "This field can't be empty";
@@ -599,12 +750,6 @@
         if (insta_improvement == "") {
             document.getElementById('insta_improvement_err').innerHTML = "This field can't be empty";
             document.getElementById('insta_improvement_err').style.display = "block";
-            return false;
-        }
-        var about_yourself= document.getElementById('about_yourself').value;
-        if (about_yourself == "") {
-            document.getElementById('about_yourself_err').innerHTML = "This field can't be empty";
-            document.getElementById('about_yourself_err').style.display = "block";
             return false;
         }
         var account_handles= document.getElementById('account_handles').value;
@@ -619,6 +764,8 @@
                 }
             }
         }
+*/
+        // Your work links Validation
         var your_work= document.getElementById('your_work').value;
         if (your_work != ""){
             handles = your_work.split(",");
@@ -631,29 +778,29 @@
                 }
             }
         }
-        
-        var Student =  document.getElementById('Student').value;
-        if (Student == "") {
-            document.getElementById('studentno_err').innerHTML = "Student number cannot be empty";
-            document.getElementById('studentno_err').style.display = "block";
-            return false;
-        }
-        else {
-            regex_string = "^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]$";
-            var re = new RegExp(regex_string);
-            if(!re.test(Student)){
-                document.getElementById('studentno_err').innerHTML = "Student number format invalid";
-                document.getElementById('studentno_err').style.display = "block";
-
-                return false;
-            }
-        }
-        var Branch = document.getElementById('Branch');
+        // Dropdown field validations
+ /*       var Branch = document.getElementById('Branch');
         if (Branch.value == "") {
             document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
             return false;
         }
-        
+        var Year = document.getElementById('Year');
+        if (Branch.value == "") {
+            document.getElementById('already_exit').innerHTML = "Year cannot be empty";
+            return false;
+        }
+        var Gender = document.getElementById('Gender');
+        if (Branch.value == "") {
+            document.getElementById('already_exit').innerHTML = "YGender cannot be empty";
+            return false;
+        }
+        var Domain = document.getElementById('Domain');
+        if (Branch.value == "") {
+            document.getElementById('already_exit').innerHTML = "Domain cannot be empty";
+            return false;
+        }
+*/
+        // Captcha Validation
         var v = grecaptcha.getResponse();
         if(v.length == 0)
         {
@@ -661,6 +808,7 @@
             document.getElementById('captcha_err').style.display = "block";
             return false;
         }
+
         document.getElementById('already_exit').innerHTML = "Sending...";
         document.getElementById('already_exit').style.color = "green";
         document.getElementById('contact-form').submit();
