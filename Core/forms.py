@@ -105,17 +105,7 @@ class RegistrationForm(forms.ModelForm):
                        'onblur': ''}
             )
         )
-        # self.fields['account_handles'] = forms.CharField(
-        #     max_length=500,required=False,
-        #     widget=forms.TextInput(
-        #         attrs={'type': 'text',
-        #                'name': 'account_handles',
-        #                'class': 'form-control',
-        #                'id': 'account_handles',
-        #                'onblur': ''
-        #                }
-        #     )
-        # )
+        
         self.fields['your_work'] = forms.CharField(
             max_length=1000,required=False,
             widget=forms.TextInput(
@@ -180,8 +170,8 @@ class RegistrationForm(forms.ModelForm):
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
-                       'id': 'Branch',
-                       'name': 'Branch',
+                       'id': 'gender',
+                       'name': 'gender',
                        }
             )
         )
@@ -193,46 +183,12 @@ class RegistrationForm(forms.ModelForm):
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
-                       'id': 'Branch',
-                       'name': 'Branch',
+                       'id': 'domain',
+                       'name': 'domain',
                        }
             )
         )
-        # self.fields['experience'] = forms.ChoiceField(
-        #     choices=Registration.experience_choices,
-        #     label = 'Experience',
-        #     required=True,
-        #     widget=forms.Select(
-        #         attrs={'class': 'form-control',
-        #                'data-val': 'true',
-        #                'data-val-required': '*',
-        #                'id': 'Experience',
-        #                'name': 'Experience',
-        #                }
-        #     )
-        # )
-        # self.fields['insta_improvement'] = forms.CharField(
-        #     required=True,
-        #     widget=forms.TextInput(
-        #         attrs={'type': 'text',
-        #                'name': 'insta_improvement',
-        #                'class': 'form-control',
-        #                'id': 'insta_improvement',
-        #                'onblur': ''
-        #                }
-        #     )
-        # )
-        # self.fields['about_yourself'] = forms.CharField(
-        #     required=True,
-        #     widget=forms.TextInput(
-        #         attrs={'type': 'text',
-        #                'name': 'about_yourself',
-        #                'class': 'form-control',
-        #                'id': 'about_yourself',
-        #                'onblur': ''
-        #                }
-        #     )
-        # )
+
         self.fields['skills'] = forms.CharField(
             required=True,
             widget=forms.TextInput(
@@ -256,20 +212,6 @@ class RegistrationForm(forms.ModelForm):
                        'name': 'Year'},
             ),
         )
-        # self.fields['design_tools'] = forms.CharField(
-        #     required=False,
-        #     initial="",
-        #     label = "Names of designing tools you are familiar with(if any)?",
-        #     widget=forms.TextInput(
-        #     attrs={
-        #         'data-val': 'true',
-        #         'data-val-required': '*',
-        #         'id': 'design_tools',
-        #         'name': 'design_tools',
-        #         'type': 'text'
-        #         }
-        #     )
-        # )
         
 
     def clean(self):
@@ -317,7 +259,6 @@ class RegistrationForm(forms.ModelForm):
                 if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
                     link = 'http://'+ link
                 try:
-                    print(link)
                     validate_url(link)
                 except ValidationError:
                     raise ValidationError(f'Your work : {link} is not a valid URL')
@@ -350,15 +291,14 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError("Invalid Roll No. ")
 
         event = Event.objects.filter(active=True).first()
-
-        # if Registration.objects.filter(college_email=college_email, event=event, student_number=student_number).exists():
-        #     raise ValidationError('Registration with this student number and email already exist.')
-        # elif Registration.objects.filter(student_number=student_number, event=event).exists():
-        #     raise ValidationError('Registration with this student number already exist.')
-        # elif Registration.objects.filter(college_email=college_email, event=event).exists():
-        #     raise ValidationError('Registration with this email already exist.')
-        # elif Registration.objects.filter(phone=phone, event=event).exists():
-        #     raise ValidationError('Registration with this phone already exist.')
+        if Registration.objects.filter(college_email=college_email, event=event).exists():
+            raise ValidationError('Registration with this email already exist.')
+        elif Registration.objects.filter(student_number=student_number, event=event).exists():
+            raise ValidationError('Registration with this student number already exist.')
+        elif Registration.objects.filter(roll_no=roll_no, event=event).exists():
+            raise ValidationError('Registration with this roll number already exists.')
+        elif Registration.objects.filter(phone=phone, event=event).exists():
+            raise ValidationError('Registration with this phone already exist.')
 
         return cleaned_data
 

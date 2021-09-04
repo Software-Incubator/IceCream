@@ -104,7 +104,7 @@
                             </div>
                             <!-- Phone -->
                             <div class="md-form">
-                                <i class="fa fa-mobile prefix grey-text"></i>
+                                <i class="fas fa-phone prefix grey-text"></i>
                                 <input type="text" id="Phone" name="phone" class="form-control">
                                 <label for="Phone">Phone Number</label>
                                 <span id="phone_err" class='validationerror'>Invalid Phone Number </span>
@@ -120,7 +120,7 @@
                             </div>
                             <!-- Roll no. -->
                             <div class="md-form">
-                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <i class="far fa-id-card prefix grey-text"></i>
                                 <input type="text" id="Roll_no" name="roll_no" class="form-control">
                                 <label for="Roll_no">Roll no.</label>
                                 <span id="roll_no_err" class='validationerror'>Invalid Roll Number </span>
@@ -128,23 +128,17 @@
                             </div>
                             <!-- Skills -->
                             <div class="md-form">
-                                <i class="fa fa-id-badge prefix grey-text"></i>
+                                <i class="fas fa-code prefix grey-text"></i>
                                 <input type="text" id="skills" name="skills" class="form-control">
                                 <label for="skills">Skills: HTML, CSS, Java...</label>
                                 <span id="skills_err" class='validationerror'>This field is required</span>
                                 <span style="color: red" class='validationerror'>{{ form.skills.errors }}</span>
                             </div>
-                            <!-- HackerRank Username -->
                             <div class="md-form">
-                                <i class="fa fa-id-badge prefix grey-text"></i>
-                                <input type="text" id="hacker_rank_username" name="hacker_rank_username" class="form-control">
-                                <label for="hacker_rank_username">HackerRank Username</label>
-                                <span id="hacker_rank_username_err" class='validationerror'>Invalid Username</span>
-                                <span style="color: red" class='validationerror'>{{ form.hacker_rank_username.errors }}</span>
-                            </div>
-                            <!--branch, year, domain, Gender-->
-                            <div class="md-form">
-                                <div class="row p-1">
+                            
+                            <!--branch, year-->
+                            
+                                <div class='row p-1'>
                                     <!--choose gender-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.gender.label }}
@@ -163,6 +157,8 @@
                                         <div class="hoverable">{{ form.year }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.year.errors }}</span>
                                     </div>
+                                </div>
+                                <div class="row p-1">
                                     <!--choose domain-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.domain.label }}
@@ -171,9 +167,18 @@
                                     </div> 
                                 </div>
                             </div>
+                            <!-- HackerRank Username -->
+                            <div class="md-form" id='hackerrank'>
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <input type="text" id="hacker_rank_username" name="hacker_rank_username" class="form-control">
+                                <label for="hacker_rank_username">HackerRank Username</label>
+                                <span id="hacker_rank_username_err" class='validationerror'>Invalid Username</span>
+                                <span style="color: red" class='validationerror'>{{ form.hacker_rank_username.errors }}</span>
+                            </div>
+                            
                             <!-- Your works -->
                             <div class="md-form">
-                                <i class="fas fa-palette prefix grey-text"></i>
+                                <i class="fas fa-link prefix grey-text"></i>
                                 <input type="text" id="your_work" name="your_work" class="form-control">
                                 <label class="long_text_label_link" for="your_work">Link to Your work or coding profiles (if any)</label>
                                 <span id="your_work_err" class='validationerror'>Invalid Links</span>
@@ -415,13 +420,22 @@
 
 <script>
     function isValidHttpUrl(string) {
-            var regex = new RegExp("^^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$",'i');
+            var regex = new RegExp("^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$",'i');
             console.log(regex.test(string));
             return regex.test(string);
     }
+    
     $(document).ready(function () {
         $(".validationerror").hide();
-
+        $('#hackerrank').hide();
+        $("#domain").change(function(){
+            if(this.value!=1)
+                $('#hackerrank').show();
+            else{
+                $('#hackerrank').hide();
+                $('#hacker_rank_username').val('');
+            }
+        });
         $("#Name").focusout(function (event) {
             if (event.charCode!=0) {
                 if($(this).val()==''){
@@ -478,14 +492,13 @@
                     $( "#phone_err" ).show();
                 }
             }
-        });
-        $("#Phone").attr('maxlength','10');
-                
+        });      
         $("#Phone").focusin(function (event) {
             if (event.charCode!=0) {
                 $( "#phone_err" ).hide();
             }
         });
+        $("#Phone").attr('maxlength','10');
         
         $("#Student").focusout(function (event) {
             if (event.charCode!=0) {
@@ -500,15 +513,13 @@
                     $( "#studentno_err" ).show();
                 }
             }
-        });
-
-        $("#Student").attr('maxlength','7');
-                
+        });      
         $("#Student").focusin(function (event) {
             if (event.charCode!=0) {
                 $( "#studentno_err" ).hide();
             }
         });
+        $("#Student").attr('maxlength','7');
 
         $("#Roll_no").focusout(function (event) {
             if(event.charCode!=0) {
@@ -524,14 +535,12 @@
                 }
             }
         });
-
-        $("#Roll_no").attr('maxlength','13');
-                
         $("#Roll_no").focusin(function (event) {
             if (event.charCode!=0) {
                 $( "#roll_no_err" ).hide();
             }
         });
+        $("#Roll_no").attr('maxlength','13');
 
         $("#skills").focusout(function (event) {
             if (event.charCode!=0) {
@@ -547,7 +556,7 @@
             }
         });
         $("#skills").attr('maxlength','245');
-        $("#your_work").attr('maxlength','1000');
+        
         $("#hacker_rank_username").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#hacker_rank_username").val() == '') {
@@ -555,7 +564,7 @@
                     $( "#hacker_rank_username_err" ).show();
                     return;
                 }
-                var regex = new RegExp("^[a-zA-Z0-9_-]+$");
+                var regex =  new RegExp("^_*[a-zA-Z\d]+[a-zA-z0-9]*$");
                 if (!regex.test($(this).val())) {
                     document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
                     $( "#hacker_rank_username_err" ).show();
@@ -567,59 +576,8 @@
                 $( "#hacker_rank_username_err" ).hide();
             }
         });
-        $("#skills").attr('maxlength','245');
-/* 
-        $("#why_attend").attr('maxlength','475');
-        $("#account_handles").attr('maxlength','475');
-        
-       $("#design_tools").attr('maxlength','475');
-        $("#insta_improvement").attr('maxlength','1000');
-        $("#insta_improvement").focusout(function (event) {
-            if (event.charCode!=0) {
-                if ($("#insta_improvement").val() == '') {
-                    document.getElementById('insta_improvement_err').innerHTML = "This field can't be empty";
-                    $( "#insta_improvement_err" ).show();
-                }
-            }
-        });
-        $("#insta_improvement").focusin(function (event) {
-            if (event.charCode!=0) {
-                $( "#insta_improvement_err" ).hide();
-            }
-        });
-        $("#why_attend").focusout(function (event) {
-            if (event.charCode!=0) {
-                if ($("#why_attend").val() == '') {
-                    document.getElementById('why_attend_err').innerHTML = "This field can't be empty";
-                    $( "#why_attend_err" ).show();
-                }
-            }
-        });
-        $("#why_attend").focusin(function (event) {
-            if (event.charCode!=0) {
-                $( "#why_attend_err" ).hide();
-            }
-        });
-        $("#account_handles").focusout(function (event) {
-            if (event.charCode!=0) {
-                if ($("#account_handles").val() != '') {
-                    handles = $("#account_handles").val().split(",");
-                    for(var i=0;i<handles.length;i++){
-                        h = handles[i].trim();
-                        if(!(isValidHttpUrl(h))){
-                            document.getElementById('account_handles_err').innerHTML = h + " is not a valid URL";
-                            $( "#account_handles_err" ).show();
-                        }
-                    }
-                }
-            }
-        });
-        $("#account_handles").focusin(function (event) {
-            if (event.charCode!=0) {
-                $( "#account_handles_err" ).hide();
-            }
-        });
-*/
+        $('#hacker_rank_username').attr('maxlength','100');
+
         $("#your_work").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#your_work").val() != '') {
@@ -639,7 +597,7 @@
                 $( "#your_work_err" ).hide();
             }
         });
-        
+        $("#your_work").attr('maxlength','1000');
     });
     
 </script>
@@ -650,7 +608,7 @@
             console.log(regex.test(string));
             return regex.test(string);
     }
-    function validateForm() {
+    function validateForm(){
         // Name validation
         var name =  document.getElementById('Name').value;
         if (name == "") {
@@ -718,10 +676,10 @@
         }else{
                 var re = new RegExp(/^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[6789]\d{9}|(\d[ -]?){10}\d$/);
                 if(!re.test(phone)){
-                document.getElementById('phone_err').innerHTML = "Phone number is not valid";
-                document.getElementById('phone_err').style.display = "block";
-                return false;
-            }
+                    document.getElementById('phone_err').innerHTML = "Phone number is not valid";
+                    document.getElementById('phone_err').style.display = "block";
+                    return false;
+                }
         }
 
         // Skills Validation
@@ -731,40 +689,24 @@
             document.getElementById('skills_err').style.display = "block";
             return false;
         }
-
+        // HackerRank Username Validation
         var hacker_rank_username = document.getElementById('hacker_rank_username').value;
-        if (hacker_rank_username == "") {
-            document.getElementById('hacker_rank_username_err').innerHTML = "This field can't be empty";
-            document.getElementById('hacker_rank_username_err').style.display = "block";
-            return false;
-        }
-
-/*
-        var why_attend =  document.getElementById('why_attend').value;
-        if (why_attend == "") {
-            document.getElementById('why_attend_err').innerHTML = "This field can't be empty";
-            document.getElementById('why_attend_err').style.display = "block";
-            return false;
-        }
-        var insta_improvement =  document.getElementById('insta_improvement').value;
-        if (insta_improvement == "") {
-            document.getElementById('insta_improvement_err').innerHTML = "This field can't be empty";
-            document.getElementById('insta_improvement_err').style.display = "block";
-            return false;
-        }
-        var account_handles= document.getElementById('account_handles').value;
-        if (account_handles != ""){
-            handles = account_handles.split(",");
-            for(var i=0;i<handles.length;i++){
-                h = handles[i].trim();
-                if(!(isValidHttpUrl(h))){
-                    document.getElementById('account_handles_err').innerHTML = h + " isn't a valid URL";
-                    document.getElementById('account_handles_err').style.display = "block";
+        var domain = document.getElementById('domain').value;
+        if(domain!=1){
+            if (hacker_rank_username == "") {
+                document.getElementById('hacker_rank_username_err').innerHTML = "This field can't be empty";
+                document.getElementById('hacker_rank_username_err').style.display = "block";
+                return false;
+            }else{
+                var regex =  new RegExp("^_*[a-zA-Z\d]+[a-zA-z0-9]*$");
+                if (!regex.test(hacker_rank_username)) {
+                    document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
+                    document.getElementById('hacker_rank_username_err').style.display = "block";
                     return false;
                 }
             }
         }
-*/
+        
         // Your work links Validation
         var your_work= document.getElementById('your_work').value;
         if (your_work != ""){
@@ -778,28 +720,7 @@
                 }
             }
         }
-        // Dropdown field validations
- /*       var Branch = document.getElementById('Branch');
-        if (Branch.value == "") {
-            document.getElementById('already_exit').innerHTML = "Branch cannot be empty";
-            return false;
-        }
-        var Year = document.getElementById('Year');
-        if (Branch.value == "") {
-            document.getElementById('already_exit').innerHTML = "Year cannot be empty";
-            return false;
-        }
-        var Gender = document.getElementById('Gender');
-        if (Branch.value == "") {
-            document.getElementById('already_exit').innerHTML = "YGender cannot be empty";
-            return false;
-        }
-        var Domain = document.getElementById('Domain');
-        if (Branch.value == "") {
-            document.getElementById('already_exit').innerHTML = "Domain cannot be empty";
-            return false;
-        }
-*/
+
         // Captcha Validation
         var v = grecaptcha.getResponse();
         if(v.length == 0)

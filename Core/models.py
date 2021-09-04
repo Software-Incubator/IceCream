@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 import os
 import uuid
-
+from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.db import models
 from ckeditor.fields import RichTextField
