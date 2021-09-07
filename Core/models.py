@@ -187,7 +187,7 @@ class Registration(models.Model):
     name = models.CharField(max_length=100, null=False)
     college_email = models.EmailField(unique=True)
     roll_no = models.CharField(max_length=13, unique=True)
-    student_number = models.CharField(max_length=7, unique=True)
+    student_number = models.CharField(max_length=10, unique=True)
     phone = models.CharField(max_length=10, unique=True , null=False)
     branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
     gender = models.ForeignKey('Gender',default=1,related_name='registrations',on_delete=models.CASCADE)
@@ -198,7 +198,7 @@ class Registration(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
     your_work = models.TextField(blank=True,null=True,help_text='Links to your work or coding profiles.')
-
+    whatsapp = models.CharField(max_length=10, unique=True , null=False)
     # experience = models.CharField(choices=experience_choices,max_length=20,null=False,blank=False)
     # account_handles = models.CharField(max_length=500, blank=True)
     # about_yourself = models.TextField(max_length=500, blank=True)
