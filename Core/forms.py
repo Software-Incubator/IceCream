@@ -74,10 +74,12 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = Registration
-        fields = ['name', 'contact','your_work','college_email', 'student_number','branch','year',
-                    'account_handles','experience','about_yourself','why_attend',
-                        'design_tools','insta_improvement','captcha']
-        exclude = ['event']
+        fields = [
+                    'name', 'phone','your_work','college_email','whatsapp',
+                    'student_number','branch','year','roll_no',
+                    'gender','domain','skills','hacker_rank_username',
+                    'captcha'
+                ]
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -103,17 +105,7 @@ class RegistrationForm(forms.ModelForm):
                        'onblur': ''}
             )
         )
-        self.fields['account_handles'] = forms.CharField(
-            max_length=500,required=False,
-            widget=forms.TextInput(
-                attrs={'type': 'text',
-                       'name': 'account_handles',
-                       'class': 'form-control',
-                       'id': 'account_handles',
-                       'onblur': ''
-                       }
-            )
-        )
+
         self.fields['your_work'] = forms.CharField(
             max_length=1000,required=False,
             widget=forms.TextInput(
@@ -125,14 +117,26 @@ class RegistrationForm(forms.ModelForm):
                        }
             )
         )
-        self.fields['contact'] = forms.CharField(
+        self.fields['phone'] = forms.CharField(
             required=True,
             widget=forms.TextInput(
                 attrs={'type': 'text',
-                       'name': 'contact',
+                       'name': 'phone',
                        'class': 'form-control',
-                       'id': 'Contact',
-                       'placeholder': 'Enter Contact No.',
+                       'id': 'Phone',
+                       'placeholder': 'Enter Phone No.',
+                       'onblur': ''
+                       }
+            )
+        )
+        self.fields['whatsapp'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'whatsapp',
+                       'class': 'form-control',
+                       'id': 'whatsapp',
+                       'placeholder': 'Enter whatsapp No.',
                        'onblur': ''
                        }
             )
@@ -147,13 +151,21 @@ class RegistrationForm(forms.ModelForm):
                        'onblur': ''}
             )
         )
-
+        self.fields['roll_no'] = forms.CharField(
+            required=True,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'class': 'form-control',
+                       'id': 'Roll_no',
+                       'placeholder': 'Enter Roll Number',
+                       'onblur': ''}
+            )
+        )
         self.fields['branch'] = forms.ModelChoiceField(
             queryset=Branch.objects.filter(active=True).order_by('name'),
             initial=Branch.objects.filter(active=True).order_by('name').first(),
             required=True,
             widget=forms.Select(
-                # choices=BRANCH_CHOICES,
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
@@ -162,37 +174,41 @@ class RegistrationForm(forms.ModelForm):
                        }
             )
         )
-        self.fields['experience'] = forms.ChoiceField(
-            choices=Registration.experience_choices,
-            label = 'Experience',
+
+        self.fields['gender'] = forms.ModelChoiceField(
+            queryset=Gender.objects.all(),
+            initial=Gender.objects.all().first(),
             required=True,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',
                        'data-val-required': '*',
-                       'id': 'Experience',
-                       'name': 'Experience',
+                       'id': 'gender',
+                       'name': 'gender',
                        }
             )
         )
-        self.fields['insta_improvement'] = forms.CharField(
+        self.fields['domain'] = forms.ModelChoiceField(
+            queryset=Domain.objects.all(),
+            initial=Domain.objects.all().first(),
             required=True,
-            widget=forms.TextInput(
-                attrs={'type': 'text',
-                       'name': 'insta_improvement',
-                       'class': 'form-control',
-                       'id': 'insta_improvement',
-                       'onblur': ''
+            widget=forms.Select(
+                attrs={'class': 'form-control',
+                       'data-val': 'true',
+                       'data-val-required': '*',
+                       'id': 'domain',
+                       'name': 'domain',
                        }
             )
         )
-        self.fields['about_yourself'] = forms.CharField(
+
+        self.fields['skills'] = forms.CharField(
             required=True,
             widget=forms.TextInput(
                 attrs={'type': 'text',
-                       'name': 'about_yourself',
+                       'name': 'skills',
                        'class': 'form-control',
-                       'id': 'about_yourself',
+                       'id': 'skills',
                        'onblur': ''
                        }
             )
@@ -239,62 +255,83 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError("")
 
         try:
-            contact = cleaned_data['contact']
+            phone = cleaned_data['phone']
+        except KeyError:
+            raise ValidationError("")
+            
+        try:
+            whatsapp = cleaned_data['whatsapp']
         except KeyError:
             raise ValidationError("")
 
-        account_handles = cleaned_data.get('account_handles',None)
-        your_work = cleaned_data.get('your_work',None)
-        if account_handles:
-            account_handles = account_handles.split(',')
-            for ah in account_handles:
-                ah = ah.lstrip()
-                ah = ah.rstrip()
-                try:
-                    validate_url(ah)
-                except:
-                    raise ValidationError(f'Handles : {ah} is not a valid URL')
+        try:
+            roll_no = cleaned_data['roll_no']
+        except KeyError:
+            raise ValidationError("")
+
+        hacker_rank_username = cleaned_data.get('hacker_rank_username')
+        your_work = cleaned_data.get('your_work')
+        if hacker_rank_username:
+            pattern = re.compile("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$")
+            if not pattern.match(str(hacker_rank_username)):
+                return ValidationError("Invalid HackerRank Username")
+        
         if your_work:
             your_work = your_work.split(',')
             for link in your_work:
                 link = link.lstrip()
                 link = link.rstrip()
+
+                if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
+                    link = 'http://'+ link
                 try:
                     validate_url(link)
-                except:
+                except ValidationError:
                     raise ValidationError(f'Your work : {link} is not a valid URL')
  
-        regex_student = "^(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]";    
+        regex_student = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?";    
         pattern_student = re.compile(regex_student)
 
         if student_number:
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
-        regex_college_email= "^[a-zA-Z]+(17|18|19|20)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](\@akgec\.ac\.in)$"
+
+        regex_college_email= "^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](\@akgec\.ac\.in)$"
+
         pattern_college_email= re.compile(regex_college_email)
 
         if college_email:
             if not pattern_college_email.match(str(college_email)):
                 raise ValidationError("Invalid College Email")
 
-        regex_contact= "^[56789]\d{9}$"
-        pattern_contact=re.compile(regex_contact)
+        regex_phone= "^[56789]\d{9}$"
+        pattern_phone=re.compile(regex_phone)
 
-        if contact:
-            if not pattern_contact.match(str(contact)):
-                raise ValidationError("Invalid contact")
+        if phone:
+            if not pattern_phone.match(str(phone)):
+                raise ValidationError("Invalid phone")
+        if whatsapp:
+            if not pattern_phone.match(str(whatsapp)):
+                raise ValidationError("Invalid Whatsapp number")
 
+        regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
+        pattern_roll_no = re.compile(regex_roll_no)
+
+        if not pattern_roll_no.match(str(roll_no)):
+            raise ValidationError("Invalid Roll No. ")
 
         event = Event.objects.filter(active=True).first()
-
-        if Registration.objects.filter(college_email=college_email, event=event, student_number=student_number).exists():
-            raise ValidationError('Registration with this student number and email already exist.')
+        if Registration.objects.filter(college_email=college_email, event=event).exists():
+            raise ValidationError('Registration with this email already exist.')
         elif Registration.objects.filter(student_number=student_number, event=event).exists():
             raise ValidationError('Registration with this student number already exist.')
-        elif Registration.objects.filter(college_email=college_email, event=event).exists():
-            raise ValidationError('Registration with this email already exist.')
-        elif Registration.objects.filter(contact=contact, event=event).exists():
-            raise ValidationError('Registration with this contact already exist.')
+        elif Registration.objects.filter(roll_no=roll_no, event=event).exists():
+            raise ValidationError('Registration with this roll number already exists.')
+        elif Registration.objects.filter(phone=phone, event=event).exists():
+            raise ValidationError('Registration with this phone already exist.')
+        elif Registration.objects.filter(whatsapp=whatsapp, event=event).exists():
+            raise ValidationError('Registration with this whatsapp number already exist.')
+
 
         return cleaned_data
 

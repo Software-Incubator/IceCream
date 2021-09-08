@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 import os
 import uuid
-
+from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.db import models
 from ckeditor.fields import RichTextField
@@ -141,7 +141,7 @@ class Project(models.Model):
 
 
 class Branch(models.Model):
-    name = models.CharField(max_length=5, null=False)
+    name = models.CharField(max_length=10, null=False)
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -176,29 +176,35 @@ def student_number_validator(value):
         )
 
 class Registration(models.Model):
-    
-    experience_choices = [
-        ('no','No Experience'),
-        ('beginner',"Beginner"),
-        ('intermediate','Intermediate'),
-        ('expert','Expert')
-    ]
+    # experience_choices = [
+    #     ('no','No Experience'),
+    #     ('beginner',"Beginner"),
+    #     ('intermediate','Intermediate'),
+    #     ('expert','Expert')
+    # ]
+
     name = models.CharField(max_length=100, null=False)
-    college_email = models.EmailField()
-    contact = models.CharField(max_length=10, unique=False , null=False)
-    student_number = models.CharField(max_length=7)
+    college_email = models.EmailField(unique=True)
+    roll_no = models.CharField(max_length=13, unique=True)
+    student_number = models.CharField(max_length=10, unique=True)
+    phone = models.CharField(max_length=10, unique=True , null=False)
     branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
-    year = models.ForeignKey('Year',default=1,on_delete=models.CASCADE)
+    gender = models.ForeignKey('Gender',default=1,related_name='registrations',on_delete=models.CASCADE)
+    year = models.ForeignKey('Year',default=2,on_delete=models.CASCADE)
+    domain = models.ForeignKey('Domain',default=1,related_name='registrations',on_delete=models.CASCADE)
+    skills = models.CharField(max_length=250,help_text='Skills like HTML, CSS, Java...')
+    hacker_rank_username = models.CharField(max_length=250,null=True,blank=True,help_text='Your HackerRank username. Please create an account on HackerRank.')
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
-    experience = models.CharField(choices=experience_choices,max_length=20,null=False,blank=False)
-    account_handles = models.CharField(max_length=500, blank=True)
-    about_yourself = models.TextField(max_length=500, blank=True)
-    why_attend = models.TextField(max_length=500, blank=True)
-    design_tools = models.TextField(max_length=500,default="",blank=True)
-    insta_improvement = models.TextField(blank=False,null=False)
-    your_work = models.TextField(blank=True,null=True)
-
+    your_work = models.TextField(blank=True,null=True,help_text='Links to your work or coding profiles.')
+    whatsapp = models.CharField(max_length=10, unique=True , null=False)
+    # experience = models.CharField(choices=experience_choices,max_length=20,null=False,blank=False)
+    # account_handles = models.CharField(max_length=500, blank=True)
+    # about_yourself = models.TextField(max_length=500, blank=True)
+    # why_attend = models.TextField(max_length=500, blank=True)
+    # design_tools = models.TextField(max_length=500,default="",blank=True)
+    # insta_improvement = models.TextField(blank=False,null=False)
+    
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.event = Event.objects.filter(active=True).first()
@@ -207,12 +213,6 @@ class Registration(models.Model):
     def __str__(self):
         return "{} || {} || {}".format(self.name, self.branch, str(self.year))
 
-    class Meta:
-        unique_together = ('student_number', 'event')
-
-
-    def __str__(self):
-        return "{} | {}".format(self.name, self.timestamp.date())
 
 class Domain(models.Model):
     name = models.CharField(max_length=100)
