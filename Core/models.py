@@ -176,7 +176,6 @@ def student_number_validator(value):
         )
 
 class Registration(models.Model):
-    
     # experience_choices = [
     #     ('no','No Experience'),
     #     ('beginner',"Beginner"),

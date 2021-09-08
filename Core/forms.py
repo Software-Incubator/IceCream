@@ -105,7 +105,7 @@ class RegistrationForm(forms.ModelForm):
                        'onblur': ''}
             )
         )
-        
+
         self.fields['your_work'] = forms.CharField(
             max_length=1000,required=False,
             widget=forms.TextInput(
@@ -174,6 +174,7 @@ class RegistrationForm(forms.ModelForm):
                        }
             )
         )
+
         self.fields['gender'] = forms.ModelChoiceField(
             queryset=Gender.objects.all(),
             initial=Gender.objects.all().first(),
@@ -224,6 +225,20 @@ class RegistrationForm(forms.ModelForm):
                        'name': 'Year'},
             ),
         )
+        self.fields['design_tools'] = forms.CharField(
+            required=False,
+            initial="",
+            label = "Names of designing tools you are familiar with(if any)?",
+            widget=forms.TextInput(
+            attrs={
+                'data-val': 'true',
+                'data-val-required': '*',
+                'id': 'design_tools',
+                'name': 'design_tools',
+                'type': 'text'
+                }
+            )
+        )
         
 
     def clean(self):
@@ -243,6 +258,7 @@ class RegistrationForm(forms.ModelForm):
             phone = cleaned_data['phone']
         except KeyError:
             raise ValidationError("")
+            
         try:
             whatsapp = cleaned_data['whatsapp']
         except KeyError:
@@ -265,6 +281,7 @@ class RegistrationForm(forms.ModelForm):
             for link in your_work:
                 link = link.lstrip()
                 link = link.rstrip()
+
                 if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
                     link = 'http://'+ link
                 try:
@@ -280,6 +297,7 @@ class RegistrationForm(forms.ModelForm):
                 raise ValidationError("Invalid Student Number")
 
         regex_college_email= "^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](\@akgec\.ac\.in)$"
+
         pattern_college_email= re.compile(regex_college_email)
 
         if college_email:
@@ -295,7 +313,6 @@ class RegistrationForm(forms.ModelForm):
         if whatsapp:
             if not pattern_phone.match(str(whatsapp)):
                 raise ValidationError("Invalid Whatsapp number")
-
 
         regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
         pattern_roll_no = re.compile(regex_roll_no)
@@ -314,6 +331,7 @@ class RegistrationForm(forms.ModelForm):
             raise ValidationError('Registration with this phone already exist.')
         elif Registration.objects.filter(whatsapp=whatsapp, event=event).exists():
             raise ValidationError('Registration with this whatsapp number already exist.')
+
 
         return cleaned_data
 
