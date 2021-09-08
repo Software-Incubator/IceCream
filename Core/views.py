@@ -38,6 +38,7 @@ class IndexView(View):
         members = Member.objects.filter(is_alumni=False).order_by('batch', 'name')
         if len(members) > 6:
             members_lists = [members[i * 6: i * 6 + 6] for i in range(int(len(members) / 6))]
+            i = int(len(members) / 6) - 1
             members_lists.append(members[i * 6 + 6:])
         else:
             members_lists = [members, ]
