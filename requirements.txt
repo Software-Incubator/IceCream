@@ -23,7 +23,7 @@ python-dotenv==0.19.0
 pytz==2021.1
 PyYAML==3.12
 requests==2.19.1
-sqlparse==0.4.1
+sqlparse==0.4.2
 tablib==3.0.0
 unicodecsv==0.14.1
 urllib3==1.23
