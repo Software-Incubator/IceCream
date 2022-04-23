@@ -129,21 +129,21 @@
                                 <span style="color: red" class='validationerror'>{{ form.student_number.errors }}</span>
                             </div>
                             <!-- Roll no. -->
-                            <div class="md-form">
+                            <!-- <div class="md-form">
                                 <i class="far fa-id-card prefix grey-text"></i>
                                 <input type="text" id="Roll_no" name="roll_no" class="form-control">
                                 <label for="Roll_no">Roll no.</label>
                                 <span id="roll_no_err" class='validationerror'>Invalid Roll Number </span>
                                 <span style="color: red" class='validationerror'>{{ form.roll_no.errors }}</span>
-                            </div>
+                            </div> -->
                             <!-- Skills -->
-                            <div class="md-form">
+                            <!-- <div class="md-form">
                                 <i class="fas fa-code prefix grey-text"></i>
                                 <input type="text" id="skills" name="skills" class="form-control">
                                 <label for="skills">Skills: HTML, CSS, Java...</label>
                                 <span id="skills_err" class='validationerror'>This field is required</span>
                                 <span style="color: red" class='validationerror'>{{ form.skills.errors }}</span>
-                            </div>
+                            </div> -->
                             <div class="md-form">
                             
                             <!--branch, year-->
@@ -165,8 +165,10 @@
                                     <!--choose year-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.year.label }}
-                                        <div class="hoverable">{{ form.year }}</div>
-                                        <span style="color: red" class='validationerror'>{{ form.year.errors }}</span>
+                                        <!-- <div class="hoverable">{{ form.year }}</div> -->
+                                        <input type="text" style="display: block; margin-top: 12px;" value="1st Year" disabled>
+                                        <span id="year_err" class='validationerror'>Invalid Year </span>
+                                        <span style="color: red" class='validationerror'>{ form.year.errors }}</span>
                                     </div>
                                     <!--choose experience-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
@@ -178,30 +180,30 @@
 
                                 <div class="row p-1">
                                     <!--choose domain-->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.domain.label }}
                                         <div class="hoverable">{{ form.domain }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.domain.errors }}</span>
-                                    </div> 
+                                    </div>  -->
                                 </div>
                             </div>
                             <!-- HackerRank Username -->
-                            <div class="md-form" id='hackerrank'>
+                            <!-- <div class="md-form" id='hackerrank'>
                                 <i class="fas fa-user prefix grey-text"></i>
                                 <input type="text" id="hacker_rank_username" name="hacker_rank_username" class="form-control">
                                 <label for="hacker_rank_username">HackerRank Username</label>
                                 <span id="hacker_rank_username_err" class='validationerror'>Invalid Username</span>
                                 <span style="color: red" class='validationerror'>{{ form.hacker_rank_username.errors }}</span>
-                            </div>
+                            </div> -->
                             
                             <!-- Your works -->
-                            <div class="md-form">
+                            <!-- <div class="md-form">
                                 <i class="fas fa-link prefix grey-text"></i>
                                 <input type="text" id="your_work" name="your_work" class="form-control">
                                 <label class="long_text_label_link" for="your_work">Link to Your work or coding profiles (if any)</label>
                                 <span id="your_work_err" class='validationerror'>Invalid Links</span>
                                 <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
-                            </div>
+                            </div> -->
                             
                             <!--Captcha--><center>
 
@@ -443,7 +445,10 @@
                 }
                 // var regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
-                var regex = new RegExp(/^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/);
+                // var regex = new RegExp(/^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/);
+
+                // registrations for first year only
+                var regex = new RegExp(/^[a-zA-Z]+(21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/);
 
                 if (!regex.test($("#Email").val())) {
                     document.getElementById('email_err').innerHTML = "Invalid Email Id";
@@ -508,9 +513,29 @@
                     $( "#studentno_err" ).show();
                     return;
                 }
-                var regex = new RegExp("^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?$");
+                // var regex = new RegExp("^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?$");
+
+                //regex for registration for 1st year only
+                var regex = new RegExp("^(21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?$");
 
                 if (!regex.test($("#Student").val())) {
+                    document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
+                    $( "#studentno_err" ).show();
+                }
+
+                //Check if college email is empty
+                if($("#Email").val()==''){
+                    document.getElementById('email_err').innerHTML = "Email can't be blank";
+                    $( "#email_err" ).show();
+                    return;
+                }
+                //Student No. and Email Id's Student No. Validation
+                var regex_exp = $("#Student").val()
+                var regex_exp_email = `^[a-zA-Z]+(${regex_exp})@(\akgec.ac.in)$`
+                console.log(regex_exp_email)
+                var re = new RegExp(regex_exp_email);
+                // var re = new RegExp(`(${regex_exp})`)
+                if (!re.test($("#Email").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
                     $( "#studentno_err" ).show();
                 }
@@ -604,6 +629,30 @@
             }
         });
         $("#your_work").attr('maxlength','1000');
+
+        $("#Branch").focusout(function (event) {
+            //Check if Student No. is blank
+            if($("#Student").val()==''){
+                    document.getElementById('studentno_err').innerHTML = "Student no. can't be blank";
+                    $( "#studentno_err" ).show();
+                    return;
+                }
+            // console.log(event.target.value) // fetching the branch code
+            regex_exp = `(${event.target.value})`
+            var re = new RegExp(regex_exp)
+            //fetching the branch code from student no.
+            if (!re.test($("#Student").val().slice(2, 5))) {
+                    document.getElementById('studentno_err').innerHTML = "Branch Code doesn't match Student No.";
+                    $( "#studentno_err" ).show();
+                }
+        
+        $("#Branch").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#studentno_err" ).hide();
+            }
+        });
+        $("#Branch").attr('maxlength','1000');
+        }); 
     });
     
 </script>
@@ -667,22 +716,22 @@
         }
 
         // Roll no. validation
-        var roll_no =  document.getElementById('Roll_no').value;
-        if (roll_no == "") {
-            document.getElementById('roll_no_err').innerHTML = "Roll number cannot be empty";
-            document.getElementById('roll_no_err').style.display = "block";
-            return false;
-        }else {
-            regex_string = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
+        // var roll_no =  document.getElementById('Roll_no').value;
+        // if (roll_no == "") {
+        //     document.getElementById('roll_no_err').innerHTML = "Roll number cannot be empty";
+        //     document.getElementById('roll_no_err').style.display = "block";
+        //     return false;
+        // }else {
+        //     regex_string = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
 
-        var re = new RegExp(regex_string);
-            if(!re.test(roll_no)){
-                document.getElementById('studentno_err').innerHTML = "Roll number is not valid";
-                document.getElementById('studentno_err').style.display = "block";
+        // var re = new RegExp(regex_string);
+        //     if(!re.test(roll_no)){
+        //         document.getElementById('studentno_err').innerHTML = "Roll number is not valid";
+        //         document.getElementById('studentno_err').style.display = "block";
 
-                return false;
-            }
-        }
+        //         return false;
+        //     }
+        // }
 
         // Phone number validation
         var phone = document.getElementById('Phone').value;
@@ -716,45 +765,45 @@
         }
 
         // Skills Validation
-        var skills= document.getElementById('skills').value.trimEnd().trimStart();
-        if (skills == "") {
-            document.getElementById('skills_err').innerHTML = "This field can't be empty";
-            document.getElementById('skills_err').style.display = "block";
-            return false;
-        }
-        // HackerRank Username Validation
-        var hacker_rank_username = document.getElementById('hacker_rank_username').value;
-        var domain = document.getElementById('domain').value;
+        // var skills= document.getElementById('skills').value.trimEnd().trimStart();
+        // if (skills == "") {
+        //     document.getElementById('skills_err').innerHTML = "This field can't be empty";
+        //     document.getElementById('skills_err').style.display = "block";
+        //     return false;
+        // }
+        // // HackerRank Username Validation
+        // var hacker_rank_username = document.getElementById('hacker_rank_username').value;
+        // var domain = document.getElementById('domain').value;
       
-        if(domain!=2){
-            if (hacker_rank_username == "") {
-                document.getElementById('hacker_rank_username_err').innerHTML = "This field can't be empty";
-                document.getElementById('hacker_rank_username_err').style.display = "block";
-                return false;
-            }else{
-                var regex =  new RegExp("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$");
-                if (!regex.test(hacker_rank_username)) {
-                    document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
-                    document.getElementById('hacker_rank_username_err').style.display = "block";
-                    return false;
-                }
-            }
-        }
+        // if(domain!=2){
+        //     if (hacker_rank_username == "") {
+        //         document.getElementById('hacker_rank_username_err').innerHTML = "This field can't be empty";
+        //         document.getElementById('hacker_rank_username_err').style.display = "block";
+        //         return false;
+        //     }else{
+        //         var regex =  new RegExp("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$");
+        //         if (!regex.test(hacker_rank_username)) {
+        //             document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
+        //             document.getElementById('hacker_rank_username_err').style.display = "block";
+        //             return false;
+        //         }
+        //     }
+        // }
         
         // Your work links Validation
-        var your_work= document.getElementById('your_work').value;
-        if (your_work != ""){
-            handles = your_work.split(",");
-            for(var i=0;i<handles.length;i++){
-                h = handles[i].trimEnd();
-                h = h.trimStart();
-                if(!(isValidHttpUrl(h))){
-                    document.getElementById('your_work_err').innerHTML = h + " is not a valid URL";
-                    document.getElementById('your_work_err').style.display = "block";
-                    return false;
-                }
-            }
-        }
+        // var your_work= document.getElementById('your_work').value;
+        // if (your_work != ""){
+        //     handles = your_work.split(",");
+        //     for(var i=0;i<handles.length;i++){
+        //         h = handles[i].trimEnd();
+        //         h = h.trimStart();
+        //         if(!(isValidHttpUrl(h))){
+        //             document.getElementById('your_work_err').innerHTML = h + " is not a valid URL";
+        //             document.getElementById('your_work_err').style.display = "block";
+        //             return false;
+        //         }
+        //     }
+        // }
 
         // Captcha Validation
         var v = grecaptcha.getResponse();

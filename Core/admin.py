@@ -19,7 +19,7 @@ class EventAdmin(admin.ModelAdmin):
 
 
 class BranchAdmin(admin.ModelAdmin):
-    list_display = ('name', 'active')
+    list_display = ('name', 'active', 'code')
 
 
 class YearAdmin(admin.ModelAdmin):
