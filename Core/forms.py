@@ -327,13 +327,12 @@ class RegistrationForm(forms.ModelForm):
         if whatsapp:
             if not pattern_phone.match(str(whatsapp)):
                 raise ValidationError("Invalid Whatsapp number")
-
         # Check if branch code matches that of student no.
         student_number_branch_code = str(student_number)[2:5]
         pattern_branch_code = re.compile(f"({branch_code})")
         if branch_code:
             if not pattern_branch_code.match(student_number_branch_code):   
-                raise ValidationError("Invalid Student No.")
+                raise ValidationError("Student No. doesn't match that of branch code")
 
         # regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
         # pattern_roll_no = re.compile(regex_roll_no)
