@@ -71,14 +71,13 @@ class ContactUsForm(forms.ModelForm):
 
 class RegistrationForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaWidget())
-
     class Meta:
         model = Registration
         fields = [
-                    'name', 'phone','your_work','college_email','whatsapp',
+                    'name', 'phone','your_work','college_email',
                     'student_number','branch','year','roll_no',
                     'gender','domain','skills','hacker_rank_username',
-                    'captcha'
+                    'captcha', 'is_hosteler'
                 ]
 
     def __init__(self, *args, **kwargs):
@@ -130,7 +129,7 @@ class RegistrationForm(forms.ModelForm):
             )
         )
         self.fields['whatsapp'] = forms.CharField(
-            required=True,
+            required=False,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'name': 'whatsapp',
@@ -240,6 +239,21 @@ class RegistrationForm(forms.ModelForm):
                 }
             )
         )
+        TRUE_FALSE_CHOICES = (
+        (True, 'Yes'),
+        (False, 'No')
+        )
+        self.fields['is_hosteler'] = forms.ChoiceField(
+            choices = TRUE_FALSE_CHOICES, label="Hosteler?", 
+                initial='',widget=forms.Select(
+                attrs={'class': 'form-control',
+                       'data-val': 'true',
+                       'data-val-required': '*',
+                       'id': 'Year',
+                       'name': 'Year'},
+            ), 
+            required=True
+            )
         
 
     def clean(self):
@@ -260,10 +274,10 @@ class RegistrationForm(forms.ModelForm):
         except KeyError:
             raise ValidationError("")
             
-        try:
-            whatsapp = cleaned_data['whatsapp']
-        except KeyError:
-            raise ValidationError("")
+        # try:
+        #     whatsapp = cleaned_data['whatsapp']
+        # except KeyError:
+        #     raise ValidationError("")
 
         try:
             branch = cleaned_data['branch']
@@ -300,7 +314,7 @@ class RegistrationForm(forms.ModelForm):
         # regex_student = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?";
 
         # registration for first year only
-        regex_student = "^(21)(((11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9])|((153|154|164)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$";    
+        regex_student = "^(21)(((11|12|14|10|13|00|31|21|32|40|153)[0-9][0-9][0-9])|((154|164)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$";    
         pattern_student = re.compile(regex_student)
 
         if student_number:
@@ -324,15 +338,17 @@ class RegistrationForm(forms.ModelForm):
         if phone:
             if not pattern_phone.match(str(phone)):
                 raise ValidationError("Invalid phone")
-        if whatsapp:
-            if not pattern_phone.match(str(whatsapp)):
-                raise ValidationError("Invalid Whatsapp number")
-        # Check if branch code matches that of student no.
+        # if whatsapp:
+        #     if not pattern_phone.match(str(whatsapp)):
+        #         raise ValidationError("Invalid Whatsapp number")
+        # Check if branch code matches that of student number
+        
+        # Check if branch code is contained in student number
         student_number_branch_code = str(student_number)[2:5]
-        pattern_branch_code = re.compile(f"({branch_code})")
+        pattern_branch_code = re.compile(f"^({branch_code})")
         if branch_code:
             if not pattern_branch_code.match(student_number_branch_code):   
-                raise ValidationError("Student No. doesn't match that of branch code")
+                raise ValidationError("Student Number doesn't match that of branch code")
 
         # regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
         # pattern_roll_no = re.compile(regex_roll_no)
@@ -344,13 +360,13 @@ class RegistrationForm(forms.ModelForm):
         if Registration.objects.filter(college_email=college_email, event=event).exists():
             raise ValidationError('Registration with this email already exist.')
         elif Registration.objects.filter(student_number=student_number, event=event).exists():
-            raise ValidationError('Registration with this student number already exist.')
+            raise ValidationError('Registration with this Student Number already exist.')
         # elif Registration.objects.filter(roll_no=roll_no, event=event).exists():
         #     raise ValidationError('Registration with this roll number already exists.')
         elif Registration.objects.filter(phone=phone, event=event).exists():
             raise ValidationError('Registration with this phone already exist.')
-        elif Registration.objects.filter(whatsapp=whatsapp, event=event).exists():
-            raise ValidationError('Registration with this whatsapp number already exist.')
+        # elif Registration.objects.filter(whatsapp=whatsapp, event=event).exists():
+        #     raise ValidationError('Registration with this whatsapp number already exist.')
 
 
         return cleaned_data

@@ -160,7 +160,7 @@ class RegistrationView(FormView):
 
                 mail.send()
             messages.add_message(request, messages.SUCCESS,
-                                 "Please check your email")
+                                 "Please check your email.")
             return redirect(reverse_lazy('registration'))
         else:
             if '__all__' in dict(form.errors):
