@@ -3,14 +3,17 @@ from django.urls import reverse_lazy
 from .models import ContactUs, Registration, Branch, Year, Gender, Event,AlumniRegistration,Domain
 from django.core.validators import RegexValidator
 from django.forms import ValidationError
-from snowpenguin.django.recaptcha2.fields import ReCaptchaField
-from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+# from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+# from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+from captcha.fields import ReCaptchaField
+# from captcha.widgets import ReCaptchaV2Checkbox
 from django.core.validators import URLValidator 
-import datetime
+from django.core.exceptions import ObjectDoesNotExist
 import re
 validate_url = URLValidator()
 class ContactUsForm(forms.ModelForm):
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    # captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    captcha = ReCaptchaField()
 
     class Meta:
         model = ContactUs
@@ -70,15 +73,16 @@ class ContactUsForm(forms.ModelForm):
     )
 
 class RegistrationForm(forms.ModelForm):
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    #captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    captcha = ReCaptchaField()
 
     class Meta:
         model = Registration
         fields = [
-                    'name', 'phone','your_work','college_email','whatsapp',
+                    'name', 'phone','your_work','college_email',
                     'student_number','branch','year','roll_no',
-                    'gender','domain','skills','hacker_rank_username',
-                    'captcha'
+                    'gender','domain','skills','hacker_rank_username', 'captcha',
+                     'is_hosteler'
                 ]
 
     def __init__(self, *args, **kwargs):
@@ -130,7 +134,7 @@ class RegistrationForm(forms.ModelForm):
             )
         )
         self.fields['whatsapp'] = forms.CharField(
-            required=True,
+            required=False,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'name': 'whatsapp',
@@ -152,7 +156,7 @@ class RegistrationForm(forms.ModelForm):
             )
         )
         self.fields['roll_no'] = forms.CharField(
-            required=True,
+            required=False,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'class': 'form-control',
@@ -164,6 +168,7 @@ class RegistrationForm(forms.ModelForm):
         self.fields['branch'] = forms.ModelChoiceField(
             queryset=Branch.objects.filter(active=True).order_by('name'),
             initial=Branch.objects.filter(active=True).order_by('name').first(),
+            to_field_name="code",
             required=True,
             widget=forms.Select(
                 attrs={'class': 'form-control',
@@ -191,7 +196,7 @@ class RegistrationForm(forms.ModelForm):
         self.fields['domain'] = forms.ModelChoiceField(
             queryset=Domain.objects.all(),
             initial=Domain.objects.all().first(),
-            required=True,
+            required=False,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',
@@ -203,7 +208,7 @@ class RegistrationForm(forms.ModelForm):
         )
 
         self.fields['skills'] = forms.CharField(
-            required=True,
+            required=False,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'name': 'skills',
@@ -216,7 +221,7 @@ class RegistrationForm(forms.ModelForm):
         self.fields['year'] = forms.ModelChoiceField(
             queryset=Year.objects.filter(active=True),
             initial=Year.objects.filter(active=True).first(),
-            required=True,
+            required=False,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',
@@ -239,6 +244,21 @@ class RegistrationForm(forms.ModelForm):
                 }
             )
         )
+        TRUE_FALSE_CHOICES = (
+        (True, 'Yes'),
+        (False, 'No')
+        )
+        self.fields['is_hosteler'] = forms.ChoiceField(
+            choices = TRUE_FALSE_CHOICES, label="Hosteler?", 
+                initial='',widget=forms.Select(
+                attrs={'class': 'form-control',
+                       'data-val': 'true',
+                       'data-val-required': '*',
+                       'id': 'Year',
+                       'name': 'Year'},
+            ), 
+            required=True
+            )
         
 
     def clean(self):
@@ -259,50 +279,65 @@ class RegistrationForm(forms.ModelForm):
         except KeyError:
             raise ValidationError("")
             
-        try:
-            whatsapp = cleaned_data['whatsapp']
-        except KeyError:
-            raise ValidationError("")
+        # try:
+        #     whatsapp = cleaned_data['whatsapp']
+        # except KeyError:
+        #     raise ValidationError("")
 
         try:
-            roll_no = cleaned_data['roll_no']
-        except KeyError:
+            branch = cleaned_data['branch']
+            branch_code = Branch.objects.get(name=branch).code
+        except (KeyError, ObjectDoesNotExist):
             raise ValidationError("")
 
-        hacker_rank_username = cleaned_data.get('hacker_rank_username')
-        your_work = cleaned_data.get('your_work')
-        if hacker_rank_username:
-            pattern = re.compile("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$")
-            if not pattern.match(str(hacker_rank_username)):
-                return ValidationError("Invalid HackerRank Username")
+        # try:
+        #     roll_no = cleaned_data['roll_no']
+        # except KeyError:
+        #     raise ValidationError("")
+
+
+        # hacker_rank_username = cleaned_data.get('hacker_rank_username')
+        # your_work = cleaned_data.get('your_work')
+        # if hacker_rank_username:
+        #     pattern = re.compile("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$")
+        #     if not pattern.match(str(hacker_rank_username)):
+        #         return ValidationError("Invalid HackerRank Username")
         
-        if your_work:
-            your_work = your_work.split(',')
-            for link in your_work:
-                link = link.lstrip()
-                link = link.rstrip()
+        # if your_work:
+        #     your_work = your_work.split(',')
+        #     for link in your_work:
+        #         link = link.lstrip()
+        #         link = link.rstrip()
 
-                if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
-                    link = 'http://'+ link
-                try:
-                    validate_url(link)
-                except ValidationError:
-                    raise ValidationError(f'Your work : {link} is not a valid URL')
+        #         if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
+        #             link = 'http://'+ link
+        #         try:
+        #             validate_url(link)
+        #         except ValidationError:
+        #             raise ValidationError(f'Your work : {link} is not a valid URL')
  
-        regex_student = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?";    
+        # regex_student = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?";
+
+        # registration for first year only
+        regex_student = "^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154|164)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$";    
         pattern_student = re.compile(regex_student)
 
         if student_number:
             if not pattern_student.match(str(student_number)):
                 raise ValidationError("Invalid Student Number")
 
-        regex_college_email= "^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](\@akgec\.ac\.in)$"
+        # regex_college_email= "^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](\@akgec\.ac\.in)$"
 
-        pattern_college_email= re.compile(regex_college_email)
+        # Check if college email contains the student number
+        regex_college_email1= f"^[a-zA-Z]+({str(student_number)})(\@akgec\.ac\.in)$"
+        regex_college_email2= "^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154)[0-9][0-9]))(\@akgec.ac.in)$"
+        pattern_college_email1= re.compile(regex_college_email1)
+        pattern_college_email2= re.compile(regex_college_email2)
 
         if college_email:
-            if not pattern_college_email.match(str(college_email)):
-                raise ValidationError("Invalid College Email")
+            if not pattern_college_email1.match(str(college_email)):
+                if not pattern_college_email2.match(str(college_email)):
+                    raise ValidationError("Invalid College Email")
 
         regex_phone= "^[56789]\d{9}$"
         pattern_phone=re.compile(regex_phone)
@@ -310,27 +345,35 @@ class RegistrationForm(forms.ModelForm):
         if phone:
             if not pattern_phone.match(str(phone)):
                 raise ValidationError("Invalid phone")
-        if whatsapp:
-            if not pattern_phone.match(str(whatsapp)):
-                raise ValidationError("Invalid Whatsapp number")
+        # if whatsapp:
+        #     if not pattern_phone.match(str(whatsapp)):
+        #         raise ValidationError("Invalid Whatsapp number")
+        # Check if branch code matches that of student number
+        
+        # Check if branch code is contained in student number
+        student_number_branch_code = str(student_number)[2:5]
+        pattern_branch_code = re.compile(f"^({branch_code})")
+        if branch_code:
+            if not pattern_branch_code.match(student_number_branch_code):   
+                raise ValidationError("Student Number doesn't match that of branch code")
 
-        regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
-        pattern_roll_no = re.compile(regex_roll_no)
+        # regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
+        # pattern_roll_no = re.compile(regex_roll_no)
 
-        if not pattern_roll_no.match(str(roll_no)):
-            raise ValidationError("Invalid Roll No. ")
+        # if not pattern_roll_no.match(str(roll_no)):
+        #     raise ValidationError("Invalid Roll No. ")
 
         event = Event.objects.filter(active=True).first()
         if Registration.objects.filter(college_email=college_email, event=event).exists():
             raise ValidationError('Registration with this email already exist.')
         elif Registration.objects.filter(student_number=student_number, event=event).exists():
-            raise ValidationError('Registration with this student number already exist.')
-        elif Registration.objects.filter(roll_no=roll_no, event=event).exists():
-            raise ValidationError('Registration with this roll number already exists.')
+            raise ValidationError('Registration with this Student Number already exist.')
+        # elif Registration.objects.filter(roll_no=roll_no, event=event).exists():
+        #     raise ValidationError('Registration with this roll number already exists.')
         elif Registration.objects.filter(phone=phone, event=event).exists():
             raise ValidationError('Registration with this phone already exist.')
-        elif Registration.objects.filter(whatsapp=whatsapp, event=event).exists():
-            raise ValidationError('Registration with this whatsapp number already exist.')
+        # elif Registration.objects.filter(whatsapp=whatsapp, event=event).exists():
+        #     raise ValidationError('Registration with this whatsapp number already exist.')
 
 
         return cleaned_data
@@ -340,7 +383,8 @@ class RegistrationAlumni(forms.ModelForm):
 
     phone_regex = RegexValidator(regex=r"^[56789]\d{9}$")
     contact_no = forms.CharField(validators=[phone_regex], max_length=10, required=False)
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    # captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    captcha = ReCaptchaField()
 
     class Meta:
         model = AlumniRegistration

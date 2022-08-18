@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'Core',
     'ckeditor',
     'import_export',
-    'snowpenguin.django.recaptcha2',
+   'snowpenguin.django.recaptcha2',
+	'captcha',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,4 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 RECEIVER_EMAIL = os.environ['RECEIVER_EMAIL']
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ['SENDER_EMAIL']
+ADMINS = [('Nidhi', 'nidhisharmacsit@gmail.com'),]
