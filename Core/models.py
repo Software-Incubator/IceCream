@@ -64,7 +64,7 @@ class ContactUs(models.Model):
     contact = models.BigIntegerField()
     email = models.EmailField(max_length=50)
     subject = models.CharField(max_length=255)
-    message = models.CharField(max_length=500)
+    message = models.CharField(max_length=5000)
 
     def __str__(self):
         return self.name
@@ -143,6 +143,7 @@ class Project(models.Model):
 class Branch(models.Model):
     name = models.CharField(max_length=10, null=False)
     active = models.BooleanField(default=True)
+    code = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
@@ -185,19 +186,28 @@ class Registration(models.Model):
 
     name = models.CharField(max_length=100, null=False)
     college_email = models.EmailField(unique=True)
-    roll_no = models.CharField(max_length=13, unique=True)
+    # roll_no = models.CharField(max_length=13,default="123")
+    #changing just for first year registration
+    roll_no = models.CharField(max_length=13, null=True)
     student_number = models.CharField(max_length=10, unique=True)
-    phone = models.CharField(max_length=10, unique=True , null=False)
+    phone = models.CharField(max_length=10, null=False)
     branch = models.ForeignKey('Branch',on_delete=models.CASCADE)
     gender = models.ForeignKey('Gender',default=1,related_name='registrations',on_delete=models.CASCADE)
-    year = models.ForeignKey('Year',default=2,on_delete=models.CASCADE)
-    domain = models.ForeignKey('Domain',default=1,related_name='registrations',on_delete=models.CASCADE)
-    skills = models.CharField(max_length=250,help_text='Skills like HTML, CSS, Java...')
+    # year = models.ForeignKey('Year',default=2,on_delete=models.CASCADE)
+    # domain = models.ForeignKey('Domain',default=1,related_name='registrations',on_delete=models.CASCADE)
+     # Default Year is 1 for SI Workshop
+    year = models.ForeignKey('Year',default=1,on_delete=models.CASCADE)
+    # Registration for workshop doesn't require Domain so Null=True
+    domain = models.ForeignKey('Domain',related_name='registrations',on_delete=models.CASCADE, null=True)
+    skills = models.CharField(max_length=250,default="HTML",help_text='Skills like HTML, CSS, Java...')
     hacker_rank_username = models.CharField(max_length=250,null=True,blank=True,help_text='Your HackerRank username. Please create an account on HackerRank.')
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
     your_work = models.TextField(blank=True,null=True,help_text='Links to your work or coding profiles.')
-    whatsapp = models.CharField(max_length=10, unique=True , null=False)
+    is_hosteler = models.BooleanField(default=False)
+    mail_sent_status = models.BooleanField(default=False)
+    is_paid = models.BooleanField(default=False)
+    # whatsapp = models.CharField(max_length=10, default="9999999999", null=False)
     # experience = models.CharField(choices=experience_choices,max_length=20,null=False,blank=False)
     # account_handles = models.CharField(max_length=500, blank=True)
     # about_yourself = models.TextField(max_length=500, blank=True)

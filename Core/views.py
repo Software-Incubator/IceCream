@@ -122,7 +122,8 @@ class RegistrationView(FormView):
 
         if form.is_valid():
             event_receiver_email = form.cleaned_data['college_email']
-            form.save()
+            person = form.cleaned_data['name']
+            registration = form.save()
 
             allowed = False
 
@@ -136,13 +137,14 @@ class RegistrationView(FormView):
                 all_files = EmailAttachment.objects.filter(event=self.event)
 
                 subject = content.subject
-                message = render_to_string('event_email_template.html', {
+                message = render_to_string('registration-response-email.html', {
                     'content': content,
                     'event': self.event,
+                    'name': person,
                 })
                 
                 from_mail = EMAIL_HOST_USER
-                
+                # to_mail = ['ankit1911006@akgec.ac.in']
                 to_mail = [event_receiver_email]
 
                 mail = EmailMessage(subject, message, from_mail, to_mail)
@@ -157,10 +159,17 @@ class RegistrationView(FormView):
                 for single_file in all_files:
                     mail.attach(filename=single_file.name,
                                 content=single_file.files.read())
-
-                mail.send()
+                #adding mail sent status
+                try:
+                    mail.send(fail_silently=False)
+                    registration.mail_sent_status = True
+                    registration.save()
+                except:
+                    pass
+                
+                ##############
             messages.add_message(request, messages.SUCCESS,
-                                 "Please check your email")
+                                 "Please check your email.")
             return redirect(reverse_lazy('registration'))
         else:
             if '__all__' in dict(form.errors):
@@ -245,3 +254,19 @@ def view500(request):
     error_code = 500
     error_message = 'Internal Server Error'
     return render(request, '404.html', {'error_code':error_code, 'error_message':error_message})
+
+
+class EmailTemplatesView(View):
+    template_name = "registration-response-email.html"
+
+    def get(self, request, *args, **kwargs):
+        event_id = request.GET.get('event')
+        event = get_object_or_404(Event, id=event_id)
+        content = EmailContent.objects.get(event=event)
+        subject = content.subject
+        ctx = {
+            'content': content,
+            'event': event,
+            'name': "Utkarsh",
+        }
+        return render(request, self.template_name, ctx )
