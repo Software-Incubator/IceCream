@@ -156,7 +156,7 @@ class RegistrationForm(forms.ModelForm):
             )
         )
         self.fields['roll_no'] = forms.CharField(
-            required=False,
+            required=True,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'class': 'form-control',

@@ -129,21 +129,21 @@
                                 <span style="color: red" class='validationerror'>{{ form.whatsapp.errors }}</span>
                             </div> -->
                             <!-- Roll no. -->
-                            <!-- <div class="md-form">
+                            <div class="md-form">
                                 <i class="far fa-id-card prefix grey-text"></i>
                                 <input type="text" id="Roll_no" name="roll_no" class="form-control">
                                 <label for="Roll_no">Roll no.</label>
                                 <span id="roll_no_err" class='validationerror'>Invalid Roll Number </span>
                                 <span style="color: red" class='validationerror'>{{ form.roll_no.errors }}</span>
-                            </div> -->
+                            </div>
                             <!-- Skills -->
-                            <!-- <div class="md-form">
+                            <div class="md-form">
                                 <i class="fas fa-code prefix grey-text"></i>
                                 <input type="text" id="skills" name="skills" class="form-control">
                                 <label for="skills">Skills: HTML, CSS, Java...</label>
                                 <span id="skills_err" class='validationerror'>This field is required</span>
                                 <span style="color: red" class='validationerror'>{{ form.skills.errors }}</span>
-                            </div> -->
+                            </div>
                             <div class="md-form">
                             
                             <!--branch, year-->
@@ -162,53 +162,81 @@
                                         <span style="color: red" class='validationerror'>{{ form.branch.errors }}</span>
                                     </div>
                                     <!-- choose Hosteler -->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.is_hosteler.label }}
                                         <div class="hoverable" >{{ form.is_hosteler }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.is_hosteler.errors }}</span>
-                                    </div>
+                                    </div> -->
                                     <!--choose year-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.year.label }}
                                         <!-- <div class="hoverable">{{ form.year }}</div> -->
-                                        <input type="text" style="display: block; margin-top: 12px;" value="1st Year" disabled>
+                                        <input type="text" style="display: block; margin-top: 12px;" value="2nd Year" disabled>
                                         <span id="year_err" class='validationerror'>Invalid Year </span>
                                         <span style="color: red" class='validationerror'>{ form.year.errors }}</span>
                                     </div>
+                                    
                                     <!--choose experience-->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.experience.label }}
                                         <div class="hoverable">{{ form.experience }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.experience.errors }}</span>
-                                    </div> 
+                                    </div>  -->
                                 </div>
 
                                 <div class="row p-1">
                                     <!--choose domain-->
-                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.domain.label }}
                                         <div class="hoverable">{{ form.domain }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.domain.errors }}</span>
-                                    </div>  -->
+                                    </div> 
                                 </div>
                             </div>
                             <!-- HackerRank Username -->
                             <!-- <div class="md-form" id='hackerrank'>
                                 <i class="fas fa-user prefix grey-text"></i>
-                                <input type="text" id="hacker_rank_username" name="hacker_rank_username" class="form-control">
-                                <label for="hacker_rank_username">HackerRank Username</label>
-                                <span id="hacker_rank_username_err" class='validationerror'>Invalid Username</span>
-                                <span style="color: red" class='validationerror'>{{ form.hacker_rank_username.errors }}</span>
+                                <input type="text" id="github_username" name="github_username" class="form-control">
+                                <label for="github_username">HackerRank Username</label>
+                                <span id="github_username_err" class='validationerror'>Invalid Username</span>
+                                <span style="color: red" class='validationerror'>{{ form.github_username.errors }}</span>
                             </div> -->
                             
+                            <!-- HackerRank Username -->
+                            <!-- <div class="md-form" id='hackerrank'>
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <input type="text" id="github_username" name="github_username" class="form-control">
+                                <label for="github_username">HackerRank Username</label>
+                                <span id="github_username_err" class='validationerror'>Invalid Username</span>
+                                <span style="color: red" class='validationerror'>{{ form.github_username.errors }}</span>
+                            </div> -->
+                            
+                            <!-- GitHub Username -->
+                            <div class="md-form" id='github'>
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <input type="text" id="github_username" name="github_username" class="form-control">
+                                <label for="github_username">Github Username</label>
+                                <span id="github_username_err" class='validationerror'>Invalid Username</span>
+                                <span style="color: red" class='validationerror'>{{ form.github_username.errors }}</span>
+                            </div>
+                            
+                            <!-- Behance Username -->
+                            <div class="md-form" id='behance'>
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <input type="text" id="behance_username" name="behance_username" class="form-control">
+                                <label for="behance_username">Behance Username</label>
+                                <span id="behance_username_err" class='validationerror'>Invalid Username</span>
+                                <span style="color: red" class='validationerror'>{{ form.behance_username.errors }}</span>
+                            </div>
+                            
                             <!-- Your works -->
-                            <!-- <div class="md-form">
+                            <div class="md-form">
                                 <i class="fas fa-link prefix grey-text"></i>
                                 <input type="text" id="your_work" name="your_work" class="form-control">
                                 <label class="long_text_label_link" for="your_work">Link to Your work or coding profiles (if any)</label>
                                 <span id="your_work_err" class='validationerror'>Invalid Links</span>
                                 <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
-                            </div> -->
+                            </div>
                             
                             <!--Captcha--><center>
                                 <div class="col-md-12" style="overflow: hidden;">
@@ -409,14 +437,22 @@
     
     $(document).ready(function () {
         $(".validationerror").hide();
-        if($("#domain").val()==2)
-            $('#hackerrank').hide();
+        if($("#domain").val()==1)
+            $('#behance').hide();
         $("#domain").change(function(){
-            if(this.value!=2)
-                $('#hackerrank').show();
+            if(this.value==1){
+                $('#github').show();
+                $('#behance').hide();
+            }
+            else if(this.value==2){
+                $('#behance').show();
+                $('#github').hide();
+            }
             else{
-                $('#hackerrank').hide();
-                $('#hacker_rank_username').val('');
+                $('#github').show();
+                $('#behance').show();
+                $('#github_username').val('');
+                $('#behance_username').val('');
             }
         });
         $("#Name").focusout(function (event) {
@@ -642,27 +678,51 @@
         });
         $("#skills").attr('maxlength','245');        
         
-        $("#hacker_rank_username").focusout(function (event) {
+
+        $("#github_username").focusout(function (event) {
             if (event.charCode!=0) {
-                if ($("#hacker_rank_username").val() == '') {
-                    document.getElementById('hacker_rank_username_err').innerHTML = "This field is required";
-                    $( "#hacker_rank_username_err" ).show();
+                if ($("#github_username").val() == '') {
+                    // document.getElementById('github_username_err').innerHTML = "This field is required";
+                    // $( "#github_username_err" ).show();
                     return;
                 }
-                var regex =  new RegExp("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$");
+                var regex =  new RegExp("^_*[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$");
                 if (!regex.test($(this).val())) {
-                    document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
-                    $( "#hacker_rank_username_err" ).show();
+                    document.getElementById('github_username_err').innerHTML = "This username is not valid";
+                    $( "#github_username_err" ).show();
                 }
             }
         });
-        $("#hacker_rank_username").focusin(function (event) {
+        $("#github_username").focusin(function (event) {
             if (event.charCode!=0) {
-                $( "#hacker_rank_username_err" ).hide();
+                $( "#github_username_err" ).hide();
             }
         });
-        $('#hacker_rank_username').attr('maxlength','100');
+        $('#github_username').attr('maxlength','100');
 
+        $("#behance_username").focusout(function (event) {
+            if (event.charCode!=0) {
+                if ($("#behance_username").val() == '') {
+                    // document.getElementById('behance_username_err').innerHTML = "This field is required";
+                    // $( "#behance_username_err" ).show();
+                    return;
+                }
+                var regex =  new RegExp("^_*[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$");
+                if (!regex.test($(this).val())) {
+                    document.getElementById('behance_username_err').innerHTML = "This username is not valid";
+                    $( "#behance_username_err" ).show();
+                }
+            }
+        });
+        $("#behance_username").focusin(function (event) {
+            if (event.charCode!=0) {
+                $( "#behance_username_err" ).hide();
+            }
+        });
+        $('#behance_username').attr('maxlength','100');
+
+
+        
         $("#your_work").focusout(function (event) {
             if (event.charCode!=0) {
                 if ($("#your_work").val() != '') {
@@ -847,19 +907,19 @@
         //     return false;
         // }
         // // HackerRank Username Validation
-        // var hacker_rank_username = document.getElementById('hacker_rank_username').value;
+        // var github_username = document.getElementById('github_username').value;
         // var domain = document.getElementById('domain').value;
       
         // if(domain!=2){
-        //     if (hacker_rank_username == "") {
-        //         document.getElementById('hacker_rank_username_err').innerHTML = "This field can't be empty";
-        //         document.getElementById('hacker_rank_username_err').style.display = "block";
+        //     if (github_username == "") {
+        //         document.getElementById('github_username_err').innerHTML = "This field can't be empty";
+        //         document.getElementById('github_username_err').style.display = "block";
         //         return false;
         //     }else{
         //         var regex =  new RegExp("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$");
-        //         if (!regex.test(hacker_rank_username)) {
-        //             document.getElementById('hacker_rank_username_err').innerHTML = "This username is not valid";
-        //             document.getElementById('hacker_rank_username_err').style.display = "block";
+        //         if (!regex.test(github_username)) {
+        //             document.getElementById('github_username_err').innerHTML = "This username is not valid";
+        //             document.getElementById('github_username_err').style.display = "block";
         //             return false;
         //         }
         //     }
