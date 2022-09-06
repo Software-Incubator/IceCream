@@ -238,12 +238,12 @@
                                 <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
                             </div>
                             
-                            <!--Captcha--><center>
+                            <!-- Captcha<center>
                                 <div class="col-md-12" style="overflow: hidden;">
                                     {{ form.captcha }}
                                     <span id="captcha_err" style="color: red">{{ form.captcha.errors }}</span>
                                 </div>
-                            </center>
+                            </center> -->
                             <!--button-->
                             <center style="color: red" id="already_exit">{{ alert }}</center>
                             <div class="text-center text-danger" id="status"></div>
@@ -707,7 +707,7 @@
                     // $( "#behance_username_err" ).show();
                     return;
                 }
-                var regex =  new RegExp("^_*[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$");
+                var regex =  new RegExp("^([A-Za-z0-9\-\_])*$");
                 if (!regex.test($(this).val())) {
                     document.getElementById('behance_username_err').innerHTML = "This username is not valid";
                     $( "#behance_username_err" ).show();
@@ -941,15 +941,16 @@
         // }
 
         // Captcha Validation
-       var v = grecaptcha.getResponse();
-       console.log(v);
-       if(v.length === 0)
-       {
-           document.getElementById('captcha_err').innerHTML="You can't leave Captcha Code empty";
-           document.getElementById('captcha_err').style.display = "block";
-           return false;
-        }
+    //    var v = grecaptcha.getResponse();
+    //    console.log(v);
+    //    if(v.length === 0)
+    //    {
+    //        document.getElementById('captcha_err').innerHTML="You can't leave Captcha Code empty";
+    //        document.getElementById('captcha_err').style.display = "block";
+    //        return false;
+    //     }
 
+        console.log("hi")
         document.getElementById('already_exit').innerHTML = "Sending...";
         document.getElementById('already_exit').style.color = "green";
         document.getElementById('contact-form').submit();
