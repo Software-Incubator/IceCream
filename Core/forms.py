@@ -202,7 +202,7 @@ class RegistrationForm(forms.ModelForm):
         self.fields['domain'] = forms.ModelChoiceField(
             queryset=Domain.objects.all(),
             initial=Domain.objects.all().first(),
-            required=False,
+            required=True,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',

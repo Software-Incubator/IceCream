@@ -18,12 +18,24 @@
     rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/0963438a4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{% static 'css/stylesheet_register.css' %}" rel="stylesheet">
    
    
     <style>
         .page-footer {
             background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
+        }
+        .long_text_label_link{
+            width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @media only screen and (max-width:410px){
+            .validationerror{
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -61,7 +73,7 @@
                                     {% for message in messages %}
                                     <span style="color: green">{{ message }}</span>
                                     {% endfor %}
-                                    <hr><span style="color: red"> NOTE: Your seat will be confirmed only on successful fee payment.</span>
+                                    <hr><span style="color: #0094ff"> Your registration is successful</span>
                                 </h4>
                             </div>
                         </div>
@@ -90,7 +102,7 @@
                             {% csrf_token %}
                             <!-- name -->
                             <div id="register-form" name="form" class="md-form mb-0">
-                                <i class="fa fa-user prefix grey-text"></i>
+                                <i class="fa-solid fa-user prefix grey-text"></i>
                                 <input type="text" id="Name" name="name" class="form-control">
                                 <label for="Name">Name</label>
                                 <span id="name_err" class='validationerror'>Invalid Name </span>
@@ -138,7 +150,7 @@
                             </div>
                             <!-- Skills -->
                             <div class="md-form">
-                                <i class="fas fa-code prefix grey-text"></i>
+                                <i class="fa-solid fa-code prefix grey-text"></i>
                                 <input type="text" id="skills" name="skills" class="form-control">
                                 <label for="skills">Skills: HTML, CSS, Java...</label>
                                 <span id="skills_err" class='validationerror'>This field is required</span>
@@ -162,11 +174,11 @@
                                         <span style="color: red" class='validationerror'>{{ form.branch.errors }}</span>
                                     </div>
                                     <!-- choose Hosteler -->
-                                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.is_hosteler.label }}
                                         <div class="hoverable" >{{ form.is_hosteler }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.is_hosteler.errors }}</span>
-                                    </div> -->
+                                    </div>
                                     <!--choose year-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.year.label }}
@@ -213,7 +225,7 @@
                             
                             <!-- GitHub Username -->
                             <div class="md-form" id='github'>
-                                <i class="fas fa-user prefix grey-text"></i>
+                                <i class="fa-brands fa-github prefix grey-text"></i>
                                 <input type="text" id="github_username" name="github_username" class="form-control">
                                 <label for="github_username">Github Username</label>
                                 <span id="github_username_err" class='validationerror'>Invalid Username</span>
@@ -222,7 +234,7 @@
                             
                             <!-- Behance Username -->
                             <div class="md-form" id='behance'>
-                                <i class="fas fa-user prefix grey-text"></i>
+                                <i class="fa-brands fa-square-behance prefix grey-text"></i>
                                 <input type="text" id="behance_username" name="behance_username" class="form-control">
                                 <label for="behance_username">Behance Username</label>
                                 <span id="behance_username_err" class='validationerror'>Invalid Username</span>
@@ -231,7 +243,7 @@
                             
                             <!-- Your works -->
                             <div class="md-form">
-                                <i class="fas fa-link prefix grey-text"></i>
+                                <i class="fa-solid fa-link prefix grey-text"></i>
                                 <input type="text" id="your_work" name="your_work" class="form-control">
                                 <label class="long_text_label_link" for="your_work">Link to Your work or coding profiles (if any)</label>
                                 <span id="your_work_err" class='validationerror'>Invalid Links</span>

@@ -9,8 +9,7 @@ from email.mime.image import MIMEImage
 # from django.core.urlresolvers import reverse_lazy
 
 from .forms import RegistrationForm, ContactUsForm, RegistrationAlumni
-from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, \
- EmailContent, EmailAttachment, AlumniRegistration
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, EmailContent, EmailAttachment, AlumniRegistration
 from IceCream.settings.base import RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
@@ -125,12 +124,13 @@ class RegistrationView(FormView):
             person = form.cleaned_data['name']
             registration = form.save()
 
-            allowed = False
+            # allowed = False
 
-            try:
-                allowed = (EmailContent.objects.get(event=self.event)).mail_allowed
-            except EmailContent.DoesNotExist:
-                pass
+            # try:
+            #     allowed = (EmailContent.objects.get(event=self.event)).mail_allowed
+            # except EmailContent.DoesNotExist:
+            #     pass
+            allowed = True
 
             if allowed:
                 content = EmailContent.objects.get(event=self.event)
