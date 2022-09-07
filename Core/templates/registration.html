@@ -26,12 +26,12 @@
         .page-footer {
             background: #1d1d1de7 url("{% static 'images/footer.svg' %}") repeat;
         }
-        .long_text_label_link{
+        /* .long_text_label_link{
             width: 80%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
+        } */
         @media only screen and (max-width:410px){
             .validationerror{
                 font-size: 12px;
@@ -245,7 +245,7 @@
                             <div class="md-form">
                                 <i class="fa-solid fa-link prefix grey-text"></i>
                                 <input type="text" id="your_work" name="your_work" class="form-control">
-                                <label class="long_text_label_link" for="your_work">Link to Your work or coding profiles (if any)</label>
+                                <label class="long_text_label_link" for="your_work">Link to your work or coding profiles (if any)</label>
                                 <span id="your_work_err" class='validationerror'>Invalid Links</span>
                                 <span style="color: red" class='validationerror'>{{ form.your_work.errors }}</span>
                             </div>
