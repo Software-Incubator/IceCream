@@ -451,9 +451,21 @@
     
     $(document).ready(function () {
         $(".validationerror").hide();
-        if($("#domain").val()==1)
+        
+        var test = $("#domain").val();
+        console.log(test);
+        if(test==1){
             $('#behance').hide();
-        $("#domain").change(function(){
+            $('#github').show();}
+        else if(test==2){
+            $('#github').hide();
+            $('#behance').show();}
+        else{
+            $('#github').show();
+            $('#behance').show();
+        }
+
+            $("#domain").change(function(){
             if(this.value==1){
                 $('#github').show();
                 $('#behance').hide();
