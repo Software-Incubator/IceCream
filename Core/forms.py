@@ -365,7 +365,7 @@ class RegistrationForm(forms.ModelForm):
         # regex_student = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?";
 
         # registration for first year only
-        regex_student = "^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154|164)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$";    
+        regex_student = "^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154|164)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$";    
         pattern_student = re.compile(regex_student)
 
         if student_number:
@@ -376,7 +376,7 @@ class RegistrationForm(forms.ModelForm):
 
         # Check if college email contains the student number
         regex_college_email1= f"^[a-zA-Z]+({str(student_number)})(\@akgec\.ac\.in)$"
-        regex_college_email2= "^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154)[0-9][0-9]))(\@akgec.ac.in)$"
+        regex_college_email2= "^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154)[0-9][0-9]))(\@akgec.ac.in)$"
         pattern_college_email1= re.compile(regex_college_email1)
         pattern_college_email2= re.compile(regex_college_email2)
 
@@ -403,7 +403,7 @@ class RegistrationForm(forms.ModelForm):
             if not pattern_branch_code.match(student_number_branch_code):   
                 raise ValidationError("Student Number doesn't match that of branch code")
 
-        # regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
+        # regex_roll_no = "^(21)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
         # pattern_roll_no = re.compile(regex_roll_no)
 
         # if not pattern_roll_no.match(str(roll_no)):
