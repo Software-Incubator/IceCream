@@ -9,8 +9,7 @@ from email.mime.image import MIMEImage
 # from django.core.urlresolvers import reverse_lazy
 
 from .forms import RegistrationForm, ContactUsForm, RegistrationAlumni
-from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, \
- EmailContent, EmailAttachment, AlumniRegistration
+from .models import Project, Member, ContactInfo, Blog, Event, ContactUs, Registration, EmailContent, EmailAttachment, AlumniRegistration
 from IceCream.settings.base import RECEIVER_EMAIL, EMAIL_HOST_USER
 
 import json
@@ -125,16 +124,17 @@ class RegistrationView(FormView):
             person = form.cleaned_data['name']
             registration = form.save()
 
-            allowed = False
+            # allowed = False
 
-            try:
-                allowed = (EmailContent.objects.get(event=self.event)).mail_allowed
-            except EmailContent.DoesNotExist:
-                pass
+            # try:
+            #     allowed = (EmailContent.objects.get(event=self.event)).mail_allowed
+            # except EmailContent.DoesNotExist:
+            #     pass
+            allowed = True
 
             if allowed:
                 content = EmailContent.objects.get(event=self.event)
-                all_files = EmailAttachment.objects.filter(event=self.event)
+                # all_files = EmailAttachment.objects.filter(event=self.event)
 
                 subject = content.subject
                 message = render_to_string('registration-response-email.html', {
@@ -147,6 +147,7 @@ class RegistrationView(FormView):
                 # to_mail = ['ankit1911006@akgec.ac.in']
                 to_mail = [event_receiver_email]
 
+                # mail = EmailMessage(subject, message, from_mail, to_mail)
                 mail = EmailMessage(subject, message, from_mail, to_mail)
                 mail.content_subtype = "html"
                 mail.mixed_subtype = 'related'
@@ -156,9 +157,9 @@ class RegistrationView(FormView):
                # event_image.add_header('Content-ID', '<{}>'.format(self.event.pic_path))
                # mail.attach(event_image)
 
-                for single_file in all_files:
-                    mail.attach(filename=single_file.name,
-                                content=single_file.files.read())
+                # for single_file in all_files:
+                #     mail.attach(filename=single_file.name,
+                #                 content=single_file.files.read())
                 #adding mail sent status
                 try:
                     mail.send(fail_silently=False)
@@ -166,6 +167,7 @@ class RegistrationView(FormView):
                     registration.save()
                 except:
                     pass
+                
                 
                 ##############
             messages.add_message(request, messages.SUCCESS,

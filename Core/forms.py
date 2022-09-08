@@ -73,16 +73,22 @@ class ContactUsForm(forms.ModelForm):
     )
 
 class RegistrationForm(forms.ModelForm):
-    #captcha = ReCaptchaField(widget=ReCaptchaWidget())
-    captcha = ReCaptchaField()
+    # captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    # captcha = ReCaptchaField()
 
     class Meta:
         model = Registration
+        # fields = [
+        #             'name', 'phone','your_work','college_email',
+        #             'student_number','branch','year','roll_no',
+        #             'gender','domain','skills','hacker_rank_username', 'github_username', 'behance_username', 'captcha',
+        #              'is_hosteler'
+        #         ]
+
         fields = [
                     'name', 'phone','your_work','college_email',
                     'student_number','branch','year','roll_no',
-                    'gender','domain','skills','hacker_rank_username', 'captcha',
-                     'is_hosteler'
+                    'gender','domain','skills', 'github_username', 'behance_username', 'is_hosteler'
                 ]
 
     def __init__(self, *args, **kwargs):
@@ -156,7 +162,7 @@ class RegistrationForm(forms.ModelForm):
             )
         )
         self.fields['roll_no'] = forms.CharField(
-            required=False,
+            required=True,
             widget=forms.TextInput(
                 attrs={'type': 'text',
                        'class': 'form-control',
@@ -196,7 +202,7 @@ class RegistrationForm(forms.ModelForm):
         self.fields['domain'] = forms.ModelChoiceField(
             queryset=Domain.objects.all(),
             initial=Domain.objects.all().first(),
-            required=False,
+            required=True,
             widget=forms.Select(
                 attrs={'class': 'form-control',
                        'data-val': 'true',
@@ -244,6 +250,31 @@ class RegistrationForm(forms.ModelForm):
                 }
             )
         )
+
+        self.fields['github_username'] = forms.CharField(
+            max_length=250, required=False,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'github_username',
+                       'class': 'form-control',
+                       'id': 'github_username',
+                       'placeholder': 'Enter Github username',
+                       'onblur': ''}
+            )
+        )
+
+        self.fields['behance_username'] = forms.CharField(
+            max_length=250, required=False,
+            widget=forms.TextInput(
+                attrs={'type': 'text',
+                       'name': 'behance_username',
+                       'class': 'form-control',
+                       'id': 'behance_username',
+                       'placeholder': 'Enter Behance username',
+                       'onblur': ''}
+            )
+        )
+
         TRUE_FALSE_CHOICES = (
         (True, 'Yes'),
         (False, 'No')
@@ -257,7 +288,7 @@ class RegistrationForm(forms.ModelForm):
                        'id': 'Year',
                        'name': 'Year'},
             ), 
-            required=True
+            required=False
             )
         
 
@@ -296,25 +327,40 @@ class RegistrationForm(forms.ModelForm):
         #     raise ValidationError("")
 
 
-        # hacker_rank_username = cleaned_data.get('hacker_rank_username')
-        # your_work = cleaned_data.get('your_work')
-        # if hacker_rank_username:
-        #     pattern = re.compile("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$")
-        #     if not pattern.match(str(hacker_rank_username)):
-        #         return ValidationError("Invalid HackerRank Username")
-        
-        # if your_work:
-        #     your_work = your_work.split(',')
-        #     for link in your_work:
-        #         link = link.lstrip()
-        #         link = link.rstrip()
+        hacker_rank_username = cleaned_data.get('hacker_rank_username')
+        github_username = cleaned_data.get('github_username')
+        behance_username = cleaned_data.get('behance_username')
 
-        #         if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
-        #             link = 'http://'+ link
-        #         try:
-        #             validate_url(link)
-        #         except ValidationError:
-        #             raise ValidationError(f'Your work : {link} is not a valid URL')
+        your_work = cleaned_data.get('your_work')
+        
+        if hacker_rank_username:
+            pattern = re.compile("^_*[a-zA-Z\\d]+[a-zA-z0-9]*$")
+            if not pattern.match(str(hacker_rank_username)):
+                return ValidationError("Invalid HackerRank Username")
+    
+        if github_username:
+            pattern = re.compile("^_*[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$")
+            if not pattern.match(str(github_username)):
+                return ValidationError("Invalid HackerRank Username")
+        
+        if behance_username:
+            pattern = re.compile("^([A-Za-z0-9\-\_])*$")
+            if not pattern.match(str(behance_username)):
+                return ValidationError("Invalid HackerRank Username")
+
+
+        if your_work:
+            your_work = your_work.split(',')
+            for link in your_work:
+                link = link.lstrip()
+                link = link.rstrip()
+
+                if (link[:7]).lower()!='http://' and link[:8].lower()!='https://':
+                    link = 'http://'+ link
+                try:
+                    validate_url(link)
+                except ValidationError:
+                    raise ValidationError(f'Your work : {link} is not a valid URL')
  
         # regex_student = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?";
 
@@ -357,7 +403,7 @@ class RegistrationForm(forms.ModelForm):
             if not pattern_branch_code.match(student_number_branch_code):   
                 raise ValidationError("Student Number doesn't match that of branch code")
 
-        # regex_roll_no = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
+        # regex_roll_no = "^(21)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$"
         # pattern_roll_no = re.compile(regex_roll_no)
 
         # if not pattern_roll_no.match(str(roll_no)):

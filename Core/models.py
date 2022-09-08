@@ -196,15 +196,18 @@ class Registration(models.Model):
     # year = models.ForeignKey('Year',default=2,on_delete=models.CASCADE)
     # domain = models.ForeignKey('Domain',default=1,related_name='registrations',on_delete=models.CASCADE)
      # Default Year is 1 for SI Workshop
-    year = models.ForeignKey('Year',default=1,on_delete=models.CASCADE)
+    year = models.ForeignKey('Year',default=2,on_delete=models.CASCADE)
     # Registration for workshop doesn't require Domain so Null=True
     domain = models.ForeignKey('Domain',related_name='registrations',on_delete=models.CASCADE, null=True)
     skills = models.CharField(max_length=250,default="HTML",help_text='Skills like HTML, CSS, Java...')
     hacker_rank_username = models.CharField(max_length=250,null=True,blank=True,help_text='Your HackerRank username. Please create an account on HackerRank.')
+    github_username = models.CharField(max_length=250,null=True,blank=True,help_text='Your Github username. Please create an account on Github.')
+    behance_username = models.CharField(max_length=250,null=True,blank=True,help_text='Your Behance username. Please create an account on Behance.')
+    
     timestamp = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey('Event',on_delete=models.CASCADE)
     your_work = models.TextField(blank=True,null=True,help_text='Links to your work or coding profiles.')
-    is_hosteler = models.BooleanField(default=False)
+    is_hosteler = models.BooleanField(default=False, blank=True)
     mail_sent_status = models.BooleanField(default=False)
     is_paid = models.BooleanField(default=False)
     # whatsapp = models.CharField(max_length=10, default="9999999999", null=False)
