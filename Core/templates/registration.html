@@ -173,12 +173,6 @@
                                         <div class="hoverable">{{ form.branch }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.branch.errors }}</span>
                                     </div>
-                                    <!-- choose Hosteler -->
-                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
-                                        {{ form.is_hosteler.label }}
-                                        <div class="hoverable" >{{ form.is_hosteler }}</div>
-                                        <span style="color: red" class='validationerror'>{{ form.is_hosteler.errors }}</span>
-                                    </div>
                                     <!--choose year-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.year.label }}
@@ -197,12 +191,20 @@
                                 </div>
 
                                 <div class="row p-1">
+                                    
                                     <!--choose domain-->
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
                                         {{ form.domain.label }}
                                         <div class="hoverable">{{ form.domain }}</div>
                                         <span style="color: red" class='validationerror'>{{ form.domain.errors }}</span>
                                     </div> 
+                                    <!-- choose Hosteler -->
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 p-1 ">
+                                        {{ form.is_hosteler.label }}
+                                        <div class="hoverable" >{{ form.is_hosteler }}</div>
+                                        <span style="color: red" class='validationerror'>{{ form.is_hosteler.errors }}</span>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <!-- HackerRank Username -->
@@ -661,7 +663,7 @@
                     $( "#roll_no_err" ).show();
                     return;
                 }
-                var regex = new RegExp("^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$");
+                var regex = new RegExp("^(21)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$");
                 if (!regex.test($("#Roll_no").val())) {
                     document.getElementById('roll_no_err').innerHTML = "Invalid Roll Number";
                     $( "#roll_no_err" ).show();
@@ -863,22 +865,22 @@
         }
 
         // Roll no. validation
-        // var roll_no =  document.getElementById('Roll_no').value;
-        // if (roll_no == "") {
-        //     document.getElementById('roll_no_err').innerHTML = "Roll number cannot be empty";
-        //     document.getElementById('roll_no_err').style.display = "block";
-        //     return false;
-        // }else {
-        //     regex_string = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
+        var roll_no =  document.getElementById('Roll_no').value;
+        if (roll_no == "") {
+            document.getElementById('roll_no_err').innerHTML = "Roll number cannot be empty";
+            document.getElementById('roll_no_err').style.display = "block";
+            return false;
+        }else {
+        
+        regex_string = "^(21)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
+        var re = new RegExp(regex_string);
+            if(!re.test(roll_no)){
+                document.getElementById('roll_no_err').innerHTML = "Roll number is not valid";
+                document.getElementById('roll_no_err').style.display = "block";
 
-        // var re = new RegExp(regex_string);
-        //     if(!re.test(roll_no)){
-        //         document.getElementById('studentno_err').innerHTML = "Roll number is not valid";
-        //         document.getElementById('studentno_err').style.display = "block";
-
-        //         return false;
-        //     }
-        // }
+                return false;
+            }
+        }
 
         // Phone number validation
         var phone = document.getElementById('Phone').value;
