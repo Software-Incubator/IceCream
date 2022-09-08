@@ -545,8 +545,8 @@
                 // var regex = new RegExp("^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?$");
 
                 //regex for registration for 1st year only
-                var regex = new RegExp("^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$");
-                // var regex = new RegExp("^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))?$");
+                var regex = new RegExp("^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$");
+                // var regex = new RegExp("^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))?$");
 
                 if (!regex.test($("#Student").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
@@ -564,8 +564,8 @@
                 //student number and Email Id's student number Validation
                 if($("#Email").val()!=''){
                     // Check if email is valid
-                    var regex = new RegExp(/^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154|164)[0-9][0-9]))@(\akgec.ac.in)$/);
-                    // var regex = new RegExp(/^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))@(\akgec.ac.in)$/);
+                    var regex = new RegExp(/^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154|164)[0-9][0-9]))@(\akgec.ac.in)$/);
+                    // var regex = new RegExp(/^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))@(\akgec.ac.in)$/);
                     if (!regex.test($("#Email").val())) {
                         document.getElementById('email_err').innerHTML = "Invalid Email Id";
                         $( "#email_err" ).show();
@@ -608,8 +608,8 @@
                 // var regex = new RegExp(/^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/);
 
                 // registrations for first year only
-                var regex = new RegExp(/^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154|164)[0-9][0-9]))@(\akgec.ac.in)$/);
-                // var regex = new RegExp(/^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))@(\akgec.ac.in)$/);
+                var regex = new RegExp(/^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154|164)[0-9][0-9]))@(\akgec.ac.in)$/);
+                // var regex = new RegExp(/^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))@(\akgec.ac.in)$/);
                 if (!regex.test($("#Email").val())) {
                     document.getElementById('email_err').innerHTML = "Invalid Email Id";
                     $( "#email_err" ).show();
@@ -623,8 +623,8 @@
                 }
                 
                 //regex for registration for 1st year only
-                var regex = new RegExp("^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$");
-                // var regex = new RegExp("^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))?$");
+                var regex = new RegExp("^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154)[0-9][0-9]))(d|D|)[-]?[mdlMDL]?$");
+                // var regex = new RegExp("^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))?$");
 
                 if (!regex.test($("#Student").val())) {
                     document.getElementById('studentno_err').innerHTML = "Invalid Student Number";
@@ -822,8 +822,8 @@
             // var re=/^[a-zA-Z]+(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9]@(\akgec.ac.in)$/;
             
             // First year Registration only
-            var re=/^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154|164)[0-9][0-9]))@(\akgec.ac.in)$/;
-            // var re=/^[a-zA-Z]+(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))@(\akgec.ac.in)$/;
+            var re=/^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|(x|X){3})[0-9][0-9][0-9])|((154|164)[0-9][0-9]))@(\akgec.ac.in)$/;
+            // var re=/^[a-zA-Z]+(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))@(\akgec.ac.in)$/;
             if(!re.test(email)){
                 document.getElementById('email_err').innerHTML = "Email is not valid";
                 document.getElementById('email_err').style.display = "block";
@@ -841,8 +841,8 @@
             // regex_string = "^(20|21)(15|11|12|14|10|13|00|31|21|32|40)[0-9][0-9][0-9](d|D|)[-]?[mdlMDL]?$";
             
             // First Year Registration only
-            regex_string = "^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154|164)[0-9][0-9]))$"
-            // regex_string = "^(21)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))$"
+            regex_string = "^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9])|((154|164)[0-9][0-9]))$"
+            // regex_string = "^(21|20)(((11|12|14|10|13|00|31|21|32|40|153|164)[0-9][0-9][0-9]))$"
             var re = new RegExp(regex_string);
             if(!re.test(student_no)){
                 document.getElementById('studentno_err').innerHTML = "Student number is not valid";
@@ -871,8 +871,8 @@
             document.getElementById('roll_no_err').style.display = "block";
             return false;
         }else {
-        var roll_no_regex = "^(21)00270[0-9]{6}$"
-        // regex_string = "^(21)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
+        var roll_no_regex = "^(21|20)00270[0-9]{6}$"
+        // regex_string = "^(21|20)00270(15|11|12|14|10|13|00|31|21|32|40)[0-9]{4}$";
         var re = new RegExp(roll_no_regex);
             if(!re.test(roll_no)){
                 document.getElementById('roll_no_err').innerHTML = "Roll number is not valid";

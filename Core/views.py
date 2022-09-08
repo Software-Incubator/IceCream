@@ -133,13 +133,13 @@ class RegistrationView(FormView):
             allowed = True
 
             if allowed:
-                # content = EmailContent.objects.get(event=self.event)
+                content = EmailContent.objects.get(event=self.event)
                 # all_files = EmailAttachment.objects.filter(event=self.event)
 
-                # subject = content.subject
+                subject = content.subject
                 message = render_to_string('registration-response-email.html', {
-                    # 'content': content,
-                    # 'event': self.event,
+                    'content': content,
+                    'event': self.event,
                     'name': person,
                 })
                 
@@ -148,7 +148,7 @@ class RegistrationView(FormView):
                 to_mail = [event_receiver_email]
 
                 # mail = EmailMessage(subject, message, from_mail, to_mail)
-                mail = EmailMessage(message, from_mail, to_mail)
+                mail = EmailMessage(subject, message, from_mail, to_mail)
                 mail.content_subtype = "html"
                 mail.mixed_subtype = 'related'
 
@@ -167,6 +167,7 @@ class RegistrationView(FormView):
                     registration.save()
                 except:
                     pass
+                
                 
                 ##############
             messages.add_message(request, messages.SUCCESS,
